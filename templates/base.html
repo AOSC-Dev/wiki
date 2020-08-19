@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400;1,600&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital@0;1&display=swap" rel="stylesheet"> 
+	<link rel="stylesheet" href="/main.css">
+    {% block head %}
+    {% endblock head %}
+  </head>
+
+  <body>
+    <header>
+    {% block header %}
+    {% endblock header %}
+    </header>
+    <main>
+      {% block main %}
+      {% endblock main %}
+    </main>
+    <a id="back-to-top" href="#top">
+      <div class="icon">↑</div>
+    </a>
+  </body>
+</html>

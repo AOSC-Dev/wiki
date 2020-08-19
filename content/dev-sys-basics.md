@@ -1,11 +1,13 @@
 +++
-title = Intro to Package Maintenance: Basics
-description = Introductory Guide to AOSC OS Packaging
+title = "Intro to Package Maintenance: Basics"
+description = "Introductory Guide to AOSC OS Packaging"
 date = 2020-07-08T05:34:21.005Z
-tags = 
+tags = ""
 +++
 
+{% sidenote() %}
 **NOTICE**: This guide assumes you have moderate knowledge about Linux and its CLI (command line interface). Also, you need to have access to a Linux computer with `root` access.
+{% end %}
 
 # Meet the tools 
 

@@ -5,13 +5,11 @@ date = 2020-07-22T05:11:17.503Z
 tags = "community"
 +++
 
-# Welcome to AOSC!
-
 Hi there, welcome to the Anthon Open Source Community - our community since late 2011! 
 
-*"All the people who live in a particular area, or a group of people who are considered as a unit because of their shared interests or background."*
-
-— Community (n.), definition from the *[Cambridge English Dictionary](https://dictionary.cambridge.org/dictionary/english/community)*
+> All the people who live in a particular area, or a group of people who are considered as a unit because of their shared interests or background.
+> 
+> — Community (n.), definition from the *[Cambridge English Dictionary](https://dictionary.cambridge.org/dictionary/english/community)*
 
 At AOSC, we consider our common interest in the discovery of fun in computing - in particular, we focus on the advancement of open source software and their localisation in our day-to-day computing. Over the years, AOSC has focused most of its development effort on the [AOSC OS](/sys-is-aosc-os-right-for-me) project, with various other projects spun out from community interests. For instance, in early 2019, we have created the AOSC Retro Computing group, where vintage computing enthusiasts find their common topics in finding and buying them, restoring and playing with them, and porting a specially configured AOSC OS distribution on them.
 
@@ -122,13 +120,13 @@ We believe that our community members should grow from years of their own work a
 
 In its "Our Responsibilities" chapter:
 
-*"Project maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct, or to ban temporarily or permanently any contributor for other behaviors that they deem inappropriate, threatening, offensive, or harmful."*
+> Project maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct, or to ban temporarily or permanently any contributor for other behaviors that they deem inappropriate, threatening, offensive, or harmful.
 
 It is a simple condition that our development infrastructures are used as tools for development (as it obviously suggests). Understanding this, *any* non-development activities should have been banned in the first place, and *any* forms of abuse should be condemned upon our common understanding. The C.C.C.o.C. uses four overly vague (and not to mention, overlapping) adjectives to describe the so-called unacceptable behaviours, and does not stand in interest of those who could have been wrongly accused. Upholding the exclusivity of development infrastructures for development purposes is an effective method to prevent such abuse (or any form of unnecessary accusations) during our development processes.
 
 Furthermore, the C.C.C.o.C.'s description of the "enforcement" process stands against this understanding and the actual nature of our community:
 
-*"Project maintainers who do not follow or enforce the Code of Conduct in good faith may face temporary or permanent repercussions as determined by other members of the project’s leadership."*
+> Project maintainers who do not follow or enforce the Code of Conduct in good faith may face temporary or permanent repercussions as determined by other members of the project’s leadership.
 
 Our community is managed by its contributors, while a founder (and therefore a *de facto* leader) exists, he (Mingcong Bai) recognises that his power is only shared with the contributors. There is no clear administrative divide from contributors/maintainers/... from the founder - this process stands invalid in the scope of our community.
 

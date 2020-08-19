@@ -1,0 +1,18 @@
+article
+  counter-reset: section
+  h1, h2
+    &:before
+      margin-right: .2rem
+      color: #797775
+
+  // Section number
+  h1
+    counter-reset: subsection
+    &:before
+      counter-increment: section
+      content: counter(section) "."
+  h2
+    &:before
+      counter-increment: subsection;
+      content: counter(section) "." counter(subsection) ""
+

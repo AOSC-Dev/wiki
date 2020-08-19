@@ -1,0 +1,112 @@
+$sansSerifFonts : 'Source Sans Pro', 'Hiragino Sans GB', 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif
+$serifFonts : 'Source Serif Pro', 'Noto Serif CJK SC', 'Songti SC', 'Microsoft YaHei', serif
+$monospaceFonts : 'Source Code Pro', 'Hiragino Sans GB', 'Noto Sans CJK SC', 'Microsoft YaHei', monospace
+$singleColWidth: 70rem
+
+html
+  scroll-behavior: smooth
+
+body
+  font-family: $sansSerifFonts
+
+  margin: 3rem auto
+  max-width: 55rem
+  padding-right: 20rem
+  position: relative
+  @media screen and (max-width: $singleColWidth)
+    max-width: 54rem
+    margin: 1rem auto
+    padding: 0 1rem
+
+#search 
+  position: absolute
+  display: block
+  right: 0
+  width: 18rem
+  padding: 0 .5rem
+
+input[type="search"]
+  margin-bottom: 1rem
+  display: block
+  width: 100%
+  height: 2.05rem
+  padding: 0 1rem
+  border-radius: 25px
+  border-width: 2px
+  border-style: solid
+  border-color: #0078d4
+
+  &::placeholder
+    color: black
+  &:before
+    content: "🔍"
+
+header
+  position: relative
+  margin-top: 6rem
+  margin-bottom: 2rem
+
+  #position-bar
+    font-size: 1.1rem
+    padding-bottom: .2rem
+    border-bottom: 1px dotted grey
+    a.section-link
+      text-transform: uppercase
+  h1#title
+    font-size: 2rem
+    margin: .6rem 0 0 0
+  p#description
+    margin: .2rem 0
+    font-size: 1.3rem
+    font-family: $serifFonts
+    font-style: italic
+  .right
+    display: inline-block
+    position: absolute
+    right: 0
+
+nav
+  position: absolute
+  display: block
+  right: 0
+  width: 18rem
+  padding: 0 .5rem
+
+  @media screen and (max-width: $singleColWidth)
+    position: relative
+    float: right
+    margin: 0 1rem .5rem 1rem
+    //background-color: #faf9f8
+  a
+    display: block
+  .first-level-header
+    &:before
+      content: "> "
+      color: grey
+  .back-to-top
+    display: inline-block
+    font-size: 1.4rem
+    position: absolute
+    right: 0
+    padding: 0 .4rem
+
+#back-to-top
+  $bottonSize: 2.5rem
+  position: fixed
+  height: $bottonSize
+  width: $bottonSize
+  right: 1rem
+  bottom: 1rem
+  overflow: hidden
+
+  background-color: black
+  color: white
+  .icon
+    display: block
+    font-size: 2rem
+    line-height: 2rem
+    text-align: center
+
+@import "./_typography.sass"
+@import "./_article.sass"
+@import "./_color.sass"

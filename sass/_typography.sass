@@ -1,0 +1,54 @@
+*
+  scrollbar-color: black grey
+
+body
+  // Nerdy stuff
+  text-rendering: optimizeLegibility
+  font-feature-settings: 'liga' 1
+  // Stupid Safari...
+  text-size-adjust: none
+
+  font-size: 1.1rem
+  font-weight: 400
+  line-height: 1.5
+  hyphens: auto
+
+h1, h2, h3, h4, h5, h6
+  font-family: $serifFonts
+
+h1
+  font-size: 1.6rem
+
+h2
+  font-size: 1.4rem
+
+h3
+  font-size: 1.2rem
+
+a
+  transition-duration: .1s
+  transition-property: background
+  text-decoration: none
+
+// lists
+ul
+  list-style-type: square
+
+blockquote
+  margin: 1.5rem 0
+  padding: 0 2rem
+  border-left: 2px solid grey
+  color: #484644
+
+code
+  font-family: $monospaceFonts
+  font-size: 1rem
+  background-color: #f3f2f1
+
+pre
+  overflow-x: auto
+  padding: .5rem 1rem
+  code
+    // So we can see non-colored text
+    color: #c0c5ce
+    background-color: transparent
