@@ -42,15 +42,18 @@ function createSearchResult(title, context, href) {
 }
 
 function searchText(event) {
+    // If the box is empty
+    if (search_bar.value == "") {
+        search_results.innerHTML = ''
+        return
+    }
+
     let results = index.search(search_bar.value, options)
     console.log(results.length)
 
     // First remove the old results
     search_results.innerHTML = ''
-    if (search_bar.value == "") {
-        // Do nothing
-        return
-    }
+
     if (results.length == 0) {
         let sorry = createSearchResult("Nothing found", "", "#")
         search_results.appendChild(sorry)
@@ -58,8 +61,12 @@ function searchText(event) {
     }
 
     for (const i of results) {
-        // Then add new results
-        let item = createSearchResult(i.doc.title, 'blah', i.ref)
+        // First let's get a preview of the first occurence
+        let firstIndex = i.doc.body.toLowerCase().search(search_bar.value)
+        // Then get some context
+        let context = i.doc.body.substring(firstIndex - 25, firstIndex + 25)
+        // Finally, add new results
+        let item = createSearchResult(i.doc.title, '...' + context + '...', i.ref)
         search_results.appendChild(item)
     }
 }
