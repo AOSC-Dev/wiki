@@ -18,10 +18,21 @@
     font-family: $sansSerifFonts
     font-size: 1.55rem
     color: grey
+  @media screen and (max-width: $smallScreenWidth)
+    $smallSize: 2rem
+    .logo
+      height: $smallSize
+      width: $smallSize
+    .logo-text
+      font-size: $smallSize
+      line-height: $smallSize + .5rem
+    .description
+      display: block
+      margin-left: 0
+      font-size: 1.2rem
 
 .section
-  margin-top: 1rem
-  margin-bottom: 2rem
+  margin: 1rem 0
   border-top: 2px solid grey
   padding-top: .3rem
   .marker
@@ -45,3 +56,8 @@
       margin: 0 0 1rem 0
       padding-left: 1rem
       font-size: 1.1rem
+  @media screen and (max-width: $smallScreenWidth)
+    .marker
+      position: relative
+    .content
+      padding: .5rem 0

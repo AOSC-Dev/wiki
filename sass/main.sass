@@ -2,6 +2,7 @@ $sansSerifFonts : 'Source Sans Pro', 'Hiragino Sans GB', 'Noto Sans CJK SC', 'Mi
 $serifFonts : 'Source Serif Pro', 'Noto Serif CJK SC', 'Songti SC', 'Microsoft YaHei', serif
 $monospaceFonts : 'Source Code Pro', 'Hiragino Sans GB', 'Noto Sans CJK SC', 'Microsoft YaHei', monospace
 $singleColWidth: 65rem
+$smallScreenWidth: 35rem
 
 html
   scroll-behavior: smooth
@@ -19,6 +20,7 @@ body
   @media screen and (max-width: $singleColWidth)
     max-width: 54rem
     padding: 1rem
+
 
 #search 
   position: absolute
@@ -65,7 +67,7 @@ input[type="search"]
 
 header
   position: relative
-  margin-bottom: 2rem
+  margin-bottom: 1.5rem
 
   #position-bar
     font-size: 1.1rem
@@ -99,7 +101,7 @@ nav
     float: right
     margin: 0 1rem .5rem 1rem
     //background-color: #faf9f8
-  @media screen and (max-width: 25rem)
+  @media screen and (max-width: $smallScreenWidth)
     position: relative
     float: none
     width: 100%
