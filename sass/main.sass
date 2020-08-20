@@ -5,17 +5,19 @@ $singleColWidth: 65rem
 
 html
   scroll-behavior: smooth
+  margin: 0
+  padding: 0
 
 body
   font-family: $sansSerifFonts
 
-  margin: 3rem auto
+  margin: 1rem auto
   max-width: 50rem
+  padding: 5rem 20rem 5rem 1rem
   padding-right: 20rem
   position: relative
   @media screen and (max-width: $singleColWidth)
     max-width: 54rem
-    margin: 3rem auto
     padding: 0 1rem
 
 #search 
@@ -24,6 +26,11 @@ body
   right: 0
   width: 18rem
   padding: 0 .5rem
+  @media screen and (max-width: $singleColWidth)
+    position: relative
+    min-width: 60%
+    max-width: 100%
+    padding: 0
 
 input[type="search"]
   margin-bottom: 1rem
@@ -43,7 +50,6 @@ input[type="search"]
 
 header
   position: relative
-  margin-top: 6rem
   margin-bottom: 2rem
 
   #position-bar
@@ -52,6 +58,11 @@ header
     border-bottom: 1px dotted grey
     a.section-link
       text-transform: uppercase
+  .right
+    display: inline-block
+    //position: absolute
+    //right: 0
+    float: right
   h1#title
     font-size: 2rem
     margin: .6rem 0 0 0
@@ -60,10 +71,6 @@ header
     font-size: 1.3rem
     font-family: $serifFonts
     font-style: italic
-  .right
-    display: inline-block
-    position: absolute
-    right: 0
 
 nav
   position: absolute
