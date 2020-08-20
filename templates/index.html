@@ -1,21 +1,28 @@
 {% extends "base.html" %}
 
-{% block main %}
-<a href="../"><- Back</a>
-<p>
-  <i>Debug mode activated.</i>
-</p>
+{% block header %}
+<div id="grand-header">
+  <div class="grand-title">
+    <img class="logo" src="/img/aosc.png">
+    <span class="logo-text">/Wiki</span>
+    <span class="description">Where People Go To Know... </span>
+  </div>
+</div>
+{% endblock header %}
 
+{% block main %}
 <nav>
-  <b>Posts in this section:</b>
+  <b>Posts</b>
   {% for post in section.pages %}
     <a href="{{ post.permalink }}">{{ post.title }}</a>
   {% endfor %}
 
-  <b>Subsections in this section</b>
+  <b>Subsections</b>
   {% for subsection_path in section.subsections %}
   {% set subsection = get_section(path=subsection_path, metadata_only=true) %}
     <a href="{{ subsection.permalink }}">{{ subsection.title }}</a>
   {% endfor %}
 </nav>
+
+{{ section.content | safe }}
 {% endblock main %}

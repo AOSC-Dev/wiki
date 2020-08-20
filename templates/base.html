@@ -12,9 +12,19 @@
 
   {# For Netsurf #}
   <a name="top"></a>
+
   <body>
-    {% block header %}
-    {% endblock header %}
+    <div id="search">
+      <input id="search-bar" type="search" placeholder="Search AOSC Wiki">
+      <div id="search-results">
+        <!-- Search Results will be displayed here -->
+      </div>
+    </div>
+
+    <header>
+      {% block header %}
+      {% endblock header %}
+    </header>
 
     <main>
       {% block main %}

@@ -1,36 +1,30 @@
 {% extends "base.html" %}
 
-{% block main %}
-<div id="search">
-  <input id="search-bar" type="search" placeholder="Search AOSC Wiki">
-  <div id="search-results">
-    <!-- Search Results will be displayed here -->
+{% block header %}
+<div id="position-bar">
+  {# Navigation #}
+  {% for ancestor in page.ancestors %}
+  {% set section = get_section(path=ancestor, metadata_only=true) %}
+  <a class="section-link" href="{{ section.permalink }}">{{ section.title }}</a>
+  {% if not loop.last %}
+  <span>/</span>
+  {% else %}
+  <span>/</span>
+  <a class="section-link" href="{{ page.permalink }}">.</a>
+  {% endif %}
+  {% endfor %}
+
+  {# Buttons #}
+  <div class="right">
+    Also available in:
+    <a href="#">zh_CN</a>
   </div>
 </div>
-<header>
-  <div id="position-bar">
-    {# Navigation #}
-    {% for ancestor in page.ancestors %}
-    {% set section = get_section(path=ancestor, metadata_only=true) %}
-    <a class="section-link" href="{{ section.permalink }}">{{ section.title }}</a>
-    {% if not loop.last %}
-    <span>/</span>
-    {% else %}
-    <span>/</span>
-    <a class="section-link" href="{{ page.permalink }}">.</a>
-    {% endif %}
-    {% endfor %}
+<h1 id="title">{{ page.title }}</h1>
+<p id="description">{{ page.description }}</p>
+{% endblock header %}
 
-    {# Buttons #}
-    <div class="right">
-      Also available in:
-      <a href="#">zh_CN</a>
-    </div>
-  </div>
-  <h1 id="title">{{ page.title }}</h1>
-  <p id="description">{{ page.description }}</p>
-</header>
-
+{% block main %}
 <nav>
   <b>On This Page</b>
   {% for header in page.toc %}
