@@ -10,7 +10,6 @@ html
 
 body
   font-family: $serifFonts
-
   background-color: white
   margin: 0 auto
   max-width: 45rem
@@ -27,11 +26,28 @@ body
   right: 0
   width: 18rem
   padding: 0 .5rem
+
+  font-family: $sansSerifFonts
+  background-color: white
+  // Use in conjunction with nav
+  z-index: 2
   @media screen and (max-width: $singleColWidth)
     position: relative
     min-width: 60%
     max-width: 100%
     padding: 0
+  .search-result
+    display: block
+    font-size: 1rem
+    padding: .2rem .3rem
+    border-width: 0 2px 2px 2px
+    border-style: solid
+    border-color: #d2d0ce
+    .title
+      display: block
+    .context
+      font-size: .9rem
+      color: #605e5c
 
 input[type="search"]
   margin-top: -0.1em
@@ -42,13 +58,10 @@ input[type="search"]
   border-width: 2px
   border-style: solid
   border-color: #0078d4
-  font-family: $serifFonts
 
   &::placeholder
-    color: black
+    color: grey
     opacity: 1
-  &:before
-    content: "🔍"
 
 header
   position: relative
@@ -62,8 +75,6 @@ header
       text-transform: uppercase
   .right
     display: inline-block
-    //position: absolute
-    //right: 0
     float: right
   h1#title
     font-size: 2rem
@@ -80,6 +91,7 @@ nav
   right: 0
   width: 18rem
   padding: 0 .5rem
+  z-index: 1
 
   @media screen and (max-width: $singleColWidth)
     position: relative
