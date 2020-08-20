@@ -30,7 +30,6 @@ body
   padding: 0 .5rem
 
   font-family: $sansSerifFonts
-  background-color: white
   // Use in conjunction with nav
   z-index: 2
   @media screen and (max-width: $singleColWidth)
@@ -44,12 +43,10 @@ body
     padding: .2rem .3rem
     border-width: 0 2px 2px 2px
     border-style: solid
-    border-color: #d2d0ce
     .title
       display: block
     .context
       font-size: .9rem
-      color: #605e5c
 
 input[type="search"]
   margin-top: -0.1em
@@ -59,11 +56,6 @@ input[type="search"]
   padding: 0 .4rem
   border-width: 2px
   border-style: solid
-  border-color: #0078d4
-
-  &::placeholder
-    color: grey
-    opacity: 1
 
 header
   position: relative
@@ -112,7 +104,6 @@ nav
   .first-level-header
     &:before
       content: "> "
-      color: grey
   .back-to-top
     display: inline-block
     font-size: 1.4rem
@@ -128,9 +119,6 @@ nav
   right: 1rem
   bottom: 1rem
   overflow: hidden
-
-  background-color: black
-  color: white
   .icon
     display: block
     font-size: 2rem
@@ -141,3 +129,4 @@ nav
 @import "./_article.sass"
 @import "./_index.sass"
 @import "./_color.sass"
+@import "./_color_dark.sass"
