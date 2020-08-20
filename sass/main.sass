@@ -1,7 +1,7 @@
 $sansSerifFonts : 'Source Sans Pro', 'Hiragino Sans GB', 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif
 $serifFonts : 'Source Serif Pro', 'Noto Serif CJK SC', 'Songti SC', 'Microsoft YaHei', serif
 $monospaceFonts : 'Source Code Pro', 'Hiragino Sans GB', 'Noto Sans CJK SC', 'Microsoft YaHei', monospace
-$singleColWidth: 70rem
+$singleColWidth: 65rem
 
 html
   scroll-behavior: smooth
@@ -10,7 +10,7 @@ body
   font-family: $sansSerifFonts
 
   margin: 3rem auto
-  max-width: 55rem
+  max-width: 50rem
   padding-right: 20rem
   position: relative
   @media screen and (max-width: $singleColWidth)
@@ -30,14 +30,14 @@ input[type="search"]
   display: block
   width: 100%
   height: 2.05rem
-  padding: 0 1rem
-  border-radius: 25px
+  padding: 0 .4rem
   border-width: 2px
   border-style: solid
   border-color: #0078d4
 
   &::placeholder
     color: black
+    opacity: 1
   &:before
     content: "🔍"
 
