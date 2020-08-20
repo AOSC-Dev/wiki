@@ -18,7 +18,7 @@ body
   position: relative
   @media screen and (max-width: $singleColWidth)
     max-width: 54rem
-    padding: 0 1rem
+    padding: 1rem
 
 #search 
   position: absolute
@@ -33,9 +33,9 @@ body
   z-index: 2
   @media screen and (max-width: $singleColWidth)
     position: relative
-    min-width: 60%
-    max-width: 100%
+    width: 100%
     padding: 0
+    margin-bottom: 1rem
   .search-result
     display: block
     font-size: 1rem
@@ -98,6 +98,12 @@ nav
     float: right
     margin: 0 1rem .5rem 1rem
     //background-color: #faf9f8
+  @media screen and (max-width: 25rem)
+    position: relative
+    float: none
+    width: 100%
+    margin: 1rem 0
+    padding: 0
   a
     display: block
   .first-level-header
