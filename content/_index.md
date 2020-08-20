@@ -18,7 +18,7 @@ Installing AOSC OS on your device.
 Another test's description.
 {% end %}
 
-{% section(name="Developers") %}
+{% section(name="Developer Resources") %}
 [Intro To Package Maintenience](#)
 Introductory Guide to AOSC OS Packaging
 
