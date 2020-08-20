@@ -7,17 +7,20 @@
   <i>Debug mode activated.</i>
 </p>
 
-<h1>Posts in this section:</h1>
-{% for post in section.pages %}
-<p>
-  <a href="{{ post.permalink }}">{{ post.title }}</a>
-</p>
-{% endfor %}
-<h1>Subsections in this section:</h1>
-{% for subsection_path in section.subsections %}
-{% set subsection = get_section(path=subsection_path, metadata_only=true) %}
-<p>
-  <a href="{{ subsection.permalink }}">{{ subsection.title }}</a>
-</p>
+<nav>
+  <b>Posts in this section:</b>
+  {% for post in section.pages %}
+  <p>
+    <a href="{{ post.permalink }}">{{ post.title }}</a>
+  </p>
+  {% endfor %}
+
+  <b>Subsections in this section</b>
+  {% for subsection_path in section.subsections %}
+  {% set subsection = get_section(path=subsection_path, metadata_only=true) %}
+  <p>
+    <a href="{{ subsection.permalink }}">{{ subsection.title }}</a>
+  </p>
+</nav>
 {% endfor %}
 {% endblock main %}
