@@ -18,7 +18,7 @@
     <h2>Tags on this site:</h2>
     {% set t = get_taxonomy(kind="tags") %}
     {% for item in t.items %}
-    <a href="{{ item.permalink }}">{{ item.name }}</a>
+    <a href="{{ config.base_url }}tags#{{ item.name }}">{{ item.name }}</a>
     {% endfor %}
   </div>
 

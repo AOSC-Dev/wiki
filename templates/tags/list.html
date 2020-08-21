@@ -24,11 +24,20 @@
     <a href="#">zh_CN</a>
   </div>
 </div>
+{% endblock header %}
+
+{% block main %}
+<nav>
+  <b>Tags</b>
+  {% for tag in terms %}
+  <a href="#{{ tag.name }}">{{ tag.name }}</a>
+  {% endfor %}
+</nav>
 
 {# Acutal tags #}
 {% for tag in terms %}
 <article>
-  <h1>{{ tag.name }}</h1>
+  <h1 id="{{ tag.name }}">{{ tag.name }}</h1>
   <ul>
     {% for page in tag.pages %}
     <li>
@@ -38,5 +47,4 @@
   </ul>
 </article>
 {% endfor %}
-
-{% endblock header %}
+{% endblock main %}
