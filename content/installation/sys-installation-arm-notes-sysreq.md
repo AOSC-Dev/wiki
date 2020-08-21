@@ -2,7 +2,6 @@
 title = "Installation/ARM*/SysReq"
 description = "AOSC OS System Requirements for ARMv7/AArch64 Devices"
 date = 2020-08-19T15:38:01.208Z
-tags = "sys-installation"
 +++
 
 This page provides some general information and suggestions, in hope that it may aid in your choice from various AOSC OS variants provided for ARMv7 and AArch64 systems. Device-specific support will *not* be discussed here, only processor, memory, display, GPU, and storage requirements are provided below.

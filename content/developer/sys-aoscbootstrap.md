@@ -2,7 +2,8 @@
 title = "AOSCBootstrap"
 description = ""
 date = 2020-08-10T11:24:36.887Z
-tags = ""
+[taxonomies]
+tags = ["test"]
 +++
 
 # AOSCBootstrap

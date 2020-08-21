@@ -2,7 +2,6 @@
 title = "Installation/AMD64/*Trails"
 description = "Notes for AOSC OS Installation on Bay Trail/Cherry Trail Devices."
 date = 2020-08-16T10:25:25.955Z
-tags = "sys-installation"
 +++
 
 **Give up while you can!** The current state of Linux support on some of the Bay Trail or Cherry Trail devices is to an extent, broken (nor has it never been in a satisfactory state).

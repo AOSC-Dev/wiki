@@ -14,9 +14,22 @@
 
 {% block main %}
 <nav>
-  <p>
-    <b>Debug view</b>
-  </p>
+  <div class="nav-section">
+    <h2>Tags on this site:</h2>
+    {% set t = get_taxonomy(kind="tags") %}
+    {% for item in t.items %}
+    <a href="{{ item.permalink }}">{{ item.name }}</a>
+    {% endfor %}
+  </div>
+
+  <div class="nav-section">
+    <h2>Available languages:</h2>
+    {% for lang in section.translations %}
+    <a href="{{ lang.permalink }}">{{ lang.lang }}</a>
+    {% endfor %}
+  </div>
+
+  <h2>Debug view below:</h2>
   <b>Posts</b>
   {% for post in section.pages %}
     <a href="{{ post.permalink }}">{{ post.title }}</a>

@@ -2,7 +2,6 @@
 title = "Installation/AMD64"
 description = "Installing AOSC OS on AMD64/x86-64 Devices"
 date = 2020-08-04T15:38:26.588Z
-tags = "sys-installation"
 +++
 
 Installation of AOSC OS on x86-64 systems/environments are generally universal for all systems of this architectures. But for some specific device configurations and virtualized environments, here below are some extra notes:

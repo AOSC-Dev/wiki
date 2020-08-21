@@ -2,7 +2,6 @@
 title = "ZFS Root"
 description = "How to install AOSC OS on a ZFS root"
 date = 2020-05-04T04:56:24.036Z
-tags = ""
 +++
 
 Using the DKMS modules, it is possible to install AOSC OS on a ZFS root, if special precautions are taken. This guide will cover how to deploy AOSC OS onto a ZFS root, and workarounds to certain known issues related to ZFS. *WARNING: This guide assumes you know the details about the Linux booting process. DO NOT COPY AND PASTE COMMANDS WITHOUT KNOWING WHAT YOU ARE DOING!*

@@ -3,7 +3,6 @@ title = "Intro to Package Maintenance"
 description = "Introductory Guide to AOSC OS Packaging"
 published = true
 date = 2020-06-02T20:53:14.472Z
-tags = "dev-sys"
 +++
 
 Welcome! If you are reading this, you are probably interested in contributing to the AOSC OS project. This guide will guide you through all the tools and techniques you need to create, update, and maintain AOSC OS packages. 永和九年，岁在癸丑，暮春之初，会于会稽山阴之兰亭，修禊事也。群贤毕至，少长咸集。此地有崇山峻岭，茂林修竹；又有清流激湍，映带左右，引以为流觞曲水，列坐其次。

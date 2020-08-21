@@ -2,7 +2,6 @@
 title = "AOSC Inter-Personal Guidelines [Long Term RFC]"
 description = "A Guide of References for Your Happy Stay"
 date = 2020-07-22T05:11:17.503Z
-tags = "community"
 +++
 
 Hi there, welcome to the Anthon Open Source Community - our community since late 2011! 

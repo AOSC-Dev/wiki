@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>AOSC/{{ config.title }} - Tag: {{ term.name }}</title>
+<link rel="icon" href="{{ config.extra.logo }}">
+
+<meta property="og:title" content="{{ config.title }} - Tag: {{ term.name }}" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="{{ current_url }}" />
+<meta property="og:image" content="{{ config.extra.logo }}" />
+<meta property="og:description" content="{{ config.description }}" />
+<meta name="description" content="{{ config.description }}">
+{% endblock head %}
+
+{% block header %}
+<div id="position-bar">
+  {# Navigation #}
+  <a class="section-link" href="{{ config.base_url }}">AOSC {{ config.title }}</a>
+  <span>contents with tag</span>
+  <a href="{{ current_url }}">{{ term.name }}</a>
+
+  {# Buttons #}
+  <div class="right">
+    Also available in:
+    <a href="#">zh_CN</a>
+  </div>
+</div>
+<h1 id="title">Pages with tag: {{ term.name }}</h1>
+
+{# Acutal pages #}
+<ul>
+{% for page in term.pages %}
+  <li>
+    <a href="{{ page.permalink }}">{{ page.title }}</a>
+  </li>
+{% endfor %}
+</ul>
+
+{% endblock header %}
+

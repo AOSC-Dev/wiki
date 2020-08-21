@@ -2,7 +2,6 @@
 title = "Installation/PowerMac"
 description = "Installing AOSC OS on PowerPC/PPC64-based Macintosh Computers"
 date = 2020-08-16T10:27:19.203Z
-tags = "sys-installation"
 +++
 
 **Note: Due to limited device availability, PowerPC 32-bit (`powerpc`) port of AOSC OS is only tested on G3/G4-based, [NewWorld](https://en.wikipedia.org/wiki/New_World_ROM) Apple Macintosh computers; PowerPC 64-bit (`ppc64`, Big Endian) port of AOSC OS is only tested on G5-based Apple Macintosh computers. So yes, these ports are Macintosh-specific as it stands now.**

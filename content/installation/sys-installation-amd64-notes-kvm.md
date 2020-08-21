@@ -2,7 +2,6 @@
 title = "Installation/AMD64/KVM"
 description = "Notes for AOSC OS Installation on KVM"
 date = 2020-08-16T10:30:21.018Z
-tags = "sys-installation"
 +++
 
 AOSC OS installation on Qemu/KVM is the same as installing on a regular AMD64/x86_64 system, this section is intended to aid you with configuring the virtual machine, and un-tar-ing the tarballs from outside of the virtual machine.

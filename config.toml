@@ -5,6 +5,14 @@ build_search_index = true
 
 title = "Wiki"
 description = "Where People Go To Know..."
+languages = [
+    {code = "zh", search = true}, 
+]
+
+taxonomies = [
+    {name = "tags", lang = "en"},
+]
+
 [extra]
 logo = "/img/aosc.png"
 footer_msg = "Copyleft 2011 — 2020, Members of the Community."

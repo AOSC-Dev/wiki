@@ -2,7 +2,6 @@
 title = "Installation/AMD64/SysReq"
 description = "AOSC OS System Requirements for AMD64/x86-64 Devices"
 date = 2020-08-16T12:51:00.696Z
-tags = "sys-installation"
 +++
 
 This page provides some general information and suggestions, in hope that it may aid in your choice from various AOSC OS variants provided for x86-64-based systems. Only processor, memory, display, GPU, and storage requirements are provided below.
