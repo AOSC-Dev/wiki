@@ -1,0 +1,23 @@
+{% macro head(title, url, description) %}
+<title>AOSC/{{ config.title }} - {{ title }}</title>
+<link rel="icon" href="{{ config.extra.logo }}">
+
+<meta property="og:title" content="{{ config.title }} - {{ title }}"/>
+<meta property="og:type" content="article" />
+<meta property="og:url" content="{{ url }}" />
+<meta property="og:image" content="{{ config.extra.logo }}" />
+<meta property="og:description" content="{{ description }}"/>
+<meta name="description" content="{{ description }}">
+{% endmacro head %}
+
+
+{% macro language_select(source) %}
+  <div class="right">
+    {% if source.translations | length > 0 %}
+    Also available in:
+    {% for t in source.translations %}
+    <a href="{{ t.permalink }}">{{ t.lang }}</a>
+    {% endfor %}
+    {% endif %}
+  </div>
+{% endmacro language_select %}

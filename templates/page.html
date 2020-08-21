@@ -1,15 +1,8 @@
+{% import "macros.html" as macros %}
 {% extends "base.html" %}
 
 {% block head %}
-<title>AOSC/{{ config.title }} - {{ page.title }}</title>
-<link rel="icon" href="{{ config.extra.logo }}">
-
-<meta property="og:title" content="{{ config.title }} - {{ page.title }}"/>
-<meta property="og:type" content="article" />
-<meta property="og:url" content="{{ page.permalink }}" />
-<meta property="og:image" content="{{ config.extra.logo }}" />
-<meta property="og:description" content="{{ page.description }}"/>
-<meta name="description" content="{{ page.description }}">
+{{ macros::head(title=page.title, url=page.permalink, description=page.description) }}
 {% endblock head %}
 
 {% block header %}
@@ -26,12 +19,9 @@
   {% endif %}
   {% endfor %}
 
-  {# Buttons #}
-  <div class="right">
-    Also available in:
-    <a href="#">zh_CN</a>
-  </div>
+  {{ macros::language_select(source=page) }}
 </div>
+
 <h1 id="title">{{ page.title }}</h1>
 <p id="description">{{ page.description }}</p>
 {% endblock header %}

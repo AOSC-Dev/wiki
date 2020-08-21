@@ -1,15 +1,8 @@
+{% import "macros.html" as macros %}
 {% extends "base.html" %}
 
 {% block head %}
-<title>AOSC/{{ config.title }} - Tags</title>
-<link rel="icon" href="{{ config.extra.logo }}">
-
-<meta property="og:title" content="{{ config.title }} - Tags" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="{{ current_url }}" />
-<meta property="og:image" content="{{ config.extra.logo }}" />
-<meta property="og:description" content="{{ config.description }}" />
-<meta name="description" content="{{ config.description }}">
+{{ macros::head(title="Tags", url=current_url, description=config.description) }}
 {% endblock head %}
 
 {% block header %}
@@ -17,12 +10,6 @@
   {# Navigation #}
   <span>All tags in </span>
   <a class="section-link" href="{{ config.base_url }}">AOSC {{ config.title }}</a>
-
-  {# Buttons #}
-  <div class="right">
-    Also available in:
-    <a href="#">zh_CN</a>
-  </div>
 </div>
 {% endblock header %}
 
