@@ -1,17 +1,22 @@
 {% extends "base.html" %}
 
+{# Default head block is good enough here. #}
+
 {% block header %}
 <div id="grand-header">
   <div class="grand-title">
     <img class="logo" src="/img/aosc.png">
-    <span class="logo-text">/Wiki</span>
-    <span class="description">Where People Go To Know... </span>
+    <span class="logo-text">/{{ config.title }}</span>
+    <span class="description">{{ config.description }}</span>
   </div>
 </div>
 {% endblock header %}
 
 {% block main %}
 <nav>
+  <p>
+    <b>Debug view</b>
+  </p>
   <b>Posts</b>
   {% for post in section.pages %}
     <a href="{{ post.permalink }}">{{ post.title }}</a>

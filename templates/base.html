@@ -6,7 +6,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400;1,600&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital@0;1&display=swap" rel="stylesheet"> 
 	<link rel="stylesheet" href="/main.css">
+
     {% block head %}
+    <title>AOSC/{{ config.title }}</title>
+    <link rel="icon" href="{{ config.extra.logo }}">
+
+    <meta property="og:title" content="{{ config.title }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="{{ config.base_url }}" />
+    <meta property="og:image" content="{{ config.extra.logo }}" />
+    <meta property="og:description" content="{{ config.description }}" />
+    <meta name="description" content="{{ config.description }}">
     {% endblock head %}
   </head>
 
@@ -34,6 +44,12 @@
       <div class="icon">↑</div>
     </a>
   </body>
+
+  <footer>
+    {% block footer %}
+    <p>{{ config.extra.footer_msg }}</p>
+    {% endblock footer %}
+  </footer>
 
   <script src="/search_index.en.js"></script>
   <script src="/elasticlunr.min.js"></script>

@@ -1,5 +1,17 @@
 {% extends "base.html" %}
 
+{% block head %}
+<title>AOSC/{{ config.title }} - {{ page.title }}</title>
+<link rel="icon" href="{{ config.extra.logo }}">
+
+<meta property="og:title" content="{{ config.title }} - {{ page.title }}"/>
+<meta property="og:type" content="article" />
+<meta property="og:url" content="{{ page.permalink }}" />
+<meta property="og:image" content="{{ config.extra.logo }}" />
+<meta property="og:description" content="{{ page.description }}"/>
+<meta name="description" content="{{ page.description }}">
+{% endblock head %}
+
 {% block header %}
 <div id="position-bar">
   {# Navigation #}

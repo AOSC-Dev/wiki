@@ -1,11 +1,42 @@
 {% extends "base.html" %}
 
-{% block main %}
-<a href="../"><- Back</a>
-<p>
-  <i>Debug mode activated.</i>
-</p>
+{% block head %}
+<title>AOSC/{{ config.title }} - {{ section.title }}</title>
+<link rel="icon" href="{{ config.extra.logo }}">
 
+<meta property="og:title" content="{{ config.title }} - {{ section.title }}"/>
+<meta property="og:type" content="article" />
+<meta property="og:url" content="{{ section.permalink }}" />
+<meta property="og:image" content="{{ config.extra.logo }}" />
+<meta property="og:description" content="{{ section.description }}"/>
+<meta name="description" content="{{ section.description }}">
+{% endblock head %}
+
+{% block header %}
+<div id="position-bar">
+  {# Navigation #}
+  {% for ancestor in section.ancestors %}
+  {% set section = get_section(path=ancestor, metadata_only=true) %}
+  <a class="section-link" href="{{ section.permalink }}">{{ section.title }}</a>
+  {% if not loop.last %}
+  <span>/</span>
+  {% else %}
+  <span>/</span>
+  {% endif %}
+  {% endfor %}
+
+  {# Buttons #}
+  <div class="right">
+    Also available in:
+    <a href="#">zh_CN</a>
+  </div>
+</div>
+
+<h1 id="title">{{ section.title }}</h1>
+<p id="description">{{ section.description }}</p>
+{% endblock header %}
+
+{% block main %}
 <nav>
   <b>Posts in this section:</b>
   {% for post in section.pages %}
@@ -18,4 +49,8 @@
     <a href="{{ subsection.permalink }}">{{ subsection.title }}</a>
   {% endfor %}
 </nav>
+
+<article>
+  {{ section.content | safe }}
+</article>
 {% endblock main %}
