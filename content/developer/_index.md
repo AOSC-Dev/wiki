@@ -1,3 +1,3 @@
 +++
-title = "Developer"
+title = "Developer Resources"
 +++

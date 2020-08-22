@@ -6,7 +6,7 @@ Welcome to the AOSC Community Wiki!
 
 This is where all documentations, information, and guides will gather for users and developers alike. Please refer to the sections and links below for frequently accessed information, and use the search function to locate your specific topics.
 
-This site is still under construction. To see the source code, visit [wiki-aosc](https://github.com/szclsya/wiki-aosc) on GitHub.
+This site is still under construction. To see the source code, visit [wiki-aosc](https://github.com/szclsya/wiki-aosc) on GitHub. To help improve the documents, please read guides from the [Meta](@/meta/_index.md) section.
 
 **The following links are dummy links (for now). In order to nagivate the site during construction period, use navigation on the right.**
 
