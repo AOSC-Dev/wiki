@@ -6,6 +6,7 @@ $smallScreenWidth: 35rem
 
 html
   scroll-behavior: smooth
+  height: 100%
   margin: 0
   padding: 0
   text-rendering: optimizelegibility
@@ -15,14 +16,17 @@ body
   font-family: $serifFonts
   background-color: white
   margin: 0 auto
+  padding: 5rem 20rem 5rem 1rem
+
   max-width: 45rem
-  padding: 5rem 20rem 2rem 1rem
-  padding-right: 20rem
+  min-height: calc(100% - 10rem)
   position: relative
   @media screen and (max-width: $singleColWidth)
     max-width: 54rem
-    padding: 1rem
-
+    padding: 2.5rem
+    min-height: calc(100% - 5rem)
+  main
+    padding-bottom: 2rem
 
 #search 
   position: absolute
@@ -114,7 +118,8 @@ nav
       content: "> "
 
 footer
-  margin-top: 3rem
+  position: absolute
+  bottom: 1rem
   opacity: .7
 
 #back-to-top
