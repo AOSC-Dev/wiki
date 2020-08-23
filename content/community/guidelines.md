@@ -14,7 +14,7 @@ Hi there, welcome to the Anthon Open Source Community - our community since late
 
 — Community (n.), definition from the *[Cambridge English Dictionary](https://dictionary.cambridge.org/dictionary/english/community)*
 
-At AOSC, we consider our common interest in the discovery of fun in computing - in particular, we focus on the advancement of open source software and their localisation in our day-to-day computing. Over the years, AOSC has focused most of its development effort on the [AOSC OS](/sys-is-aosc-os-right-for-me) project, with various other projects spun out from community interests. For instance, in early 2019, we have created the AOSC Retro Computing group, where vintage computing enthusiasts find their common topics in finding and buying them, restoring and playing with them, and porting a specially configured AOSC OS distribution on them.
+At AOSC, we consider our common interest in the discovery of fun in computing - in particular, we focus on the advancement of open source software and their localisation in our day-to-day computing. Over the years, AOSC has focused most of its development effort on the [AOSC OS](@/sys/is-aosc-os-right-for-me.md) project, with various other projects spun out from community interests. For instance, in early 2019, we have created the AOSC Retro Computing group, where vintage computing enthusiasts find their common topics in finding and buying them, restoring and playing with them, and porting a specially configured AOSC OS distribution on them.
 
 # Rationale: Why a Guideline?
 
@@ -34,7 +34,7 @@ This section describes *unquestionable* foundational principles on which our com
 
 # The Guidelines
 
-As most of our community activities are organised and communicated across multiple Telegram channels/groups (and their respective Discord and IRC channels/groups), the guidelines below will be organised into "community-wide" and "scenario-specific" chapters. *We do not, and have no right to limit, regulate, or manage individual member's behaviour outside of the community scope: all AOSC Telegram Groups, the [GitHub Organisation](https://github.com/AOSC-Dev/), the [AOSC Wiki](https://wiki.aosc.io/en/home), and the [Community Portal](https://aosc.io/).*
+As most of our community activities are organised and communicated across multiple Telegram channels/groups (and their respective Discord and IRC channels/groups), the guidelines below will be organised into "community-wide" and "scenario-specific" chapters. *We do not, and have no right to limit, regulate, or manage individual member's behaviour outside of the community scope: all AOSC Telegram Groups, the [GitHub Organisation](https://github.com/AOSC-Dev/), the [AOSC Wiki](/), and the [Community Portal](https://aosc.io/).*
 
 The guidelines are further grouped into "Hard Rules" and "Soft Rules":
 
@@ -44,7 +44,7 @@ The guidelines are further grouped into "Hard Rules" and "Soft Rules":
 
 ## Community Wide
 
-The rules specified below applies to all AOSC Telegram channels/groups (and their respective Discord and IRC channels/groups), the [GitHub Organisation](https://github.com/AOSC-Dev/), the [AOSC Wiki](https://wiki.aosc.io/en/home), and the [Community Portal](https://aosc.io/).
+The rules specified below applies to all AOSC Telegram channels/groups (and their respective Discord and IRC channels/groups), the [GitHub Organisation](https://github.com/AOSC-Dev/), the [AOSC Wiki](/), and the [Community Portal](https://aosc.io/).
 
 ### Hard Rules
 

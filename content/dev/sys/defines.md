@@ -63,7 +63,7 @@ In most cases, Autobuild3 can handle the building of a package with the followin
 | `PKGPROV` | String, Space Separated | Defines the list of package(s) that the package provides or serves the alias to (i.e. `nano` can `PKGPROV` the package `default-editor`). | No |
 | `PKGREP` | String, Space Separated | Defines the list of package(s) that the package replaces or obseletes (i.e. `gnome-shell` is a new set of technologies that replaces `gnome-desktop2`). | No |
 
-[^1]: When using [ACBS](/developers/aosc-os-cadet-training/acbs), these variables are instead put in `autobuild/../spec` in a package's tree path, and written as `VER=` and `REL=`. Any `PKGVER=` or `PKGREL=` defined in `autobuild/defines` will be overridden.
+[^1]: When using [(Broken link) ACBS](/developers/aosc-os-cadet-training/acbs), these variables are instead put in `autobuild/../spec` in a package's tree path, and written as `VER=` and `REL=`. Any `PKGVER=` or `PKGREL=` defined in `autobuild/defines` will be overridden.
 
 # Build Parametres
 
@@ -87,7 +87,7 @@ Part of Autobuild3's initial design was to provide a collection of pre-defined b
 | `qtproj` | For Qt projects managed by `.pro` files. This routine builds with Qt 5 by default, executes `qmake` with default and packager-specified parametres to generate a GNU Make-compatible Makefile. Finally, this routine executes the subsequent `make` and `make install` commands. | `"$SRCDIR"/*.pro` | No |
 | `ruby` | For standardised Ruby Gem packages. This routine executes `gem` to build and install the said packages. | A file with a recognisable Gem format once renamed with the `.gem` suffix | No |
 | `npm` | For standardised NPM (Node Package Manager) packages. This routine executes `npm install` to build and install the said packages. | A file with a recognisable NPM format once renamed with the `.tgz` suffix | No |
-| `self` [^2] | Simply executes the `autobuild/build` file as a Bash script, see [Build Scripts, Scriptlets, and Extra Files](/developers/aosc-os-cadet-training/autobuild3/scripts-and-extra-files) | N/A | No |
+| `self` [^2] | Simply executes the `autobuild/build` file as a Bash script, see [(Broken link) Build Scripts, Scriptlets, and Extra Files](/developers/aosc-os-cadet-training/autobuild3/scripts-and-extra-files) | N/A | No |
 
 [^2]: This build type will not be selected unless `autobuild/build` exists.
 

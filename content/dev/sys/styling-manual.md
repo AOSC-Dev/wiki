@@ -1,9 +1,7 @@
 +++
 title = "AOSC OS Package Styling Manual"
 description = "Comprehensive (and updated) Styling Manual for AOSC OS Packagers"
-date = 2020-05-04T03:35:56.606Z
-[taxonomies]
-tags = ["dev-sys"]
+date = 2020-05-05T05:30:40.688Z
 +++
 
 # Introduction and Rationale

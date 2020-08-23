@@ -10,24 +10,24 @@ Welcome! If you are reading this, you are probably interested in contributing to
 
 # Table of contents
 ## Basics
-- [Meet the tools](/en/dev-sys-basics#meet-the-tools)
-- [Release model](/en/dev-sys-basics#release-model)
-- [Setting up the environment](/en/dev-sys-basics#setting-up-the-environment)
-- [Building our very first package!](/en/dev-sys-basics#building-our-very-first-package)
-- [Adding a new package](/en/dev-sys-basics#adding-a-new-package)
-- [A complete example: light](/en/dev-sys-basics#a-complete-example-light)
+- [Meet the tools](@/dev/sys/basics.md#meet-the-tools)
+- [Release model](@/dev/sys/basics.md#release-model)
+- [Setting up the environment](@/dev/sys/basics.md#setting-up-the-environment)
+- [Building our very first package!](@/dev/sys/basics.md#building-our-very-first-package)
+- [Adding a new package](@/dev/sys/basics.md#adding-a-new-package)
+- [A complete example: light](@/dev/sys/basics.md#a-complete-example-light)
 
 ## Advanced Techniques
-- [Advanced Operations in Autobuild3](/en/dev-sys-advanced-techniques#advanced-operations-in-autobuild-3)
-	- [Manually Select Different Build Systems](/en/dev-sys-advanced-techniques#manually-select-different-build-systems)
-	- [Custom Build System/Compiler Parameters](/en/dev-sys-advanced-techniques#custom-build-system-compiler-parameters)
-	- [Custom Build Scripts](/en/dev-sys-advanced-techniques#custom-build-scripts)
-	- [Post-Build Tweaks](/en/dev-sys-advanced-techniques#post-build-tweaks)
-	- [The autobuild/override Directory](/en/dev-sys-advanced-techniques#the-autobuild-override-directory)
-	- [Advanced Patch Management](https://wiki.aosc.io/en/dev-sys-advanced-techniques#advanced-patch-management)
-- [Dealing with Package Groups](/en/dev-sys-advanced-techniques#dealing-with-package-groups)
+- [(Broken link) Advanced Operations in Autobuild3](#)
+	- [Manually Select Different Build Systems](@/dev/sys/advanced-techniques.md#manually-select-different-build-systems)
+	- [Custom Build System/Compiler Parameters](@/dev/sys/advanced-techniques.md#custom-build-system-compiler-parameters)
+	- [Custom Build Scripts](@/dev/sys/advanced-techniques.md#custom-build-scripts)
+	- [Post-Build Tweaks](@/dev/sys/advanced-techniques.md#post-build-tweaks)
+	- [The autobuild/override Directory](@/dev/sys/advanced-techniques.md#the-autobuild-override-directory)
+	- [Advanced Patch Management](@/dev/sys/advanced-techniques.md#advanced-patch-management)
+- [Dealing with Package Groups](@/dev/sys/advanced-techniques.md#dealing-with-package-groups)
 
 ## Appendix
 Here are some useful documentations about the tools we use.
-- [Autobuild3 Manual](/en/dev-sys-autobuild3-manual)
-- [Ciel Manual](/en/dev-sys-ciel-manual)
+- [Autobuild3 Manual](@/dev/sys/autobuild3-manual.md)
+- [Ciel Manual](@/dev/sys/ciel-manual.md)

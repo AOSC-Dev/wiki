@@ -37,4 +37,4 @@ AOSA 使用一种非常简单的格式，旨在为用户提供清晰明了的通
 - 更新后的软件包将被上传到软件仓库以供用户进行更新。
 - AOSC OS 维护者在漏洞报告下附上解决方案并将报告标记为关闭状态（具体可以看 [这个例子](https://github.com/AOSC-Dev/AOSC-os-abbs/issues/1299)）。
 - 贡献者现在可以使用一个新的 AOSA 编号并发布上面所述的安全公告。
-- 通常来说，这些安全公告会被发布在我们的 [邮件列表](mailto:security@lists.aosc.io)，并在维基网站上存档（参见 [2019 年的存档](https://wiki.aosc.io/en/aosa-archive-2019)）。
+- 通常来说，这些安全公告会被发布在我们的 [邮件列表](mailto:security@lists.aosc.io)，并在维基网站上存档（参见 [2019 年的存档](@/aosa/archive-2019.md)）。

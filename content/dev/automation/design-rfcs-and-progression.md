@@ -10,16 +10,16 @@ tags = ["dev-automation"]
 
 ## In Effect
 
-- [Exceptions to the Update Cycles](/dev-sys-cycle-exceptions)
-- [Known Patch Release Rules](/dev-sys-known-patch-release-rules)
-- [Intro To Package Maintenance](/dev-sys-packaging-intro)
-- [AOSC OS Package Styling Manual](/dev-sys-package-styling-manual)
-- [AOSC OS Maintenance Guildelines (RFC)](/dev-sys-maintenance-guidelines)
+- [Exceptions to the Update Cycles](@/dev/sys/cycle-exceptions.md)
+- [Known Patch Release Rules](@/dev/sys/known-patch-release-rules.md)
+- [Intro To Package Maintenance](@/dev/sys/packaging-intro.md)
+- [AOSC OS Package Styling Manual](@/dev/sys/package-styling-manual.md)
+- [AOSC OS Maintenance Guildelines (RFC)](@/dev/sys/maintenance-guidelines.md)
 
 ## In-Progress or Early RFC
 
 - [RFC: AOSC Open Infrastructure forNetwork Building (Graphical Presentation)](https://raw.githubusercontent.com/AOSC-Dev/aoinb/master/docs/aoinb.dot.svg)
-- [RFC: Packaging Metadata Syntax](/dev-automation-packaging-metadata-syntax)
+- [RFC: Packaging Metadata Syntax](@/dev/automation/packaging-metadata-syntax.md)
 
 # Automation for Metadata Updates
 
@@ -99,7 +99,7 @@ Legends: **\!** To-Do, **✓** Completed.
    - **\!** ACBS/AOINB: Parallel download for many packages (aria2c, multiple wget, etc.).
 - **\!** ACBS/AOINB/Ciel: Proxy support for build tools.
 - **\!** ACBS: Better dependency resolution ([abbs-meta](https://github.com/AOSC-Dev/abbs-meta) integration?).
-- **\!** Autobuild3: Limit Bash syntaxes in autobuild/defines (see [RFC: Packaging Metadata Syntax](/dev-automation-packaging-metadata-syntax)).
+- **\!** Autobuild3: Limit Bash syntaxes in autobuild/defines (see [RFC: Packaging Metadata Syntax](@/dev/automation/packaging-metadata-syntax.md)).
 - **✓** Build result feedback.
    - **✓** Autobuild3/ACBS/AOINB/Ciel: Package builds failed/succeeded (Since Autobuild3 `v20200320` and Ciel `v2.4.4`).
    - **\!** AOINB: Package build time/memory/disk requirement stats.
@@ -173,7 +173,7 @@ Legends: **\!** To-Do, **✓** Completed.
     - **✓** Custom/non-standard DPKG sections, dangling files, incorrect paths (`/usr/local` in distribution packages, etc.).
     - **\!** Source tree permissions (DPKG refuses to package files found in a SUID’d directory, so fix that automatically).
     - **\!** DOS line ending, non-unicode content, ..., in document files (detect the usual suspects, NEWS, CHANGELOG, LICENSE, \*.txt, …).
-    - **\!** Package naming, versioning, ...., according to the [Styling Manual](/dev-sys-package-styling-manual).
+    - **\!** Package naming, versioning, ...., according to the [Styling Manual](@/dev/sys/package-styling-manual.md).
     - **\!** Unquoted `$SRCDIR` and `$PKGDIR`.
     - **\!** Warn packagers if hardening is disabled via `AB_FLAGS_SPECS=0`, also with other platform-specific optimisations (LTO for AMD64 and AArch64, for instance).
     - **\!** Warn pacakgers if build flags were reset or altered in accordance to standard Autobuild3 definition (cache an initial variable set).

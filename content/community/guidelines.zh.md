@@ -14,7 +14,7 @@ tags = ["社区"]
 
 — Community (n.), definition from the *[Cambridge English Dictionary](https://dictionary.cambridge.org/dictionary/english/community)*
 
-作为安同开源社区的一分子，我们共同的爱好就是探索计算机技术，特别是开源软件的发展和本地化。数年来，安同开源社区将大部分的精力放在了 [AOSC OS](/sys-is-aosc-os-right-for-me) 这一发行版及多个社区成员们的兴趣项目。例如在 2019 年我们创建了 AOSC 古董计算机兴趣小组 (AOSC Retro Computing Group)，为古董电脑爱好者提供了一个购买、折腾、把玩古董电脑的交流平台，我们甚至为这些电脑移植和适配了 AOSC OS。
+作为安同开源社区的一分子，我们共同的爱好就是探索计算机技术，特别是开源软件的发展和本地化。数年来，安同开源社区将大部分的精力放在了 [AOSC OS](@/sys/is-aosc-os-right-for-me.md) 这一发行版及多个社区成员们的兴趣项目。例如在 2019 年我们创建了 AOSC 古董计算机兴趣小组 (AOSC Retro Computing Group)，为古董电脑爱好者提供了一个购买、折腾、把玩古董电脑的交流平台，我们甚至为这些电脑移植和适配了 AOSC OS。
 
 # 我们为什么需要社区准则？
 
@@ -32,7 +32,7 @@ tags = ["社区"]
 
 # 准则条例
 
-鉴于我们社区大部分的活动和交流在 Telegram 频道/群组（及相应的 Discord 及 IRC 频道/群组）上开展，以下条例将分为“适用于全社区”和“适用于特定场景”两大类。**我们不会也无权约束或限制社区成员在社区（包含所有安同开源社区 Telegram 频道/群组（及相应的 Discord 及 IRC 频道/群组）、[AOSC 维基](https://wiki.aosc.io/zh/home)、[GitHub 组织](https://github.com/AOSC-Dev/) 和 [社区门户](https://aosc.io/)）外的任何行为。**
+鉴于我们社区大部分的活动和交流在 Telegram 频道/群组（及相应的 Discord 及 IRC 频道/群组）上开展，以下条例将分为“适用于全社区”和“适用于特定场景”两大类。**我们不会也无权约束或限制社区成员在社区（包含所有安同开源社区 Telegram 频道/群组（及相应的 Discord 及 IRC 频道/群组）、[AOSC 维基](/)、[GitHub 组织](https://github.com/AOSC-Dev/) 和 [社区门户](https://aosc.io/)）外的任何行为。**
 
 对于两个大类，我们又将这些条例进一步分为“硬性规定”和“软性规定”：
 
@@ -42,7 +42,7 @@ tags = ["社区"]
 
 ## 适用于全社区
 
-下面的规定适用于所有安同开源社区 Telegram 频道/群组（及相应的 Discord 及 IRC 频道/群组）、[AOSC 维基](https://wiki.aosc.io/zh/home)、[GitHub 组织](https://github.com/AOSC-Dev/) 和 [社区门户](https://aosc.io/)。
+下面的规定适用于所有安同开源社区 Telegram 频道/群组（及相应的 Discord 及 IRC 频道/群组）、[AOSC 维基](/)、[GitHub 组织](https://github.com/AOSC-Dev/) 和 [社区门户](https://aosc.io/)。
 
 ### 硬性规定
 

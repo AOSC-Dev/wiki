@@ -33,17 +33,17 @@ In the interest of readability, this guidebook will be divided into several sect
 - Package Description
 - Build Parametres
 
-[Detailed Description: `autobuild/defines` File](/dev-sys-defines)
+[Detailed Description: `autobuild/defines` File](@/dev/sys/defines.md)
 
 # Pre-Defined Variables
 
 A collection of variables are pre-defined by Autobuild3 and used as build-time defaults.
 
-[Detailed Description: Autobuild3 Pre-defined Variables](/dev-sys-autobuild3-manual#general-structure)
+[Detailed Description: Autobuild3 Pre-defined Variables](@/dev/sys/autobuild3-manual.md#general-structure)
 
 # Build Scripts, Scriptlets, and Extra Files
 
-[Detailed Description: Autobuild3 Build Scripts, Scriptlets, and Extra Files](/dev-sys-autobuild3-build-scripts-scriptlets-and-extra-files)
+[(Broken link) Detailed Description: Autobuild3 Build Scripts, Scriptlets, and Extra Files](/dev-sys-autobuild3-build-scripts-scriptlets-and-extra-files)
 
 # Running and Utilising Autobuild3
 
@@ -53,9 +53,9 @@ To build a package using Autobuild3, simply go to a directory containing both th
 # autobuild
 ```
 
-However, with the introduction of [ACBS](/dev-sys-acbs) (originally known as [ABBS](/dev-sys-abbs) and later [Ciel](/dev-sys-ciel), Autobuild3 is now rarely used as a standalone tool. In particular, with the requirements specified in the [AOSC OS Maintenance Guidelines](/dev-sys-maintenance-guidelines), Ciel is now *required* as a standard frontend for AOSC OS packaging.
+However, with the introduction of [(Broken link) ACBS](/dev-sys-acbs) (originally known as [(Broken link) ABBS](/dev-sys-abbs) and later [Ciel](@/dev/sys/ciel.md), Autobuild3 is now rarely used as a standalone tool. In particular, with the requirements specified in the [AOSC OS Maintenance Guidelines](@/dev/sys/maintenance-guidelines.md), Ciel is now *required* as a standard frontend for AOSC OS packaging.
 
 Please refer to the following pages for details:
 
-- [AOSC OS Cadet Training/Ciel](/dev-sys-ciel)
-- [AOSC OS Cadet Training/ACBS](/dev-sys-acbs)
+- [AOSC OS Cadet Training/Ciel](@/dev/sys/ciel.md)
+- [(Broken link) AOSC OS Cadet Training/ACBS](/dev-sys-acbs)
