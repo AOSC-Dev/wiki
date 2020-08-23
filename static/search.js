@@ -147,7 +147,6 @@ function searchText(event) {
     }
 
     let results = index.search(search_bar.value, options)
-    console.log(results.length)
 
     // First remove the old results
     search_results.innerHTML = ''
@@ -163,7 +162,6 @@ function searchText(event) {
         let firstIndex = i.doc.body.toLowerCase().search(search_bar.value)
         // Then get some teaser
         let teaser = makeTeaser(i.doc.body, search_bar.value.split(" "))
-        console.log(teaser)
         // Finally, add new results
         let item = createSearchResult(i.doc.title, teaser, i.ref)
         search_results.appendChild(item)
