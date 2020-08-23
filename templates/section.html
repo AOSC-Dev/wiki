@@ -9,11 +9,13 @@
 <div id="position-bar">
   {# Navigation #}
   {% for ancestor in section.ancestors %}
-  {% set section = get_section(path=ancestor, metadata_only=true) %}
-  <a class="section-link" href="{{ section.permalink }}">{{ section.title }}</a>
+  {% set an_section = get_section(path=ancestor, metadata_only=true) %}
+  <a class="section-link" href="{{ an_section.permalink }}">{{ an_section.title }}</a>
   {% if not loop.last %}
   <span>/</span>
   {% else %}
+  <span>/</span>
+  <a class="section-link" href="{{ section.permalink }}">{{ section.title }}</a>
   <span>/</span>
   {% endif %}
   {% endfor %}
@@ -27,17 +29,17 @@
 
 {% block main %}
 <nav>
+  {% for subsection_path in section.subsections %}
+  {% set subsection = get_section(path=subsection_path, metadata_only=true) %}
+    <span style="color: grey">> </span>
+    <a href="{{ subsection.permalink }}">{{ subsection.title }}</a>
+  {% endfor %}
 
-  <b>Posts in this section:</b>
+  <b>Contents in this section:</b>
   {% for post in section.pages %}
     <a href="{{ post.permalink }}">{{ post.title }}</a>
   {% endfor %}
 
-  <b>Subsections in this section</b>
-  {% for subsection_path in section.subsections %}
-  {% set subsection = get_section(path=subsection_path, metadata_only=true) %}
-    <a href="{{ subsection.permalink }}">{{ subsection.title }}</a>
-  {% endfor %}
 </nav>
 
 <article>
