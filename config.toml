@@ -11,6 +11,7 @@ languages = [
 
 taxonomies = [
     {name = "tags", lang = "en"},
+    {name = "tags", lang = "zh"},
 ]
 
 [extra]

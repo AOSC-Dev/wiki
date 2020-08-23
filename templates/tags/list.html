@@ -22,8 +22,8 @@
 </nav>
 
 {# Acutal tags #}
-{% for tag in terms %}
 <article>
+{% for tag in terms %}
   <h1 id="{{ tag.name }}">{{ tag.name }}</h1>
   <ul>
     {% for page in tag.pages %}
@@ -32,6 +32,6 @@
     </li>
     {% endfor %}
   </ul>
-</article>
 {% endfor %}
+</article>
 {% endblock main %}
