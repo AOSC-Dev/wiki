@@ -14,7 +14,7 @@ Hi there, welcome to the Anthon Open Source Community - our community since late
 
 — Community (n.), definition from the *[Cambridge English Dictionary](https://dictionary.cambridge.org/dictionary/english/community)*
 
-At AOSC, we consider our common interest in the discovery of fun in computing - in particular, we focus on the advancement of open source software and their localisation in our day-to-day computing. Over the years, AOSC has focused most of its development effort on the [AOSC OS](@/system/is-aosc-os-right-for-me.md) project, with various other projects spun out from community interests. For instance, in early 2019, we have created the AOSC Retro Computing group, where vintage computing enthusiasts find their common topics in finding and buying them, restoring and playing with them, and porting a specially configured AOSC OS distribution on them.
+At AOSC, we consider our common interest in the discovery of fun in computing - in particular, we focus on the advancement of open source software and their localisation in our day-to-day computing. Over the years, AOSC has focused most of its development effort on the [AOSC OS](@/aosc-os/is-aosc-os-right-for-me.md) project, with various other projects spun out from community interests. For instance, in early 2019, we have created the AOSC Retro Computing group, where vintage computing enthusiasts find their common topics in finding and buying them, restoring and playing with them, and porting a specially configured AOSC OS distribution on them.
 
 # Rationale: Why a Guideline?
 
