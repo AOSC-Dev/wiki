@@ -8,7 +8,7 @@ tags = ["dev-sys"]
 
 # What is Ciel?
 
-Ciel is a multi-instance management frontend for [(Broken link) BuildKit](/sys-dev-buildkit) containers based on [systemd-nspawn](https://www.freedesktop.org/software/systemd/man/systemd-nspawn.html) and [OverlayFS](https://www.kernel.org/doc/Documentation/filesystems/overlayfs.txt). Ciel also manages Autobuild3/ACBS configurations, ABBS trees, APT repositories, network behaviours, and various other aspects that affect the build environments.
+Ciel is a multi-instance management frontend for [BuildKit](@/dev/sys/preparing-a-build-environment.md#buildkit) containers based on [systemd-nspawn](https://www.freedesktop.org/software/systemd/man/systemd-nspawn.html) and [OverlayFS](https://www.kernel.org/doc/Documentation/filesystems/overlayfs.txt). Ciel also manages Autobuild3/ACBS configurations, ABBS trees, APT repositories, network behaviours, and various other aspects that affect the build environments.
 
 Thanks to the utilisation of OverlayFS, Ciel also provides mechanism for quickly rolling back build environments to their minimal "clean" state, while retaining a "base" layer for persisting system updates.
 

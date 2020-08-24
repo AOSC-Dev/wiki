@@ -10,15 +10,15 @@ tags = ["dev-sys"]
 
 # 目录
 ## 基础
-- [(Broken link) 需要用到的工具](#)
-- [发行周期](#)
-- [配置打包环境](#)
-- [构建我们的第一个软件包！](#)
-- [添加一个新的软件包](#)
-- [一个完整的例子：light](#)
+- [需要用到的工具](@/dev/sys/basics.zh.md#xu-yao-yong-dao-de-gong-ju)
+- [发行周期](@/dev/sys/basics.zh.md#fa-xing-zhou-qi)
+- [配置打包环境](@/dev/sys/basics.zh.md#pei-zhi-da-bao-huan-jing)
+- [构建我们的第一个软件包！](@/dev/sys/basics.zh.md#gou-jian-wo-men-de-di-yi-ge-ruan-jian-bao)
+- [添加一个新的软件包](@/dev/sys/basics.zh.md#tian-jia-yi-ge-xin-de-ruan-jian-bao)
+- [一个完整的例子：light](@/dev/sys/basics.zh.md#yi-ge-wan-zheng-de-li-zi-light)
 
 ## 进阶
-- [进一步了解 Autobuild3 用法](#)
+- [进一步了解 Autobuild3 用法](@/dev/sys/advanced-techniques.md#advanced-operations-in-autobuild3)
 	- [手动指定构建系统](@/dev/sys/advanced-techniques.md#manually-select-different-build-systems)
 	- [自定义构建系统参数及编译器参数](@/dev/sys/advanced-techniques.md#custom-build-system-compiler-parameters)
 	- [自定义构建脚本](@/dev/sys/advanced-techniques.md#custom-build-scripts)

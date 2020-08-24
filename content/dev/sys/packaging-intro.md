@@ -18,7 +18,7 @@ Welcome! If you are reading this, you are probably interested in contributing to
 - [A complete example: light](@/dev/sys/basics.md#a-complete-example-light)
 
 ## Advanced Techniques
-- [(Broken link) Advanced Operations in Autobuild3](#)
+- [Advanced Operations in Autobuild3](@/dev/sys/advanced-techniques.md#advanced-operations-in-autobuild3)
 	- [Manually Select Different Build Systems](@/dev/sys/advanced-techniques.md#manually-select-different-build-systems)
 	- [Custom Build System/Compiler Parameters](@/dev/sys/advanced-techniques.md#custom-build-system-compiler-parameters)
 	- [Custom Build Scripts](@/dev/sys/advanced-techniques.md#custom-build-scripts)
