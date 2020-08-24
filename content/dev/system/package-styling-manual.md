@@ -1,7 +1,9 @@
 +++
 title = "AOSC OS Package Styling Manual"
 description = "Comprehensive (and updated) Styling Manual for AOSC OS Packagers"
-date = 2020-05-05T05:30:40.688Z
+date = 2020-05-04T03:35:56.606Z
+[taxonomies]
+tags = ["dev-sys"]
 +++
 
 # Introduction and Rationale
@@ -147,7 +149,7 @@ Run-time dependencies should be written in such a way that, not only does the pa
 
 Which, through explicit and implicit dependencies, allows for a system environment that contains sufficient runtime for the program `/usr/bin/ario` to function.
 
-By the quality assurance standard, defined in code [E432](@/dev/sys/qa-issue-codes.md#class-4-dependencies), all direct dependencies on the ELF level should also be included in `$PKGDEP`, and thus the addition of `dbus` to `$PKGDEP` is necessary.
+By the quality assurance standard, defined in code [E432](@/dev/system/qa-issue-codes.md#class-4-dependencies), all direct dependencies on the ELF level should also be included in `$PKGDEP`, and thus the addition of `dbus` to `$PKGDEP` is necessary.
 
 As of March 16th, 2019, 42.4% (1592/3705) of all packages provided in the Stable channel for `amd64` has the issue of insufficient ELF dependencies.
 
@@ -289,7 +291,7 @@ When committing (or contributing, if you like) to the [AOSC OS ABBS Tree](https:
 | Working with a package, multiple actions | `$PKGNAME: ...; ...` | `gnome-shell: add at-spi2-core dependency; update to 3.32.0` |
 | Working with a package, utilising distribution patch(es) | `$PKGNAME: ($DISTNAME patch[es], $CHANNEL) ...` | `qt-4: (Arch Linux patches) rebuild for openssl` |
 | Working with a package, utilising upstream patch(es) | `$PKGNAME: (upstream patch[es]) ...` | `kodi: (upstream patch) fix lock-up on start-up` |
-| Working with a QA issue | `$PKGNAME: ... ($ISSUECODE)` | `psiconv: rebuild for imagemagick (E431)`, for a list of QA issue codes, refer to this [list](@/dev/sys/qa-issue-codes.md) |
+| Working with a QA issue | `$PKGNAME: ... ($ISSUECODE)` | `psiconv: rebuild for imagemagick (E431)`, for a list of QA issue codes, refer to this [list](@/dev/system/qa-issue-codes.md) |
 | Working with an architecturally-exclusive package | `$PKGNAME: ... ($ARCH)` | `google-chrome: new, 100.0.9999.999 (amd64)` |
 | Working with an architecturally-independent package | `$PKGNAME: ... (noarch)` | `mate-common: update to 1.22.0 (noarch)` |
 

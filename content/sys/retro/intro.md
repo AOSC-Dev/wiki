@@ -92,7 +92,7 @@ AOSC OS/Retro will be maintained on the [`retro`](https://github.com/AOSC-Dev/ao
 
 After the first update cycle of a year, the `retro` branch will *merge from* the `stable` branch from the mainline distribution (`stable` => `retro`). After which, *no further merge or reverse merge* will be allowed. Package versions in the `retro` branch will remain constant unless...
 
-- An [patch-level update](@/dev/sys/known-patch-release-rules.md) is made available.
+- An [patch-level update](@/dev/system/known-patch-release-rules.md) is made available.
 - A security update is made available that *requires* a version update. If necessary, changes could be [cherry-picked](https://git-scm.com/docs/git-cherry-pick) from the `stable` branch.
 
 At the end of each annual cycle, a new distribution tarball will be made available on the [downloads page](https://aosc.io/downloads/), as well as an update CD image containing a local repository containing all system updates. A full AOSC OS/Retro repository will also be provided in forms of a tarball or a set of CD/DVD image.

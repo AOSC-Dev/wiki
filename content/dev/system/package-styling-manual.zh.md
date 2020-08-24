@@ -152,7 +152,7 @@ SUBDIR=.
 
 以通过显式和隐式依赖关系，允许系统环境满足运行 `/usr/bin/ario` 的条件。
 
-根据 [E432](@/dev/sys/qa-issue-codes.md#class-4-dependencies) 的规定，所有 ELF 级别的直接依赖项都应该被写进 `$PKGDEP`，这意味着你还需要为 `$PKGDEP` 补上一个 `dbus`。
+根据 [E432](@/dev/system/qa-issue-codes.md#class-4-dependencies) 的规定，所有 ELF 级别的直接依赖项都应该被写进 `$PKGDEP`，这意味着你还需要为 `$PKGDEP` 补上一个 `dbus`。
 
 截至 2019 年 3 月 16 日，位于稳定仓库 `amd64` 结构的软件包中 42.4%（1592/3705）有着依赖项不完整的问题。
 
@@ -295,7 +295,7 @@ Electron、Chromium 和基于它们的软件包应该按照下面的要求放置
 | 软件包改动（多处） | `$PKGNAME: ...; ...` | `gnome-shell: add at-spi2-core dependency; update to 3.32.0` |
 | 软件包改动（使用发行版补丁） | `$PKGNAME: ($DISTNAME patch[es], $CHANNEL) ...` | `qt-4: (Arch Linux patches) rebuild for openssl` |
 | 软件包改动（使用上游补丁） | `$PKGNAME: (upstream patch[es]) ...` | `kodi: (upstream patch) fix lock-up on start-up` |
-| QA 问题 | `$PKGNAME: ... ($ISSUECODE)` | `psiconv: rebuild for imagemagick (E431)`，请阅读 [这个清单](@/dev/sys/qa-issue-codes.md) 了解各个 `$ISSUECODE` 对应的含义 |
+| QA 问题 | `$PKGNAME: ... ($ISSUECODE)` | `psiconv: rebuild for imagemagick (E431)`，请阅读 [这个清单](@/dev/system/qa-issue-codes.md) 了解各个 `$ISSUECODE` 对应的含义 |
 | 软件包改动（针对某个架构） | `$PKGNAME: ... ($ARCH)` | `google-chrome: new, 100.0.9999.999 (amd64)` |
 | 软件包改动（不针对任何架构） | `$PKGNAME: ... (noarch)` | `mate-common: update to 1.22.0 (noarch)` |
 

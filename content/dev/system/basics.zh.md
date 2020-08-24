@@ -26,7 +26,7 @@ AOSC OS 采用的是半滚动更新模型，通常每个发布周期都为时三
 
 我们有两个主要分支，分别是 `stable` 和 `testing`，还有三个开发分支 `stable-proposed`、`testing-proposed` 和 `explosive`。
 
-`stable-proposed` 没有冻结期，但这个分支只接受小版本更新（也就是说版本号 `x.y.z` 中只有 `z` 变动了）、安全更新、漏洞修复，还有 [一些例外](@/dev/sys/cycle-exceptions.md)，这个分支的更新每周都会被合并到 `stable` 分支。
+`stable-proposed` 没有冻结期，但这个分支只接受小版本更新（也就是说版本号 `x.y.z` 中只有 `z` 变动了）、安全更新、漏洞修复，还有 [一些例外](@/dev/system/cycle-exceptions.md)，这个分支的更新每周都会被合并到 `stable` 分支。
 
 `testing-proposed` 是主要的工作分支。引入新软件包和已有软件包的大版本更新（例如 Firefox 78 -> 79）通常都在此分支进行。开发工作遵循三个月一周期的迭代计划（可以参考 [Winter 2020 的迭代计划](https://github.com/AOSC-Dev/AOSC-os-abbs/issues/2073))。在前两个月，开发人员会构建新软件包或主要版本更新，随后在 `testing-proposed` 进行测试。 
 
@@ -248,7 +248,7 @@ ciel build -i stable light
 
 ## Git 提交记录格式规范
 
-AOSC OS 对提交记录有着非常严格的格式要求。这里我们会提及我们最常用的一些格式。要想查看完整的打包与开发指导意见，请前往 [这个页面](@/dev/sys/package-styling-manual.md)。
+AOSC OS 对提交记录有着非常严格的格式要求。这里我们会提及我们最常用的一些格式。要想查看完整的打包与开发指导意见，请前往 [这个页面](@/dev/system/package-styling-manual.md)。
 
 例如，我们现在要往软件包树里面添加一个新的软件包，那么提交记录应该长这样子：
 
@@ -278,4 +278,4 @@ AOSC OS 对提交记录有着非常严格的格式要求。这里我们会提及
 
 就这么简单！你已经初步了解如何为 AOSC OS 构建软件包，并知道如何更新、构建和上传它们！
 
-当然，本文也只是一些皮毛，当你真正参与到 AOSC OS 的维护中，面对更复杂的构建系统或大量需要更新的软件包时，你就会意识到，还有许多技能有待你去探索和挖掘。请参考 [软件包维护入门：进阶](@/dev/sys/advanced-techniques.md) 这篇文。
+当然，本文也只是一些皮毛，当你真正参与到 AOSC OS 的维护中，面对更复杂的构建系统或大量需要更新的软件包时，你就会意识到，还有许多技能有待你去探索和挖掘。请参考 [软件包维护入门：进阶](@/dev/system/advanced-techniques.md) 这篇文。

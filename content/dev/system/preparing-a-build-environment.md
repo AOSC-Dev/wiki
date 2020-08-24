@@ -14,7 +14,7 @@ You will need a clean environment for your packaging work. Packaging in a unclea
 
 Ciel is an integrated, multi-instance, OverlayFS-based systemd container (nspawn) manager - providing functionalities for managing packaging environment(s). More importantly, Ciel can roll-back build environments to its original, clean state with a single command - this allows for an efficient way to ensure a minimal packaging environment.
 
-- [Getting Started with Ciel](@/dev/sys/ciel.md)
+- [Getting Started with Ciel](@/dev/system/ciel.md)
 
 ## BuildKit
 

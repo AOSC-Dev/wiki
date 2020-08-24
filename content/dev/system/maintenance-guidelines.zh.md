@@ -18,7 +18,7 @@ AOSC OS 是一个有着多分支的半滚动更新 Linux 发行版，具有 5000
 
 AOSC OS 在同时维护下面的四个分支：
 
-- **稳定分支**（`stable`）：一般用户应使用的分支，我们通常向这个分支推送安全更新、漏洞修复、[异常更新](@/dev/sys/cycle-exceptions.md) 和 [补丁级更新](@/dev/sys/known-patch-release-rules.md)。
+- **稳定分支**（`stable`）：一般用户应使用的分支，我们通常向这个分支推送安全更新、漏洞修复、[异常更新](@/dev/system/cycle-exceptions.md) 和 [补丁级更新](@/dev/system/known-patch-release-rules.md)。
   - 通常使用 `stable-proposed` 向 `stable` 输送上述更新（紧急情况除外，如稳定分支出现了严重的可用性问题）。
 - **测试分支**（`testing`）：发烧友可以在这里获取经过**少量测试**的最新的功能性更新、安全性更新以及新软件包。在每个发行周期结束之前，此分支提供的更新会合并入稳定分支。
   - 通常使用 `testing-proposed` 向 `testing` 输送上述更新（前者也是多数软件包最初上传的地方）。
@@ -78,7 +78,7 @@ AOSC OS 支持多种电脑处理器架构，适配多种设备。然而，AOSC O
 
 原则上，AOSC OS 允许任何类型的软件包进入其软件仓库，但以下情况除外：
 
-- 供应商或上游不允许我们分发该软件或在 [软件包样式指南](@/dev/sys/package-styling-manual.md) 要求的情形下不允许我们修改文件路径。
+- 供应商或上游不允许我们分发该软件或在 [软件包样式指南](@/dev/system/package-styling-manual.md) 要求的情形下不允许我们修改文件路径。
 - 供应商或上游拒绝或没有提供安全漏洞修复。
 - 该包已被供应商或上游弃用。
 - 维护者投票反对引入（或维护）该软件包。
@@ -120,6 +120,6 @@ AOSC OS 支持多种电脑处理器架构，适配多种设备。然而，AOSC O
 - 对每一个软件包分别进行测试。
   - Autobuild3/ACBS 自动测试（TODO）。
   - 可用性检查（确认该软件可以运行，文件无缺失，文档完备）。
-  - 根据  [软件包样式指南](@/dev/sys/package-styling-manual.md) 检查样式。
+  - 根据  [软件包样式指南](@/dev/system/package-styling-manual.md) 检查样式。
 - 对于通过测试的软件包，勾选相应条目复选框，然后将其移动到 `stable` 仓库（通过一个移动一个）。
 - GitHub Issue 将保持打开状态以供维护者跟踪测试工作，直到所有软件包移动完成（所有复选框均被打勾）。

@@ -10,11 +10,11 @@ tags = ["dev-automation"]
 
 ## In Effect
 
-- [Exceptions to the Update Cycles](@/dev/sys/cycle-exceptions.md)
-- [Known Patch Release Rules](@/dev/sys/known-patch-release-rules.md)
-- [Intro To Package Maintenance](@/dev/sys/packaging-intro.md)
-- [AOSC OS Package Styling Manual](@/dev/sys/package-styling-manual.md)
-- [AOSC OS Maintenance Guildelines (RFC)](@/dev/sys/maintenance-guidelines.md)
+- [Exceptions to the Update Cycles](@/dev/system/cycle-exceptions.md)
+- [Known Patch Release Rules](@/dev/system/known-patch-release-rules.md)
+- [Intro To Package Maintenance](@/dev/system/packaging-intro.md)
+- [AOSC OS Package Styling Manual](@/dev/system/package-styling-manual.md)
+- [AOSC OS Maintenance Guildelines (RFC)](@/dev/system/maintenance-guidelines.md)
 
 ## In-Progress or Early RFC
 
@@ -173,7 +173,7 @@ Legends: **\!** To-Do, **✓** Completed.
     - **✓** Custom/non-standard DPKG sections, dangling files, incorrect paths (`/usr/local` in distribution packages, etc.).
     - **\!** Source tree permissions (DPKG refuses to package files found in a SUID’d directory, so fix that automatically).
     - **\!** DOS line ending, non-unicode content, ..., in document files (detect the usual suspects, NEWS, CHANGELOG, LICENSE, \*.txt, …).
-    - **\!** Package naming, versioning, ...., according to the [Styling Manual](@/dev/sys/package-styling-manual.md).
+    - **\!** Package naming, versioning, ...., according to the [Styling Manual](@/dev/system/package-styling-manual.md).
     - **\!** Unquoted `$SRCDIR` and `$PKGDIR`.
     - **\!** Warn packagers if hardening is disabled via `AB_FLAGS_SPECS=0`, also with other platform-specific optimisations (LTO for AMD64 and AArch64, for instance).
     - **\!** Warn pacakgers if build flags were reset or altered in accordance to standard Autobuild3 definition (cache an initial variable set).

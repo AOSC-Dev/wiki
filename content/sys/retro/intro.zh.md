@@ -89,7 +89,7 @@ AOSC OS/Retro 将与主线版本共享一颗 [软件包树](https://github.com/A
 
 每个更新周期开始的时候，`retro` 分支将合并自来自主线发行版的 `stable` 分支的更新（`stable`=>`retro`）。在下一个更新周期开始前，不再进行合并。`retro` 分支中的软件包版本将维持不变，除非：
 
-- [补丁级别更新](@/dev/sys/known-patch-release-rules.md) 可用。
+- [补丁级别更新](@/dev/system/known-patch-release-rules.md) 可用。
 - 带有重大安全修复的版本更新可用。这种情况下可以从 `stable` 分支进行 [Cherry Pick](https://git-scm.com/docs/git-cherry-pick) 操作以选择性合并。
 
 在每个年度周期结束时，我们会在 [下载页面](https://aosc.io/downloads/) 提供新的 Tarball，以及一份包含了所有系统更新的本地软件仓库 CD 镜像文件。完整的 AOSC OS/Retro 软件仓库也将以 Tarball 或 CD/DVD 镜像的形式提供。 
