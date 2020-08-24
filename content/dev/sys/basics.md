@@ -250,7 +250,7 @@ Although we didn't write anything about how to build this program, `Autobuild3` 
 
 ## Git conventions
 
-AOSC OS has strict conventions about git logs. We will only mention the most used ones here. For the full list of package styling and development guidelines, please refer to the *<https://wiki.aosc.io/en/dev-sys-package-styling-manual>*.
+AOSC OS has strict conventions about git logs. We will only mention the most used ones here. For the full list of package styling and development guidelines, please refer to the [package styling manual](@/dev/sys/package-styling-manual.md).
 
 For example, we are adding a new package to the tree. Then the log should be something like this:
 
