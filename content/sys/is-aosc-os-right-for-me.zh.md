@@ -39,7 +39,7 @@ AOSC OS 基本上就是按照上面提到的这些理念来构建的。为了避
 - 所有的“语言包”和相应的字体都被预装了，只需要一个简单的命令就可以切换语言，在 GNOME 和 Plasma 下甚至点鼠标就行。
 - 部分 AOSC 成员在上游参与着本地化（可以理解为翻译）的工作，目标语言通常是简体中文。包括 WineHQ、FreeDesktop.org、GNOME、MATE 和 LMMS 等项目受益其中，也为其它发行版或这些应用的使用者提供了便利。
 - 为 32-bit x86 应用程序和 Windows 应用（使用 Wine）提供足够的支持，包括测试和本地化工作。
-- 除了安装流程，在 [支持的架构](@/sys/info/arch-specs.md) 上使用 AOSC OS 在体验上应该是没有区别的。
+- 除了安装流程，在 [支持的架构](@/sys/information/arch-specs.md) 上使用 AOSC OS 在体验上应该是没有区别的。
 - 闭源软件和非自由软件在我们的软件源中可用，包括 NVIDIA 驱动、Google Chrome、Opera 和闭源固件 `firmware-nonfree`。
 - AOSC OS 提供了一个基于用户反馈和开发者辛勤工作得来的强大的软件包集合。
   - 你可以在 IRC 或 Telegram 频道上使用 `/pakreq` 或 `/updreq` 命令请求新的软件包或软件包更新。另外任何技术上的建议都可以通过 `/optreq` 发送，这样开发者就可以迅速处理这些请求。
