@@ -66,13 +66,13 @@ AOSC OS 支持多种电脑处理器架构，适配多种设备。然而，AOSC O
 - [Ciel](https://github.com/AOSC-Dev/ciel)：管理用于打包工作的 `systemd-nspawn` 容器。支持 Autobuild3/ACBS 配置以及容器系统升级、配置和回滚。
 - [pushpkg](https://github.com/AOSC-Dev/scriptlets/tree/master/pushpkg)：一组用于将软件包上传到 [软件仓库](https://repo.aosc.io) 的脚本。
 
-你可能需要一个 LDAP 凭证来上传软件包或访问我们的中继服务器（[Buildbots](@/infra/buildbots.md)）。
+你可能需要一个 LDAP 凭证来上传软件包或访问我们的中继服务器（[Buildbots](@/infrastructure/buildbots.md)）。
 
 ## Buildbots
 
 尽管你可以使用上面提到的工具在自己的设备上打包，社区也提供了一些高性能机器供维护者使用。
 
-要了解更多，请参阅社区维基 [Buildbots](@/infra/buildbots.md) 一文。
+要了解更多，请参阅社区维基 [Buildbots](@/infrastructure/buildbots.md) 一文。
 
 ## 软件包接收
 

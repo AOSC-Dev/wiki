@@ -65,7 +65,7 @@ The standard set of tools should be used by all maintainers. While we are unable
 - [Ciel](https://github.com/AOSC-Dev/ciel), manages `systemd-nspawn` containers where packaging work are done, with tools for Autobuild3/ACBS configuration, basic containerised environment management (updates and some configuration), and environment rollbacks.
 - [pushpkg](https://github.com/AOSC-Dev/scriptlets/tree/master/pushpkg), a simple wrapper script for uploading packages to the [Community Repository](https://repo.aosc.io).
 
-You will also need a LDAP identity to upload packages and to gain access to our relay servers, or [Buildbots](@/infra/buildbots.md).
+You will also need a LDAP identity to upload packages and to gain access to our relay servers, or [Buildbots](@/infrastructure/buildbots.md).
 
 For the detailed packaging procedures, please refer to the [AOSC OS Cadet Training (Work In Progress)](#) and the [AOSC OS Package Styling Manual](@/developer/system/package-styling-manual.md).
 
@@ -73,7 +73,7 @@ For the detailed packaging procedures, please refer to the [AOSC OS Cadet Traini
 
 While you are welcome to use your own devices for packaging (given that you are using the tools above), there are fast machines provided by community members, and made available for maintainers.
 
-For more details on gaining access and the various protocols, please refer to the [AOSC Buildbot Information](@/infra/buildbots.md).
+For more details on gaining access and the various protocols, please refer to the [AOSC Buildbot Information](@/infrastructure/buildbots.md).
 
 ## Package Introduction and Maintenance
 
