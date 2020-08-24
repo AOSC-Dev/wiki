@@ -8,7 +8,7 @@ tags = ["dev-sys"]
 
 # What is Ciel?
 
-Ciel is a multi-instance management frontend for [BuildKit](@/dev/system/preparing-a-build-environment.md#buildkit) containers based on [systemd-nspawn](https://www.freedesktop.org/software/systemd/man/systemd-nspawn.html) and [OverlayFS](https://www.kernel.org/doc/Documentation/filesystems/overlayfs.txt). Ciel also manages Autobuild3/ACBS configurations, ABBS trees, APT repositories, network behaviours, and various other aspects that affect the build environments.
+Ciel is a multi-instance management frontend for [BuildKit](@/developer/system/preparing-a-build-environment.md#buildkit) containers based on [systemd-nspawn](https://www.freedesktop.org/software/systemd/man/systemd-nspawn.html) and [OverlayFS](https://www.kernel.org/doc/Documentation/filesystems/overlayfs.txt). Ciel also manages Autobuild3/ACBS configurations, ABBS trees, APT repositories, network behaviours, and various other aspects that affect the build environments.
 
 Thanks to the utilisation of OverlayFS, Ciel also provides mechanism for quickly rolling back build environments to their minimal "clean" state, while retaining a "base" layer for persisting system updates.
 
@@ -147,7 +147,7 @@ To delete a particular instance:
 
 ## Building and Rolling Back
 
-As mentioned above, Ciel's advantage lies in the fact that it allows for containerised build environments that can be easily rolled back to their "clean" state (or the "base" layer without overlayed changes). As specified in the [AOSC OS Maintenance Guildelines](@/dev/system/maintenance-guidelines.md#the-builds):
+As mentioned above, Ciel's advantage lies in the fact that it allows for containerised build environments that can be easily rolled back to their "clean" state (or the "base" layer without overlayed changes). As specified in the [AOSC OS Maintenance Guildelines](@/developer/system/maintenance-guidelines.md#the-builds):
 
 *While building packages, the build environments must be controlled, updated, and minimal, where packages are only installed as required by the build-and-run-time dependencies.*
 

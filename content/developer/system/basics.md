@@ -26,7 +26,7 @@ AOSC OS is maintained with a semi-rolling release model which cycles every three
 
 There are two main update branches: `stable` and `testing`; and three development branches: `stable-proposed`, `testing-proposed` and `explosive`.
 
-`stable-proposed` is always open for updates, but only patch releases (x.y.z where z is updated), security updates, bugfixes, and various [exceptional updates](@/dev/system/cycle-exceptions.md) are allowed into this repository. This branch merges with `stable` weekly.
+`stable-proposed` is always open for updates, but only patch releases (x.y.z where z is updated), security updates, bugfixes, and various [exceptional updates](@/developer/system/cycle-exceptions.md) are allowed into this repository. This branch merges with `stable` weekly.
 
 `testing-proposed` is the place where new packages and major updates are introduced. This is where most of the work takes place. The developemnt on this branch follows a three-month iteration schedule (take for example the [Winter 2020 Iteration Plan](https://github.com/AOSC-Dev/aosc-os-abbs/issues/2073)). During the first two months, developers build and test new updates or introduce new packages to the `testing-proposed` branch.
 
@@ -250,7 +250,7 @@ Although we didn't write anything about how to build this program, `Autobuild3` 
 
 ## Git conventions
 
-AOSC OS has strict conventions about git logs. We will only mention the most used ones here. For the full list of package styling and development guidelines, please refer to the [package styling manual](@/dev/system/package-styling-manual.md).
+AOSC OS has strict conventions about git logs. We will only mention the most used ones here. For the full list of package styling and development guidelines, please refer to the [package styling manual](@/developer/system/package-styling-manual.md).
 
 For example, we are adding a new package to the tree. Then the log should be something like this:
 
@@ -280,4 +280,4 @@ The second task can be done using [pushpkg](https://github.com/AOSC-Dev/scriptle
 
 That's it\! You have learned the basics about creating new packages for AOSC OS from scratch, as well as how to update, build, and uploading them\!
 
-However, as you may see, this article only covers the basics of what you need to know as you continue to prime for further involement in AOSC OS maintenance. When dealing with more complicated build systems, or updating a batch of packages, there's still many skills to learn. Please refer to the [Way to AOSC OS Maintainence: Advanced Techniques](@/dev/system/advanced-techniques.md)
+However, as you may see, this article only covers the basics of what you need to know as you continue to prime for further involement in AOSC OS maintenance. When dealing with more complicated build systems, or updating a batch of packages, there's still many skills to learn. Please refer to the [Way to AOSC OS Maintainence: Advanced Techniques](@/developer/system/advanced-techniques.md)

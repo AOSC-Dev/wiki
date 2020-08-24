@@ -33,13 +33,13 @@ In the interest of readability, this guidebook will be divided into several sect
 - Package Description
 - Build Parametres
 
-[Detailed Description: `autobuild/defines` File](@/dev/system/defines.md)
+[Detailed Description: `autobuild/defines` File](@/developer/system/defines.md)
 
 # Pre-Defined Variables
 
 A collection of variables are pre-defined by Autobuild3 and used as build-time defaults.
 
-[Detailed Description: Autobuild3 Pre-defined Variables](@/dev/system/autobuild3-manual.md#general-structure)
+[Detailed Description: Autobuild3 Pre-defined Variables](@/developer/system/autobuild3-manual.md#general-structure)
 
 # Build Scripts, Scriptlets, and Extra Files
 
@@ -53,9 +53,9 @@ To build a package using Autobuild3, simply go to a directory containing both th
 # autobuild
 ```
 
-However, with the introduction of [(Broken link) ACBS](/dev-sys-acbs) (originally known as [(Broken link) ABBS](/dev-sys-abbs) and later [Ciel](@/dev/system/ciel.md), Autobuild3 is now rarely used as a standalone tool. In particular, with the requirements specified in the [AOSC OS Maintenance Guidelines](@/dev/system/maintenance-guidelines.md), Ciel is now *required* as a standard frontend for AOSC OS packaging.
+However, with the introduction of [(Broken link) ACBS](/dev-sys-acbs) (originally known as [(Broken link) ABBS](/dev-sys-abbs) and later [Ciel](@/developer/system/ciel.md), Autobuild3 is now rarely used as a standalone tool. In particular, with the requirements specified in the [AOSC OS Maintenance Guidelines](@/developer/system/maintenance-guidelines.md), Ciel is now *required* as a standard frontend for AOSC OS packaging.
 
 Please refer to the following pages for details:
 
-- [AOSC OS Cadet Training/Ciel](@/dev/system/ciel.md)
+- [AOSC OS Cadet Training/Ciel](@/developer/system/ciel.md)
 - [(Broken link) AOSC OS Cadet Training/ACBS](/dev-sys-acbs)
