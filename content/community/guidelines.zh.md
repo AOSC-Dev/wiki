@@ -14,7 +14,7 @@ tags = ["社区"]
 
 — Community (n.), definition from the *[Cambridge English Dictionary](https://dictionary.cambridge.org/dictionary/english/community)*
 
-作为安同开源社区的一分子，我们共同的爱好就是探索计算机技术，特别是开源软件的发展和本地化。数年来，安同开源社区将大部分的精力放在了 [AOSC OS](@/sys/is-aosc-os-right-for-me.md) 这一发行版及多个社区成员们的兴趣项目。例如在 2019 年我们创建了 AOSC 古董计算机兴趣小组 (AOSC Retro Computing Group)，为古董电脑爱好者提供了一个购买、折腾、把玩古董电脑的交流平台，我们甚至为这些电脑移植和适配了 AOSC OS。
+作为安同开源社区的一分子，我们共同的爱好就是探索计算机技术，特别是开源软件的发展和本地化。数年来，安同开源社区将大部分的精力放在了 [AOSC OS](@/system/is-aosc-os-right-for-me.md) 这一发行版及多个社区成员们的兴趣项目。例如在 2019 年我们创建了 AOSC 古董计算机兴趣小组 (AOSC Retro Computing Group)，为古董电脑爱好者提供了一个购买、折腾、把玩古董电脑的交流平台，我们甚至为这些电脑移植和适配了 AOSC OS。
 
 # 我们为什么需要社区准则？
 

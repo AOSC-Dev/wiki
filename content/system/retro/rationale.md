@@ -11,13 +11,13 @@ Current State of Matters
 
 AOSC OS supports plethora of devices - old and new, common and obscure. From your 1999 Apple PowerBook G3 to the latest 64-core workstations, from the business laptops flooding the second hand market to the still elusive PinePhones, AOSC OS will run on them.
 
-AOSC OS is built with a unique set of [design principles](@/sys/is-aosc-os-right-for-me.md) (and philosophies if you must), and each of these principles comes with each of their own consequences. Here we will talk about storage and adaptation of newest technologies.
+AOSC OS is built with a unique set of [design principles](@/system/is-aosc-os-right-for-me.md) (and philosophies if you must), and each of these principles comes with each of their own consequences. Here we will talk about storage and adaptation of newest technologies.
 
 With our current mainline distributions, as all packages are built with full features and comes with all extra files (documentations and example data, etc.), AOSC OS easily takes up more than 10GiB of space. This sacrifice is worthwhile in our book, as we tend to assume that storage will become increasingly affordable, while your time and energy will stay most valuable.
 
 AOSC OS also takes pride in adapting to latest technologies. Here, you can find the latest Plasma Desktop, GNOME, Firefox, OpenGL support, and Kernels, etc. While newest technologies usually means better user experience and hardware support, it could also come at a cost. For instance, the Plasma Desktop, which many of our developers preferred, is practically unusable on devices with slow storage and GPUs. Our Linux Kernel is also getting larger and requires increasingly more RAM, as new driver support are being merged into the Kernel every few weeks.
 
-With these two points, it should already be apparent that AOSC OS is quite unsuitable for older devices. Before we get into [how we plan to address these issues](@/sys/retro/intro.md), let's take a look at some case studies and issues to get a better idea on the challenges at hand.
+With these two points, it should already be apparent that AOSC OS is quite unsuitable for older devices. Before we get into [how we plan to address these issues](@/system/retro/intro.md), let's take a look at some case studies and issues to get a better idea on the challenges at hand.
 
 Case Study: x86
 =========
@@ -47,7 +47,7 @@ Now how about something even older (that we also plan to support), an Intel 8048
 - 540MiB HDD.
 - Tseng ET4600 video card with 4MiB of Video RAM.
 
-Now the issues described above are *greatly* exacerbated. AOSC OS will need significant re-design to properly adapt to these devices. We will continue this discussion in [AOSC OS/Retro: An Introduction to Users and Maintainers](@/sys/retro/intro.md)
+Now the issues described above are *greatly* exacerbated. AOSC OS will need significant re-design to properly adapt to these devices. We will continue this discussion in [AOSC OS/Retro: An Introduction to Users and Maintainers](@/system/retro/intro.md)
 
 Case Study: PowerPC 32-Bit, Big Endian
 ================
@@ -89,4 +89,4 @@ The Take-Away
 
 AOSC OS will need significant amounts of changes and tweaks in order to become a viable choice for legacy devices with various constraints. However, we should make clear that we *do not* intend to achieve this by creating another distribution, adding to our already heavy maintenance workload.
 
-We intend to maintain AOSC OS for legacy devices in what is called a [Retro](http://github.com) branch, with longer update cycles and a limited set of packages available from the repository. The Linux distribution built from this branch will be known as ["AOSC OS/Retro"](@/sys/retro/intro.md).
+We intend to maintain AOSC OS for legacy devices in what is called a [Retro](http://github.com) branch, with longer update cycles and a limited set of packages available from the repository. The Linux distribution built from this branch will be known as ["AOSC OS/Retro"](@/system/retro/intro.md).

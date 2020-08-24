@@ -39,7 +39,7 @@ With all these philosophies above, AOSC OS has been built by large in accordance
 - All "language packs" along with appropriate fonts are pre-installed, and a simple command or GUI (GNOME and Plasma Desktop) allows for quick language switching.
 	- Some AOSC developers have been participating in L10n (localisation, or simply translation) work upstream, mainly for zh_CN (Simplified Chinese). Upstreams like WineHQ, FreeDesktop.org, GNOME, MATE, and LMMS, etc. benefit from our contribution, and these improvements benefit users of other Linux distributions or these specific applications on other operating systems.
 - Adequate support for 32-bit x86 applications (natively on AMD64, and via Qemu user emulation on other architectures) and Windows applications via Wine, with adequate testing and adaptation for CJK languages.
-- Apart from the installation process, you should feel no difference in appearance and usage with AOSC OS across our [supported architectures](@/sys/information/arch-specs.md) - of course, depending on the performance of your devices, your mileage may vary.
+- Apart from the installation process, you should feel no difference in appearance and usage with AOSC OS across our [supported architectures](@/system/information/arch-specs.md) - of course, depending on the performance of your devices, your mileage may vary.
 - Proprietary software, like the closed-source NVIDIA Unix driver packages, Google Chrome, Opera, and device firmwares (`firmware-nonfree` necessary for many wireless cards and graphics cards) can be easily obtained via our main repository.
 - A relatively strong software collection built upon user suggestions and active work of our developers.
 	- Software addition and updates could be easily requested on our community IRC and Telegram groups via the `/pakreq` and `/updreq` bot commands; additionally, any optimisation suggestions could be similarly made via the `/optreq` command. Developers can be easily reached most of the time.
@@ -68,7 +68,7 @@ Now that you have read through all those boring marketing material, time to make
 
 ## Give it a shot, if...
 
-- You have a computer of the [AMD64](@/sys/installation/amd64-notes-sysreq.md), [ARMv7](@/sys/installation/arm-notes-sysreq.md), [AArch64](@/sys/installation/arm-notes-sysreq.md), [Big-Endian PowerPC 32-bit 64-bit Macintosh](@/sys/installation/powermac-notes-sysreq.md) architectures.
+- You have a computer of the [AMD64](@/system/installation/amd64-notes-sysreq.md), [ARMv7](@/system/installation/arm-notes-sysreq.md), [AArch64](@/system/installation/arm-notes-sysreq.md), [Big-Endian PowerPC 32-bit 64-bit Macintosh](@/system/installation/powermac-notes-sysreq.md) architectures.
 	- And they come with adequate storage availability for the present and the future, by your judgement.
 	- Stable Internet connection for updates and security advisories (subscription optional at [security@lists.aosc.io](mailto:security@lists.aosc.io).
 - You don't particularly like configuring your system and expect a functional system without much tweaking.

@@ -8,9 +8,9 @@ tags = ["sys-installation"]
 
 Installation of AOSC OS on x86-64 systems/environments are generally universal for all systems of this architectures. But for some specific device configurations and virtualized environments, here below are some extra notes:
 
-- [Notes for KVM](@/sys/installation/amd64-notes-kvm.md)
-- [Notes for Bay Trail/Cherry Trail](@/sys/installation/amd64-notes-trails.md)
-- [Notes for software RAID](@/sys/installation/amd64-notes-softraid.md)
+- [Notes for KVM](@/system/installation/amd64-notes-kvm.md)
+- [Notes for Bay Trail/Cherry Trail](@/system/installation/amd64-notes-trails.md)
+- [Notes for software RAID](@/system/installation/amd64-notes-softraid.md)
 
 # Forenotes
 
@@ -20,7 +20,7 @@ Installation of AOSC OS on x86-64 systems/environments are generally universal f
 
 All AMD64/x86-64 tarballs are generic (universal for all supported devices), the only thing you would have to do here is choosing your favourite one - appropriate for your taste and your use case.
 
-> Note: Another consideration is whether your device is capable for a specific variant, please consult the [AMD64/x86-64 system requirements](@/sys/installation/amd64-notes-sysreq.md) page for more information.
+> Note: Another consideration is whether your device is capable for a specific variant, please consult the [AMD64/x86-64 system requirements](@/system/installation/amd64-notes-sysreq.md) page for more information.
 
 ## Bootable
 

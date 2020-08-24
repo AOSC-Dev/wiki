@@ -6,7 +6,7 @@ date = 2020-08-10T13:11:31.085Z
 tags = ["sys-retro"]
 +++
 
-这个页面的主要用途是介绍 AOSC/Retro 的设计规范和维护目标。想要了解这个分支的基本理念，请阅读 [这个页面](@/sys/retro/rationale.md)。
+这个页面的主要用途是介绍 AOSC/Retro 的设计规范和维护目标。想要了解这个分支的基本理念，请阅读 [这个页面](@/system/retro/rationale.md)。
 
 # 设计规范
 

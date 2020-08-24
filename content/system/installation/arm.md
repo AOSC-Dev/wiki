@@ -18,7 +18,7 @@ Device-specific RAW images for MicroSD cards and eMMC storage could be found in 
 
 # Variants and System Requirements
 
-Currently, the following variants of AOSC OS are available for ARMv7/AArch64 devices/systems. Additional consideration is needed for whether your device is capable for a specific variant, please consult the [ARM system requirements](@/sys/installation/arm-notes-sysreq.md) page for more information:
+Currently, the following variants of AOSC OS are available for ARMv7/AArch64 devices/systems. Additional consideration is needed for whether your device is capable for a specific variant, please consult the [ARM system requirements](@/system/installation/arm-notes-sysreq.md) page for more information:
 
 ## Bootable
 

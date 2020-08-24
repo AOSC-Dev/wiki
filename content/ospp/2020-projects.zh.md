@@ -98,7 +98,7 @@ tags = ["ospp"]
 [dk]: https://github.com/AOSC-Dev/DeployKit
 [gtk]: https://www.gtk.org/
 [vala]: https://wiki.gnome.org/Projects/Vala
-[inst-guide]: @/sys/installation/amd64.md
+[inst-guide]: @/system/installation/amd64.md
 
 <!--
 

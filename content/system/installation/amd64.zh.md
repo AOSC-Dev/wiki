@@ -8,9 +8,9 @@ tags = ["sys-installation"]
 
 本针对于 x86_64 架构或系统的安装指南可以应用于大部分通用环境。但针对部分特殊平台，这里有一些附加提示：
 
-- [针对 KVM 的额外说明](@/sys/installation/amd64-notes-kvm.md)
-- [针对 Bay Trail/Cherry Trail 的额外说明](@/sys/installation/amd64-notes-trails.md)
-- [针对 software RAID 的额外说明](@/sys/installation/amd64-notes-softraid.md)
+- [针对 KVM 的额外说明](@/system/installation/amd64-notes-kvm.md)
+- [针对 Bay Trail/Cherry Trail 的额外说明](@/system/installation/amd64-notes-trails.md)
+- [针对 software RAID 的额外说明](@/system/installation/amd64-notes-softraid.md)
 
 # 注意
 
@@ -20,7 +20,7 @@ tags = ["sys-installation"]
 
 所有的 AMD64/x86_64 的 .tar 压缩包都是通用的。你要做的就是按你的喜好和需求选择他们。
 
-> 注意：你在选择 .tar 压缩包的时候还要考虑你的设备是否支持，关于这部分的信息请参考 [AMD64/x86_64 system requirements](@/sys/installation/amd64-notes-sysreq.md)。
+> 注意：你在选择 .tar 压缩包的时候还要考虑你的设备是否支持，关于这部分的信息请参考 [AMD64/x86_64 system requirements](@/system/installation/amd64-notes-sysreq.md)。
 
 ## 可引导
 

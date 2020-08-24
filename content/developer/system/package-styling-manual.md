@@ -166,7 +166,7 @@ Build-time dependencies should written in such a way that the package will compi
 
 # Package Features
 
-When packaging for AOSC OS, please work in accordance to our [distribution feature guide](@/sys/is-aosc-os-right-for-me.md). The table below digests some of the common considerations when building packages for AOSC OS.
+When packaging for AOSC OS, please work in accordance to our [distribution feature guide](@/system/is-aosc-os-right-for-me.md). The table below digests some of the common considerations when building packages for AOSC OS.
 
 | Considerations | Appropriate Actions |
 |-------------------------|---------------------------------|

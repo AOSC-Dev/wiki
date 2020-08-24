@@ -6,7 +6,7 @@ date = 2020-05-04T03:37:46.485Z
 tags = ["sys-retro"]
 +++
 
-Now that we have introduced our [rationale](@/sys/retro/rationale.md) to maintaining a Retro branch for AOSC OS (we will now refer to this as AOSC OS/Retro), this page will serve as an introduction to our design specifications and goals in maintaining this branch.
+Now that we have introduced our [rationale](@/system/retro/rationale.md) to maintaining a Retro branch for AOSC OS (we will now refer to this as AOSC OS/Retro), this page will serve as an introduction to our design specifications and goals in maintaining this branch.
 
 Specifications
 =====

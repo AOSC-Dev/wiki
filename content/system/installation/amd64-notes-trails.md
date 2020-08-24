@@ -8,7 +8,7 @@ tags = ["sys-installation"]
 
 **Give up while you can!** The current state of Linux support on some of the Bay Trail or Cherry Trail devices is to an extent, broken (nor has it never been in a satisfactory state).
 
-Installation steps of AOSC OS on these devices are generally [identical](@/sys/installation/amd64.md) as with any other AMD64/x86_64 systems, except that:
+Installation steps of AOSC OS on these devices are generally [identical](@/system/installation/amd64.md) as with any other AMD64/x86_64 systems, except that:
 
 - Some eMMC-based devices uses `/dev/mmcblkNpN` for storage devices.
 - Extra steps needs to be taken for specific devices.
