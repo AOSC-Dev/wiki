@@ -8,7 +8,7 @@ tags = ["sys-installation"]
 
 AOSC OS installation on Qemu/KVM is the same as installing on a regular AMD64/x86_64 system, this section is intended to aid you with configuring the virtual machine, and un-tar-ing the tarballs from outside of the virtual machine.
 
-These two steps below replaces the "Preparing an Installation Environment", "Preparing partitions", and "Un-tar!" sections in the [regular installation guide](/en/sys-installation-amd64).
+These two steps below replaces the "Preparing an Installation Environment", "Preparing partitions", and "Un-tar!" sections in the [regular installation guide](@/sys/installation/amd64.md).
 
 # Forenotes
 
@@ -103,6 +103,6 @@ Now you can umount your image:
 
 Here comes the most interesting part. Boot configuration is needed for the un-tar-ed system to boot and initialize.
 
-This part require you to have a working VM. To chroot on your physical system simply won't work as expected. Before continue with installing GRUB as described in the [regular installation guide](/en/sys-installation-amd64), create a VM with the prepared hard disk file, and boot the VM from a LiveCD.
+This part require you to have a working VM. To chroot on your physical system simply won't work as expected. Before continue with installing GRUB as described in the [regular installation guide](@/sys/installation/amd64.md), create a VM with the prepared hard disk file, and boot the VM from a LiveCD.
 
 Now you may continue the installation in the VM with the Live system.

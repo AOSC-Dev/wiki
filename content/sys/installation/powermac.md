@@ -18,7 +18,7 @@ As stated above, this guide is specific to installing AOSC OS on PowerPC-based (
 
 All PowerPC 32/64-bit tarballs are generic (universal for all supported devices), the only thing you would have to do here is choosing your favourite one - appropriate for your taste and your use case.
 
-Another consideration is whether your device is capable for a specific variant, please consult the [PowerPC system requirements](/en/sys-installation-powermac-notes-sysreq) page for more information.
+Another consideration is whether your device is capable for a specific variant, please consult the [PowerPC system requirements](@/sys/installation/powermac-notes-sysreq.md) page for more information.
 
 ## Bootable
 

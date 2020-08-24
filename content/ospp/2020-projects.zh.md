@@ -55,7 +55,7 @@ tags = ["ospp"]
 - 导师联系方式：gumblex@aosc.io
 - 合作导师联系方式：白铭骢 <<jeffbai@aosc.io>>
 - 项目产出要求：实现自动测试并汇报软件包质量问题
-  - 实现在编译的各个环节对[已定义问题](https://wiki.aosc.io/en/dev-sys-qa-issue-codes)的检测
+  - 实现在编译的各个环节对[已定义问题](@/dev/sys/qa-issue-codes.md)的检测
   - 输出人和机器可读的测试报告（可以分开）
   - 实现软件包的安装测试（检查依赖）
   - 实现对命令行程序的冒烟测试
@@ -98,7 +98,7 @@ tags = ["ospp"]
 [dk]: https://github.com/AOSC-Dev/DeployKit
 [gtk]: https://www.gtk.org/
 [vala]: https://wiki.gnome.org/Projects/Vala
-[inst-guide]: /sys-installation-amd64
+[inst-guide]: @/sys/installation/amd64.md
 
 <!--
 

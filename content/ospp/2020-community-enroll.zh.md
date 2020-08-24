@@ -22,7 +22,7 @@ tags = ["ospp"]
 5. 社区成段描述：安同开源社区（Anthon Open Source Community, 简称 AOSC）是围绕社区项目 AOSC OS 形成的开源社区。AOSC OS 是一款遵循简约、本地化、包容、可持续及精制原则独立开发的通用 Linux 发行版，致力于改善开源软件的使用体验。
 6. 社区邮件列表（用于帮助学生了解社区，一般为开发者邮箱列表）： discussions@lists.aosc.io
 7. 社区官方公共联系邮箱： discussions@lists.aosc.io
-8. 社区 “暑期2020” 项目列表页面链接（可选，可在页面准备好后再告知）： https://wiki.aosc.io/zh/ospp-2020-projects
+8. 社区 “暑期2020” 项目列表页面链接（可选，可在页面准备好后再告知）： [开源软件供应链点亮计划暑期 2020 项目](@/ospp/2020-projects.zh.md)
 9. 技术标签：Linux、dpkg、L10n、Container、CI/CD、Automation、C、Python、Bash、Vala、GTK
 10. 专注领域：Linux 发行版、中文本地化
 

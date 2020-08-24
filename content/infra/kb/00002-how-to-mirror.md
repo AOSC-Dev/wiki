@@ -12,7 +12,7 @@ Believe it or not, AOSC has been around for quite some time now. We do want more
 
 Up to now, we have many mirrors (mainly in China), and we do need more mirrors in other areas (especially in U.S.). If you are interested and able to help us, please read the following information.
 
-**Note**: AOSC migrated the repo server on Dec 29, 2018. If your mirror site encounters problem, please refer to https://wiki.aosc.io/mirrors/migration-guide for more information and contacts.
+**Note**: AOSC migrated the repo server on Dec 29, 2018. If your mirror site encounters problem, please refer to [this article](@/infra/kb/00003-repository-migration.md) for more information and contacts.
 
 # Repo Contents
 What is included in the repo? Generally everything about AOSC, and most are of AOSC OS (packages, system images). Some documentations, like *Free Software Localization Guide for Chinese (China) *, are also saved here.

@@ -81,7 +81,7 @@ These tables contain information necessary to generate indices for apt and to an
 	* package
 	* version
 	* repo
-	* errno: [issue code](/developers/list-of-package-issue-codes)
+	* errno: [issue code](@/dev/sys/qa-issue-codes.md)
 	* level: -1 critical, 0 error, 1 warning
 	* filename
 	* ctime: creation time

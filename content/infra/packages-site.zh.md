@@ -57,7 +57,7 @@ tags = ["infra"]
 
 ## 计划
 
-> 请查看 [英文页面对应部分](https://wiki.aosc.io/en/infra-packages-site#plans) 查看实时内容。
+> 请查看 [英文页面对应部分](@/infra/packages-site.md#plans) 查看实时内容。
 {.is-info}
 
 

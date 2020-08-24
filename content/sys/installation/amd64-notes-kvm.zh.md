@@ -8,7 +8,7 @@ tags = ["sys-installation"]
 
 事实上，在 Qemu/KVM 上安装 AOSC OS 和在一台常规的 AMD64/x86_64 设备上安装 AOSC OS 是差不多的。本文旨在帮助您配置虚拟机，并从虚拟机外部解压 Tarball。
 
-下面部分将覆盖 [常规安装指南](/zh/sys-installation-amd64) 的 “准备安装环境”、“准备分区”、“解压 Tarball” 三部分。
+下面部分将覆盖 [常规安装指南](@/sys/installation/amd64.zh.md) 的 “准备安装环境”、“准备分区”、“解压 Tarball” 三部分。
 
 # 注意
 
@@ -103,6 +103,6 @@ $ cd /mnt
 
 为了让解压好的系统能被正常引导，你需要对引导器做一些初始化工作和配置工作。
 
-这一步应该会很有趣：你需要有一台可用的虚拟机，因为在你的物理系统下 Chroot 不一定奏效。按照 [常规安装指南](/zh/sys-installation-amd64) 中的说明安装 GRUB 之前，请使用在前面准备好的硬盘文件创建一个虚拟机，并使用 LiveCD 引导该虚拟机。
+这一步应该会很有趣：你需要有一台可用的虚拟机，因为在你的物理系统下 Chroot 不一定奏效。按照 [常规安装指南](@/sys/installation/amd64.md) 中的说明安装 GRUB 之前，请使用在前面准备好的硬盘文件创建一个虚拟机，并使用 LiveCD 引导该虚拟机。
 
 现在，你可以使用 LiveCD 继续在虚拟机中安装 AOSC OS。
