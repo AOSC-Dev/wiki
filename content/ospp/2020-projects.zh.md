@@ -11,7 +11,6 @@ tags = ["ospp"]
 [tg]: https://t.me/joinchat/BMnG9zvfjCgZUTIAoycKkg
 
 > 请先仔细阅读[学生指南](https://isrc.iscas.ac.cn/summer2020/help/student.html)。
-{.is-info}
 
 # 发行版构建自动化：打包调度器
 

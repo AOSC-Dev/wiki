@@ -58,7 +58,6 @@ tags = ["infra"]
 ## 计划
 
 > 请查看 [英文页面对应部分](@/infrastructure/packages-site.md#plans) 查看实时内容。
-{.is-info}
 
 
 # 常见问题

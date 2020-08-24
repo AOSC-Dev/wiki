@@ -17,8 +17,6 @@ tags = ["sys-kb"]
 要安装一个输入法框架和输入方案插件，使用 `sudo apt install` 安装下面任意一个软件包即可：
 
 > Fcitx 5 仍在开发中，如果你希望抢先预览，可以安装 `fcitx5*`。安装 `fcitx-base` 将得到 Fcitx 4。
-{.is-info}
-
 
 - Fcitx，`fcitx-base`。
 - IBus，`ibus-base`。

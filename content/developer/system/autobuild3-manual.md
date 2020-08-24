@@ -222,7 +222,6 @@ Here below is a list of variables available when using the `gomod` build type.
 
 **GO_BUILD_AFTER=** expects a string value containing all extra arguments to be passed to `go build`, you can specify extra flags for the go compiler using this variable. 
 >**Hint:** you might want to use this variable to define version numbers or other constants through linker flags.
-{{.is-info}}
 
 ### rust
 
