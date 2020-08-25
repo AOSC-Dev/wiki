@@ -3,46 +3,46 @@
 {# Default head block is good enough here. #}
 
 {% block search %}
-<div id="search" class="search-grand-header">
-  <input id="search-bar" type="search" placeholder="Search AOSC Wiki">
-  <div id="search-results">
-    <!-- Search Results will be displayed here -->
+  <div id="search" class="search-grand-header">
+    <input id="search-bar" type="search" placeholder="Search AOSC Wiki">
+    <div id="search-results">
+      <!-- Search Results will be displayed here -->
+    </div>
   </div>
-</div>
 {% endblock search %}
 
 {% block header %}
-<div id="grand-header">
-  <div class="grand-title">
-    <img class="logo" src="/img/aosc.png">
-    <span class="logo-text">/{{ config.title }}</span>
-    <span class="description">{{ config.description }}</span>
+  <div id="grand-header">
+    <div class="grand-title">
+      <img class="logo" src="/img/aosc.png">
+      <span class="logo-text">/{{ config.title }}</span>
+      <span class="description">{{ config.description }}</span>
+    </div>
   </div>
-</div>
 {% endblock header %}
 
 {% block main %}
-{{ section.content | safe }}
+  {{ section.content | safe }}
 
-<nav class="section-nav">
-  <div class="nav-section">
-    <h2>Also Available In:</h2>
-    {% for lang in section.translations %}
-    <a href="{{ lang.permalink }}">{{ lang.lang }}</a>
+  <nav class="section-nav">
+    <div class="nav-section">
+      <h2>Also Available In:</h2>
+      {% for lang in section.translations %}
+        <a href="{{ lang.permalink }}">{{ lang.lang }}</a>
+      {% endfor %}
+    </div>
+
+    <h2>On This Wiki:</h2>
+    {% for subsection_path in section.subsections %}
+      {% set subsection = get_section(path=subsection_path, metadata_only=true) %}
+      <a href="{{ subsection.permalink }}">
+        <span style="color: grey">> </span>
+        {{ subsection.title }}
+      </a>
     {% endfor %}
-  </div>
 
-  <h2>On This Wiki:</h2>
-  {% for subsection_path in section.subsections %}
-  {% set subsection = get_section(path=subsection_path, metadata_only=true) %}
-  <a href="{{ subsection.permalink }}">
-    <span style="color: grey">> </span>
-    {{ subsection.title }}
-  </a>
-  {% endfor %}
-
-  {% for post in section.pages %}
-    <a href="{{ post.permalink }}">{{ post.title }}</a>
-  {% endfor %}
-</nav>
+    {% for post in section.pages %}
+      <a href="{{ post.permalink }}">{{ post.title }}</a>
+    {% endfor %}
+  </nav>
 {% endblock main %}

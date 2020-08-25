@@ -2,77 +2,77 @@
 {% extends "base.html" %}
 
 {% block head %}
-{{ macros::head(title=section.title, url=section.permalink, description=section.description) }}
+  {{ macros::head(title=section.title, url=section.permalink, description=section.description) }}
 {% endblock head %}
 
 {% block header %}
-<div id="position-bar">
-  {# Navigation #}
-  {% for ancestor in section.ancestors %}
-  {% set an_section = get_section(path=ancestor, metadata_only=true) %}
-  <a class="section-link" href="{{ an_section.permalink }}">{{ an_section.title }}</a>
-  {% if not loop.last %}
-  <span>/</span>
-  {% else %}
-  <span>/</span>
-  <a class="section-link" href="{{ section.permalink }}">{{ section.title }}</a>
-  <span>/</span>
-  {% endif %}
-  {% endfor %}
+  <div id="position-bar">
+    {# Navigation #}
+    {% for ancestor in section.ancestors %}
+      {% set an_section = get_section(path=ancestor, metadata_only=true) %}
+      <a class="section-link" href="{{ an_section.permalink }}">{{ an_section.title }}</a>
+      {% if not loop.last %}
+        <span>/</span>
+      {% else %}
+        <span>/</span>
+        <a class="section-link" href="{{ section.permalink }}">{{ section.title }}</a>
+        <span>/</span>
+      {% endif %}
+    {% endfor %}
 
-  {{ macros::language_select(source=section) }}
-</div>
+    {{ macros::language_select(source=section) }}
+  </div>
 
-<h1 id="title">{{ section.title }}</h1>
-<p id="description">{{ section.description }}</p>
+  <h1 id="title">{{ section.title }}</h1>
+  <p id="description">{{ section.description }}</p>
 {% endblock header %}
 
 {% block main %}
-{% if section.extra.list_section %}
-{{ section.content | safe }}
-<ul style="list-style-position: inside; padding-left: 0">
-  {% for post in section.pages %}
-  <li>
-    <a href="{{ post.permalink }}">{{ post.title }}</a>
-  </li>
-  {% endfor %}
-</ul>
+  {# if this is a simple list section #}
+  {% if section.extra.list_section %}
+    {{ section.content | safe }}
+    <ul style="list-style-position: inside; padding-left: 0">
+      {% for post in section.pages %}
+        <li>
+          <a href="{{ post.permalink }}">{{ post.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
 
-<nav class="section-nav">
-  <b>Subsections In This Section:</b>
-  {% if section.subsections | length == 0 %}
-  <i style="display: block">None</i>
+    <nav class="section-nav">
+      <b>Subsections In This Section:</b>
+      {% if section.subsections | length == 0 %}
+        <i style="display: block">None</i>
+      {% endif %}
+
+      {% for subsection_path in section.subsections %}
+        {% set subsection = get_section(path=subsection_path, metadata_only=true) %}
+        <a href="{{ subsection.permalink }}">
+          <span style="color: grey">> </span>
+          {{ subsection.title }}
+        </a>
+      {% endfor %}
+    </nav>
+    
+  {% else %}
+    <nav class="section-nav">
+      <b>Contents in this section:</b>
+      {% for subsection_path in section.subsections %}
+        {% set subsection = get_section(path=subsection_path, metadata_only=true) %}
+        <a href="{{ subsection.permalink }}">
+          <span style="color: grey">> </span>
+          {{ subsection.title }}
+        </a>
+      {% endfor %}
+
+      {% for post in section.pages %}
+        <a href="{{ post.permalink }}">{{ post.title }}</a>
+      {% endfor %}
+
+    </nav>
+
+    <article>
+      {{ section.content | safe }}
+    </article>
   {% endif %}
-
-  {% for subsection_path in section.subsections %}
-  {% set subsection = get_section(path=subsection_path, metadata_only=true) %}
-  <a href="{{ subsection.permalink }}">
-    <span style="color: grey">> </span>
-    {{ subsection.title }}
-  </a>
-  {% endfor %}
-</nav>
- 
-{% else %}
-<nav class="section-nav">
-  <b>Contents in this section:</b>
-  {% for subsection_path in section.subsections %}
-  {% set subsection = get_section(path=subsection_path, metadata_only=true) %}
-  <a href="{{ subsection.permalink }}">
-    <span style="color: grey">> </span>
-    {{ subsection.title }}
-  </a>
-  {% endfor %}
-
-  {% for post in section.pages %}
-    <a href="{{ post.permalink }}">{{ post.title }}</a>
-  {% endfor %}
-
-</nav>
-
-<article>
-  {{ section.content | safe }}
-</article>
-{% endif %}
-
 {% endblock main %}

@@ -2,36 +2,36 @@
 {% extends "base.html" %}
 
 {% block head %}
-{{ macros::head(title="Tags", url=current_url, description=config.description) }}
+  {{ macros::head(title="Tags", url=current_url, description=config.description) }}
 {% endblock head %}
 
 {% block header %}
-<div id="position-bar">
-  {# Navigation #}
-  <span>All tags in </span>
-  <a class="section-link" href="{{ config.base_url }}">AOSC {{ config.title }}</a>
-</div>
+  <div id="position-bar">
+    {# Navigation #}
+    <span>All tags in </span>
+    <a class="section-link" href="{{ config.base_url }}">AOSC/{{ config.title }}</a>
+  </div>
 {% endblock header %}
 
 {% block main %}
-<nav>
-  <b>Tags</b>
-  {% for tag in terms %}
-  <a href="#{{ tag.name }}">{{ tag.name }}</a>
-  {% endfor %}
-</nav>
-
-{# Acutal tags #}
-<article>
-{% for tag in terms %}
-  <h1 id="{{ tag.name }}">{{ tag.name }}</h1>
-  <ul>
-    {% for page in tag.pages %}
-    <li>
-      <a href="{{ page.permalink }}">{{ page.title }}</a>
-    </li>
+  <nav>
+    <b>Tags</b>
+    {% for tag in terms %}
+      <a href="#{{ tag.name }}">{{ tag.name }}</a>
     {% endfor %}
-  </ul>
-{% endfor %}
-</article>
+  </nav>
+
+  {# Acutal tags #}
+  <article>
+    {% for tag in terms %}
+      <h1 id="{{ tag.name }}">{{ tag.name }}</h1>
+      <ul>
+        {% for page in tag.pages %}
+          <li>
+            <a href="{{ page.permalink }}">{{ page.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endfor %}
+  </article>
 {% endblock main %}

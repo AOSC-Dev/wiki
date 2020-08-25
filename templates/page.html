@@ -2,43 +2,43 @@
 {% extends "base.html" %}
 
 {% block head %}
-{{ macros::head(title=page.title, url=page.permalink, description=page.description) }}
+  {{ macros::head(title=page.title, url=page.permalink, description=page.description) }}
 {% endblock head %}
 
 {% block header %}
-<div id="position-bar">
-  {# Navigation #}
-  {% for ancestor in page.ancestors %}
-  {% set section = get_section(path=ancestor, metadata_only=true) %}
-  <a class="section-link" href="{{ section.permalink }}">{{ section.title }}</a>
-  {% if not loop.last %}
-  <span>/</span>
-  {% else %}
-  <span>/</span>
-  <a class="section-link" href="{{ page.permalink }}">.</a>
-  {% endif %}
-  {% endfor %}
+  <div id="position-bar">
+    {# Navigation #}
+    {% for ancestor in page.ancestors %}
+      {% set section = get_section(path=ancestor, metadata_only=true) %}
+      <a class="section-link" href="{{ section.permalink }}">{{ section.title }}</a>
+      {% if not loop.last %}
+        <span>/</span>
+      {% else %}
+        <span>/</span>
+        <a class="section-link" href="{{ page.permalink }}">.</a>
+      {% endif %}
+    {% endfor %}
 
-  {{ macros::language_select(source=page) }}
-</div>
+    {{ macros::language_select(source=page) }}
+  </div>
 
-<h1 id="title">{{ page.title }}</h1>
-<p id="description">{{ page.description }}</p>
+  <h1 id="title">{{ page.title }}</h1>
+  <p id="description">{{ page.description }}</p>
 {% endblock header %}
 
 {% block main %}
-<nav>
-  <b>On This Page</b>
-  {% for header in page.toc %}
-  <a class="first-level-header" href="{{ header.permalink }}">{{ header.title }}</a>
-  <div style="margin-left: 1.3rem">
-    {% for header in header.children %}
-    <a href="{{ header.permalink }}">{{ header.title }}</a>
+  <nav>
+    <b>On This Page</b>
+    {% for header in page.toc %}
+      <a class="first-level-header" href="{{ header.permalink }}">{{ header.title }}</a>
+      <div style="margin-left: 1.3rem">
+        {% for header in header.children %}
+          <a href="{{ header.permalink }}">{{ header.title }}</a>
+        {% endfor %}
+      </div>
     {% endfor %}
-  </div>
-  {% endfor %}
-</nav>
-<article>
-  {{ page.content | safe }}
-</article>
+  </nav>
+  <article>
+    {{ page.content | safe }}
+  </article>
 {% endblock main %}
