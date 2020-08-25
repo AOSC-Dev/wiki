@@ -18,12 +18,14 @@
   <a name="top"></a>
 
   <body>
+    {% block search %}
     <div id="search">
       <input id="search-bar" type="search" placeholder="Search AOSC Wiki">
       <div id="search-results">
         <!-- Search Results will be displayed here -->
       </div>
     </div>
+    {% endblock search %}
 
     <header>
       {% block header %}
