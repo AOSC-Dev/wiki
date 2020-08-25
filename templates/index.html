@@ -13,34 +13,27 @@
 {% endblock header %}
 
 {% block main %}
-<nav>
-  <div class="nav-section">
-    <h2>Tags on this site:</h2>
-    {% set t = get_taxonomy(kind="tags") %}
-    {% for item in t.items %}
-    <a href="{{ config.base_url }}tags#{{ item.name }}">{{ item.name }}</a>
-    {% endfor %}
-  </div>
+{{ section.content | safe }}
 
+<nav class="section-nav">
   <div class="nav-section">
-    <h2>Available languages:</h2>
+    <h2>Also Available In:</h2>
     {% for lang in section.translations %}
     <a href="{{ lang.permalink }}">{{ lang.lang }}</a>
     {% endfor %}
   </div>
 
-  <h2>Debug view below:</h2>
-  <b>Posts</b>
+  <h2>On This Wiki:</h2>
+  {% for subsection_path in section.subsections %}
+  {% set subsection = get_section(path=subsection_path, metadata_only=true) %}
+  <a href="{{ subsection.permalink }}">
+    <span style="color: grey">> </span>
+    {{ subsection.title }}
+  </a>
+  {% endfor %}
+
   {% for post in section.pages %}
     <a href="{{ post.permalink }}">{{ post.title }}</a>
   {% endfor %}
-
-  <b>Subsections</b>
-  {% for subsection_path in section.subsections %}
-  {% set subsection = get_section(path=subsection_path, metadata_only=true) %}
-    <a href="{{ subsection.permalink }}">{{ subsection.title }}</a>
-  {% endfor %}
 </nav>
-
-{{ section.content | safe }}
 {% endblock main %}

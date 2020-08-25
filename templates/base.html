@@ -1,3 +1,5 @@
+{% import "macros.html" as macros %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,15 +10,7 @@
 	<link rel="stylesheet" href="/main.css">
 
     {% block head %}
-    <title>AOSC/{{ config.title }}</title>
-    <link rel="icon" href="{{ config.extra.logo }}">
-
-    <meta property="og:title" content="{{ config.title }}" />
-    <meta property="og:type" content="article" />
-    <meta property="og:url" content="{{ config.base_url }}" />
-    <meta property="og:image" content="{{ config.extra.logo }}" />
-    <meta property="og:description" content="{{ config.description }}" />
-    <meta name="description" content="{{ config.description }}">
+    {{ macros::head(title="Index", url=config.base_url, description=config.description) }}
     {% endblock head %}
   </head>
 

@@ -76,7 +76,7 @@ header
     padding-bottom: .2rem
     border-bottom: 1px dotted grey
     a.section-link
-      text-transform: uppercase
+      //text-transform: uppercase
   .right
     display: inline-block
     float: right
@@ -89,19 +89,40 @@ header
     font-family: $serifFonts
     font-style: italic
 
+main
+  position: relative
+
 nav
   position: absolute
   display: block
-  right: 0
+  top: 0
+  left: 100%
   width: 18rem
-  padding: 0 .5rem
+  padding: 0 1.5rem
   z-index: 1
 
+  &.section-nav
+    // If it is section nav (which is located at bottom)
+    // Will always be a block at bottom
+    // (Otherwise the layout will break to hell)
+    @media screen and (max-width: $singleColWidth)
+      float: none
+      position: relative
+      float: none
+      width: calc(100% - 2rem - 2px)
+      margin: 2rem 0 1rem 0
+
+      // Add a box to differenciate
+      padding: 1rem
+      border: 1.5px solid grey
   @media screen and (max-width: $singleColWidth)
+    // Reset the layout for wide screen
     position: relative
+    top: 0
+    left: 0
+
     float: right
     margin: 0 1rem .5rem 1rem
-    //background-color: #faf9f8
   @media screen and (max-width: $smallScreenWidth)
     position: relative
     float: none

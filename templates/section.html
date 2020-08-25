@@ -28,14 +28,42 @@
 {% endblock header %}
 
 {% block main %}
-<nav>
+{% if section.extra.list_section %}
+{{ section.content | safe }}
+<ul style="list-style-position: inside; padding-left: 0">
+  {% for post in section.pages %}
+  <li>
+    <a href="{{ post.permalink }}">{{ post.title }}</a>
+  </li>
+  {% endfor %}
+</ul>
+
+<nav class="section-nav">
+  <b>Subsections In This Section:</b>
+  {% if section.subsections | length == 0 %}
+  <i style="display: block">None</i>
+  {% endif %}
+
   {% for subsection_path in section.subsections %}
   {% set subsection = get_section(path=subsection_path, metadata_only=true) %}
+  <a href="{{ subsection.permalink }}">
     <span style="color: grey">> </span>
-    <a href="{{ subsection.permalink }}">{{ subsection.title }}</a>
+    {{ subsection.title }}
+  </a>
+  {% endfor %}
+</nav>
+ 
+{% else %}
+<nav class="section-nav">
+  <b>Contents in this section:</b>
+  {% for subsection_path in section.subsections %}
+  {% set subsection = get_section(path=subsection_path, metadata_only=true) %}
+  <a href="{{ subsection.permalink }}">
+    <span style="color: grey">> </span>
+    {{ subsection.title }}
+  </a>
   {% endfor %}
 
-  <b>Contents in this section:</b>
   {% for post in section.pages %}
     <a href="{{ post.permalink }}">{{ post.title }}</a>
   {% endfor %}
@@ -45,4 +73,6 @@
 <article>
   {{ section.content | safe }}
 </article>
+{% endif %}
+
 {% endblock main %}
