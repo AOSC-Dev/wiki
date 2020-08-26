@@ -3,8 +3,8 @@ compile_sass = true
 highlight_code = true
 build_search_index = true
 
-title = "Wiki"
-description = "Where People Go To Know..."
+title = "AOSC Wiki"
+description = "Do in the Know"
 languages = [
     {code = "zh", search = true}, 
 ]
@@ -16,5 +16,6 @@ taxonomies = [
 
 [extra]
 logo = "/img/aosc.png"
+logo_text = "/Wiki"
 footer_msg = "Copyleft 2011 — 2020, Members of the Community."
 # Put all your custom variables here
