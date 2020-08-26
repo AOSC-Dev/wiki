@@ -28,8 +28,8 @@
   <nav class="section-nav">
     <div class="nav-section">
       <h2>{{ trans(key="also_available_in", lang=lang) }}</h2>
-      {% for lang in section.translations %}
-        <a href="{{ lang.permalink }}">{{ lang.lang }}</a>
+      {% for translated in section.translations %}
+        <a href="{{ translated.permalink }}">{{ trans(key=translated.lang, lang=lang) }}</a>
       {% endfor %}
     </div>
 
