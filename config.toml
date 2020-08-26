@@ -14,15 +14,27 @@ taxonomies = [
     {name = "tags", lang = "zh"},
 ]
 
-[translations]
-[translations.en]
-desc = "Do in the Know"
-
-[translations.zh]
-desc = "致知而行"
-
 [extra]
 logo = "/img/aosc.png"
 logo_text = "/Wiki"
+
+[translations]
+[translations.en]
+zh = "简体中文"
+description = "Do in the Know"
+search_placeholder = "Search AOSC Wiki"
+also_available_in = "Also available in:"
+on_this_wiki = "On This Wiki:"
+subsecs_in_this_sec = "Subsections In This Section:"
+contents_in_this_section = "Contents in this section:"
 footer_msg = "Copyleft 2011 — 2020, Members of the Community."
-# Put all your custom variables here
+
+[translations.zh]
+en = "English"
+description = "致知而行"
+search_placeholder = "搜索 AOSC Wiki"
+also_available_in = "其他语言:"
+on_this_wiki = "章节:"
+subsecs_in_this_sec = "子章节:"
+contents_in_this_section = "本章内容:"
+footer_msg = "版权属左 2011 — 2020，由全体社区成员维护"

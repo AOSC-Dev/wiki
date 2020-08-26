@@ -10,14 +10,14 @@
   <meta name="description" content="{{ description }}">
 {% endmacro head %}
 
-
 {% macro language_select(source) %}
   <div class="right">
     {% if source.translations | length > 0 %}
-      Also available in:
+      {{ trans(key="also_available_in", lang=lang) }}
       {% for t in source.translations %}
-        <a href="{{ t.permalink }}">{{ t.lang }}</a>
+        <a href="{{ t.permalink }}">{{ trans(key=t.lang, lang=lang) }}</a>
       {% endfor %}
     {% endif %}
   </div>
 {% endmacro language_select %}
+

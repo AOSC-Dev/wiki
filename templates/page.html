@@ -1,4 +1,5 @@
 {% import "macros.html" as macros %}
+
 {% extends "base.html" %}
 
 {% block head %}
@@ -19,7 +20,7 @@
       {% endif %}
     {% endfor %}
 
-    {{ macros::language_select(source=page) }}
+    {{ macros::language_select(source=page, lang=page.lang) }}
   </div>
 
   <h1 id="title">{{ page.title }}</h1>

@@ -20,7 +20,8 @@
   <body>
     {% block search %}
     <div id="search">
-      <input id="search-bar" type="search" placeholder="Search AOSC Wiki">
+      {% set search_msg = trans(key="search_placeholder", lang=lang) %}
+      <input id="search-bar" type="search" placeholder="{{ search_msg }}">
       <div id="search-results">
         <!-- Search Results will be displayed here -->
       </div>
@@ -43,7 +44,7 @@
 
   <footer>
     {% block footer %}
-    <p>{{ config.extra.footer_msg }}</p>
+    <p>{{ trans(key="footer_msg", lang=lang) }}</p>
     {% endblock footer %}
   </footer>
 

@@ -1,5 +1,7 @@
 {% import "macros.html" as macros %}
 {% extends "base.html" %}
+{% set current_lang = section.lang %}
+
 
 {% block head %}
   {{ macros::head(title=section.title, url=section.permalink, description=section.description) }}
@@ -20,7 +22,7 @@
       {% endif %}
     {% endfor %}
 
-    {{ macros::language_select(source=section) }}
+    {{ macros::language_select(source=section, lang=section.lang) }}
   </div>
 
   <h1 id="title">{{ section.title }}</h1>
@@ -40,7 +42,7 @@
     </ul>
 
     <nav class="section-nav">
-      <b>Subsections In This Section:</b>
+      <b>{{ trans(key="subsecs_in_this_sec", lang=section.lang) }}</b>
       {% if section.subsections | length == 0 %}
         <i style="display: block">None</i>
       {% endif %}
@@ -56,7 +58,7 @@
     
   {% else %}
     <nav class="section-nav">
-      <b>Contents in this section:</b>
+      <b>{{ trans(key="contents_in_this_section", lang=section.lang) }}</b>
       {% for subsection_path in section.subsections %}
         {% set subsection = get_section(path=subsection_path, metadata_only=true) %}
         <a href="{{ subsection.permalink }}">
