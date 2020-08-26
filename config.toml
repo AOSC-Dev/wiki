@@ -14,6 +14,13 @@ taxonomies = [
     {name = "tags", lang = "zh"},
 ]
 
+[translations]
+[translations.en]
+desc = "Do in the Know"
+
+[translations.zh]
+desc = "致知而行"
+
 [extra]
 logo = "/img/aosc.png"
 logo_text = "/Wiki"
