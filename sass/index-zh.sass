@@ -1,0 +1,42 @@
+$sansSerifFonts : 'Hiragino Sans GB', 'Noto Sans CJK SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif
+$serifFonts : 'Noto Serif CJK SC', 'Songti SC', 'Noto Serif SC', 'Microsoft YaHei', serif
+$monospaceFonts : 'Source Code Pro', 'Hiragino Sans GB', 'Noto Sans CJK SC', 'Microsoft YaHei', monospace
+$singleColWidth: 65rem
+$smallScreenWidth: 35rem
+
+@import "./_main.sass"
+@import "./_typography.sass"
+@import "./_article.sass"
+@import "./_index.sass"
+@import "./_color.sass"
+@import "./_color_dark.sass"
+
+#grand-header
+  .logo
+    height: 3rem
+    width: 3rem
+    display: inline-block
+  .logo-text
+    font-size: 3rem
+    line-height: 3.5rem
+    vertical-align: top
+  .description
+    vertical-align: super
+    margin-left: .5rem
+
+    font-style: italic
+    font-size: 1.55rem
+  @media screen and (max-width: $smallScreenWidth)
+    $smallSize: 1.9rem
+    .logo
+      height: $smallSize
+      width: $smallSize
+      margin-top: 0.45rem
+    .logo-text
+      font-size: $smallSize
+      line-height: $smallSize + .5rem
+      margin-left: -0.2rem
+    .description
+      display: block
+      margin-left: 0
+      font-size: 1.2rem
