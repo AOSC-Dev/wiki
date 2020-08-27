@@ -15,13 +15,13 @@ tags = ["infra"]
 ### 面向用户
 
 - "Latest Source Updates" 板块：展示了 Git 仓库中最新的提交。
-- "Repositories and Trees" 板块："repositories" 指代的是 DPKG 仓库而 "trees" 指代的是 ABBS 仓库。"Ghost" 指代一个软件在 DPKG 仓库而不在 ABBS 仓库中。"Lagging" 指代的是 ABBS 仓库中某个软件的最新版本缺失对应的二进制包。"Missing" 指代的是一个软件在 ABBS 仓库而不在 DPKG 仓库中。"Source Tree" 中的链接指向相应的 GitHub 页面。"Outdated" 指代的是一个软件在上游有新版本可用。点击表格上的数字，你会得到相应的软件清单。
+- "Repositories and Trees" 板块："repositories" 指代的是 DPKG 仓库而 "trees" 指代的是 ABBS 仓库。"Ghost" 指代一个软件在 DPKG 仓库而不在 ABBS 仓库中。"Lagging" 指代的是 ABBS 仓库中某个软件的最新版本缺失对应的二进制包。"Missing" 指代的是一个软件在 ABBS 仓库而不在 DPKG 仓库中。"Source Tree" 中的链接指向相应的 GitHub 页面。"Outdated" 指代的是一个软件在上游有新版本可用。点击表格上的数字，您会得到相应的软件清单。
 - 软件包详情页中的 Changelog 由 Git 提交记录自动生成。
-- 可以在 https://packages.aosc.io/query/ 使用受限的 SQL 语句进行查询。如果你有生成自定义报告的需要，这个页面将会在很大程度上帮到你。
+- 可以在 https://packages.aosc.io/query/ 使用受限的 SQL 语句进行查询。如果您有生成自定义报告的需要，这个页面将会在很大程度上帮到您。
 
 ### 面向机器
 
-- 将请求参数设置为 `?type=json`或者使用 `X-Requested-With: XMLHttpRequest` 请求头即可得到一个 JSON 响应。你可以使用 `page=?` 来分页，或者使用 `page=all` 来禁用分页。
+- 将请求参数设置为 `?type=json`或者使用 `X-Requested-With: XMLHttpRequest` 请求头即可得到一个 JSON 响应。您可以使用 `page=?` 来分页，或者使用 `page=all` 来禁用分页。
 - 获取 API 版本：https://packages.aosc.io/api_version
 - 获取软件包列表：https://packages.aosc.io/list.json
 - 获取 SQLite3 数据库拷贝：https://packages.aosc.io/data/abbs.db 以及 `piss.db`。
@@ -37,7 +37,7 @@ tags = ["infra"]
 
 ### packages-site
 
-[packages-site](https://github.com/AOSC-Dev/packages-site) 是站点的后端部分。`dpkgrepo.py` 用于记录 DPKG 软件包信息。这个操作将修改 `dpkg_*` 数据表。软件包来源定义位于 `dpkgrepo.py`。`update.sh` 用于数据更新。网站每小时更新一次。因为代理、CDN、浏览器缓存的原因，因此延迟可能长达两小时。`main.py` 是站点的入口文件，我们用 [Bottle](https://bottlepy.org/) 框架和 Jinja2 模板系统。我们使用大量 SQL 语句生成各种报告，并使用 SQLite 的拓展实现版本比较，你可能需要首先使用 `make` 来构建这些拓展。
+[packages-site](https://github.com/AOSC-Dev/packages-site) 是站点的后端部分。`dpkgrepo.py` 用于记录 DPKG 软件包信息。这个操作将修改 `dpkg_*` 数据表。软件包来源定义位于 `dpkgrepo.py`。`update.sh` 用于数据更新。网站每小时更新一次。因为代理、CDN、浏览器缓存的原因，因此延迟可能长达两小时。`main.py` 是站点的入口文件，我们用 [Bottle](https://bottlepy.org/) 框架和 Jinja2 模板系统。我们使用大量 SQL 语句生成各种报告，并使用 SQLite 的拓展实现版本比较，您可能需要首先使用 `make` 来构建这些拓展。
 
 ### piss
 
@@ -51,9 +51,9 @@ tags = ["infra"]
 
 ## 部署
 
-我们建议你预留至少 1GiB 的可用空间（当前使用量是 450 MiB）及至少 512MiB 的 RAM（实际使用不会超过 100M）。另外你需要安装 Python 3.5+ 或 PyPy3.5、带有 FTS5 支持的 SQLite3、Fossil 2.6+、bash 和 Git。
+我们建议您预留至少 1GiB 的可用空间（当前使用量是 450 MiB）及至少 512MiB 的 RAM（实际使用不会超过 100M）。另外您需要安装 Python 3.5+ 或 PyPy3.5、带有 FTS5 支持的 SQLite3、Fossil 2.6+、bash 和 Git。
 
-我们目前使用 uWSGI 和 NGINX 来托管网站，请前往 https://github.com/AOSC-Dev/packages-site#deploy 了解部署流程。接下来你还要为 `update.sh` 和 PISS 设置 Systemd Timers。
+我们目前使用 uWSGI 和 NGINX 来托管网站，请前往 https://github.com/AOSC-Dev/packages-site#deploy 了解部署流程。接下来您还要为 `update.sh` 和 PISS 设置 Systemd Timers。
 
 ## 计划
 
@@ -72,7 +72,7 @@ tags = ["infra"]
 
 ## 某个软件包不是最新的
 
-如果你确认软件包站点同步功能工作正常（见上文），你的更新包可能在 `bugfix` 分支中。虽然目前软件包站点不显示任何关于 `bugfix` 分支的信息，但这些信息在我们的数据库中会有很好的记录。我们也欢迎你在 Telegram 群或邮件列表中向我们提供有关「如何重新设计软件包站点以支持此类分支的展示」的建议。
+如果您确认软件包站点同步功能工作正常（见上文），您的更新包可能在 `bugfix` 分支中。虽然目前软件包站点不显示任何关于 `bugfix` 分支的信息，但这些信息在我们的数据库中会有很好的记录。我们也欢迎您在 Telegram 群或邮件列表中向我们提供有关「如何重新设计软件包站点以支持此类分支的展示」的建议。
 
 ## 上游版本是错的
 

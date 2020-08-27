@@ -6,7 +6,7 @@ date = 2020-08-09T08:23:11.946Z
 tags = ["sys-kb"]
 +++
 
-在 AOSC OS，你可以选用下面的三种输入法框架的任意一种：
+在 AOSC OS，您可以选用下面的三种输入法框架的任意一种：
 
 - [Fcitx](https://fcitx-im.org/)（Flexible Input Method Framework）。
 - [IBus](https://github.com/ibus/ibus/wiki)（Intelligent Input Bus）。
@@ -16,7 +16,7 @@ tags = ["sys-kb"]
 
 要安装一个输入法框架和输入方案插件，使用 `sudo apt install` 安装下面任意一个软件包即可：
 
-> Fcitx 5 仍在开发中，如果你希望抢先预览，可以安装 `fcitx5*`。安装 `fcitx-base` 将得到 Fcitx 4。
+> Fcitx 5 仍在开发中，如果您希望抢先预览，可以安装 `fcitx5*`。安装 `fcitx-base` 将得到 Fcitx 4。
 
 - Fcitx，`fcitx-base`。
 - IBus，`ibus-base`。
@@ -37,4 +37,4 @@ $ imchooser ${IM}
 - `ibus`，指代 IBus。
 - `scim`，指代 SCIM。
 
-你可能需要注销并重新登录以使改动生效。
+您可能需要注销并重新登录以使改动生效。

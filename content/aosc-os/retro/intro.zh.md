@@ -79,7 +79,7 @@ AOSC OS/Retro 将提供两个版本，Base 和 Base/X11。
     - 选择 Dillo 是因为它采用 FLTK 轻量级界面，并支持 HTML5。
     - w3m 和 Lynx 则是作为 `web-base` 元软件包的一部分提供的。
 
-你还可以从 [软件仓库](https://packages.aosc.io/) 获取其它的软件包，如 Firefox 和其它可选的桌面环境。但是，在安装的时候我们可能需要对你的 AOSC OS/Retro 设备进行一些硬件环境的检测（举个例子，如果我们检测到你的电脑不支持 SSE2 SIMD 而你在试图安装 Firefox，我们将中止你的安装）。
+您还可以从 [软件仓库](https://packages.aosc.io/) 获取其它的软件包，如 Firefox 和其它可选的桌面环境。但是，在安装的时候我们可能需要对您的 AOSC OS/Retro 设备进行一些硬件环境的检测（举个例子，如果我们检测到您的电脑不支持 SSE2 SIMD 而您在试图安装 Firefox，我们将中止您的安装）。
 
 ## 维护计划
 
@@ -123,12 +123,12 @@ AOSC OS/Retro 的 Base/X11 版本有以下的额外的系统要求：
 
 - 处理器：Intel 80486（或与此兼容的处理器），不对浮点运算单元作要求。
     - Intel Pentium II 233MHz、AMD K6、Cyrix MediaGX、Via C7 或以上将显著改善图形体验。
-    - 如果你有使用 MPV 播放视频的需要，那么推荐 Intel Pentium III 500MHz, AMD K6-II/III 或以上。
+    - 如果您有使用 MPV 播放视频的需要，那么推荐 Intel Pentium III 500MHz, AMD K6-II/III 或以上。
 - 系统总线：ISA、EISA、PCI 或者基于 PCI Express 的系统设备。我们不支持 MCA（Micro Channel Architecture）。
 - RAM：32MiB（32MiB 交换空间）。
-    - 如果你有浏览互联网的需要，那么推荐 128MiB 或以上。
+    - 如果您有浏览互联网的需要，那么推荐 128MiB 或以上。
 - 储存空间：1.2GB（~1141MiB）。
-    - 如果你有储存多媒体文件的需要，那么推荐 4.0GB（~3814MiB）或以上。
+    - 如果您有储存多媒体文件的需要，那么推荐 4.0GB（~3814MiB）或以上。
     - PCI 总线主控 DMA 可以显著提高系统性能。
 - 输入设备：PS/2 或 Serial Port 键鼠。
     - I2C 和 Serial Port 可为触摸屏提供支持。

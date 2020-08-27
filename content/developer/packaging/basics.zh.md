@@ -4,7 +4,7 @@ description = "了解 AOSC OS 打包流程"
 date = 2020-08-04T02:13:57.919Z
 +++
 
-**注意**：这篇指南假定你对 Linux 和它的命令行界面有一定的认识。此外，你还需要有一台你本人拥有 `root` 访问权限的装有 Linux 的电脑。
+**注意**：这篇指南假定您对 Linux 和它的命令行界面有一定的认识。此外，您还需要有一台您本人拥有 `root` 访问权限的装有 Linux 的电脑。
 
 # 需要用到的工具
 
@@ -36,9 +36,9 @@ AOSC OS 采用的是半滚动更新模型，通常每个发布周期都为时三
 
 # 配置打包环境
 
-首先我们要在电脑上安装 `ciel`。在 AOSC OS，直接在官方软件仓库获取并安装即可。Ciel 管理的是标准化的 AOSC OS 构建环境（或者说 [BuildKit](https://aosc.io/downloads/#buildkit)），而构建的流程不一定要在 AOSC OS 上进行，如果你在使用 Arch Linux，你也可以在 AUR 获取 Ciel。
+首先我们要在电脑上安装 `ciel`。在 AOSC OS，直接在官方软件仓库获取并安装即可。Ciel 管理的是标准化的 AOSC OS 构建环境（或者说 [BuildKit](https://aosc.io/downloads/#buildkit)），而构建的流程不一定要在 AOSC OS 上进行，如果您在使用 Arch Linux，您也可以在 AUR 获取 Ciel。
 
-接下来，我们会初始化一个 Ciel 的工作区，这里我们会使用 `~/ciel` 作为演示。请注意你需要使用 `root` 运行 Ciel。而且，你不能在 Docker 容器里运行 Ciel。
+接下来，我们会初始化一个 Ciel 的工作区，这里我们会使用 `~/ciel` 作为演示。请注意您需要使用 `root` 运行 Ciel。而且，您不能在 Docker 容器里运行 Ciel。
 
 ``` bash
 mkdir ~/ciel
@@ -50,11 +50,11 @@ ciel init
 
 ``` bash
 ciel load-os
-# 或者如果你已经下好了一份 BuildKit 的话
+# 或者如果您已经下好了一份 BuildKit 的话
 ciel load-os PATH_TO_BUILDKIT
 ```
 
-接下来我们强烈推荐你将 `BuildKit` 更新到最新状态（如果你想把你的工作发布到 AOSC OS 的官方软件源里面的话，这一步是必须的）。
+接下来我们强烈推荐您将 `BuildKit` 更新到最新状态（如果您想把您的工作发布到 AOSC OS 的官方软件源里面的话，这一步是必须的）。
 
 ``` bash
 ciel update-os
@@ -64,7 +64,7 @@ ciel update-os
 
 ``` bash
 ciel load-tree # 默认情况下，ciel 会加载官方的树
-# 或者，你也可以将你想使用的树 git clone 到 ciel/TREE
+# 或者，您也可以将您想使用的树 git clone 到 ciel/TREE
 ```
 
 # 构建我们的第一个软件包！
@@ -92,7 +92,7 @@ cd ..
 ``` bash
 ciel config -i stable
 ```
-首先输入你的信息，选择是否启用 DNSSEC，然后 Ciel 会询问你是否编辑 `source.list`，选择是并编辑。
+首先输入您的信息，选择是否启用 DNSSEC，然后 Ciel 会询问您是否编辑 `source.list`，选择是并编辑。
 
 ``` INI
 # 为 stable 仓库构建软件包时:
@@ -113,13 +113,13 @@ ciel build -i stable flac
 # 使用 -i 参数是来指定要使用的 ciel 实例
 ```
 
-如果没有报错出现，并能见到 `Build Summary`，那么祝贺你，你成功构建了你的第一个软件包！现在你应该能在 `OUTPUT/debs` 看到构建好的 DEB 包。
+如果没有报错出现，并能见到 `Build Summary`，那么祝贺您，您成功构建了您的第一个软件包！现在您应该能在 `OUTPUT/debs` 看到构建好的 DEB 包。
 
 # 添加一个新的软件包
 
 已经掌握了如何构建一个已有的软件包？接下来我们再进一步，尝试从零开始构建一个软件包。
 
-进入 `TREE` 文件夹，你会看到很多文件夹，包括一些以 `base-` 和 `core-` 开头的文件夹，还有一些以 `extra-` 开头的文件夹，我们使用这些文件夹给软件包分类。在文件夹里面，你会发现各种软件包的构建脚本。
+进入 `TREE` 文件夹，您会看到很多文件夹，包括一些以 `base-` 和 `core-` 开头的文件夹，还有一些以 `extra-` 开头的文件夹，我们使用这些文件夹给软件包分类。在文件夹里面，您会发现各种软件包的构建脚本。
 
 例如说 `i3`，这个包很显然能在 `TREE/extra-wm/i3` 被找到。进入这个目录之后，应该能见到以下的目录树：
 
@@ -155,7 +155,7 @@ SRCTBL="https://i3wm.org/downloads/i3-$VER.tar.bz2" # 源代码的下载地址
 CHKSUM="sha256::1e8fe133a195c29a8e2aa3b1c56e5bc77e7f5534f2dd92e09faabe2ca2d85f45" # 源代码压缩包的校验和, 可以用 sha256, sha512等等
 ```
 
-有一点值得注意的是修订号。如果你在创建一个新的包，你可以忽略这一行，但在某些情形下（例如应用一个安全补丁），版本号不会更改，但我们仍然需要通知用户电脑上的包管理器有可用的更新。在这种情况下，只需将 `$REL` 变量增加 1。
+有一点值得注意的是修订号。如果您在创建一个新的包，您可以忽略这一行，但在某些情形下（例如应用一个安全补丁），版本号不会更改，但我们仍然需要通知用户电脑上的包管理器有可用的更新。在这种情况下，只需将 `$REL` 变量增加 1。
 
 ## `autobuild/`
 
@@ -190,7 +190,7 @@ PKGDES="Improved tiling WM (window manager)"
 PKGCONFL="i3-gaps"
 ```
 
-实际上，你可以在 `defines` 中写 Bash 逻辑。这在为特定平台添加标志或依赖项时很有用，但我们**不建议**你这样做，将来也可能直接禁止这样做。要为特定平台添加信息，请使用 `$VAR__$ARCH`。 
+实际上，您可以在 `defines` 中写 Bash 逻辑。这在为特定平台添加标志或依赖项时很有用，但我们**不建议**您这样做，将来也可能直接禁止这样做。要为特定平台添加信息，请使用 `$VAR__$ARCH`。 
 
 要查看完整的可用配置项，请查看 [Autobuild3 维基](https://github.com/AOSC-Dev/aosc-os-abbs/wiki/Autobuild3)。
 
@@ -204,11 +204,11 @@ PKGCONFL="i3-gaps"
 
 # 一个完整的例子：`light`
 
-现在你已经掌握了构建一个软件包所需要的基本技能，现在让我们将所学的东西应用到实践中吧，现在我们来构建 [light](https://github.com/haikarainen/light)。
+现在您已经掌握了构建一个软件包所需要的基本技能，现在让我们将所学的东西应用到实践中吧，现在我们来构建 [light](https://github.com/haikarainen/light)。
 
 这个程序提供了一个简单的命令以控制笔记本电脑的背光。因为它只使用文件 API 与背光子系统交互，所以这个程序非常简单，不需要依赖除了 `glibc` 之外的其它东西。
 
-我们假定你已经配置好了 Ciel，让我们返回到 `TREE` 目录。首先，确保你位于正确的分支。如上所述，在每个周期的前两个月，你应该使用 `testing-proposed`，而最后一个月，你应该使用 `explosive`。 
+我们假定您已经配置好了 Ciel，让我们返回到 `TREE` 目录。首先，确保您位于正确的分支。如上所述，在每个周期的前两个月，您应该使用 `testing-proposed`，而最后一个月，您应该使用 `explosive`。 
 
 由于这个软件很显然是一个实用工具，我们在 `TREE/extra-utils` 下创建目录 `light`。
 
@@ -244,7 +244,7 @@ PKGDES="Program to easily change brightness on backlight-controllers."
 ciel build -i stable light
 ```
 
-尽管我们没有声明如何构建这个包，但是 `Autobuild3` 会自动使用 `autotools` 构建这个包（也就是经典的 `./configure && make && make install` 逻辑）。如果你希望再做检查，可以使用 `dpkg-deb -c DEB_FILE` 查看 DEB 包里的文件。
+尽管我们没有声明如何构建这个包，但是 `Autobuild3` 会自动使用 `autotools` 构建这个包（也就是经典的 `./configure && make && make install` 逻辑）。如果您希望再做检查，可以使用 `dpkg-deb -c DEB_FILE` 查看 DEB 包里的文件。
 
 ## Git 提交记录格式规范
 
@@ -255,12 +255,12 @@ AOSC OS 对提交记录有着非常严格的格式要求。这里我们会提及
     light: new, 1.2.1
     $PKG_NAME: new, $VER
 
-如果你在更新一个已有的软件包，那么提交记录应该长这样子：
+如果您在更新一个已有的软件包，那么提交记录应该长这样子：
 
     bash: update to 5.2
     $PKG_NAME: update to $NEW_VER
 
-这里我们建议你额外提及你对软件包做了哪些修改（例如依赖项的修改、标志的选择等等），例如：
+这里我们建议您额外提及您对软件包做了哪些修改（例如依赖项的修改、标志的选择等等），例如：
 
     bash: update to 5.2
     
@@ -272,10 +272,10 @@ AOSC OS 对提交记录有着非常严格的格式要求。这里我们会提及
 
 在成功构建软件包之后，软件包维护者会将把本地 Git 更改推送到树中，并将相应的包推送到官方软件仓库。 
 
-将软件包推送到官方软件仓库可以用 [pushpkg](https://github.com/AOSC-Dev/scriptlets/tree/master/pushpkg) 完成。操作起来也很简单，只需下载脚本，将脚本添加到 PATH 并确保它是可执行的（`0755`）。然后，在 `OUTPUT` 目录中调用 `pushpkg`。在这个过程中，你需要提供 LDAP 凭据，并指定目标软件仓库（`stable`、`testing` 等）。
+将软件包推送到官方软件仓库可以用 [pushpkg](https://github.com/AOSC-Dev/scriptlets/tree/master/pushpkg) 完成。操作起来也很简单，只需下载脚本，将脚本添加到 PATH 并确保它是可执行的（`0755`）。然后，在 `OUTPUT` 目录中调用 `pushpkg`。在这个过程中，您需要提供 LDAP 凭据，并指定目标软件仓库（`stable`、`testing` 等）。
 
 # 后记
 
-就这么简单！你已经初步了解如何为 AOSC OS 构建软件包，并知道如何更新、构建和上传它们！
+就这么简单！您已经初步了解如何为 AOSC OS 构建软件包，并知道如何更新、构建和上传它们！
 
-当然，本文也只是一些皮毛，当你真正参与到 AOSC OS 的维护中，面对更复杂的构建系统或大量需要更新的软件包时，你就会意识到，还有许多技能有待你去探索和挖掘。请参考 [软件包维护入门：进阶](@/developer/packaging/advanced-techniques.md) 这篇文。
+当然，本文也只是一些皮毛，当您真正参与到 AOSC OS 的维护中，面对更复杂的构建系统或大量需要更新的软件包时，您就会意识到，还有许多技能有待您去探索和挖掘。请参考 [软件包维护入门：进阶](@/developer/packaging/advanced-techniques.md) 这篇文。

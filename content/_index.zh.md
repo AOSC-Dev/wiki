@@ -6,19 +6,19 @@ title = "AOSC Wiki"
 
 > 这里是面向用户与开发者的所有文档、信息和指南的汇总。请根据以下的章节和链接访问最常用的信息，并善用搜索功能。
 
-我们的维基仍处于建设阶段，绝大部分板块都缺少相应的导览页面，为此给您带来的不便我们深表歉意。如果您愿意帮助我们，欢迎您为我们的 [AOSC-Dev/wiki](https://github.com/AOSC-Dev/wiki) 储存库的 `master` 分支贡献提交。为了提高效率，在贡献前烦请阅读 [Meta](@/meta/_index.md) 板块的 [维基维护指南](@/meta/wiki_maintenance_guide.md)。
+我们的维基仍处于建设阶段，绝大部分板块都缺少相应的导览页面，为此给您带来的不便我们深表歉意。如果您愿意帮助我们，欢迎您为我们的 [AOSC-Dev/wiki](https://github.com/AOSC-Dev/wiki) 储存库的 `master` 分支贡献提交。为了提高效率，在贡献前烦请阅读 [Meta](@/meta/_index.zh.md) 板块的 [维基维护指南](@/meta/wiki_maintenance_guide.zh.md)。
 
 {% section(name="AOSC OS") %}
 [AOSC OS 适合我吗？](/zh/aosc-os/is-aosc-os-right-for-me)
 找到最适合您的（或者反之）
 
-[安装指南](/aosc-os/installation/)
+[安装指南](/zh/aosc-os/installation/)
 在您的机器上安装 AOSC OS
 
 [AOSC/Retro](/zh/aosc-os/retro/intro)
 照顾您的旧式设备和低性能设备
 
-[应用程序](/software/)
+[应用程序](/zh/software/)
 了解如何使用 AOSC OS 为您提供的各式应用
 {% end %}
 

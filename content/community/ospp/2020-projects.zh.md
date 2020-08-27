@@ -6,7 +6,7 @@ date = 2020-05-07T04:32:47.744Z
 tags = ["ospp"]
 +++
 
-欢迎！以下是 AOSC 提供的可供参与的项目主题。你可以从中挑选并联系项目导师，也可以在社区 IRC、[Telegram 群组][tg]或邮件列表（随意）中和我们讨论你感兴趣的话题。
+欢迎！以下是 AOSC 提供的可供参与的项目主题。您可以从中挑选并联系项目导师，也可以在社区 IRC、[Telegram 群组][tg]或邮件列表（随意）中和我们讨论您感兴趣的话题。
 
 [tg]: https://t.me/joinchat/BMnG9zvfjCgZUTIAoycKkg
 

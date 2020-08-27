@@ -126,11 +126,11 @@ CHKSUM="$ALGORITHM::$CHECKSUM"
 
 ### DUMMYSRC=
 
-当一个软件包是虚包或元包，或者你希望自定义其源码来源时使用 `$DUMMYSRC` 变量。该变量接受一个布尔值。
+当一个软件包是虚包或元包，或者您希望自定义其源码来源时使用 `$DUMMYSRC` 变量。该变量接受一个布尔值。
 
 ### 其它变量
 
-你还可以定义其它上面没有提到的变量，这些变量通常用于辅佐 `$SRCDIR` 变量，可以参考 `extra-devel/netbeans` 的 `spec` 文件。
+您还可以定义其它上面没有提到的变量，这些变量通常用于辅佐 `$SRCDIR` 变量，可以参考 `extra-devel/netbeans` 的 `spec` 文件。
 
 ```
 VER=8.2
@@ -152,7 +152,7 @@ SUBDIR=.
 
 以通过显式和隐式依赖关系，允许系统环境满足运行 `/usr/bin/ario` 的条件。
 
-根据 [E432](@/developer/packaging/qa-issue-codes.md#class-4-dependencies) 的规定，所有 ELF 级别的直接依赖项都应该被写进 `$PKGDEP`，这意味着你还需要为 `$PKGDEP` 补上一个 `dbus`。
+根据 [E432](@/developer/packaging/qa-issue-codes.md#class-4-dependencies) 的规定，所有 ELF 级别的直接依赖项都应该被写进 `$PKGDEP`，这意味着您还需要为 `$PKGDEP` 补上一个 `dbus`。
 
 截至 2019 年 3 月 16 日，位于稳定仓库 `amd64` 结构的软件包中 42.4%（1592/3705）有着依赖项不完整的问题。
 
@@ -182,14 +182,14 @@ SUBDIR=.
 
 大多数软件包可以使用 [Autobuild 内置的类型](https://github.com/AOSC-Dev/autobuild3/tree/master/build)（`$ABTYPES`）进行构建，通常补丁也只需要放在 `autobuild/patches` 目录就能被自动添加（还可以通过定义 `series` 指定打补丁的顺序），但是有些程序包依然需要手工的准备、打补丁和构建。本节专门介绍 `autobuild/` 目录下的 `prepare`、`patch`、`build` 和 `beyond`。
 
-编写这样的脚本的最佳实践通常包括给变量加引号、在合适的地方加注释、有周全的异常处理、考虑各个架构的差异、提供进展报告等等。编写既易于阅读又可靠的构建脚本并不容易，下表旨在帮助你写出这样的脚本。
+编写这样的脚本的最佳实践通常包括给变量加引号、在合适的地方加注释、有周全的异常处理、考虑各个架构的差异、提供进展报告等等。编写既易于阅读又可靠的构建脚本并不容易，下表旨在帮助您写出这样的脚本。
 
 | 项目 | 级别 | 应当采取的措施 |
 |-------------|----------------------------------------|----------------------|
 | Autobuild3 构建模板（`ABTYPE`） | 要求 | 打包应尽可能使用 [Autobuild Types](https://github.com/AOSC-Dev/autobuild3/tree/master/build)，而不使用 `autobuild/build` 或 `ABTYPE=self` |
 | 异常处理 | 要求 | 异常应被及时捕获并处理。默认情况下，Autobuild3 可以自动处理异常并中止构建，但是由于 Autobuild3 的一处漏洞，这一机制并不支持 `autobuild/build` |
 | 进展报告 | 要求 | 应该通过适当地使用 `abinfo` 和 `abwarn` 来报告进度，这对于使用 `autobuild/build` 或 `ABTYPE=self` 的软件包是必需的 |
-| 引用与参考 | 要求 | 如果你的构建脚本从其他发行版改编而来，则需要提供一段注释表明构建脚本的来源 |
+| 引用与参考 | 要求 | 如果您的构建脚本从其他发行版改编而来，则需要提供一段注释表明构建脚本的来源 |
 | 变量 | 要求 | 变量需要用引号括起来，例如 `"$SRCDIR"` 和 `"$PKGDIR"` |
 | 文件目录 | 要求 | 从源码树手动安装的所有文件都必须引用绝对路径，例如 `"$SRCDIR"/desktop/foo.desktop` |
 | 架构 | 建议 | 虽然编写适合于 `amd64` 的构建脚本很容易，但要注意的是 AOSC OS 要使用相同的脚本为五个以上的其他架构构建软件包 |
@@ -201,7 +201,7 @@ As many packagers tend to reference or copy build scripts from Arch Linux, pleas
 
 # 补丁命名
 
-在将补丁添加到 `autobuild/patches/` 之前，请为你的补丁按照一定的规则命名。
+在将补丁添加到 `autobuild/patches/` 之前，请为您的补丁按照一定的规则命名。
 
 ## 基于 Git 的源码仓库
 
@@ -211,7 +211,7 @@ As many packagers tend to reference or copy build scripts from Arch Linux, pleas
 git format-patch -n $HASH
 ```
 
-`n` 定义了自 `$HASH` 这个提交前选取多少个提交（含）。你还可以省略 `$HASH`：
+`n` 定义了自 `$HASH` 这个提交前选取多少个提交（含）。您还可以省略 `$HASH`：
 
 ```
 git format-patch -n
@@ -231,7 +231,7 @@ git format-patch -n
 
 ## 其它情形
 
-如果上面自动生成补丁的方式不适用，那么应以下面的格式为你的补丁命名：
+如果上面自动生成补丁的方式不适用，那么应以下面的格式为您的补丁命名：
 
 ```
 NNNN-$CATEGORY-$CONTENT.patch
@@ -301,7 +301,7 @@ Electron、Chromium 和基于它们的软件包应该按照下面的要求放置
 
 ## 长消息
 
-如果你的提交信息超过 50 个字符（包括空格和标点符号），则应该使用下面的格式撰写长消息：
+如果您的提交信息超过 50 个字符（包括空格和标点符号），则应该使用下面的格式撰写长消息：
 
 ```
 firefox: update to 64.0.2; #1536
