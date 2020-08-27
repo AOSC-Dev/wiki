@@ -16,7 +16,7 @@ taxonomies = [
 
 [extra]
 logo = "/img/aosc.png"
-logo_text = "/Wiki"
+logo_text = "Wiki"
 
 [translations]
 [translations.en]
