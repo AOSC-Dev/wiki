@@ -74,11 +74,16 @@ header
     font-family: $sansSerifFonts
     padding-bottom: .2rem
     border-bottom: 1px dotted grey
+
+    display: flex
+    flex-wrap: wrap
+    a,span
+      margin-right: .2rem
     a.section-link
-      //text-transform: uppercase
-  .right
-    display: inline-block
-    float: right
+      flex-shrink: 0
+    .right
+      margin-left: auto
+      flex-shrink: 0
   h1#title
     font-size: 2rem
     margin: .6rem 0 0 0
