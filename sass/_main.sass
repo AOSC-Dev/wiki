@@ -35,10 +35,12 @@ body
   @media screen and (max-width: $singleColWidth)
     position: relative
     width: 100%
-    padding: 0
+    padding: 0 0 1rem 0
   #search-results
     max-height: 30rem
     overflow-y: auto
+    // Due to padding on search bar
+    margin-top: -1.5rem
   .search-result
     display: block
     font-size: 1em
@@ -49,7 +51,6 @@ body
       display: block
     .context
       font-size: .8em
-      line-height: 55em
 
 input[type="search"]
   // To make Mobile Safari happy
@@ -68,7 +69,6 @@ input[type="search"]
 
 header
   position: relative
-  margin-bottom: 1.5rem
 
   #position-bar
     font-size: 1.05em
