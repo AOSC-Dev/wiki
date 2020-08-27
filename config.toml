@@ -27,7 +27,7 @@ also_available_in = "Also available in:"
 on_this_wiki = "On This Wiki:"
 subsecs_in_this_sec = "Subsections in this section:"
 contents_in_this_section = "Contents in this section:"
-footer_msg = "Copyleft 2011 — 2020, Members of the Community."
+footer_msg = "Copyleft 2011 — 2020, Members of the Community"
 
 [translations.zh]
 en = "English"
