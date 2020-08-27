@@ -44,6 +44,7 @@ The list below is a **comprehensive** list of packages which could be considered
 | Arch Linux Keyring | `archlinux-keyring` | 2 |
 | Baidu Cloud Client | `bcloud` | 2 |
 | BiliDan | `bilidan` | 2 |
+| Citra  | `citra`  | 2 |
 | ClamAV | `clamav` | 2 |
 | Hardware ID Data | `hwdata` | 2 |
 | Linux Kernels | `linux-kernel`, `linux-kernel-lts` | 2 |
@@ -55,6 +56,7 @@ The list below is a **comprehensive** list of packages which could be considered
 | AOSC U-Boot Utilities | `u-boot-aosc-utils` | 2 |
 | You-Get | `you-get` | 2 |
 | Youtube-DL | `youtube-dl` | 2 |
+| Yuzu | `yuzu` | 2 |
 | Gost | `gost` | 3 |
 | I2pd | `i2pd` | 3 |
 | KCPTUN | `kcptun` | 3 |
