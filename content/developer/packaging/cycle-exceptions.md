@@ -36,6 +36,7 @@ The list below is a **comprehensive** list of packages which could be considered
 | OpenJDK | `openjdk` | 1 |
 | Opera | `opera` | 1 |
 | Pale Moon | `palemoon` | 1 |
+| qutebrowser | `qutebrowser` | 1 |
 | SeaMonkey | `seamonkey` | 1 |
 | Thunderbird | `thunderbird` | 1 |
 | Vivaldi | `vivaldi` | 1 |
