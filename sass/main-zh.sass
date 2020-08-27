@@ -25,3 +25,31 @@ header
 #grand-header
   .description
     font-style: normal
+  .logo
+    height: 3rem
+    width: 3rem
+    display: inline-block
+  .logo-text
+    font-size: 3rem
+    line-height: 3.5rem
+    vertical-align: top
+  .description
+    vertical-align: super
+    margin-left: .5rem
+
+    font-style: italic
+    font-size: 1.55rem
+  @media screen and (max-width: $smallScreenWidth)
+    $smallSize: 1.9rem
+    .logo
+      height: $smallSize
+      width: $smallSize
+      margin-top: 0.45rem
+    .logo-text
+      font-size: $smallSize
+      line-height: $smallSize + .5rem
+      margin-left: -0.2rem
+    .description
+      display: block
+      margin-left: 0
+      font-size: 1.2rem
