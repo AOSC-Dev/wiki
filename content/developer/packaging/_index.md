@@ -15,6 +15,7 @@ Also, you may want to read these documentations about the tools we use.
 - [Ciel Manual](@/developer/packaging/ciel-manual.md)
 
 Other useful information of this section:
+- [Common Issue and Fixes](@/developer/packaging/quirks.md) describes some issue you may face during packaging and corresponding quirks.
 - [Exceptions to the Update Cycles](@/developer/packaging/cycle-exceptions.md)
 - [List Of Package Issue Codes](@/developer/packaging/qa-issue-codes.md)
 - [Known Patch Release Rules](@/developer/packaging/known-patch-release-rules.md)
