@@ -12,6 +12,6 @@ AOSC OS 是社区的主要项目。它是一个遵循简约、本地化、包容
 
 其它的一些实用链接和资源：
 
-- [勘误表](@/aosc-os/errata/_index.md) 将为您提供使用 AOSC OS 过程中可能会遇到的问题及对应的解决方案。
+- [勘误表](@/aosc-os/errata/_index.zh.md) 将为您提供使用 AOSC OS 过程中可能会遇到的问题及对应的解决方案。
 - [AOSC OS 安全公告（AOSA）](@/aosc-os/aosa/_index.zh.md)为您展示了我们对安全和漏洞的响应办法，以及按年份存档的已经发布的安全公告。
 - [资料库](@/aosc-os/information/_index.md) 记录了我们在设计 AOSC OS 的过程中作出的一些抉择。

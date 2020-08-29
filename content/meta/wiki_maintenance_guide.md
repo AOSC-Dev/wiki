@@ -47,7 +47,7 @@ Here's some content.
 
 The lines between the two `+++` are called the *frontmatter* of an article. These lines record information about the article, including title, description and its tags.
 
-After this section, you can write your article with normal Markdown syntax. Do note that this site uses CommonMark, which means some extened Markdown syntax may not work.
+After this section, you can write your article with normal Markdown syntax, you may get some inspiration from [this article](@/developer/infrastructure/knowledge-base/00001-how-to-contribute.md). Do note that this site uses CommonMark, which means some extened Markdown syntax may not work.
 
 ## Special note on internal links
 Because internal links are so important, Zola (the back-end for this site) has a special syntax for them. When you want to reference another article, instead of doing this:

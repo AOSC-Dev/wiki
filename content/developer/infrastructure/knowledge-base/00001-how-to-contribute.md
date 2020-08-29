@@ -8,7 +8,7 @@ tags = ["infra-kb"]
 
 # Preparing Your Content
 
-Using Wiki.js, the Community Wiki is written in [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
+Using Zola, the Community Wiki is written in [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
 
 ## Sections
 
@@ -22,6 +22,8 @@ As currently planned, our Community Wiki is arranged across 5 sections:
 Thus, do consider in advance where your page should go - when in doubt, ask in our IRC channel #aosc.
 
 # Writing Pages
+
+If you want to contribute to our wiki, please also check [this article](@/meta/wiki_maintenance_guide.md) to learn more about Zola.
 
 ## Section-Specific Requirements
 

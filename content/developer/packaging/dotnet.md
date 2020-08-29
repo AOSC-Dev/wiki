@@ -14,8 +14,8 @@ This policy covers .NET packages in AOSC OS, like `dotnet-*` and `mono`, which a
 
 ## Policy
 
-`stable`: Latest LTS release
-`testing`: Latest Current release
+- `stable`: Latest LTS release
+- `testing`: Latest Current release
 
 # Mono `mono`
 
@@ -23,8 +23,8 @@ Mono has 2 [release channels](https://www.mono-project.com/download/).
 
 ## Policy
 
-`stable`: Latest Visual Studio release
-`testing`: Latest Stable release
+- `stable`: Latest Visual Studio release
+- `testing`: Latest Stable release
 
 # F# + Mono `fsharp`
 
@@ -32,7 +32,7 @@ F# + Mono is published from [F# Software Foundation's repo](https://github.com/f
 
 ## Policy
 
-`stable`: Latest release
+- `stable`: Latest release
 
 <!-- # MSBuild + Mono `msbuild`
 
@@ -44,7 +44,7 @@ NuGet has many [distribution versions](https://www.nuget.org/downloads) availabl
 
 ## Policy
 
-`stable`: Latest recommended release
+- `stable`: Latest recommended release
 
 <!-- More packages policy expected -->
 

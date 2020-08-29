@@ -18,7 +18,8 @@ title = "打包"
 
 您可能也会对本版块的其它文章感兴趣：
 
+- [常见问题及其解决方案](@/developer/packaging/quirks.zh.md)
 - [更新周期例外说明](@/developer/packaging/cycle-exceptions.md)
-- [软件包质量测试错误代码注解](@/developer/packaging/qa-issue-codes.md)
+- [软件包质量测试错误代码注解](@/developer/packaging/qa-issue-codes.zh.md)
 - [稳定分支补丁级更新规则说明](@/developer/packaging/known-patch-release-rules.md)
-- [.NET 生命周期策略](@/developer/packaging/dotnet.md)
+- [.NET 生命周期策略](@/developer/packaging/dotnet.zh.md)

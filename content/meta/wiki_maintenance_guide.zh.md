@@ -52,7 +52,7 @@ tags = ["some-tag"]
 Here's some content.
 ```
 
-两个 `+++` 之间的内容是文章的文章头，它们记录了一篇文章的信息，例如标题、描述和标签等等。在文章头后面，则是文章正文，这里我们使用 Markdown 撰写文章，您可以在互联网找到大量的 Markdown 教程以助您开始写作，您也可以参考 AOSC Wiki [已有的文章](https://github.com/AOSC-Dev/wiki/tree/master/content)。请注意部分拓展 Markdown 语法在这里不一定生效。
+两个 `+++` 之间的内容是文章的文章头，它们记录了一篇文章的信息，例如标题、描述和标签等等。在文章头后面，则是文章正文，[这篇文章](@/developer/infrastructure/knowledge-base/00001-how-to-contribute.md) 或许能给到您一些灵感。这里我们使用 Markdown 撰写文章，您可以在互联网找到大量的 Markdown 教程以助您开始写作，您也可以参考 AOSC Wiki [已有的文章](https://github.com/AOSC-Dev/wiki/tree/master/content)。请注意部分拓展 Markdown 语法在这里不一定生效。
 
 ## 站内链接
 
