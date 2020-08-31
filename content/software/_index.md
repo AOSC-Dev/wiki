@@ -1,6 +1,5 @@
 +++
 title = "Software"
-[extra]
-list_section = true
+template = "softwares.html"
 +++
 

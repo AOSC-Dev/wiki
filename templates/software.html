@@ -1,0 +1,46 @@
+{% import "macros.html" as macros %}
+{% extends "section.html" %}
+
+{% block main %}
+  {{ section.content | safe }}
+
+  {# Get a list of all article types #}
+  {% set_global article_types = [] %}
+  {% for page in section.pages %}
+    {% if article_types is not containing(page.extra.article_type) %}
+      {% set_global article_types = article_types | concat(with=page.extra.article_type) %}
+    {% endif %}
+  {% endfor %}
+
+  {# Then list them #}
+  {% for type in article_types %}
+    <h1 id="{{ type }}">{{ type }}</h1>
+    <ul>
+      {% for page in section.pages %}
+        {% if page.extra.article_type == type %}
+          <li>
+            <a href="{{ page.permalink }}">{{ page.title }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  {% endfor %}
+
+  {# Navigation #}
+  <nav class="section-nav">
+    {% if section.extra.upstream_url %}
+      <a href="{{ section.extra.upstream_url }}">Upstream</a>
+    {% endif %}
+
+    {% if section.extra.package_site_url %}
+      <a href="{{ section.extra.package_site_url }}">AOSC Package</a>
+    {% endif %}
+
+    <div style="margin: .3rem 0"></div>
+      
+    <b>{{ trans(key="categories", lang=lang) }}</b>
+    {% for type in article_types %}
+      <a href="#{{ type }}">{{ type }}</a>
+    {% endfor %}
+  </nav>
+{% endblock %}

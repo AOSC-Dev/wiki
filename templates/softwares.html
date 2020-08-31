@@ -1,0 +1,39 @@
+{% import "macros.html" as macros %}
+{% extends "section.html" %}
+
+{% block main %}
+  {{ section.content | safe }}
+
+  {# Get a list of all software types #}
+  {% set_global software_categories = [] %}
+  {% for subsection in section.subsections %}
+    {% set section = get_section(path=subsection, metadata_only=true) %}
+    {% if software_categories is not containing(section.extra.software_category) %}
+      {% set_global software_categories = software_categories | concat(with=section.extra.software_category) %}
+    {% endif %}
+  {% endfor %}
+
+  {# Then we can list them one by one #}
+  {% for category in software_categories %}
+    {# The grand title first #}
+    <h1 id="{{ category }}">{{ category }}</h1>
+    <ul>
+      {% for subsection in section.subsections %}
+        {% set section = get_section(path=subsection, metadata_only=true) %}
+        {% if section.extra.software_category == category %}
+          <li>
+            <a href="{{ section.permalink }}">{{ section.title }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  {% endfor %}
+
+  {# Navigation #}
+  <nav class="section-nav">
+    <b>{{ trans(key="categories", lang=lang) }}</b>
+    {% for category in software_categories %}
+      <a href="#{{ category }}">{{ category }}</a>
+    {% endfor %}
+  </nav>
+{% endblock %} 
