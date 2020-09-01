@@ -61,3 +61,16 @@ sed -i -e 's/^unset PATH MANPATH/# \1/g' /etc/profile
 ```
 
 Now exit the shell and re-open it. You should have a functional, if a bit unorthodox, system available. Continue to the [User, and Post-installation Configuration](@/aosc-os/installation/amd64.md#user-and-post-installation-configuration) section of the AMD64 guide.
+
+# Any more plumbing needed?
+
+Sadly, yes.
+
+<!-- can we use https://www.markdownguide.org/extended-syntax#definition-lists ? -->
+<dl>
+  <dt>Graphics</dt>
+  <dd>Apparently we need [Xvnc and a heavily modified version of systemd](https://most-useful.com/ubuntu-20-04-desktop-gui-on-wsl-2-on-surface-pro-4/) for a graphical login screen. Add that to the packaging list.</dd>
+  <dt>Windows Store</dt>
+  <dd>We will eventually need to provide gzipped tarballs when we want to submit AOSC OS to Windows Store. Unless Microsoft [gets its act together](https://github.com/microsoft/WSL/issues/4736), that is.</dd>
+  <dd>And we better fix the ugly `/etc/profile` hack before we submit. Not that Microsoft cares.</dd>
+</dl>
