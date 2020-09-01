@@ -1,5 +1,5 @@
 +++
-title = "SYS-ERR-00008: CUPS 在和使用 HPLIP 驱动程序的打印机配合使用时报错 \"Filter Failed\""
+title = "SYS-ERR-00008：CUPS 在和使用 HPLIP 驱动程序的打印机配合使用时报错 \"Filter Failed\""
 description = "HPLIP 专有插件版本不匹配导致的问题"
 date = 2020-05-04T03:37:41.607Z
 [taxonomies]
@@ -14,7 +14,7 @@ tags = ["sys-errata"]
 
 专有插件在 `hplip` 更新的时候并没有被自动更新，版本的不匹配导致了上面的问题。
 
-# 解决方法
+# 解决方案
 
 要解决上面的问题，只需要在终端执行：
 

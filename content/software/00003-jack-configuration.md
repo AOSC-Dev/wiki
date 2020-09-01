@@ -30,7 +30,7 @@ To make JACK at run, you would need to:
 
 # Troubleshooting
 ## JACK shows error message `Cannot lock down XXX byte memory area (Cannot allocate memory)`
-- Cause: The locked moemory limit is low.
+- Cause: The locked memory limit is low.
 - Solution: Try to repeat the step 1 and step 3 of the above intructions.
 
 ## JACK shows error message `Cannot use real-time scheduling (RR/5)(1: Operation not permitted)`
@@ -40,7 +40,7 @@ To make JACK at run, you would need to:
 ## JACK is up and running but there's no sound coming out
 - Possible Cause 1: JACK encountered errors and is spitting out error messages, please see the logs (if you have `cadence` installed, see `Tools -> View JACK, A2J and LADISH logs`) and see if the error messages are similar to the aforementioned ones.
 - Possible Cause 2: If JACK is running correctly (no misconfiguration, no error messages, no xruns), check if JACK is using the correct sound card / sound device / output device. If you have `cadence` installed, you can see the if the `Driver/Interface` option in `System -> Configure -> Driver -> ALSA` is set to correct one. If you don't have `cadence` installed, you can issue `jack_control dpd` to see the currently known sound interface, and use `jack_control dps <interface number>` to set it.
-- Possible Cause 3: If JACK is running correctly (no misconfiguration, no error messages, no xruns) and the sound device settings are correct, check if the sound routing is correct. If you have `cadence` installed, you can see the sound routing map at `Tools -> Catia`, check if your application playback port is connected to system plackback, if not, draw the connections between them.
+- Possible Cause 3: If JACK is running correctly (no misconfiguration, no error messages, no xruns) and the sound device settings are correct, check if the sound routing is correct. If you have `cadence` installed, you can see the sound routing map at `Tools -> Catia`, check if your application playback port is connected to system playback, if not, draw the connections between them.
 - Possible Cause 4: If your applications use ALSA or PulseAudio, check if the JACK bridges are enabled and check the bridge logs to see if they are having difficulties routing the signals. Please note if PulseAudio is used, please make sure the `JACK Bridges -> PulseAudio` is in running state, and there's a `...` button below the `Stop` button, make sure to click it and select `Playback mode only`, after that, click `Stop` once, you'll see it automatically restart bridge.
  
 ## JACK is running but I got scattered or distorted sound

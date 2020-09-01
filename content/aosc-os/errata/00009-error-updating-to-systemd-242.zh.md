@@ -1,5 +1,5 @@
 +++
-title = "SYS-ERR-00009: 升级到 Systemd 242 时报错"
+title = "SYS-ERR-00009：升级到 Systemd 242 时报错"
 description = "驻留在内存中的已被淘汰的 systemd 服务导致出错"
 date = 2020-05-04T03:37:44.030Z
 [taxonomies]
@@ -29,7 +29,7 @@ E: Sub-process /usr/bin/dpkg returned an error code (1)
 
 - 上述问题由 [这个提交](https://github.com/systemd/systemd/commit/3f10c66270b74530339b3f466c43874bb40c210f) 引入。
 
-# 解决方法
+# 解决方案
 
 如果您遇到了这个问题，在继续更新系统之前请重新启动计算机，或者执行：
 

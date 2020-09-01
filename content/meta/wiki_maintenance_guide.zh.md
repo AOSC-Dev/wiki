@@ -5,7 +5,7 @@ description = "了解如何在 AOSC Wiki 上创建或编辑一个页面"
 
 # 目录结构
 
-AOSC Wiki 采用 Zola（一个静态站点生成器）驱动，所以 AOSC Wiki 总体的目录结构和其它 Zola 站点的目录结构没有太大的差异，详见 [Zola 官方文档](https://www.getzola.org/documentation/getting-started/directory-structure/)。下面我们将着重介绍我们 `content` 目录的结构设计。我们使用 `content` 目录存放维基页面，几乎所有的维护工作都在这个目录进行。`content` 目录内部大体上是这样子的：
+AOSC Wiki 采用 [Zola](https://github.com/getzola/zola)（一个静态站点生成器）驱动，所以 AOSC Wiki 总体的目录结构和其它 Zola 站点的目录结构没有太大的差异，详见 [Zola 官方文档](https://www.getzola.org/documentation/getting-started/directory-structure/)。下面我们将着重介绍我们 `content` 目录的结构设计。我们使用 `content` 目录存放维基页面，几乎所有的维护工作都在这个目录进行。`content` 目录内部大体上是这样子的：
 
 ```bash
 # Inside a mystical content folder...

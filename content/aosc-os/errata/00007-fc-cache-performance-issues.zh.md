@@ -1,5 +1,5 @@
 +++
-title = "SYS-ERR-00007: Fontconfig < 2.12.91 出现性能问题"
+title = "SYS-ERR-00007：Fontconfig < 2.12.91 出现性能问题"
 description = "Fc-Cache 算法问题导致字体安装耗时长及桌面无响应"
 date = 2020-05-04T03:37:39.136Z
 [taxonomies]
@@ -17,6 +17,6 @@ tags = ["sys-errata"]
 
 很难在这里描述清楚，我们建议您查看上游的 [漏洞报告](https://bugs.freedesktop.org/show_bug.cgi?id=64766)。在该报告中，开发者认为当前的算法不够优秀，并在后续版本中采用了更优的算法。
 
-# 解决方法
+# 解决方案
 
 2.12.91 [修复](https://www.freedesktop.org/software/fontconfig/release/ChangeLog-2.12.91) 这个问题，将 Fontconfig 升级到 2.12.91 或更高版本即可。
