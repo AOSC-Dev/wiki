@@ -8,7 +8,7 @@ tags = ["infra-kb"]
 
 # Preparing Your Content
 
-Using Zola, the Community Wiki is written in [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
+Using [Zola](https://github.com/getzola/zola), the Community Wiki is written in [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
 
 ## Sections
 

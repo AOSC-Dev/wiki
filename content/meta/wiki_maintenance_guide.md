@@ -57,5 +57,5 @@ Nope: [Some Hyperlink Title](/some_section/some_article/)
 Yes: [Some Hyperlink Title](@/some_section/some_article.md)
 ```
 
-Then `@` sign tells Zola to find the link for an internal page, and replace the link with the actual link for that page. By doing so, Zola is able to check if the link is valid. And if the link points to an non-exist file, the build would fail.
+Then `@` sign tells [Zola](https://github.com/getzola/zola) to find the link for an internal page, and replace the link with the actual link for that page. By doing so, Zola is able to check if the link is valid. And if the link points to an non-exist file, the build would fail.
 
