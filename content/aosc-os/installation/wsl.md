@@ -40,6 +40,8 @@ After you have download the tarball and the tool, run the following in PowerShel
   -s
 ```
 
+**Note**: as is the case for any type of installation, you can greatly speed up the process by temporarily disabling your antivirus or by adding the target directory to an exclusion list.
+
 Now that the OS is known to WSL, you can start it using any of the usual ways: with `LxRunOffline`, in a new tab in Windows Terminal, or using the desktop shortcut that has just been created.
 
 # Setting up your system
