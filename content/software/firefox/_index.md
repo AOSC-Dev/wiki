@@ -1,6 +1,7 @@
 +++
 title = "Firefox"
 template = "software.html"
+insert_anchor_links = "left"
 [extra]
 software_category = "Web Broswer"
 upstream_url = "https://www.mozilla.org/en-US/firefox/new/"

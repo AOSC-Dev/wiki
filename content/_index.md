@@ -1,5 +1,6 @@
 +++
 title = "AOSC Wiki"
+insert_anchor_links = "left"
 +++
 
 Welcome to the AOSC Community Wiki!

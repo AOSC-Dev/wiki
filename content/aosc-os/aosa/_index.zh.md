@@ -2,6 +2,7 @@
 title = "AOSC OS 安全公告系统 (AOSA)"
 description = "跟踪 AOSC OS 中发现的安全漏洞 "
 date = 2020-08-02T14:17:30.417Z
+insert_anchor_links = "left"
 [taxonomies]
 tags = ["aosa"]
 +++
