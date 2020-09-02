@@ -1,6 +1,6 @@
 +++
 title = "AOSC Wiki"
-insert_anchor_links = "left"
+insert_anchor_links = "right"
 +++
 
 欢迎来到安同开源社区（AOSC）维基！

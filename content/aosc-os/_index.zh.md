@@ -1,7 +1,7 @@
 +++
 title = "AOSC OS"
 description = "It just works™"
-insert_anchor_links = "left"
+insert_anchor_links = "right"
 +++
 
 AOSC OS 是社区的主要项目。它是一个遵循简约、本地化、包容、可持续及精制的设计原则的通用 Linux 发行版。

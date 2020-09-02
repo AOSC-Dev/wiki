@@ -1,7 +1,7 @@
 +++
 title = "AOSC OS"
 description = "It just works™"
-insert_anchor_links = "left"
+insert_anchor_links = "right"
 +++
 
 AOSC OS is our main project at the community, a general-purposed Linux Distribution designed with simplicity, localisation, software compatibility, device sustainability, and gradual refinement in mind.
