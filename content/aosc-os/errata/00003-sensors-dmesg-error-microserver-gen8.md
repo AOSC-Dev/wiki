@@ -8,7 +8,7 @@ tags = ["sys-errata"]
 
 # Summary
 
-When running the `sensors` command from the `lm-sensors` package to review system sensor readings, you may encounter error outputs  from the framebuffer terminal ("TTY"), or within the `dmesg` log - similar to the example below:
+When running the `sensors` command from the `lm-sensors` package to review system sensor readings, you may encounter error outputs from the framebuffer terminal ("TTY"), or within the `dmesg` log - similar to the example below:
 
 ```
 [...] ACPI Error: SMBus/IPMI/GenericSerialBus write requires Buffer of length 66, found length 32 (20170728/exfield-427)

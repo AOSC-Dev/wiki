@@ -5,7 +5,7 @@ description = "This article is sponsered by Commit-O-Matic™"
 
 > So you want to make a package, you've got the urge to make a package, you've got the nerve to make a package, so go ahead, so go ahead, so go ahead and make a package we can use\!
 
-After learning the *basics* about building packages, we can now start exploring some advanced techniques.
+After learning the [basics](@/developer/packaging/basics.md) about building packages, we can now start exploring some advanced techniques.
 
 Pleaese note that you don't have to read this documentation word-by-word, as it should serve as a point of reference for your future work. Just take a quick look, remember these concepts, and come back when you encounter a problem.
 
@@ -162,7 +162,7 @@ Finally, we can push the built packages to the main repository.
 pushpkg LDAP_IDENTITY BRANCH
 ```
 
-Note that `IDENTITY` and `BRANCH` are by definition users and repositories on our [Community Repository](https://repo.aosc.io/). Contributors are audited before an LDAP identities are granted by our Infrustructure Work Group - we will get in touch with you via your first PR to our ABBS tree.
+Note that `LDAP_IDENTITY` and `BRANCH` are by definition users and repositories on our [Community Repository](https://repo.aosc.io/). Contributors are audited before an LDAP identities are granted by our Infrustructure Work Group - we will get in touch with you via your first PR to our ABBS tree.
 
 1.  A great name, I know…
     

@@ -1,5 +1,5 @@
 +++
-title = "aoinb-builder"
+title = "AOINB Builder"
 description = "The WIP builder component of AOINB."
 date = 2020-05-06T13:02:12.568Z
 [taxonomies]
