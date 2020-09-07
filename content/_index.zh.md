@@ -16,7 +16,7 @@ insert_anchor_links = "right"
 [安装指南](/zh/aosc-os/installation/)
 在您的机器上安装 AOSC OS
 
-[AOSC/Retro](/zh/aosc-os/retro/intro)
+[AOSC OS/Retro](/zh/aosc-os/retro/intro)
 照顾您的旧式设备和低性能设备
 
 [应用程序](/zh/software/)
