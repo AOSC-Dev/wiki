@@ -1,6 +1,6 @@
 +++
 title = "AOSC OS/Retro: An Introduction to Users and Maintainers (RFC)"
-description = "Your Guide to Enjoying AOSC OS with Your Retro Devices"
+description = "Enjoying AOSC OS on Your Retro Devices"
 date = 2020-05-04T03:37:46.485Z
 [taxonomies]
 tags = ["sys-retro"]
