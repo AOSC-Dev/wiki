@@ -3,9 +3,11 @@ title = "AOSC Wiki 维护指南"
 description = "了解如何在 AOSC Wiki 上创建或编辑一个页面"
 +++
 
+AOSC Wiki 由 [Zola](https://github.com/getzola/zola)（一个静态站点生成器）驱动，其源文件存放于 GitHub 的 [AOSC-Dev/wiki](https://github.com/AOSC-Dev/wiki) 仓库。如果您希望在 AOSC Wiki 添加一篇文章或希望编辑已有的文章，您可以在仓库的 `contents` 文件夹中做出您的修改，然后创建一个合并请求（如果您已经是社区成员，可以直接将其推送到 GitHub 仓库）。在推送之前，您可以在本地安装 Zola 并在仓库根目录运行 `zola serve` 以预览您的更改。
+
 # 目录结构
 
-AOSC Wiki 采用 [Zola](https://github.com/getzola/zola)（一个静态站点生成器）驱动，所以 AOSC Wiki 总体的目录结构和其它 Zola 站点的目录结构没有太大的差异，详见 [Zola 官方文档](https://www.getzola.org/documentation/getting-started/directory-structure/)。下面我们将着重介绍我们 `content` 目录的结构设计。我们使用 `content` 目录存放维基页面，几乎所有的维护工作都在这个目录进行。`content` 目录内部大体上是这样子的：
+AOSC Wiki 总体的目录结构和其它 Zola 站点的目录结构没有太大的差异，详见 [Zola 官方文档](https://www.getzola.org/documentation/getting-started/directory-structure/)。下面我们将着重介绍我们 `content` 目录的结构设计。我们使用 `content` 目录存放维基页面，几乎所有的维护工作都在这个目录进行。`content` 目录内部大体上是这样子的：
 
 ```bash
 # Inside a mystical content folder...
@@ -75,19 +77,3 @@ Here's some content.
 ```
 
 Zola 在渲染各个文件时会将所有带有 `@` 标记的链接视为站内链接，在该标记后面紧跟的应该是 `.md` 文件及其在 `content` 中的路径。对于站内链接，Zola 将检查对应的 `.md` 文件是否存在。如果检查到文件不存在，也就意味着这是一个死链，此时 Zola 将终止渲染流程并报错。
-
-# 站点调试与更改提交
-
-目前，AOSC Wiki 的存储仓库位于 [GitHub](https://github.com/AOSC-Dev/wiki)。如果您仅仅是希望修改少量内容，您可以直接克隆该仓库，提交您的修改并推送回原仓库（或创建合并请求）。如果您修改了大量内容或是对站点做关键性的改动，您可能希望对站点进行调试。首先我们在本地安装 Zola，您可以在 AOSC OS 软件仓库中找到 `zola` 这个软件包：
-
-```
-# apt install zola
-```
-
-接下来我们克隆维基仓库并做出我们的修改，修改完成后，在维基仓库的根目录下执行：
-
-```
-$ zola serve
-```
-
-如果没有意外出现，接下来即可在 Zola 给出的网址预览您的站点。在预览期间您可以随时修改文章内容，预览站点将自动应用您的更改。如果您遇到构建失败的情况，请根据报错提示修复损坏的站内链接或执行相应的操作。
