@@ -46,7 +46,7 @@ NOTE:
 |-----------|-----------|-----------|-----------|-----------|---------|-----------|
 | **Curium** | 22003 | Intel i5-9600K (6) @ 4.60GHz | 32GiB | 99s (`-j7`, 2.32) | _Staph Zhang_ | Owned by Leo Shen. Read ~aosc/README.md for usage info. |
 | **gbx-ry3700** | 22182 | AMD Ryzen 7 3700X (16) @ 3.600GHz | 1.5GiB~32GiB | ? | _Dingyuan Wang_ | ~3T ceph storage at `/media/shared`, `/` is on SSD |
-| **Ry3950X** | ~~22333~~ | AMD Ryzen 7 3950X @ 3.50 - 4.70GHz | 64GiB | 40s (`-j33`) | _Mingcong Bai_ | Scratch disk at `/buildroots`, create own Ciel workspace |
+| **Ry3950X** | 22333 | AMD Ryzen 9 3950X @ 3.50 - 4.70GHz | 64GiB | 40s (`-j33`) | _Mingcong Bai_ | Scratch disk at `/buildroots`, create own Ciel workspace |
 | **vmaoscagent001** | 22658 | 2 * Intel Xeon Processor E5-2660 v2 @ 2.20 - 3.00GHz | 64GiB | 82s (`-j41`) | _Kexy Biscuit_ | `/buildroots/` available on SSD, repo mirror: `http://localhost/debs/`, BuildKit mirror: `http://localhost/aosc-os/os-amd64/buildkit/`, users in Asia-Pacific should connect with `vmaoscagent001.biscuit.moe:22658` |
 | **EPSON-PC** | ~~22718~~ | VM on i7-3770, 2vCPU | 4GiB | 502s (`-j2`) | _Zamir Sun_ | Available time: 8:00 - 21:30 UTC+8, use zirouter.tpddns.cn:22718  for direct connection  |
 
@@ -68,7 +68,7 @@ NOTE:
 | **Tegra** | ~~24096~~ | Quad Core ARM Cortex-A57 @ 1.73GHz (NVIDIA Jetson TX1 Developer Kit) | 4GiB | 446s (`-j5`, 2.27) |  _Mingcong Bai_ | Device dead, RIP |
 | **Pine64** | ~~24399~~ | Quad Core ARM Cortex-A53 @ 1.2GHz (Allwinner A64, Pine64 Plus) | 2GiB | 1351s (`-j5`, 2.27) |  _Mingcong Bai_ | Retired |
 | **kp920** | 24426 | 2 * 48-Core Huawei Kunpeng 920 @ 2.6GHz (Huawei Taishan 2280 v2; 94 cores allocated) | 192GiB (145GiB allocated) | 71s (`-j95`) | _Undisclosed_ | Scratch disk at `/buildroots`, create own Ciel worksapce; direct access with `ssh -p 2223 root@kp920.ip4.run` |
-| **JellyXavier** | ~~24444~~ | 4 x dual core NVIDIA Carmel CPU clusters @ 2.26GHz (NVIDIA Jetson AGX Xavier Developer Kit) | 16GiB | 232s (`-j9`) |  _Mingcong Bai_ | Scratch disk at `/buildroots`, create own Ciel workspace |
+| **JellyXavier** | 24444 | 4 x dual core NVIDIA Carmel CPU clusters @ 2.26GHz (NVIDIA Jetson AGX Xavier Developer Kit) | 16GiB | 232s (`-j9`) |  _Mingcong Bai_ | Scratch disk at `/buildroots`, create own Ciel workspace |
 | **YetAnotherPine64** | ~~24514~~ | Quad Core ARM Cortex-A53 @ 1.2GHz (Allwinner A64, Pine64 Plus) | 2GiB | 1365s (`-j5`, 2.27) | _Salted Fish_| (Down) Local mirror located at `/dev/sda4` |
 
 ## **PowerPC** (25001-26000)
@@ -77,7 +77,7 @@ NOTE:
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **G5-PPC64BE** | ~~25120~~ | IBM PowerPC 970MP @ 2.5GHz (PowerMac G5, Quad, 2005) | 8GiB | 566s (`-j5`, 2.27) | _Mingcong Bai_ | Scratch disk at `/buildroots`, create own Ciel workspace |
 | **G5-PPC32BE** | ~~25121~~ | IBM PowerPC 970MP @ 2.5GHz (PowerMac G5, Quad, 2005) | 16GiB | 553s (`-j5`, 2.27) | _Mingcong Bai_ | Temporarily down to conserve energy |
-| **powernv** | ~~25202~~ | IBM POWER9 CPU (4-Core) CP9M01 (3 cores, 12 threads allocated) | 24GiB | 178s (`-j13`) | _Mingcong Bai_ | PowerKVM based |
+| **powernv** | 25202 | IBM POWER9 CPU (4-Core) CP9M01 (3 cores, 12 threads allocated) | 24GiB | 178s (`-j13`) | _Mingcong Bai_ | PowerKVM based |
 
 ## **RISC-V** (26001-27000)
 
