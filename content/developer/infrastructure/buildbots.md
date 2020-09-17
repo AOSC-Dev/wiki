@@ -58,7 +58,7 @@ NOTE:
 | **lemote-a1601** | 23141 | Loongson 3A-2000C (R2) @ 1GHz (A1601) | 8GiB | 801s (`-j5`, 2.27) | _Junde Yhi_ | |
 | **lemote-8089d** | ~~23210~~ | Loongson 2F (STLS2F02-1) @ 1GHz (Lemote Yeeloong 8089D) | 1GiB | 9077s (`-j1`, 2.27) <!-- 10038s (`-j2`) --> | _Junde Yhi_ | For testing purposes only, not 24x7 online (slow, hot and noisy); owned by _Mingcong Bai_ |
 | **lpi-2** | 23456 | Loongson 2K-1000 @ 1GHz (Loongson Pi 2) | 2GiB | 3850s (`-j3`) | _Junde Yhi_ | Sponsored by [windows1089](http://www.openloongson.org/?4655) |
-| **lemote-a1901** | 23869 | Loongson 3A-4000 (R4) @ 1.8GHz (A1901) | 8GiB | 340s (`-j5`, 2.31) | _Mingcong Bai_ | Scratch disk at `/buildroots`, create own Ciel workspace |
+| **lemote-a1901** | 23869 | Loongson 3A-4000 (R4) @ 1.8GHz (A1901) | 16GiB | 335s (`-j5`, 2.31) | _Mingcong Bai_ | Scratch disk at `/buildroots`, create own Ciel workspace |
 
 ## **ARM** (24001-25000)
 
