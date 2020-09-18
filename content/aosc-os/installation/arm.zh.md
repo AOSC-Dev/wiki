@@ -10,7 +10,7 @@ tags = ["sys-installation"]
 
 # Tarball
 
-[下载页面](https://aosc.io/os-download/) 中提供的所有 Tarball 均附带了未经配置的主线 Linux 内核，如果不对其进行额外的配置，它将无法在大多数设备上运行。我们常用 [aosc-mkrawimg](https://github.com/AOSC-Dev/aosc-mkrawimg) 为特定的设备制作镜像文件。
+[下载页面](https://aosc.io/downloads/) 中提供的所有 Tarball 均附带了未经配置的主线 Linux 内核，如果不对其进行额外的配置，它将无法在大多数设备上运行。我们常用 [aosc-mkrawimg](https://github.com/AOSC-Dev/aosc-mkrawimg) 为特定的设备制作镜像文件。
 
 为 MicroSD 卡和 eMMC 存储设备准备的镜像文件可以在同一位置找到。
 

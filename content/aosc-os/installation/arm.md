@@ -12,7 +12,7 @@ Please refer to our ARM Board Support Package [Wiki](https://github.com/AOSC-Dev
 
 # Tarballs?
 
-All tarballs provided in the [Download](https://aosc.io/os-download/) page comes with a unconfigured mainline Linux Kernel, it will not work on most devices without extra configuration, we use the [aosc-mkrawimg](https://github.com/AOSC-Dev/aosc-mkrawimg) to create device-specific images from them - using shell-based recipes.
+All tarballs provided in the [Download](https://aosc.io/downloads/) page comes with a unconfigured mainline Linux Kernel, it will not work on most devices without extra configuration, we use the [aosc-mkrawimg](https://github.com/AOSC-Dev/aosc-mkrawimg) to create device-specific images from them - using shell-based recipes.
 
 Device-specific RAW images for MicroSD cards and eMMC storage could be found in the same location.
 
