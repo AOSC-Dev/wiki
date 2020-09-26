@@ -13,7 +13,7 @@ to adapt to a topic-based iteration system.
 
 ## apt-gen-list
 
-- [ ] Drop branch setting (the `b` parameter`), as this is no longer needed.
+- [ ] Drop branch setting (the `b` parameter), as this is no longer needed.
     - Topic enrollment/withdrawal is to be implemented in a TUI topic manager.
 
 ## topic-manager
