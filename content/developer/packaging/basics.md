@@ -228,7 +228,7 @@ SRCTBL="https://github.com/haikarainen/light/archive/v$VER.tar.gz"
 CHKSUM="sha256::53d1e74f38813de2068e26a28dc7054aab66d1adfedb8d9200f73a57c73e7293"
 ```
 
-Notice here that we replaced the version number inside the tarball URL with an environment variable `$VAR`. This is considered as a good practice (since it reduces the modification required when updating the package), and should be used when possible.
+Notice here that we replaced the version number inside the tarball URL with an environment variable `$VER`. This is considered as a good practice (since it reduces the modification required when updating the package), and should be used when possible.
 
 Then, we create the `autobuild` folder, and create the `defines` file.
 

@@ -226,7 +226,7 @@ SRCTBL="https://github.com/haikarainen/light/archive/v$VER.tar.gz"
 CHKSUM="sha256::53d1e74f38813de2068e26a28dc7054aab66d1adfedb8d9200f73a57c73e7293"
 ```
 
-这个我们将源码包下载链接中的版本号替换为了变量 `$VAR`，这是一个很好的做法，在更新这个软件包的时候减少了编辑量。
+这个我们将源码包下载链接中的版本号替换为了变量 `$VER`，这是一个很好的做法，在更新这个软件包的时候减少了编辑量。
 
 接下来我们创建 `autobuild` 目录，然后创建 `defines` 文件。
 
