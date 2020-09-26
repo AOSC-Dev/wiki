@@ -156,3 +156,15 @@ A topic-based iteration cycle follows these general steps:
 The `stable` branch is protected and no direct commit would be allowed. All
 commits should only be merged into this branch following the rules and
 procedures described above.
+
+# AOSC OS/Retro
+
+The topic-based procedures and rules does not apply to AOSC OS/Retro.
+Updates are synchronised from the `stable` branch annually, and all security
+and bugfix changes are committed directly to the `retro` branch.
+
+## Inter-Operability with Mainline
+
+After each synchronisation (or merge) from the `stable` branch, a Pull
+Request is created against the `stable` branch as a `retro-tracking-$YEAR`
+topic. Follow all procedures and rules above.
