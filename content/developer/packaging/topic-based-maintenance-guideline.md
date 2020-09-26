@@ -168,3 +168,27 @@ and bugfix changes are committed directly to the `retro` branch.
 After each synchronisation (or merge) from the `stable` branch, a Pull
 Request is created against the `stable` branch as a `retro-tracking-$YEAR`
 topic. Follow all procedures and rules above.
+
+
+# Documentation 
+
+## Changes Required Following This Change
+
+With the transition to topic-based iterations, changes are required in the
+following documents:
+
+- [Intro to Package Maintenance: Advanced Techniques](/developer/packaging/advanced-techniques/)
+    - Description of branches, the use of `findupd-stable` is deprecated.
+- [Intro to Package Maintenance: Basics](/developer/packaging/basics/)
+    - Description of branches.
+- [.NET Lifecycle Policy](/developer/packaging/dotnet/)
+    - Description of branches.
+
+## Deprecated By This Change
+
+With the transition to topic-based iterations, the following documents will be
+deprecated:
+
+- [AOSC OS Maintenance Guidelines](/developer/packaging/maintenance-guidelines/)
+- [Exceptions to the Update Cycles](/developer/packaging/cycle-exceptions/)
+- [Known Patch Release Rules](/developer/packaging/known-patch-release-rules/)
