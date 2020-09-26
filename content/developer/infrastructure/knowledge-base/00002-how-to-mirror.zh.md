@@ -51,7 +51,7 @@ tags = ["infra-kb"]
 
 主仓库由 [xTom](https://xtom.com) 提供托管支持，后备仓库由 [OSSPlanet](http://ossplanet.net/) 提供托管支持。
 
-请移步到 [aosc.io/mirror-status](https://aosc.io/mirror-status) 和 [aosc.io/about](https://aosc.io/about) 查看完整的赞助者名单。
+请移步到 [aosc.io/repo](https://aosc.io/repo) 和 [aosc.io/about](https://aosc.io/about) 查看完整的赞助者名单。
 
 # 联系我们
 

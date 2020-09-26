@@ -52,7 +52,7 @@ Automated updates to the ABBS Git repo.
 - AOINB components
   - [abbs-meta](https://github.com/AOSC-Dev/abbs-meta): Get package catalog from abbs trees.
   - [dpkgrepo-meta](https://github.com/AOSC-Dev/dpkgrepo-meta): Get package catalog from dpkg/apt sources.list.
-  - [Downloader](https://github.com/AOSC-Dev/aoinb/blob/master/worker/downloader.tcl): Download sources.
+  - [Downloader](https://github.com/AOSC-Dev/aoinb/blob/master/aoinb/common/downloader.tcl): Download sources.
   - [abbs-dep](https://github.com/AOSC-Dev/abbs-dep): Resolve dependencies.
 
 

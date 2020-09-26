@@ -49,7 +49,7 @@ AOSC OS/Retro 是 AOSC OS 的一个分支，而不是 AOSC OS 的派生版本，
 - 最小化系统需要的所有软件包（包括 `admin-base`、`boot-base`、`core-base`、`editor-base`、`kernel-base`、`network-base`、`systemd-base`、`util-base` 和 `web-base`）不得通过依赖关系引入 Python（`python-2`、`python-3`）和 Perl（`perl`）。
 - 在非必要情况下，语言绑定（Java、Perl、Python 等等）默认不启用。 
 - Glibc 仅启用 `C` 和 `C.UTF-8` 区域支持，其他区域支持需要用户在 `/etc/locale.gen` 反注释相关行以启用。
-- 移除所有可选依赖项，除非该软件包是 [核心软件包](https://github.com/AOSC-Dev/AOSC-os-abbs/blob/groups/build-core) 或经维护人员讨论决定不作移除。
+- 移除所有可选依赖项，除非该软件包是 [核心软件包](https://github.com/AOSC-Dev/AOSC-os-abbs/blob/stable/groups/build-core) 或经维护人员讨论决定不作移除。
 - 所有软件包均应在启用链路时间优化的情况下构建，除非此类优化会导致构建失败。
 - 非性能关键型应用将使用 `-Os`优化级别来构建（即在 `autobuild/defines` 中使用 `AB_FLAGS_OS=1`），以节省储存空间。 
 - 我们会提供 Manpage 和 Texinfo 文档，但不会提供所有其它形式的文档（例如 HTML、gtk-doc 等等）。

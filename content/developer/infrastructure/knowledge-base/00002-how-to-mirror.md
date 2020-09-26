@@ -47,7 +47,7 @@ When providing public HTTP service, we highly encourage you to use HTTPS.
 # Sponsors
 The main repository is kindly sponsored by [xTom](https://xtom.com); the secondary repository is sponsored by [OSSPlanet](http://ossplanet.net/).
 
-For other sponsors, please refer to https://aosc.io/mirror-status (list of mirrors) and https://aosc.io/about (all general sponsors).
+For other sponsors, please refer to https://aosc.io/repo (list of mirrors) and https://aosc.io/about (all general sponsors).
 
 # Question?
 Feel free to send your question to the mailing list mirrors@lists.aosc.io .

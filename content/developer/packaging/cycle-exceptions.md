@@ -8,7 +8,7 @@ tags = ["dev-sys"]
 
 # Rationale and Definition
 
-Since the monthly update cycle was introduced to AOSC OS in July of 2017 (and later, seasonal update cycles introduced since July 2018), packages which represents feature, and non-bugfix/security updates should first have their build configurations pushed to the [testing-proposed](https://github.com/AOSC-Dev/aosc-os-abbs/tree/staging) of the [ABBS Tree](https://github.com/AOSC-Dev/aosc-os-abbs), uploaded to the [testing-proposed](https://repo.aosc.io/debs/pool/testing-proposed/) repositories - and made available in the stable repository at the end of each seasonal cycle after testing.
+Since the monthly update cycle was introduced to AOSC OS in July of 2017 (and later, seasonal update cycles introduced since July 2018), packages which represents feature, and non-bugfix/security updates should first have their build configurations pushed to the [testing-proposed](https://github.com/AOSC-Dev/aosc-os-abbs/tree/testing-proposed) of the [ABBS Tree](https://github.com/AOSC-Dev/aosc-os-abbs), uploaded to the [testing-proposed](https://repo.aosc.io/debs/pool/testing-proposed/) repositories - and made available in the stable repository at the end of each seasonal cycle after testing.
 
 However, given the bugfix/security update may rely - and limited to - on backporting of patches, there are some other packages which could be...
 

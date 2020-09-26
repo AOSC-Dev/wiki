@@ -19,8 +19,8 @@ ZFS on Linux is one of the projects under the OpenZFS umbrella, which takes form
   - `zfs` does not handle hibernation correctly which will cause the system to hang when resuming from a swap ZFS volume.
 - Issues related to `grub`
   - While `grub` does have support for reading ZFS, not all feature flags are supported, therefore if one intends to put `/boot` on a ZFS volume, special precaution is needed when creating the volume, see [this section on ArchWiki](https://wiki.archlinux.org/index.php/ZFS#GRUB-compatible_pool_creation). Note: AOSC ships the release branch of ZFS, so this should not be a problem.
-  -  ~~`grub-mkconfig` does not yet properly detect Linux installed on ZFS volumes and generate boot parameters, therefore manual configuration (and update, after a kernel upgrade) of boot loader is required, see [this example on ArchWiki](https://wiki.archlinux.org/index.php/Installing_Arch_Linux_on_ZFS#For_BIOS_motherboards)~~ While generating `grub.cfg` using `grub-mkconfig`, you have to add `ZPOOL_VDEV_NAME_PATH=1` to the beginning, [or GRUB will throw an error: `/usr/sbin/grub-probe: error: failed to get canonical path of /dev/<DISK_NAME>`](https://askubuntu.com/questions/827126/zfs-grub-probe-error-failed-to-get-canonical-path-of-dev-disk-name/943425#943425). In this guide, [rEFInd](http://www.rodsbooks.com/refind/) with `EFISTUB` will be used to boot the system.
-  - `grub-install` may fail due to being unable to detect disks, [a workaround](https://wiki.archlinux.org/index.php/Installing_Arch_Linux_on_ZFS#For_BIOS_motherboards) is documented.
+  -  ~~`grub-mkconfig` does not yet properly detect Linux installed on ZFS volumes and generate boot parameters, therefore manual configuration (and update, after a kernel upgrade) of boot loader is required, see [this example on ArchWiki](https://wiki.archlinux.org/index.php/Installing_Arch_Linux_on_ZFS#Using_GRUB_for_EFI/BIOS)~~ While generating `grub.cfg` using `grub-mkconfig`, you have to add `ZPOOL_VDEV_NAME_PATH=1` to the beginning, [or GRUB will throw an error: `/usr/sbin/grub-probe: error: failed to get canonical path of /dev/<DISK_NAME>`](https://askubuntu.com/questions/827126/zfs-grub-probe-error-failed-to-get-canonical-path-of-dev-disk-name/943425#943425). In this guide, [rEFInd](http://www.rodsbooks.com/refind/) with `EFISTUB` will be used to boot the system.
+  - `grub-install` may fail due to being unable to detect disks, [a workaround](https://wiki.archlinux.org/index.php/Installing_Arch_Linux_on_ZFS#Using_GRUB_for_EFI/BIOS) is documented.
 - `dracut` does not properly detect Linux installed on ZFS volume and one needs to manually tell it to include the required modules in the initramfs generated. This can be done either by extra command-line arguments passed to `dracut` or by a one-line file in `/etc/dracut.conf.d/` containing `add_dracutmodules+="zfs"`.
 
 # Preparation
@@ -89,7 +89,7 @@ zpool import -d /dev/disk/by-id -R /tmp/aosc <yourpoolname>
 cd /tmp/aosc
 ```
 
-While many of the information in the [official installation instructions](https://github.com/AOSC-Dev/aosc-os/wiki/x86_64_Installation#preparing-an-installation-environment) are still valid, and you should follow those, there are several things to take care of. Personally I have chosen to mount my EFI system partition to `/boot`, which requires extra caution, and because how ZFS works, I have chosen to manually write my `/etc/fstab`.
+While many of the information in the [official installation instructions](@/aosc-os/installation/amd64.md) are still valid, and you should follow those, there are several things to take care of. Personally I have chosen to mount my EFI system partition to `/boot`, which requires extra caution, and because how ZFS works, I have chosen to manually write my `/etc/fstab`.
 
 Here is what the `/etc/fstab` should look like if you have decided to use my partition scheme:
 

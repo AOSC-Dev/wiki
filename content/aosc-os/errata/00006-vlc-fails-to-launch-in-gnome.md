@@ -16,7 +16,7 @@ Gdk-Message: vlc: Fatal IO error 2 (No such file or directory) on X server :0.
 
 # Possible Cause
 
-Not yet identified. However, the VLC upstream [claims](https://trac.videolan.org/vlc/ticket/18910#no1) that the issue does not lie within VLC itself.
+Not yet identified. However, the VLC upstream [claims](https://trac.videolan.org/vlc/ticket/18910) that the issue does not lie within VLC itself.
 
 # Fixed Version
 
