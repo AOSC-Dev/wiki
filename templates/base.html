@@ -48,7 +48,7 @@
 
   <footer>
     {% block footer %}
-    <p>{{ trans(key="footer_msg", lang=lang) }}</p>
+    <p>{{ trans(key="footer_msg", lang=lang) | markdown | safe }}</p>
     {% endblock footer %}
   </footer>
 
