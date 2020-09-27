@@ -13,7 +13,7 @@ steps:
     sshKeySecureFile: 'upload_key'
   condition: ne(variables['Build.Reason'], 'PullRequest')
 
-- bash: ./ci.sh
+- bash: ./.ci/ci.sh
   displayName: 'Install Zola'
 
 - bash: ./build.sh
