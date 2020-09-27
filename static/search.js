@@ -146,6 +146,9 @@ function searchText(event) {
         return
     }
 
+    // Then load the index
+    let index = elasticlunr.Index.load(window.searchIndex)
+    // Then do the search
     let results = index.search(search_bar.value, options)
 
     // First remove the old results
@@ -168,7 +171,6 @@ function searchText(event) {
     }
 }
 
-let index = elasticlunr.Index.load(window.searchIndex)
 let options = {
     bool: "AND",
     fields: {
@@ -178,4 +180,22 @@ let options = {
 };
 let search_bar = document.getElementById("search-bar")
 let search_results = document.getElementById("search-results")
-search_bar.addEventListener("input", debounce(searchText, 500))
+search_bar.addEventListener("input", debounce(searchText, 200))
+search_bar.addEventListener("focus", () => {
+    // Load searchIndex on demand
+    if (window.searchIndex == undefined) {
+        let imported = document.createElement('script')
+        imported.src = '/search_index.' + document.documentElement.lang + '.js'
+        document.head.appendChild(imported)
+
+        // Wait until searchIndex is loaded
+        var checkExist = setInterval(function() {
+            if (window.searchIndex != undefined) {
+                clearInterval(checkExist);
+                searchText(event)
+            }
+        }, 100); // check every 100ms
+
+        return
+    }
+})
