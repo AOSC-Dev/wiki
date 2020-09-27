@@ -1,0 +1,24 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: InstallSSHKey@0
+  inputs:
+    knownHostsEntry: '$(UPLOAD_HOST) ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBGan/F63NCg5xLo6ooCWfHoXfaDw4mDFwZC/0kMdgsBrwxjyI6sjWexdWDz1pntsHbXjoc4jMOqoU9ZIyk26NE8='
+    sshPublicKey: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGtHejxpO/1lrN/aRRp5wFnJTuowWY/eTf4hiFJk84HQ aosc@aosc'
+    sshPassphrase: '$(KEY_PASSWD)'
+    sshKeySecureFile: 'upload_key'
+  condition: ne(variables['Build.Reason'], 'PullRequest')
+
+- bash: ./ci.sh
+  displayName: 'Install Zola'
+
+- bash: ./build.sh
+  displayName: 'Build the pages'
+
+- bash: rsync -rlOvhze ssh --progress public/* 'upload@$(UPLOAD_HOST):/srv/aosc-wiki/'
+  displayName: 'Upload the files'
+  condition: and(ne(variables['Build.Reason'], 'PullRequest'), succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
