@@ -189,6 +189,8 @@ search_bar.addEventListener("focus", () => {
         document.head.appendChild(imported)
 
         // Wait until searchIndex is loaded
+        let pending = createSearchResult("Loading Search Index", "Please wait...", "#")
+        search_results.appendChild(pending)
         var checkExist = setInterval(function() {
             if (window.searchIndex != undefined) {
                 clearInterval(checkExist);
