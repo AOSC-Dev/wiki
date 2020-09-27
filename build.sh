@@ -1,4 +1,4 @@
 #!/bin/bash -e
 echo 'Generating HTML files...'
-zola
+zola build
 echo '... Done'

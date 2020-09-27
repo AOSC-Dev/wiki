@@ -6,7 +6,7 @@ build_search_index = true
 title = "AOSC Wiki"
 description = "Do in the Know"
 languages = [
-    {code = "zh", search = true}, 
+    {code = "zh", search = false},
 ]
 
 taxonomies = [
