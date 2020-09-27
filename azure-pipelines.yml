@@ -8,7 +8,7 @@ steps:
 - task: InstallSSHKey@0
   inputs:
     knownHostsEntry: '$(UPLOAD_HOST) ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBGan/F63NCg5xLo6ooCWfHoXfaDw4mDFwZC/0kMdgsBrwxjyI6sjWexdWDz1pntsHbXjoc4jMOqoU9ZIyk26NE8='
-    sshPublicKey: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGtHejxpO/1lrN/aRRp5wFnJTuowWY/eTf4hiFJk84HQ aosc@aosc'
+    sshPublicKey: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAUiF8B79DhQdFagc6zg+5VgWeSIXFWYYn/fTE7ltt8J aosc@aosc'
     sshPassphrase: '$(KEY_PASSWD)'
     sshKeySecureFile: 'upload_key'
   condition: ne(variables['Build.Reason'], 'PullRequest')
