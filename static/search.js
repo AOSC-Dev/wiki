@@ -1,5 +1,20 @@
+let dict = {
+    'zh': {
+        'not-found': '找不到相符的内容或信息.',
+        'loading-search': '正在加载搜索索引',
+        'plz-wait': '请稍候...',
+        'loaded': '搜索索引加载完成',
+        'you-can-search': ''
+    },
+    'en': {
+        'not-found': 'Nothing found',
+        'loading-search': 'Loading Search Index',
+        'plz-wait': 'Please wait...',
+        'loaded': 'Search Index Loaded',
+        'you-can-search': 'You can search now.'
+    }
+}
 // This file is mainly taken from https://github.com/getzola/zola/blob/master/docs/static/search.js
-
 function debounce(func, wait) {
   var timeout;
 
@@ -180,21 +195,25 @@ let options = {
 };
 let search_bar = document.getElementById("search-bar")
 let search_results = document.getElementById("search-results")
+let lang = document.documentElement.lang
 search_bar.addEventListener("input", debounce(searchText, 200))
 search_bar.addEventListener("focus", () => {
     // Load searchIndex on demand
     if (window.searchIndex == undefined) {
         let imported = document.createElement('script')
-        imported.src = '/search_index.' + document.documentElement.lang + '.js'
+        imported.src = '/search_index.' + lang + '.js'
         document.head.appendChild(imported)
 
         // Wait until searchIndex is loaded
-        let pending = createSearchResult("Loading Search Index", "Please wait...", "#")
+        let pending = createSearchResult(dict[lang]['loading-search'], dict[lang]['plz-wait'], "#")
         search_results.appendChild(pending)
         var checkExist = setInterval(function() {
             if (window.searchIndex != undefined) {
                 clearInterval(checkExist);
-                searchText(event)
+                let loaded = createSearchResult(dict[lang]['loaded'], dict[lang]['you-can-search'], '#')
+                search_results.innerHTML = ''
+                search_results.appendChild(loaded)
+                setTimeout(searchText, 1500, event)
             }
         }, 100); // check every 100ms
 
