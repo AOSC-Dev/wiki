@@ -8,9 +8,9 @@ let dict = {
     },
     'en': {
         'not-found': 'Nothing found',
-        'loading-search': 'Loading Search Index',
+        'loading-search': 'Initializing Search',
         'plz-wait': 'Please wait...',
-        'loaded': 'Search Index Loaded',
+        'loaded': 'Search Initialisation Complete',
         'you-can-search': 'You can type to search now.'
     }
 }
