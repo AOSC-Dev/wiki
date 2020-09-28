@@ -1,19 +1,20 @@
 let dict = {
     'zh': {
-        'not-found': '找不到相符的内容或信息.',
+        'not-found': '找不到相符的内容或信息',
         'loading-search': '正在加载搜索索引',
-        'plz-wait': '请稍候...',
+        'plz-wait': '请稍候……',
         'loaded': '搜索索引加载完成',
-        'you-can-search': ''
+        'you-can-search': '输入关键字即可搜索。'
     },
     'en': {
         'not-found': 'Nothing found',
         'loading-search': 'Loading Search Index',
         'plz-wait': 'Please wait...',
         'loaded': 'Search Index Loaded',
-        'you-can-search': 'You can search now.'
+        'you-can-search': 'You can type to search now.'
     }
 }
+
 // This file is mainly taken from https://github.com/getzola/zola/blob/master/docs/static/search.js
 function debounce(func, wait) {
   var timeout;
@@ -196,13 +197,20 @@ let options = {
 let search_bar = document.getElementById("search-bar")
 let search_results = document.getElementById("search-results")
 let lang = document.documentElement.lang
+let search_index_loading = false
 search_bar.addEventListener("input", debounce(searchText, 200))
 search_bar.addEventListener("focus", () => {
+    // If already loading, then do nothing
+    if (search_index_loading) {
+        return
+    }
+    
     // Load searchIndex on demand
     if (window.searchIndex == undefined) {
         let imported = document.createElement('script')
         imported.src = '/search_index.' + lang + '.js'
         document.head.appendChild(imported)
+        search_index_loading = true
 
         // Wait until searchIndex is loaded
         let pending = createSearchResult(dict[lang]['loading-search'], dict[lang]['plz-wait'], "#")
@@ -213,6 +221,7 @@ search_bar.addEventListener("focus", () => {
                 let loaded = createSearchResult(dict[lang]['loaded'], dict[lang]['you-can-search'], '#')
                 search_results.innerHTML = ''
                 search_results.appendChild(loaded)
+                search_index_loading = false
                 setTimeout(searchText, 1500, event)
             }
         }, 100); // check every 100ms
