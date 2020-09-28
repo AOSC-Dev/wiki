@@ -97,6 +97,9 @@ surveying, discussion, packaging, testing, notification, and shipping.
 4. A topic should be named in the format of `$PKGNAME-$PKGVER`
    (e.g., `nano-5.4`). Repository branch naming follows topic name (e.g.,
    `nano-5.4`).
+    - Non-update topics should be named by purpose, in the format of
+      `$PKGNAME-$PURPOSE` (e.g. `gnome-shell-build-fix`,
+      `gnome-shell-ppc64el-adaptation`.
     - In case of multi-package topics, topics takes name from the "main player"
       along with its general version, e.g. `gnome-3.38`, `boost-1.73`.
     - In multi-package, multi-version topics, use main package name and date
@@ -157,6 +160,66 @@ The `stable` branch is protected and no direct commit would be allowed. All
 commits should only be merged into this branch following the rules and
 procedures described above.
 
+# Special Topics and Exceptions
+
+There are a few topics that requires further clarification, or exceptions
+applied to their procedures. This section describes such cases.
+
+## Release Candidate Kernels
+
+Traditionally, AOSC OS packages Release Candidate kernels to give maintainers
+a head start on configuration and patch adaptation. However, such maintenance
+is a longer process than most topics, usually spanning the whole RC phase
+(2 - 3 months).
+
+Thankfully, there is no package conflict possible with other topics, since
+this topic should only affect these two packages:
+
+- `linux-kernel-rc`: The Kernel package itself.
+- `linux+kernel+rc`: The Kernel metapackage, which tracks and helps
+  facilitate Kernel updates.
+
+The following rules and procedures apply for this case:
+
+- One topic per Kernel branch (e.g. one for 5.9, and another for 5.10).
+- Merge at end of RC phase, following the testing/notification procedures
+  introduced above.
+    - RC Kernels are never pushed to the `stable` repository.
+    - After the merger, procure Autobuild manifests from linux-kernel-rc
+      to linux-kernel, and linux+kernel+rc to linux+kernel.
+
+## New Port Bring-Ups
+
+In case a new port is being brought up (building packages for the first time
+for a new port), all rules above still applies (one package per topic for
+port adoption). However, to make porters' and other maintainers' lives
+easier, the following exceptions are granted:
+
+- Architectural-specific topics do not need to be pushed to the repository.
+  However, topic branches should still be created and merged every time,
+  although you could do it offline - just for the record.
+- Other architectures affected by these build-fixing changes may synchronise
+  versions and push packages directly to `stable`.
+    - This is based on the assumption that these changes should not affect
+      how package functions, and only bears on the fact that
+      versions/revisions are different.
+
+## Planned Rebuilds
+
+In case of planned rebuilds, which are done in order to refresh stale
+packages. During these planned rebuilds, it is anticipated that a large set
+of packages will be built at once. The following exceptions are therefore
+granted to this scenario:
+
+- An unlimited amount of packages (up to what is planned) could be included
+  within planned rebuild topics.
+- Other topics should give way to this topic, all other topics that contains
+  package(s) affected by planned rebuild topics should halt until planned
+  rebuild is completed.
+
+Planned rebuild topics should be named `planned-rebuild-$DATE`, e.g.
+`planned-rebuild-20201225`.
+
 # AOSC OS/Retro
 
 The topic-based procedures and rules does not apply to AOSC OS/Retro.
@@ -168,7 +231,6 @@ and bugfix changes are committed directly to the `retro` branch.
 After each synchronisation (or merge) from the `stable` branch, a Pull
 Request is created against the `stable` branch as a `retro-tracking-$YEAR`
 topic. Follow all procedures and rules above.
-
 
 # Documentation 
 
