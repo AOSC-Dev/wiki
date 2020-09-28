@@ -72,7 +72,7 @@ The `VER=`, or `$VER` variable defines the main version of the resulting package
 | Versions with dash(es) ("-") | Replace the dash(es) with plus ("+") sign(s). | ImageMagick 6.9.10-23 -> `VER=6.9.10+23` |
 | Versions with underscore(s) ("\_") | Replace the underscore(s) with dot(s) ("."). |  Icarus Verilog 10_2 -> `VER=10.2` |
 | Versions with release stage notation(s) ("alpha", "beta", "rc", etc.) | Lower-case all notations, "Beta" to "beta", etc. Replace "alpha" with "a", "beta" with "b", retain "rc". Remove all symbols surrounding the notation(s), and prepend a tilde ("~"). | Golden Dict 1.5.0-RC2 -> `VER=1.5.0~rc2` |
-| Git or other date-based snapshots | Simply write the date (dot not include `git`, or `svn`, etc. notation(s), but ensure consistent source(s) can be downloaded, see `GITCO`, etc. | Shadowsocks 5ff694b2c2978b432918dea6ac104706b25cbf48 -> `VER=20181219` |
+| Git or other date-based snapshots | Write last tagged version (e.g. "3.2.1") or "0" if never tagged, then append "+", VCS name (e.g. "git") and date of commit. | Shadowsocks 5ff694b2c2978b432918dea6ac104706b25cbf48 -> `VER=0+git20181219` |
 
 ### REL=
 
