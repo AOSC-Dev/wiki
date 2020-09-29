@@ -1,17 +1,23 @@
 let dict = {
     'zh': {
         'not-found': '找不到相符的内容或信息',
+        'try-again': '请输入其他关键字重试。',
         'loading-search': '正在加载搜索索引',
         'plz-wait': '请稍候……',
         'loaded': '搜索索引加载完成',
-        'you-can-search': '输入关键字即可搜索。'
+        'you-can-search': '输入关键字即可搜索。',
+        'load-error': '搜索加载失败',
+        'check-network': '请刷新后重试。'
     },
     'en': {
         'not-found': 'Nothing found',
+        'try-again': 'Try to search again with another keyword.',
         'loading-search': 'Initializing Search',
         'plz-wait': 'Please wait...',
         'loaded': 'Search Initialisation Complete',
-        'you-can-search': 'You can type to search now.'
+        'you-can-search': 'You can type to search now.',
+        'load-error': 'Search Initialisation Failed',
+        'check-network': 'Please try to refresh the page and try again.'
     }
 }
 
@@ -171,7 +177,7 @@ function searchText(event) {
     search_results.innerHTML = ''
 
     if (results.length == 0) {
-        let sorry = createSearchResult("Nothing found", "", "#")
+        let sorry = createSearchResult(dict[lang]['not-found'], dict[lang]['try-again'], "#")
         search_results.appendChild(sorry)
         return
     }
@@ -215,16 +221,20 @@ search_bar.addEventListener("focus", () => {
         // Wait until searchIndex is loaded
         let pending = createSearchResult(dict[lang]['loading-search'], dict[lang]['plz-wait'], "#")
         search_results.appendChild(pending)
-        var checkExist = setInterval(function() {
-            if (window.searchIndex != undefined) {
-                clearInterval(checkExist);
-                let loaded = createSearchResult(dict[lang]['loaded'], dict[lang]['you-can-search'], '#')
-                search_results.innerHTML = ''
-                search_results.appendChild(loaded)
-                search_index_loading = false
-                setTimeout(searchText, 1500, event)
-            }
-        }, 100); // check every 100ms
+
+        imported.onload = function() {
+            let loaded = createSearchResult(dict[lang]['loaded'], dict[lang]['you-can-search'], '#')
+            search_results.innerHTML = ''
+            search_results.appendChild(loaded)
+            setTimeout(searchText, 1500, event)
+        }
+
+        imported.onerror = function(message, source, lineno, colno, error) {
+            console.log(message)
+            let load_error = createSearchResult(dict[lang]['load-error'], dict[lang]['check-network'], '#')
+            search_results.innerHTML = ''
+            search_results.appendChild(load_error)
+        }
 
         return
     }
