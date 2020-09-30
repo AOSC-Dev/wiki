@@ -47,7 +47,7 @@ AOSC OS 是由志愿者经过多年努力构建的，这些志愿者对制作 Li
 ## 缺点
 
 - 目前 AOSC OS 缺少一个友好的安装向导，意味着你在安装时需做不少工作。也缺少 Live 介质供用户使用。
-- AOSC OS 为“塞爆”而设，由于不分包，所以每个软件包占位大。这意味着 AOSC OS会比其他发行版占位更多。
+- AOSC OS 为“塞爆”而设，由于不分包，所以每个软件包占位大。这意味着 AOSC OS 需要比其他发行版更多存储。
 - 没有 `multilib` 和 `multiarch`，这使跨架构开发比 Fedora 和 Debian 等通用发行版更加困难，多依赖 Qemu。
 - AOSC OS 会提供闭源软件和非自由软件，在可见未来不会试图跻身 [完全自由的 Linux 发行版目录](https://www.gnu.org/distros/free-distros.en.html) 中。
 - 相比绝大多数的发行版，AOSC OS 软件仓库的规模还不够大。
