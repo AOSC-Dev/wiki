@@ -1,0 +1,12 @@
+{
+  "minify": true,
+  "jsc": {
+    "loose": true
+  },
+  "env": {
+    "targets": {
+      "ie": "8"
+    }
+  }
+}
+
