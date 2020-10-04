@@ -46,7 +46,7 @@ Now that the OS is known to WSL, you can start it using any of the usual ways: w
 
 # Setting up your system
 
-Some more configuration is needed for the WSL system to interoperate with Windows properly. Enter a root shell and run:
+Some more configuration is needed for the WSL system to interoperate with Windows properly. Enter a root shell in the new WSL instance of AOSC OS and run:
 
 ```bash
 # Remove /etc/resolv.conf so WSL can generate it for us
@@ -61,6 +61,8 @@ sed -i -e 's/^unset PATH MANPATH/# \1/g' /etc/profile
 ```
 
 Now exit the shell and re-open it. You should have a functional, if a bit unorthodox, system available. Continue to the [User, and Post-installation Configuration](@/aosc-os/installation/amd64.md#user-and-post-installation-configuration) section of the AMD64 guide.
+
+LxRunOffline cannot create WSL2 instances. You may convert the WSL1 instance to WSL2 according to [this document on Microsoft website](https://docs.microsoft.com/en-us/windows/wsl/install-win10). Notice that you need to keep your disk [uncompressed and unencrypted](https://github.com/microsoft/WSL/issues/4103) in order to allow the successfully creatation of the desired VHDX file, or you may get an error.
 
 # Any more plumbing needed?
 
