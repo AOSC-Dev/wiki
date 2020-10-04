@@ -44,7 +44,7 @@ WSL 又分为 WSL 1 和 WSL 2 两个版本：
 
 # 安装后配置
 
-为了实现 WSL 系统和 Windows 系统的交互，您需要在 WSL 系统中使用管理员身份执行：
+为了实现 WSL 系统和 Windows 系统的交互，您需要在 WSL 中新创建的 AOSC OS 实例内使用管理员身份执行：
 
 ```bash
 # Remove /etc/resolv.conf so WSL can generate it for us
@@ -59,6 +59,8 @@ sed -i -e 's/^unset PATH MANPATH/# \1/g' /etc/profile
 ```
 
 重启 WSL 系统，接下来请参照 [这篇指南](@/aosc-os/installation/amd64.zh.md#yong-hu-zi-ding-yi-she-zhi) 完成用户创建等剩余的设定。
+
+LxRunOffline 不支持创建 WSL2 实例。如果需要 WSL2 实例，只能在安装后手动转换为 WSL，具体参考[微软网站上的文档](https://docs.microsoft.com/en-us/windows/wsl/install-win10)。另外注意，硬盘[不能开启加密或压缩](https://github.com/microsoft/WSL/issues/4103)，否则可能会转换失败。
 
 # 下一步...
 
