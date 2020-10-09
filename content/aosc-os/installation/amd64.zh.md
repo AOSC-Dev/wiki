@@ -43,7 +43,7 @@ tags = ["sys-installation"]
 
 安装 AOSC OS 需要 Linux 环境，但我们暂时没有提供 Live 镜像。
 
-所以要安装此系统，我们推荐使用 [GParted Live](https://sourceforge.net/projects/gparted/files/gparted-live-stable/)，在以该 Live 环境为范例。
+所以要安装此系统，我们推荐使用 [GParted Live](https://sourceforge.net/projects/gparted/files/gparted-live-stable/)，在此以该 Live 环境示例。
 
 > **警告：请确认你下载的是 AMD64 版本，否则将无法进入 AOSC OS 的 Chroot 环境！**
 
