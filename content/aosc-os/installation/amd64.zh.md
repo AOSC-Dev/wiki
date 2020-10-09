@@ -14,7 +14,7 @@ tags = ["sys-installation"]
 
 # 注意
 
-- 所有以 `# ` 开头的命令请使用 `root` 拥护来运行。
+- 所有以 `# ` 开头的命令请使用 `root` 用户来运行。
 
 # 选择一个 Tarball
 
