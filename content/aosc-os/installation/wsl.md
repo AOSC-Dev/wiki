@@ -62,7 +62,7 @@ sed -i -e 's/^unset PATH MANPATH/# \1/g' /etc/profile
 
 Now exit the shell and re-open it. You should have a functional, if a bit unorthodox, system available. Continue to the [User, and Post-installation Configuration](@/aosc-os/installation/amd64.md#user-and-post-installation-configuration) section of the AMD64 guide.
 
-LxRunOffline cannot create WSL2 instances. You may convert the WSL1 instance to WSL2 according to [this document on Microsoft website](https://docs.microsoft.com/en-us/windows/wsl/install-win10). Notice that you need to keep your disk [uncompressed and unencrypted](https://github.com/microsoft/WSL/issues/4103) in order to allow the successfully creatation of the desired VHDX file, or you may get an error.
+LxRunOffline cannot create WSL2 instances. You may convert the WSL1 instance to WSL2 using `wsl  --set-version AOSC-Whatever 2` ([MS documentation](https://docs.microsoft.com/en-us/windows/wsl/install-win10)). Notice that you need to keep your disk [uncompressed and unencrypted](https://github.com/microsoft/WSL/issues/4103), or you may get an error while creating the VHDX file.
 
 # Any more plumbing needed?
 
