@@ -37,7 +37,7 @@ insert_anchor_links = "right"
 [为 AOSC OS 打包](/zh/developer/packaging/)
 将您最喜欢的应用程序添加到 AOSC OS 软件仓库
 
-[自动化](/developer/automation/)
+[自动化](/zh/developer/automation/)
 正在推进中的 AOSC OS 自动化维护和质量保障工作
 {% end %}
 
