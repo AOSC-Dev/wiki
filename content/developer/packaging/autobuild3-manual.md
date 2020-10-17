@@ -134,7 +134,7 @@ Here lists variables that serves as options during build-time that may alter bui
 
 When building data/architecturally neutral packages, you may (should) specify:
 
-**ABHOST=NOARCH** declaring that the package to be built is for “any” architecture (“noarch” in RPM language), therefore can be installed in any given architecture.
+**ABHOST=noarch** declaring that the package to be built is for “any” architecture (“noarch” in RPM language), therefore can be installed in any given architecture.
 
 ### Additional variables
 
