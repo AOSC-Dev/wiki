@@ -200,7 +200,9 @@ let options = {
 };
 let search_bar = document.getElementById('search-bar');
 let search_results = document.getElementById('search-results');
-let lang = document.documentElement.lang;
+// We only supports en by now
+// let lang = document.documentElement.lang;
+let lang = 'en';
 let search_index_loading = false;
 search_bar.addEventListener('input', debounce(searchText, 200));
 search_bar.addEventListener('focus', () => {
