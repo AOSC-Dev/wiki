@@ -1,0 +1,51 @@
+{% import "macros.html" as macros %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400;1,600&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital@0;1&display=swap" rel="stylesheet"> 
+	<link rel="stylesheet" href="/main-en.css">
+
+
+    {{ macros::head(title="404 Not Found", url="#", description="Page Not Found") }}
+  </head>
+
+  {# For Netsurf #}
+  <a name="top"></a>
+
+  <body style="padding: 3rem">
+    <header style="position: relative">
+      <h1 id="title" style="text-align: center">404</h1>
+      <p id="description" style="text-align: center">Page Not Found</p>
+    </header>
+
+    <article>
+      <p style="text-align: center; line-height: 2">
+        Tomorrow, and tomorrow, and tomorrow,<br>
+        Creeps in this petty pace from day to day,<br>
+        To the last syllable of recorded time;<br>
+        And all our yesterdays have lighted fools<br>
+        The way to dusty death. Out, out, brief candle!<br>
+        Life's but a walking shadow, a poor player,<br>
+        That struts and frets his hour upon the stage,<br>
+        And then is heard no more. It is a tale<br>
+        Told by an idiot, full of sound and fury,<br>
+        Signifying nothing.<br>
+      </p>
+    </article>
+
+    <div style="position: absolute; bottom: 0; left: 0; width: 100%">
+      <p style="text-align: center">
+        <a href="/">Return to Wiki Index</a>
+        <span>·</span>
+        <a href="/zh">返回维基主页</a>
+      </p>
+    </div>
+  </body>
+
+  <script src="/elasticlunr.min.js"></script>
+  <script src="/search.min.js"></script>
+</html>
