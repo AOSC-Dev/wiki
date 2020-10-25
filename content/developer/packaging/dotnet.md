@@ -6,6 +6,8 @@ date = 2020-05-04T03:35:48.616Z
 tags = ["dev-sys"]
 +++
 
+> **Attention: The maintenance guideline that this introduction is describing has been deprecated from October 25, 2020.** We've switched to a newly-proposed [Topic-Based Maintenance Guidelines](@/developer/packaging/topic-based-maintenance-guideline.md). Before we update this document, you could refer to that document instead, or stay tuned.
+
 This policy covers .NET packages in AOSC OS, like `dotnet-*` and `mono`, which are maintained by Microsoft and the .NET community<sup>[1][1],[2][2]</sup>.
 
 # .NET Core `dotnet-*`
