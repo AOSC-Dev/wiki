@@ -1,10 +1,12 @@
 +++
-title = "AOSC OS 维护指南（征求意见稿）"
-description = "过好生活，打好包包"
+title = "AOSC OS 维护指南（已弃用）"
+description = "AOSC OS 软件包维护过程一般指南"
 date = 2020-08-06T12:50:03.911Z
 [taxonomies]
 tags = ["dev-sys"]
 +++
+
+> **注意：本维护指南自 2020 年 10 月 25 日起已被弃用。**我们已经开始实践新提出的[话题制维护指南 (English)](@/developer/packaging/topic-based-maintenance-guideline.md)；请左转阅读那份指南。
 
 # 概述
 

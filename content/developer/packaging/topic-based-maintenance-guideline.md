@@ -1,5 +1,5 @@
 +++
-title = "AOSC OS Topic-Based Maintenance Guidelines (RFC)"
+title = "AOSC OS Topic-Based Maintenance Guidelines"
 description = "General Procedural Guidlelines for AOSC OS Package Maintenance"
 date = 2020-05-04T03:35:53.850Z
 [taxonomies]
@@ -232,7 +232,7 @@ After each synchronisation (or merge) from the `stable` branch, a Pull
 Request is created against the `stable` branch as a `retro-tracking-$YEAR`
 topic. Follow all procedures and rules above.
 
-# Documentation 
+# Documentation
 
 ## Changes Required Following This Change
 

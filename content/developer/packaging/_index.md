@@ -7,7 +7,8 @@ Welcome! If you are reading this, you are probably interested in contributing to
 If you are new to packaging for AOSC OS, please first take a look at the [Intro to Package Maintenance: Basics](@/developer/packaging/basics.md). After that, read [Intro to Package Maintenance: Advanced Techniques](@/developer/packaging/advanced-techniques.md) for some very common techniques used in day-to-day packaging.
 
 In order to ensure the quality of our packages (and reduce wtf moments for other developers), please follow these guidelines.
-- [AOSC OS Maintenance Guidelines](@/developer/packaging/maintenance-guidelines.md)
+
+- [AOSC OS Topic-Based Maintenance Guidelines](@/developer/packaging/topic-based-maintenance-guideline.md)
 - [AOSC OS Package Styling Manual](@/developer/packaging/package-styling-manual.md)
 
 Also, you may want to read these documentations about the tools we use.

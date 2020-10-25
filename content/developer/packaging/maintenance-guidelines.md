@@ -1,10 +1,12 @@
 +++
-title = "AOSC OS Maintenance Guidelines"
+title = "AOSC OS Maintenance Guidelines (Deprecated)"
 description = "General Procedural Guidlelines for AOSC OS Package Maintenance"
 date = 2020-05-04T03:35:53.850Z
 [taxonomies]
 tags = ["dev-sys"]
 +++
+
+> **Attention: This guideline has been deprecated from October 25, 2020.** We've switched to a newly-proposed [Topic-Based Maintenance Guidelines](@/developer/packaging/topic-based-maintenance-guideline.md); please refer to that document instead.
 
 # Introduction
 
@@ -19,7 +21,7 @@ The concepts of branches, cycles, and ports are three main aspects that maintena
 AOSC OS is maintained *concurrently* across four branches:
 
 - Stable (`stable`): Main maintenance branch which most users should be using, updates include security updates, bug fixes, [exceptional updates](@/developer/packaging/cycle-exceptions.md) and [patch-level updates](@/developer/packaging/known-patch-release-rules.md).
-	- Stable, Proposed Updates (`stable-proposed`): Feeds said updates into `stable`, unless the current `stable` already requires bug fixes (for instance, a currently available `stable` package has broken dependency). 
+	- Stable, Proposed Updates (`stable-proposed`): Feeds said updates into `stable`, unless the current `stable` already requires bug fixes (for instance, a currently available `stable` package has broken dependency).
 - Testing (`testing`): Main feature branch which users with particular interest in following the latest development and changes should be using, security updates, feature/major updates, and new packages are introduced from the `explosive` branch and tested *minimally* before shipping. Updates made available through this branch will be available for `stable` by the end of each update cycle.
 	- Testing, Proposed Updates (`testing-proposed`): Feeds said updates into `testing`, packages are introduced and *build-time tested*.
 - Explosive (`explosive`): Accepts *any* new packages and updates *outside of the release cycles*. No one should be using this branch, no matter what.
