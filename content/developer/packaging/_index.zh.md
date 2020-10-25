@@ -8,7 +8,7 @@ title = "打包"
 
 为了确保构建好的软件包的质量，请遵循下面的这些指南：
 
-- [AOSC OS 维护指南](@/developer/packaging/maintenance-guidelines.zh.md)
+- [AOSC OS 主题制维护指南 (English)](@/developer/packaging/topic-based-maintenance-guideline.md)
 - [AOSC OS 软件包样式指南](@/developer/packaging/package-styling-manual.zh.md)
 
 想要进一步了解我们在打包中常用的一些应用程序，可以阅读下面的文档：

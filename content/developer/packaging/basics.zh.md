@@ -4,6 +4,8 @@ description = "了解 AOSC OS 打包流程"
 date = 2020-08-04T02:13:57.919Z
 +++
 
+> **注意：本入门所描述的维护指南自 2020 年 10 月 25 日起已被弃用。**我们已经开始实践新提出的[话题制维护指南 (English)](@/developer/packaging/topic-based-maintenance-guideline.md)。在我们更新这篇文档之前，您可以左转阅读那份指南，或者坐等更新。
+
 **注意**：这篇指南假定您对 Linux 和它的命令行界面有一定的认识。此外，您还需要有一台您本人拥有 `root` 访问权限的装有 Linux 的电脑。
 
 # 需要用到的工具
@@ -18,17 +20,17 @@ date = 2020-08-04T02:13:57.919Z
   - [Autobuild3](https://github.com/AOSC-Dev/autobuild3/)
       - 用于运行构建脚本。
   - [pushpkg](https://github.com/AOSC-Dev/scriptlets/tree/master/pushpkg)
-      - 将构建好的软件包推送到官方软件仓库。 
+      - 将构建好的软件包推送到官方软件仓库。
 
 # 发行周期
 
-AOSC OS 采用的是半滚动更新模型，通常每个发布周期都为时三个月。这意味着 AOSC OS 和 Arch Linux 等滚动发行版一样是没有版本号的。但是，在 [aosc-os-abbs](https://github.com/AOSC-Dev/aosc-os-abbs) 树中，[AOSC OS Core](https://github.com/AOSC-Dev/AOSC-os-abbs/blob/testing-proposed/README.CORE.md) 是由一组软件包构建而成的，这组软件包由运行时库（例如 GNU C Library）和工具链（例如 GCC）组成。这组包以版本化的方式更新（Core 7.0.1、7.0.2、7.1.1 等）。此外，AOSC OS 软件仓库中所有更新都需要在一个 `*-proposed` 软件仓库中作经过一段时间的测试。 
+AOSC OS 采用的是半滚动更新模型，通常每个发布周期都为时三个月。这意味着 AOSC OS 和 Arch Linux 等滚动发行版一样是没有版本号的。但是，在 [aosc-os-abbs](https://github.com/AOSC-Dev/aosc-os-abbs) 树中，[AOSC OS Core](https://github.com/AOSC-Dev/AOSC-os-abbs/blob/testing-proposed/README.CORE.md) 是由一组软件包构建而成的，这组软件包由运行时库（例如 GNU C Library）和工具链（例如 GCC）组成。这组包以版本化的方式更新（Core 7.0.1、7.0.2、7.1.1 等）。此外，AOSC OS 软件仓库中所有更新都需要在一个 `*-proposed` 软件仓库中作经过一段时间的测试。
 
 我们有两个主要分支，分别是 `stable` 和 `testing`，还有三个开发分支 `stable-proposed`、`testing-proposed` 和 `explosive`。
 
 `stable-proposed` 没有冻结期，但这个分支只接受小版本更新（也就是说版本号 `x.y.z` 中只有 `z` 变动了）、安全更新、漏洞修复，还有 [一些例外](@/developer/packaging/cycle-exceptions.md)，这个分支的更新每周都会被合并到 `stable` 分支。
 
-`testing-proposed` 是主要的工作分支。引入新软件包和已有软件包的大版本更新（例如 Firefox 78 -> 79）通常都在此分支进行。开发工作遵循三个月一周期的迭代计划（可以参考 [Winter 2020 的迭代计划](https://github.com/AOSC-Dev/AOSC-os-abbs/issues/2073))。在前两个月，开发人员会构建新软件包或主要版本更新，随后在 `testing-proposed` 进行测试。 
+`testing-proposed` 是主要的工作分支。引入新软件包和已有软件包的大版本更新（例如 Firefox 78 -> 79）通常都在此分支进行。开发工作遵循三个月一周期的迭代计划（可以参考 [Winter 2020 的迭代计划](https://github.com/AOSC-Dev/AOSC-os-abbs/issues/2073))。在前两个月，开发人员会构建新软件包或主要版本更新，随后在 `testing-proposed` 进行测试。
 
 在最后一个月的开头，`testing-proposed` 会被合并到 `testing`。在这个月，启用 `testing` 软件仓库的用户将收到更新，并帮助测试它们。如果一切顺利，到月底，`testing` 就会被合并到 `stable`，从而完成整个周期。在这段时间内，`testing-proposed` 分支则会被冻结，不再接受新更改。
 
@@ -46,7 +48,7 @@ cd ~/ciel
 ciel init
 ```
 
-接下来我们部署 `BuildKit`。`BuildKit` 是一个最小化的 AOSC OS 变体，专门用于打包或容器化开发。它包含了 ACBS 和 Autobuild3，因此我们不需要做额外的配置。 
+接下来我们部署 `BuildKit`。`BuildKit` 是一个最小化的 AOSC OS 变体，专门用于打包或容器化开发。它包含了 ACBS 和 Autobuild3，因此我们不需要做额外的配置。
 
 ``` bash
 ciel load-os
@@ -71,13 +73,13 @@ ciel load-tree # 默认情况下，ciel 会加载官方的树
 
 好了，现在我们已经把打包环境配置好，可以尝试构建一个已有的包了。让我们从一个相对简单的例子开始，`extra-multimedia/flac`。
 
-在此之前，我们需要创建一个 Ciel 实例。建议对不同的分支使用不同的实例： 
+在此之前，我们需要创建一个 Ciel 实例。建议对不同的分支使用不同的实例：
 
 ``` bash
 ciel add stable # 因为我们准备为 stable 分支构建这个包
 ```
 
-确保我们的树在 `stable` 分支上。 
+确保我们的树在 `stable` 分支上。
 
 ``` bash
 cd TREE
@@ -159,7 +161,7 @@ CHKSUM="sha256::1e8fe133a195c29a8e2aa3b1c56e5bc77e7f5534f2dd92e09faabe2ca2d85f45
 
 ## `autobuild/`
 
-这是所有 `Autobuild3` 脚本和声明文件所在的目录。`Autobuild3` 是一个复杂的构建系统，它可以自动规划构建的流程，比如使用哪个构建系统，使用哪个构建参数等等。 
+这是所有 `Autobuild3` 脚本和声明文件所在的目录。`Autobuild3` 是一个复杂的构建系统，它可以自动规划构建的流程，比如使用哪个构建系统，使用哪个构建参数等等。
 
 ## `autobuild/defines`
 
@@ -190,7 +192,7 @@ PKGDES="Improved tiling WM (window manager)"
 PKGCONFL="i3-gaps"
 ```
 
-实际上，您可以在 `defines` 中写 Bash 逻辑。这在为特定平台添加标志或依赖项时很有用，但我们**不建议**您这样做，将来也可能直接禁止这样做。要为特定平台添加信息，请使用 `$VAR__$ARCH`。 
+实际上，您可以在 `defines` 中写 Bash 逻辑。这在为特定平台添加标志或依赖项时很有用，但我们**不建议**您这样做，将来也可能直接禁止这样做。要为特定平台添加信息，请使用 `$VAR__$ARCH`。
 
 要查看完整的可用配置项，请查看 [Autobuild3 维基](https://github.com/AOSC-Dev/aosc-os-abbs/wiki/Autobuild3)。
 
@@ -208,7 +210,7 @@ PKGCONFL="i3-gaps"
 
 这个程序提供了一个简单的命令以控制笔记本电脑的背光。因为它只使用文件 API 与背光子系统交互，所以这个程序非常简单，不需要依赖除了 `glibc` 之外的其它东西。
 
-我们假定您已经配置好了 Ciel，让我们返回到 `TREE` 目录。首先，确保您位于正确的分支。如上所述，在每个周期的前两个月，您应该使用 `testing-proposed`，而最后一个月，您应该使用 `explosive`。 
+我们假定您已经配置好了 Ciel，让我们返回到 `TREE` 目录。首先，确保您位于正确的分支。如上所述，在每个周期的前两个月，您应该使用 `testing-proposed`，而最后一个月，您应该使用 `explosive`。
 
 由于这个软件很显然是一个实用工具，我们在 `TREE/extra-utils` 下创建目录 `light`。
 
@@ -263,14 +265,14 @@ AOSC OS 对提交记录有着非常严格的格式要求。这里我们会提及
 这里我们建议您额外提及您对软件包做了哪些修改（例如依赖项的修改、标志的选择等等），例如：
 
     bash: update to 5.2
-    
+
     - Make a symbolic link from /bin/bash to /bin/sh for program compatibility.
     - Install HTML documentations.
     - Build with -O3 optimisation.
 
 ## 将软件包推送到软件仓库
 
-在成功构建软件包之后，软件包维护者会将把本地 Git 更改推送到树中，并将相应的包推送到官方软件仓库。 
+在成功构建软件包之后，软件包维护者会将把本地 Git 更改推送到树中，并将相应的包推送到官方软件仓库。
 
 将软件包推送到官方软件仓库可以用 [pushpkg](https://github.com/AOSC-Dev/scriptlets/tree/master/pushpkg) 完成。操作起来也很简单，只需下载脚本，将脚本添加到 PATH 并确保它是可执行的（`0755`）。然后，在 `OUTPUT` 目录中调用 `pushpkg`。在这个过程中，您需要提供 LDAP 凭据，并指定目标软件仓库（`stable`、`testing` 等）。
 

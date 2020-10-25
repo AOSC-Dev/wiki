@@ -4,9 +4,11 @@ description = "Introductory Guide to AOSC OS Packaging"
 date = 2020-08-03T12:01:46.691Z
 +++
 
+> **Attention: The maintenance guideline that this introduction is describing has been deprecated from October 25, 2020.** We've switched to a newly-proposed [Topic-Based Maintenance Guidelines](@/developer/packaging/topic-based-maintenance-guideline.md). Before we update this document, you could refer to that document instead, or stay tuned.
+
 **NOTICE**: This guide assumes you have moderate knowledge about Linux and its CLI (command line interface). Also, you need to have access to a Linux computer with `root` access.
 
-# Meet the tools 
+# Meet the tools
 
 We will need these tools in order to build packages. Don't worry about them for now, we will investigate them later.
 
@@ -265,7 +267,7 @@ If you are updating the version of an exisiting package, it should be like this:
 And please mention all the specific changes made to the package (i.e., dependency changes, feature enablement, etc.) in the long log, for instance:
 
     bash: update to 5.2
-    
+
     - Make a symbolic link from /bin/bash to /bin/sh for program compatibility.
     - Install HTML documentations.
     - Build with -O3 optimisation.
