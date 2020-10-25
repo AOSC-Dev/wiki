@@ -3,6 +3,8 @@ title = "软件包维护入门：进阶"
 description = "本文由 Commit-O-Matic™ 赞助"
 +++
 
+> **注意：本入门所描述的维护指南自 2020 年 10 月 25 日起已被弃用。**我们已经开始实践新提出的[话题制维护指南 (English)](@/developer/packaging/topic-based-maintenance-guideline.md)。在我们更新这篇文档之前，您可以左转阅读那份指南，或者坐等更新。
+
 在学习了软件包构建的 [基本技能](@/developer/packaging/basics.zh.md) 之后，让我们来进一步了解打包过程中经常用到的一些进阶技术吧！
 
 请注意，您并不需要逐字阅读这篇文档，只需快速浏览一下，记住其中关键的概念，在实际开发过程中遇到问题时再回来参考这篇文档。
@@ -43,7 +45,7 @@ description = "本文由 Commit-O-Matic™ 赞助"
 
 构建脚本应该放置于 `autobuild/build`。一旦这样做，则构建脚本类型将被自动指定为 `self`（除非您手动声明了 `ABTYPE=`），这意味着 `Autobuild3` 会直接执行此脚本而不再做其它尝试。
 
-构建脚本本身看起来应该和您手动编译程序时使用到的一些脚本非常相似。但是一个关键的区别是编译好的程序不应被安装到系统根目录下。相反，它应该安装在 `$PKGDIR` 中，这样子 `Autobuild3` 才可以基于该目录中的文件生成正确的 DEB 包。例如，如果您有一个名为 `hugo` 的二进制文件，则应通过下面的方式将其安装到目标路径的 `bin` 目录中： 
+构建脚本本身看起来应该和您手动编译程序时使用到的一些脚本非常相似。但是一个关键的区别是编译好的程序不应被安装到系统根目录下。相反，它应该安装在 `$PKGDIR` 中，这样子 `Autobuild3` 才可以基于该目录中的文件生成正确的 DEB 包。例如，如果您有一个名为 `hugo` 的二进制文件，则应通过下面的方式将其安装到目标路径的 `bin` 目录中：
 
 ``` bash
 abinfo "Installing Hugo binary..."
@@ -101,7 +103,7 @@ autobuild/overrides/usr/share/applications/foo.desktop
 
 接下来让我们看看 `git diff`，您应该能够看到 `VER` 和 `REL` 行上的一系列更改。
 
-要注意的是，如果您希望为软件进行跨版本更新，请使用 `findupd` 而不是 `findupd-stable`。 
+要注意的是，如果您希望为软件进行跨版本更新，请使用 `findupd` 而不是 `findupd-stable`。
 
 ## 批量更新校验和
 
@@ -163,8 +165,8 @@ pushpkg LDAP_IDENTITY BRANCH
 
 1.  PISS 这个名字起得不错吧（笑）。
 
-    为了真正利用上游的版本信息，我们开发了一个叫做 [findupd](https://github.com/AOSC-Dev/scriptlets/tree/master/findupd) 的工具，它会自动从 `PISS` 获取信息并更改每个软件包 `spec` 文件中的版本信息。您需要做的就是克隆 `findupd` 的仓库，将所有可执行文件和 Python 脚本复制到 `PATH` 中，然后执行： 
-    
+    为了真正利用上游的版本信息，我们开发了一个叫做 [findupd](https://github.com/AOSC-Dev/scriptlets/tree/master/findupd) 的工具，它会自动从 `PISS` 获取信息并更改每个软件包 `spec` 文件中的版本信息。您需要做的就是克隆 `findupd` 的仓库，将所有可执行文件和 Python 脚本复制到 `PATH` 中，然后执行：
+
     ``` bash
     cd TREE/
     findupd-stable extra-gnome

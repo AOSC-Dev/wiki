@@ -6,6 +6,8 @@ date = 2020-05-04T03:35:43.402Z
 tags = ["dev-sys"]
 +++
 
+> **Attention: This guideline has been deprecated from October 25, 2020.** We've switched to a newly-proposed [Topic-Based Maintenance Guidelines](@/developer/packaging/topic-based-maintenance-guideline.md); please refer to that document instead.
+
 # Rationale and Definition
 
 Since the monthly update cycle was introduced to AOSC OS in July of 2017 (and later, seasonal update cycles introduced since July 2018), packages which represents feature, and non-bugfix/security updates should first have their build configurations pushed to the [testing-proposed](https://github.com/AOSC-Dev/aosc-os-abbs/tree/testing-proposed) of the [ABBS Tree](https://github.com/AOSC-Dev/aosc-os-abbs), uploaded to the [testing-proposed](https://repo.aosc.io/debs/pool/testing-proposed/) repositories - and made available in the stable repository at the end of each seasonal cycle after testing.

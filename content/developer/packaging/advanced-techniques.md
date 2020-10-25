@@ -3,6 +3,10 @@ title = "Intro to Package Maintenance: Advanced Techniques"
 description = "This article is sponsered by Commit-O-Matic™"
 +++
 
+> **Attention: The maintenance guideline that this introduction is describing has been deprecated from October 25, 2020.** We've switched to a newly-proposed [Topic-Based Maintenance Guidelines](@/developer/packaging/topic-based-maintenance-guideline.md). Before we update this document, you could refer to that document instead, or stay tuned.
+
+---
+
 > So you want to make a package, you've got the urge to make a package, you've got the nerve to make a package, so go ahead, so go ahead, so go ahead and make a package we can use\!
 
 After learning the [basics](@/developer/packaging/basics.md) about building packages, we can now start exploring some advanced techniques.
@@ -165,9 +169,9 @@ pushpkg LDAP_IDENTITY BRANCH
 Note that `LDAP_IDENTITY` and `BRANCH` are by definition users and repositories on our [Community Repository](https://repo.aosc.io/). Contributors are audited before an LDAP identities are granted by our Infrustructure Work Group - we will get in touch with you via your first PR to our ABBS tree.
 
 1.  A great name, I know…
-    
+
     In order to actually utilize these information, there is a tool called [findupd](https://github.com/AOSC-Dev/scriptlets/tree/master/findupd), which automatically downloads the infomation from `PISS` and change the corresponding version in package's `spec` file. Simply clone the repository, copy all executables and Python scripts into your `PATH`, and trigger:
-    
+
     ``` bash
     cd TREE/
     findupd-stable extra-gnome

@@ -6,6 +6,8 @@ date = 2020-05-04T03:35:51.153Z
 tags = ["dev-sys"]
 +++
 
+> **Attention: This guideline has been deprecated from October 25, 2020.** We've switched to a newly-proposed [Topic-Based Maintenance Guidelines](@/developer/packaging/topic-based-maintenance-guideline.md); please refer to that document instead.
+
 # Description
 
 The AOSC OS "Stable" channel under the new *TODO: SEASONAL UPDATE MODEL* requires that only packages with *known* patch-level release rules could be updated in this channel, for example, when GNOME Terminal (`gnome-terminal`) is to be update from `3.30.0` to `3.30.1`, this is permitted, as we know that this is a patch release as [dictated](https://developer.gnome.org/programming-guidelines/stable/versioning.html.en#stable-unstable-versions) by GNOME - on the contrary, an update from `3.30.0` to `3.31.0` (stable to unstable) or even from `3.30.0` to `3.32.0` (stable to next-stable) are not acceptable.
@@ -45,4 +47,4 @@ The packages and projects found below should never be updated via the Stable cha
 | Deepin Desktop Environment and Applications | No predictable release and versioning model - as suggested one Deepin developer. |
 | LibQalculate | From `2.6.1` to `2.6.2`, for instance, .so version changed from 18 to 19, breaking ABI compatibility. This does not comply with [Semantic Versioning](https://semver.org/). |
 | Trinity Desktop Environment and Applications | An apparently patch-level release, say, from `R14.0.4` to `R14.0.5` may introduce changes to build system and mix in a large amount of feature updates. |
-| HDF5 (Hierarchical Data Format) | Patch release update changes `sover`, for example, `1.10.1` contains `libhdf5.so.101`, and `1.10.3`, which should have been a patch release update, contains `libhdf5.so.103`, breaking binary compatibility. | 
+| HDF5 (Hierarchical Data Format) | Patch release update changes `sover`, for example, `1.10.1` contains `libhdf5.so.101`, and `1.10.3`, which should have been a patch release update, contains `libhdf5.so.103`, breaking binary compatibility. |

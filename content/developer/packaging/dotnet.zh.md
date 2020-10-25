@@ -6,6 +6,8 @@ date = 2020-05-04T03:35:48.616Z
 tags = ["dev-sys"]
 +++
 
+> **注意：本入门所描述的维护指南自 2020 年 10 月 25 日起已被弃用。**我们已经开始实践新提出的[话题制维护指南 (English)](@/developer/packaging/topic-based-maintenance-guideline.md)。在我们更新这篇文档之前，您可以左转阅读那份指南，或者坐等更新。
+
 以下的生命周期策略适用于 AOSC OS 中所有的 .NET 软件包，包括微软和 .NET 社区维护的 `dotnet-*` 和 `mono`<sup>[\[1\]][1][\[2\]][2]</sup>。
 
 # .NET Core `dotnet-*`
