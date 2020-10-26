@@ -98,8 +98,9 @@ surveying, discussion, packaging, testing, notification, and shipping.
    (e.g., `nano-5.4`). Repository branch naming follows topic name (e.g.,
    `nano-5.4`).
     - Non-update topics should be named by purpose, in the format of
-      `$PKGNAME-$PURPOSE` (e.g. `gnome-shell-build-fix`,
-      `gnome-shell-ppc64el-adaptation`.
+      `$PKGNAME-$PKGVER-$PURPOSE` (e.g. `gnome-shell-3.38.1-build-fix`,
+      `gnome-shell-3.38.1-ppc64el-adaptation`; in case a packge is being
+      introduced, use `gnome-shell-ng-4.0-new`).
     - In case of multi-package topics, topics takes name from the "main player"
       along with its general version, e.g. `gnome-3.38`, `boost-1.73`.
     - In multi-package, multi-version topics, use main package name and date
