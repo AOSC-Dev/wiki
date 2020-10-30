@@ -12,6 +12,15 @@ LTO can help reduce binary size and increase performance (so AOSC OS has it enab
 NOLTO=1
 ```
 
+# `autotools` complains about lacking `install-sh`, source code file not found, source already configured, and etc.
+By default, `autobuild3` creates a `build` directory and build inside it (this is called *Shadow build*). However, some source codes doesn't work in such configuration.
+
+To disable this behavior, add this to the `defines` file:
+
+```bash
+ABSHADOW=0
+```
+
 # `ld` errors when building Rust software
 Rust uses `LLVM` as its backend. So it may encounter some issue when linking to `gcc` compiled objects. Try adding this to the `defines` file:
 
