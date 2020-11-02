@@ -11,7 +11,7 @@ package_site_url = "https://packages.aosc.io/packages/systemd-boot-friend"
 
 There are three scripts in this package:
 - `systemd-boot-friend`, install latest kernels (including mainline and lts kernels) to your EFI partition.
-  - This script should (not yet) be executed automatically after a kernel modification, so that you will always have the latest kernel in ESP partition.
+  - This script will be executed automatically after a kernel modification, so that you will always have the latest kernel in ESP partition.
   - This script will install `intel-ucode` too.
 - `systemd-boot-mkinit`, generate config files for `systemd-boot`.
 - `systemd-boot-init`, attempt to install `systemd-boot` on your system, try to generate systemd-boot configs, and install the kernels.
