@@ -159,7 +159,7 @@ Tarball 更新周期较长，建议在启动前更新系统修复 Tarball 发布
 然后安装 GRUB 到此分区并生成配置：
 
 ```
-# grub-install --target=x86_64-efi --bootloader-id=“AOSC OS" --efi-directory=/efi
+# grub-install --target=x86_64-efi --bootloader-id="AOSC OS" --efi-directory=/efi
 # grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
