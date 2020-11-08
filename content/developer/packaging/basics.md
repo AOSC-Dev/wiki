@@ -22,9 +22,9 @@ We will need these tools in order to build packages. Don't worry about them for 
 
 # Release model
 
-AOSC OS is maintained with a rolling release model. This means that there's no version number attached to a full AOSC OS release (similar to other rolling release Linux distros, like openSUSE Tumbleweed and Arch Linux). However, within the [aosc-os-abbs](https://github.com/AOSC-Dev/aosc-os-abbs) tree, there is a set of packages that constructs the [AOSC OS Core](https://github.com/AOSC-Dev/aosc-os-abbs/blob/testing-proposed/README.CORE.md), which consists of core runtime (the GNU C Library, etc.) and toolchains (GCC, etc.). This set of packages are updated in a versioned fashion (Core 7.0.1, 7.0.2, 7.1.1, etc.).
+AOSC OS is maintained with a rolling release model. This means that there's no version number attached to a full AOSC OS release (similar to other rolling release Linux distros, like openSUSE Tumbleweed and Arch Linux). However, within the [aosc-os-abbs](https://github.com/AOSC-Dev/aosc-os-abbs) tree, there is a set of packages that constructs the [AOSC OS Core](https://github.com/AOSC-Dev/aosc-os-abbs/blob/stable/README.CORE.md), which consists of core runtime (the GNU C Library, etc.) and toolchains (GCC, etc.). This set of packages are updated in a versioned fashion (Core 7.0.1, 7.0.2, 7.1.1, etc.).
 
-Thanks to the rolling model, there's only one repository for the users -- `stable`. When updating or introducing new packages, developers work on a separate branch in the tree (aosc-os-abbs we mentioned above), create a Pull Request about the modification, then upload the package built to a separate repository (parallel to the `stable` repository). Thus, the users may test the updated packages by adding the repository to their apt source list. Then, if the package is proven to be working, the pull request is merged and then the package is rebuilt and pushed to the main repository.
+Thanks to the rolling model, there's only one update channel for the users - `stable`. When updating or introducing new packages, developers work on a separate branch in the tree (the aforementioned `aosc-os-abbs`), create a Pull Request about the modification, then upload the package built to a separate repository (parallel to the `stable` repository). Thus, the users may test the updated packages by using the [AOSC OS APT Topic Manager](https://github.com/AOSC-Dev/atm), or by manually appending the repository to their APT sources list. Then, if the package is proven to be working, the pull request is merged and then the package is rebuilt against a clean `stable` environment, and pushed to the main repository.
 
 This process is called topic-based iteration model. This model is employed in order to reduce stress for the developers and ensure the quality of the packages. If you want to learn more about this model, you may want to check [Topic-Based Maintenance Guidelines](@/developer/packaging/topic-based-maintenance-guideline.md).
 
@@ -46,7 +46,7 @@ Now, we can deploy the BuildKit. BuildKit is a minimal AOSC OS variant used spec
 
 ``` bash
 ciel load-os
-# Or if you have already downloaded BuildKit, or not on AMD64
+# Or if you have already downloaded BuildKit, or if you are not on AMD64
 ciel load-os PATH_TO_BUILDKIT
 ```
 
@@ -54,7 +54,7 @@ It is always a good idea to keep the BuildKit environment up-to-date (and this s
 
 ``` bash
 ciel update-os
-# If this step takes too long, you can edit the mirror via "ciel config -g"
+# If this step takes too long, you can edit sources.list via "ciel config -g" to use a faster mirror
 ```
 
 The next step is to load an ACBS tree. For this instance, we will work on the official `aosc-os-acbs` tree.
@@ -82,7 +82,7 @@ git checkout main
 cd ..
 ```
 
-Then, we need to configure Ciel to use the correct information. 
+Then, we need to configure maintainer information and other settings for your Ciel instance. 
 
 ``` bash
 ciel config -i main
@@ -140,15 +140,15 @@ This file is responsible for telling `acbs` where to download the source file, a
 VER=4.17.1  # Version of the software.
 # REL=0 The package revision. If not specified, it's 0.
 
-# If it is using a source tarball
+# If using a source tarball
 SRCS="tbl::https://i3wm.org/downloads/i3-$VER.tar.bz2" # Download address for the source code.
 CHKSUMS="sha256::1e8fe133a195c29a8e2aa3b1c56e5bc77e7f5534f2dd92e09faabe2ca2d85f45" # Checksum of the source tarball.
 
-# If it is using git
+# If using Git
 SRCS="git::commit=$COMMIT_ID::https://some.git.hosting/somewhere"
 CHKSUMS="SKIP"
 
-# If it uses multiple sources
+# If using multiple sources
 SRCS="git::commit=$COMMIT_ID::https://some.git.hosting/somewhere \
       tbl::https://some.domain/source_tarball.tar.gz \
       file::https://some.domain/souce_code_file"
@@ -210,7 +210,7 @@ That's all the basic knowledge you need to build a simple package\! Now, we will
 
 This program is used to provide a easy command to control the backlight of laptop. Since it only uses file API to interact with the backlight subsystem, this program is very simple and does not require and dependency other than `glibc`.
 
-Return to the `TREE` directory (assuming you have Ciel set-up). First, make sure that you are on the right branch. As mentioned above, you should use a separate git branch for a topic. Here, since we are introducing a new package, according to [AOSC OS Topic-Based Maintenance Guidelines](@/developer/packaging/topic-based-maintenance-guideline.md), the new branch name should be `$PKGNAME-$PKGVER`. Thus, we create a branch called `light-1.2.1` and switch to it.
+Return to the `TREE` directory (assuming you have Ciel set up). First, make sure that you are on the right branch. As mentioned above, you should use a separate Git branch for a topic. Here, since we are introducing a new package. According to [AOSC OS Topic-Based Maintenance Guidelines](@/developer/packaging/topic-based-maintenance-guideline.md), the new branch name should be `$PKGNAME-$PKGVER`. Thus, we create a branch called `light-1.2.1` and switch to it.
 
 Since this program is obviously a utility, we create a directory called `light` under the directory `TREE/extra-utils`.
 
@@ -250,7 +250,7 @@ Although we didn't write anything about how to build this program, `Autobuild3` 
 
 ## Git conventions
 
-If the build is a success, now it's time to commit your build scripts! AOSC OS has strict conventions about git logs. We will only mention the most used ones here. For the full list of package styling and development guidelines, please refer to the [package styling manual](@/developer/packaging/package-styling-manual.md).
+If the build completed successfully, now it's time to commit your build scripts! AOSC OS has strict conventions about git logs. We will only mention the most used ones here. For the full list of package styling and development guidelines, please refer to the [package styling manual](@/developer/packaging/package-styling-manual.md).
 
 For example, we are adding a new package to the tree. Then the log should be something like this:
 
@@ -276,7 +276,7 @@ After a successful build, you can push your local branch (`light-1.2.1` in this 
 
 The second task can be done using [pushpkg](https://github.com/AOSC-Dev/scriptlets/tree/master/pushpkg). Grab the script, add the script to PATH, make sure it is executable (0755). Then, invoke `pushpkg` inside the `OUTPUT` directory. You will need to provide your LDAP credentials and the destination repository (for this example, `light-1.2.1`).
 
-Then you can patiently wait until someone reviews your Pull Request and test your package. If everything looks good, your pull request will be merged and you should rebuild it and push the new package to the `stable` repository.
+Then you can patiently wait until someone reviews your Pull Request and tests your package. If everything looks good, your pull request will be merged and you should rebuild it and push the new package to the `stable` repository.
 
 # Epilogue
 
