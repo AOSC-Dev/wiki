@@ -1,9 +1,10 @@
 +++
-title = "Installation/ARM/RaspberryPi"
+title = "Installation/ARM*/RaspberryPi"
 description = "Installing AOSC OS on Raspberry Pi with ARM64 support"
 date = 2020-11-14T12:37:11.499Z
 [taxonomies]
 tags = ["sys-installation"]
+
 +++
 
 With platform support you can easily enjoy your full-featured AOSC OS in your Raspberry Pi.
@@ -34,15 +35,15 @@ Currently all models armed with chip supports ARM64 may be able to run AOSC OS, 
 
 Almost everything is working. Except:
 
-- Hardware accelerated video decoding, it is a well-known issue across all 64-bit distros.
+- Hardware accelerated video decoding [is not supported under 64-bit OSes yet](https://github.com/raspberrypi/userland/blob/9f3f9054a692e53b60fca54221a402414e030335/CMakeLists.txt#L11) - [See also](https://www.raspberrypi.org/forums/viewtopic.php?t=232684&start=25).
 
 - You may need to upgrade the EEPROM if you have a Raspberry Pi 4. The latest EEPROM addresses some issues, reduces power consumption.
 
 - If you run a mainline kernel, VideoCore GPU communication interface will not work because its driver is not upstreamed, along with some other parts.
 
-  Display is not working too, after the rainbow screen the screen will go completely dark, but system runs.
+  Display is not working too, after the rainbow screen, the screen will go completely dark, but system runs.
 
-> For best stability you can run a Raspberry Pi distributed kernel, which will be downloaded in this tutorial, or a self-compiled kernel against the [raspberrypi/linux](https://github.com/raspberrypi/linux) tree.
+> For best stability you can run a Raspberry Pi distributed kernel, which will be downloaded in this tutorial, or a self-compiled kernel against the [raspberrypi/linux](https://github.com/raspberrypi/linux) tree, or install our distributed kernel.
 
 
 # For advanced users
@@ -53,11 +54,10 @@ Raspberry Pi 4 supports USB boot and network boot out of box, this means you can
 
 # Installation
 
-## 0. Overall process
+## Overall process
 
 1. Upgrade EEPROM firmware (Only for Raspberry Pi 4 series)
 2. Partitioning and formatting
-3. Put essential files to the boot partition
 4. Install AOSC OS
 5. chroot and post installation steps
 
@@ -75,12 +75,12 @@ Check if you have everything listed here:
 
 You need to download a few files:
 
-- [Latest Raspberry EEPROM firmware](https://github.com/raspberrypi/rpi-eeprom/releases) | [Repository](https://github.com/raspberrypi/rpi-eeprom/)
-- [Raspberry Pi Boot files, Kernel and Kernel Modules](https://github.com/raspberrypi/firmware/)
+- [Latest Raspberry EEPROM firmware](https://github.com/raspberrypi/rpi-eeprom/releases) (if you have a Pi4)
 - [Latest AOSC OS ARM64 tarball](https://releases.aosc.io/os-arm64/)
-- BCM43455 Bluetooth firmware (obtain from [BlueZ repository](https://github.com/RPi-Distro/bluez-firmware/raw/master/broadcom/BCM4345C0.hcd))
 
-## 1. Upgrade EEPROM (For Raspberry Pi 4 series)
+We provide precompiled kernel and necessary firmware, you can simply install them after installing AOSC OS tarball.
+
+## Upgrade EEPROM (For Raspberry Pi 4 series)
 
 > If you don't have a Raspberry Pi 4, please skip this process, as older models don't have onboard EEPROM.
 
@@ -97,7 +97,7 @@ You need to download a few files:
 - If no screen is attached, after a successful upgrade the green Activity LED will flash rapidly.
 
 
-## 2. Partitioning the media
+## Partitioning the media
 
 Now you can prepare your SD card for installation.
 
@@ -383,142 +383,9 @@ mount /dev/sda1 /mnt/sd-boot
 mount /dev/sda2 /mnt/sd-aosc
 ```
 
-## 3. Obtaining essential files
-
-Obtain a copy of Raspberry Pi kernel and essential files and place it under the boot partition.
-
-1. Extract the zip file downloaded from `raspberrypi/firmware` repository.
-
-   ```shell
-   mkdir ~/rpi-boot
-   cd ~/rpi-boot
-   wget https://github.com/raspberrypi/firmware/archive/master.zip
-   unzip ./master.zip
-   ```
-
-2. The zip archive contains several folders, we need `boot/` and `modules/` (at the post installation process).
-
-3. Copy the contents under `boot/` (not the folder itself) to your mounted boot partition path.
-
-   ```
-   cp -rv ./boot/* /mnt/sdboot/
-   ```
-
-   Now your boot partition is ready, but a few touches should be done before you can plug it in for boot testing.
-
-**Boot partition explained**
-
-- `start.elf`: Small piece of VideoCore firmware, it is responsible for reading `config.txt`, configuring the hardware, showing the Rainbow screen, loading the kernel and running it.
-- `fixup.dat`: [Linker file which is used to configure the SDRAM partition between the GPU and the CPU](https://elinux.org/RPi_Software#Overview).
-- `bootcode.bin`: Second stage bootloader. This is ignored in Pi 4 because Pi 4 has its own onboard EEPROM.
-
-### Configuring Pi
-
-`config.txt` stores hardware configuration, and this file is read before the kernel load. Some parameters can change the behavior of your Pi.
-
-> This file should be in the root directory of boot partition.
-
-One line per parameter, using sharp symbol to comment on the file.
-
-For all Pis, `arm_64bit=1` should be set in order to load 64bit kernel.
-
-For all configuration parameters, please refer to [Raspberry Pi Documentation](https://www.raspberrypi.org/documentation/configuration/config-txt/README.md).
-
-#### Device Tree related
-
-- `dtparam=sound=on` enables sound (loads `snd_bcm2835` kernel module).
-- `dtparam=krnbt=on` enables Bluetooth (You need `firmware-nonfree` installed first).
-  - If this option is not enabled, you may need to manually attach the UART Bluetooth.
-- `dtoverlay=vc4-fkms-v3d` enables the 3D acceleration support.
-- For other parameters, head to [dtoverlays README](https://github.com/raspberrypi/firmware/blob/master/boot/overlays/README) for more information.
-
-#### Hardware related
-
-- `gpu_mem=X` sets the reserved GPU memory. The unit is MiB, default is 64.
-- `enable_uart=1` enables the onboard serial UART. The UART in Linux is under `/dev/ttyS0`. For Pin header, Pin 8 (GPIO14) for TX, Pin 10 (GPIO15) for RX.
-- `disable_overscan=1` set this if you encounter a black border around the screen. This disables overscan, which is used to address an issue that image goes out of screen.
-
-#### Booting related
-
-- `kernel=file` specifies the kernel file to execute. You can simply ignore this option, if `arm_64bit=1` is set then the bootloader loads `kernel8.img` automatically.
-
-  > If you specify a kernel to boot, please make sure `arm_64bit=1` is set.
-
-- `initramfs` specifies the initramfs file. The format is:
-
-  ```
-  initramfs filename address|followkernel
-  ```
-
-  > You should NOT use the equal sign `=` here, e.g. `initramfs initrd.gz 0x00800000`, `initramfs initrd.gz followkernel`. This syntax is different from others.
-
-- `arm_64bit=1` enables 64bit support. This should be enabled.
-
-> For other configuration parameters, just leave it default, unless you need to change them.
-
-> We recommend you use a separate file to store boot related settings, then use `include` in the main `config.txt` to merge the configurations. e.g:
-
-`config.txt`:
-
-```
-# other configurations...
-
-include distcfg.txt
-```
-
-`distcfg.txt`:
-
-```
-arm_64bit=1
-kernel=vmlinux
-initramfs initrd followkernel
-```
 
 
-
-#### Kernel parameters
-
-Kernel command line should be stored in `cmdline.txt` and should only contain a single line. Contents of the file is kernel parameters, which will be passed to kernel during boot. Parameters should divided by space.
-
- For a normal Pi installation, these options should present no matter how you install or boot your Pi:
-
-- `rootwait` : Wait for root filesystem showing up. The kernel can't find the root filesystem just after boot. SD/USB devices won't work before such controller is showed up.
-
-- `fsck.repair=yes` : Always check for root filesystem. You have to enable this if you do not use an initramfs.
-
-- `root=/dev/blkdev` : Specify the root partition. For SD Card installation, `blkdev` is normally started with `mmcblk0` (e.g. `/dev/mmcblk0p2` for this tutorial). For USB installation, it is normally started with `sda` (e.g. `/dev/sda2` for this tutorial).
-
-  > `UUID=` / `PARTUUID=` is unavailable if you don't use an initramfs.
-
-Optionally, you should set a serial console on `/dev/ttyS0`, e.g. `console=ttyS0,115200` . This helps you monitoring or debugging the boot process, and provide an easy way to fix up the problem without mounting them to your PC.
-
-A least complete `cmdline.txt` should contain these options as described above, for example:
-
-```
-console=ttyS0,115200 root=/dev/sda2 rootfstype=ext4 rw fsck.repair=yes rootwait
-```
-
-
-
-### Boot testing
-
-After preparing and configuration, you can unmount your media, plug it in to your Pi and turn it on. This is just for testing, so you can simply ignore this process.
-
-If you have attached your Pi to a display:
-
-- You can see it flashes a rainbow screen, then follows a black screen with 4 Raspberry Pi logos at the upper-left corner.
-
-  After a few seconds your Pi will panic, as we have not installed an OS yet.
-
-Or, if you attached your Pi to a serial console:
-
-- You can see the kernel logs rolling your terminal. After a few seconds it will panic.
-
-
-
-## 4. Install!
-
-Plug your media back, mount it as described above. At this stage we are going to install the whole system.
+## Install!
 
 Assuming your boot partition is mounted at `/mnt/sd-boot`, root filesystem is mount at `/mnt/sd-aosc` in this section.
 
@@ -533,7 +400,7 @@ Blah! Installation is done! But we should do some post-installation configuratio
 
 
 
-## 5. Post installation process
+## Post installation process
 
 The OS is installed, but we need to do some configuration before we can actually boot it up, for example, setting language, adding user, installing additional packages, etc.
 
@@ -641,39 +508,163 @@ sed -i '/swap/d' /etc/fstab
 ```
 
 
+
+### Adding `bsp-rpi` repository
+
+We have a repository specially designed for Raspberry Pi. You can add an entry to your `apt` sources list by executing:
+
+```sh
+echo "deb https://repo.aosc.io/debs stable bsp-rpi" > /etc/apt/sources.list.d/10-bsp-rpi.conf
+```
+
+Then run `apt-update`.
+
+> This repository contains Raspberry Pi kernel, firmware and precompiled userland libraries.
+
+
+
 ### Miscellaneous post installation process
 
 Please refer to [Installation/AMD64](/aosc-os/installation/amd64/#user-and-post-installation-configuration) for detailed steps. This process is identical to normal installation.
 
 
 
+### Upgrade your system
 
-### Kernel modules and firmware
+Let's upgrade your system now. Before anything going on, you should do this first.
 
-The kernel is under the boot partition, so there's no need to install a kernel manually. You can update your kernel using `rpi-update` utility.
-
-Exit your chroot environment for now, head to where you extracted the Raspberry Kernel and Firmware. We need to copy kernel modules to your installation.
-
-```sh
-cd /path/to/extracted_zip/modules
-cp -rv ./* /mnt/sd-aosc/usr/lib/modules/
+```
+apt update
+apt full-upgrade
 ```
 
-And, copy the Bluetooth chip firmware to your installation:
 
-```sh
-mkdir -p /mnt/sd-aosc/lib/firmware/brcm
-cp /path/to/BCM4345C0.hcd /mnt/sd-aosc/lib/firmware/brcm
+
+
+### Kernel and firmware
+
+Thanks to our contributors, we are now providing kernel and firmware package, users can simply installing them without manual configuration.
+
+#### Installing kernel
+
+Make sure you have `bsp-rpi` added to your sources list, then you can simply install the `linux-kernel-rpi64` package. This kernel is compiled from [raspberrypi/linux](https://github.com/raspberrypi/linux) tree, so it is fully functional.
+
+```
+apt update
+apt install linux-kernel-rpi64
 ```
 
-Then chroot back to your installation.
 
-For firmware you need to install `firmware-nonfree` package in order to make your hardware working. In your chroot environment:
+
+#### Installing firmware
+
+You need to install the Raspberry Pi boot firmware in order to make your Pi working. The `rpi-firmware-boot` package provides a `config.txt` file, and other firmware necessary to boot (`bootcode.bin`, `start.elf` etc).
+
+```
+apt install rpi-firmware-boot
+```
+
+> It provides a default configuration file (`config.txt`). It will not overwrite existing `config.txt` file.
+
+For WiFi or other parts, you need to install `firmware-nonfree` package in order to make your hardware working. In your chroot environment:
 
 ```
 apt install firmware-nonfree
 ```
 
+If you want to enable onboard Bluetooth, you need to install `rpi-firmware-bluez` first:
+
+```
+apt install rpi-firmware-bluez 
+```
+
+And uncomment `dtparam=krnbt=on` in `config.txt` .
+
+### Configuring Pi
+
+`config.txt` stores hardware configuration,  this file is read before the kernel load. Some parameters can change the behavior of your Pi. This file should be present in the root directory of your Pi.
+
+> This file is already installed if you have the package `rpi-firmware-boot` installed. You can ignore this step if you want to use the default configuration. But you still need to create a `cmdline.txt` manually (see following instructions).
+
+One line per parameter, using sharp symbol to comment on the file.
+
+For all Pis, `arm_64bit=1` should be set in order to load 64bit kernel.
+
+For all configuration parameters, please refer to [Raspberry Pi Documentation](https://www.raspberrypi.org/documentation/configuration/config-txt/README.md).
+
+##### Device Tree related
+
+- `dtparam=sound=on` enables sound (loads `snd_bcm2835` kernel module).
+- `dtparam=krnbt=on` enables Bluetooth (You need `firmware-nonfree` installed first).
+  - If this option is not enabled, you may need to manually attach the UART Bluetooth.
+- `dtoverlay=vc4-fkms-v3d` enables the 3D acceleration support.
+- For other parameters, head to [dtoverlays README](https://github.com/raspberrypi/firmware/blob/master/boot/overlays/README) for more information.
+
+##### Hardware related
+
+- `gpu_mem=X` sets the reserved GPU memory. The unit is MiB, default is 64.
+- `enable_uart=1` enables the onboard serial UART. The UART in Linux is under `/dev/ttyS0`. For Pin header, Pin 8 (GPIO14) for TX, Pin 10 (GPIO15) for RX. 
+- `disable_overscan=1` set this if you encounter a black border around the screen. This disables overscan, which is used to address an issue that image goes out of screen.
+
+##### Booting related
+
+- `kernel=file` specifies the kernel file to execute. You can simply ignore this option, if `arm_64bit=1` is set then the bootloader loads `kernel8.img` automatically.
+
+  > If you specify a kernel to boot, please make sure `arm_64bit=1` is set.
+
+- `initramfs` specifies the initramfs file. The format is:
+
+  ```
+  initramfs filename address|followkernel
+  ```
+
+  > You should NOT use the equal sign `=` here, e.g. `initramfs initrd.gz 0x00800000`, `initramfs initrd.gz followkernel`. This syntax is different from others.
+
+- `arm_64bit=1` enables 64bit support. This should be enabled.
+
+> We recommend you use a separate file to store boot related settings, then use `include` in the main `config.txt` to merge the configurations. e.g:
+
+`config.txt`:
+
+```
+# other configurations...
+
+include distcfg.txt
+```
+
+`distcfg.txt`:
+
+```
+arm_64bit=1
+kernel=vmlinux
+initramfs initrd followkernel
+```
+
+
+
+##### Kernel parameters
+
+Kernel command line should be stored in `cmdline.txt` , presents in the root directory of your boot partition, and should only contain one single line. Contents of the file is kernel parameters, which will be passed to kernel during boot. Parameters should divided by space.
+
+ For a normal Pi installation, these options should present no matter how you install or boot your Pi:
+
+- `rootwait` : Wait for root filesystem showing up. The kernel can't find the root filesystem just after boot. SD/USB devices won't work before such controller is showed up.
+
+- `fsck.repair=yes` : Always check for root filesystem. You have to enable this if you do not use a initramfs.
+
+- `root=/dev/blkdev` : Specify the root partition. For SD Card installation, `blkdev` is normally started with `mmcblk0` (e.g. `/dev/mmcblk0p2` for this tutorial). For USB installation, it is normally started with `sda` (e.g. `/dev/sda2` for this tutorial).
+
+  > `UUID=` / `PARTUUID=` is unavailable if you don't use a initramfs.
+
+Optionally, you should set a serial console on `/dev/ttyS0`, e.g. `console=ttyS0,115200` . This helps you monitoring or debugging the boot process, and provide a easy way to fix up the problem without mounting them to your PC.
+
+A least complete `cmdline.txt` should contain these options above, for example:
+
+```
+console=ttyS0,115200 root=/dev/sda2 rootfstype=ext4 rw fsck.repair=yes rootwait
+```
+
+-----
 
 If all above are set, you can exit your chroot environment, unmount them, plug it in to your Pi and boot!
 
@@ -690,27 +681,23 @@ sync
 
 ## Kernel
 
-The kernel you are going to run is Raspberry Pi distributed kernel, and it is downstreamed. Some important parts are not upstreamed to mainline kernel, e.g. VideoCore GPU interface. So display will not work under mainline kernel.
+We are now providing a distribution kernel for Raspberry Pi (ARM64), and it is downstreamed. Some important parts are not upstreamed to mainline kernel, e.g. VideoCore GPU interface. So display will not work under mainline kernel.
 
-> The default CPU governor configured in Raspberry Pi distributed kernel is `powersave`. You have been warned.
+> If you want to use the Raspberry Pi distributed kernel, the configured default CPU governor is `powersave`. You have been warned.
 
 If you run a mainline kernel, you can't run `raspi-config` because VC interface does not work, and so do other tools, e.g. `raspi-config`.
 
-You can build your own kernel against [raspberrypi/linux](https://github.com/raspberrypi/linux) tree. There's an ongoing progress to provide an AOSC distributed kernel for Raspberry Pi.
+You can build your own kernel against [raspberrypi/linux](https://github.com/raspberrypi/linux) tree. 
 
 ## Raspberry Pi Userland programs
 
-If you are required to run `vcgencmd` or some other tools (`raspi-config` and `rpi-update` depends this), you can compile it from [raspberrypi/userland](https://github.com/raspberrypi/userland) :
+We have a prebuilt package for userland libraries. If you are required to run `vcgencmd` or something (`rpi-update` and `raspi-config` requires this), then you need to install this package first.
 
 ```
-sudo apt install cmake
-git clone https://github.com/raspberrypi/userland
-cd userland
-./buildme --aarch64
-sudo make install
+apt install rpi-userland
 ```
 
-Note that these tools are located in `/opt/vc`.  You need to copy them manually.
+> Make sure you are running a downstreamed kernel e.g. the kernel from Raspberry Pi and our `linux-kernel-rpi64`.
 
 ## 3D Acceleration
 
@@ -723,9 +710,9 @@ sudo usermod -aG render <user>
 
 Reboot and run `glxinfo` , you can clearly see the V3D driver is enabled.
 
-## Hardware video decoding
+## Hardware accelerated video decoding
 
-You may not be able to decode a 4K video with AOSC installed if you have a Pi 4. We only tested it on Kodi, VLC and mpv are not tested. And our Mesa is not GL-ES enabled.
+MMAL is not supported under 64-bit OS yet. So you will not get a accelerated video decoding under AOSC OS.
 
 
 # Troubleshooting
@@ -768,7 +755,7 @@ How long this rainbow screen lasts depends on your kernel size and the reading s
 
 If it stuck, then your Pi can't boot the kernel, or the kernel file is not found.
 
-Check your boot partition to see if `kernel8.img` does exist and looks good. If you have custom kernel defined in `config,txt`, make sure it is in the root of boot partition, and double check the filename.
+Check your boot partition to see if `kernel8.img` does exist and looks good. If you have custom kernel defined in `config.txt`, make sure it is in the root of boot partition, and double check the filename.
 
 > If it is a Pi 4, make sure your HDMI cable is plugged into HDMI0 port, the one next to the USB-C port. This is because the second display is only activated after a successful boot.
 >
@@ -841,7 +828,7 @@ To set a CPU governor, run:
 sudo cpupower frequency-set -g <governor>
 ```
 
-The `ondemand` and `conservative` is good enough to ARM processors. Or you can use `performance` if you have a good cooling system.
+The `ondemand` and `conservative` is good enough for ARM processors. Or you can use `performance` if you have a good cooling system.
 
 ### Long boot time due to network delay
 
