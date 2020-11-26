@@ -57,7 +57,8 @@ cat > /etc/wsl.conf << 'EOF'
 options = "metadata,umask=22,fmask=11"
 EOF
 # Leave setting PATH to WSL so appends will work
-sed -i -e 's/^unset PATH MANPATH/# \1/g' /etc/profile
+sed -e '/^unset PATH MANPATH/d' \
+    -i /etc/profile
 ```
 
 Now exit the shell and re-open it. You should have a functional, if a bit unorthodox, system available. Continue to the [User, and Post-installation Configuration](@/aosc-os/installation/amd64.md#user-and-post-installation-configuration) section of the AMD64 guide.

@@ -55,7 +55,8 @@ cat > /etc/wsl.conf << 'EOF'
 options = "metadata,umask=22,fmask=11"
 EOF
 # Leave setting PATH to WSL so appends will work
-sed -i -e 's/^unset PATH MANPATH/# \1/g' /etc/profile
+sed -e '/^unset PATH MANPATH/d' \
+    -i /etc/profile
 ```
 
 重启 WSL 系统，接下来请参照 [这篇指南](@/aosc-os/installation/amd64.zh.md#yong-hu-zi-ding-yi-she-zhi) 完成用户创建等剩余的设定。
