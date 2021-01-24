@@ -42,7 +42,6 @@ It is necessary to create an initial configuration profile for Autobuild3. Store
 ABMPM=dpkg # Main package manager backend.
 ABAPMS= # Additional package manager backend(s), e.g. rpm.
 MTER="Jeff Bai <jeffbai@aosc.xyz>" # Maintainer info.
-ABBUILD=amd64 # Architecture of the current machine.
 ABINSTALL="dpkg" # Package to be installed after build.
 ```
 
@@ -128,6 +127,20 @@ Here lists variables that serves as options during build-time that may alter bui
 
 **NOPARALLEL=** expects a binary value (0/1) that decides whether to disable parallel build (equivalent to `ABTHREADS=1`; defaults to 0 or “off”).
 
+**ABSTRIP** expects a binary value (0/1) and controls whether Autobuild should strip off `.debug`, `.comment` and other unneeded sections from the ELF files prior to packing files into redistributable packages (Defaults to 1 or “on”).
+
+**ABSPLITDBG** expects a binary value (0/1) which controls whether Autobuild should detach debug symbols and related sections from ELF files into separate debug symbol files packed together as a package `${PKGNAME}-dbg`. This option defaults to 0 for packages marked with `noarch` and 1 for all others. A rule of thumb on whether you should override the default behavior:
+
+* For `optenv32` packages, you may want to turn ON `ABSPLITDBG` even the packages themselves are marked as `noarch`.
+* For packages solely consisting of rust or go programs, you may want to turn OFF `ABSPLITDBG` as these two languages are _next fscking level_ (sic.) in terms of debugging or building. Regular symbol files are not sufficient to reasonably debug these programs as they require their own specific procedures.
+* For other packages, it is usually safe for Autobuild to decide for itself.
+
+For technical details: Autobuild will only produce a separate symbol package when all of the following are met:
+
+* The original ELF file must contain a valid build-id in SHA1. The three linkers used by AOSC OS (`bfd`, `gold` and LLVM `lld`) all support embedding build-id within ELF files. The most notable exception is programs produced by `golang`: `golang` uses its dedicated linker for linking Go programs, and its linker does not support build-id.
+* A symbol file must contain `.debug_*` sections. Otherwise, Autobuild will warn about this and exclude the symbol from the symbol package. This condition is almost always satisfied as Autobuild appends `-g` to `$CFLAGS`, but whether projects honor the `CFLAGS` varies.
+* At least one symbol file is produced. This means the project must produce ELF files.
+
 **MAKE\_AFTER=** expects a string value that defines extra arguments to be passed to `make`.
 
 ### Data packages
@@ -162,9 +175,9 @@ Autobuild has a set of pre-defined build routine called Build Types, or `$ABTYPE
 
 Pre-defined scripts of these build types may be found [here](https://github.com/AOSC-Dev/autobuild3/tree/master/build). You may find that they are all prefixed with numbers - prefixes with smaller numbers are of higher priority when detecting for build types. More explained in the example below.
 
-Usually it is not necessary to define `$ABTYPE`, Autobuild can detect this variable automatically. However, some source trees, like `kdelibs` comes with both a `configure` script and a `CMakeList.txt` file in its source tree, in this case, Autobuild will choose `autotools` over `cmake` as its build type, while `cmake` is the valid build type for this source tree.
+Usually it is not necessary to define `$ABTYPE`, as Autobuild can detect this variable automatically. However, this may not always work on source trees that support more than one build systems. For example, `kdelibs` comes with both a `configure` script and a `CMakeList.txt` file in its source tree. In this case, `autotools` takes precedence over `cmake` even when `cmake` is also valid for this source tree.
 
-In such cases, define `$ABTYPE` in `autobuild/defines`.
+In such cases, you may want to explicitly define `$ABTYPE` in `autobuild/defines`.
 
 ## ABTYPE-specific variables
 
