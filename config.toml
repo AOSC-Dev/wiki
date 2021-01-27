@@ -1,6 +1,5 @@
 base_url = "/"
 compile_sass = true
-highlight_code = true
 build_search_index = true
 
 title = "AOSC Wiki"
@@ -14,6 +13,9 @@ taxonomies = [
     {name = "tags", lang = "zh"},
 ]
 
+[markdown]
+highlight_code = true
+
 [extra]
 logo = "/img/aosc.png"
 logo_text = "Wiki"
@@ -21,6 +23,7 @@ logo_text = "Wiki"
 [translations]
 [translations.en]
 zh = "简体中文"
+en = "English"
 description = "Do in the Know"
 search_placeholder = "Search AOSC Wiki"
 also_available_in = "Also available in:"
@@ -32,6 +35,7 @@ footer_msg = "Unless specified, works on this wiki are licensed under [CC BY 4.0
 
 [translations.zh]
 en = "English"
+zh = "简体中文"
 description = "致知而行"
 search_placeholder = "搜索 AOSC Wiki"
 also_available_in = "其他语言："
