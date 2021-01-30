@@ -12,19 +12,18 @@ insert_anchor_links = "right"
 ## How An-an Became Sentient
 
 An-an was a laboratory rabbit from the 6th (Psychiatric) Department of 
-Peking University Health Science Center. She was one of the animal test 
+A University Health Science Center. She was one of the animal test 
 subjects of a certain intelligence enhancement drug/behavior study. The 
 drug was eventually concluded as useless, and the survived animals were 
 adopted by the project participants and their acquaintances. Little did 
 they know that those animals actually became so smart that they faked 
 their tests to escape from the lab, and An-an was one of them.
 
-An-an was adopted by a student of the University of Science and 
-Technology of China. Since An-an was adorable and exceptionally 
-well-behaved for an animal, people let her move freely inside the 
-Computer Science Department. There she became familiar with vintage 
-computers, and always help people to find the hardware they want in the 
-disorganized warehouse.
+An-an was adopted by a student of the University B. 
+Since An-an was adorable and exceptionally well-behaved for an animal, 
+people let her move freely inside the Computer Science Department. 
+There she became familiar with vintage computers, and always help people 
+to find the hardware they want in the disorganized warehouse.
 
 An-an became a rabbit spirit a few years later, by exercising the 
 instructions from some old Taoist classics she found on the internet. 
@@ -35,8 +34,7 @@ broken vintage hardware.
 
 ## Connections with other characters
 
-An-an befriended [Alice Rosetta](https://twitter.com/TysonTanX/status/1223761663612129280?s=19) in 2016 when Alice was visiting North 
-China Institute of Aerospace Engineering. They were introduced by 
+An-an befriended [Alice Rosetta](https://twitter.com/TysonTanX/status/1223761663612129280?s=19) in 2016 when Alice was visiting North Institute C. They were introduced by 
 Alice's classmate, Ao Lei-ting, who is a actually a dragon spirit and a 
 water manipulator.
 
