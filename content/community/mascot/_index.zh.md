@@ -12,5 +12,5 @@ insert_anchor_links = "right"
 
 ## 简介及设定
 
-- [简介]](https://aosc.io/zh/mascot/)
+- [简介](https://aosc.io/zh/mascot/)
 - [钛山提供的背景故事（草稿）](origin-story-tyson)

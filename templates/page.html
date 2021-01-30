@@ -29,7 +29,7 @@
 
 {% block main %}
   <nav>
-    <b>On This Page</b>
+    <b>{{ trans(key="on_this_page", lang=page.lang) }}</b>
     {% for header in page.toc %}
       <a class="first-level-header" href="{{ header.permalink }}">{{ header.title }}</a>
       <div style="margin-left: 1.3rem">
