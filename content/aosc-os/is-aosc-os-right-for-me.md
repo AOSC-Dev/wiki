@@ -54,7 +54,7 @@ With all these philosophies above, AOSC OS has been built by large in accordance
 - It's **heavy**, as packages and software are installed on a larger unit, it requires more available storage than most Linux distributions with similar amount of applications installed.
 	- This issue is further exacerbated with pre-installed language data and fonts, especially CJK fonts, which could take up to a gigabyte of space in most default configurations.
 	- AOSC OS's modularity is noticeably hampered by this feature.
-- No `multilib` or `multiarch`, making cross-architecture development more difficult than "universal" distributions like Fedora and Debian - heavy reliance on Qemu user emulation.
+- No `multilib` or `multiarch`, making cross-architecture development more difficult than "universal" distributions like Fedora and Debian.
 - AOSC OS will not make it into the Free Software Foundation's [List of Free GNU/Linux Distributions](https://www.gnu.org/distros/free-distros.en.html) in the foreseeable future, for it provides non-free software, and is (probably?) illegal to re-distribute in countries like the United States.
 - Compared to more mature Linux distributions, AOSC OS should still grow its software repository.
 - Limited human resource, which means package updates and additions (actively or requested) could be delayed.
