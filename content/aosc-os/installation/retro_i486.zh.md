@@ -103,7 +103,7 @@ tags = ["sys-installation"]
 
 ## 生成 /etc/fstab
 
-如果你在多分区上安装 AOSC OS， 则需要正确的 `/etc/fstab`。可用 `genfstab` ：
+如果你在多分区上安装 AOSC OS/Retro， 则需要正确的 `/etc/fstab`。可用 `genfstab` ：
 
 ```
 # genfstab -U -p / >> /etc/fstab
@@ -223,7 +223,7 @@ hostnamectl set-hostname yourhostname
 
 ## 配置预设服务
 
-> 这将会使用我们的预设文件来启用一些服务，如 `xdm` 和 `NetworkManager`
+> 这将会使用我们的预设文件来启用一些服务，如 `xdm` 和 `NetworkManager` 。
 
 ```
 # systemctl preset-all
