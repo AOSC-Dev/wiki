@@ -20,7 +20,7 @@ All i486 tarballs are generic (universal for all supported devices), the only th
 
 # Preparing an Installation Environment
 
-It is impossible to install AOSC OS/Retro without a working Live environment or an installed copy of Linux distribution on your local storage. Live disc images are not yet available for AOSC OS/Retro
+It is impossible to install AOSC OS/Retro without a working Live environment or an installed copy of Linux distribution on your local storage. Live images are not yet available for AOSC OS/Retro
 
 For installing AOSC OS/Retro, we recommend that you use [TinyCoreLinux](http://tinycorelinux.net/downloads.html), dumped to your USB flash drive - and our guide will assume that you are using CorePlus as the Live environment.
 
@@ -106,7 +106,7 @@ If you have chosen to use multi-partition layout for your AOSC OS/Retro installa
 # genfstab -U -p /mnt >> /etc/fstab
 ```
 
-Check the resulting `/etc/fstab file`, and edit it in case of errors.
+Check the resulting `/etc/fstab` file, and edit it in case of errors.
 
 ## Update, Your, System!
 
