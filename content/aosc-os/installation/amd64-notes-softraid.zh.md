@@ -26,7 +26,7 @@ mdadmconf="yes"
 现在我们来制作 initrd 启动镜像文件：
 
 ```
-# sh /var/ab/triggered/dracut
+# update-initramfs
 ```
 
 # 内核参数

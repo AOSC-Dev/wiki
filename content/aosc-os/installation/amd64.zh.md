@@ -140,7 +140,7 @@ Tarball 更新周期较长，建议在启动前更新系统修复 Tarball 发布
 使用下面的命令来初始化 RAM Disk：
 
 ```
-# sh /var/ab/triggered/dracut
+# update-initramfs
 ```
 若无法创建，应 `apt full-upgrade` 更新系统。
 

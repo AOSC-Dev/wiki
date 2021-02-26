@@ -29,7 +29,7 @@ mdadmconf="yes"
 And now invoke generation of new initrd(s).
 
 ```
-# sh /var/ab/triggered/dracut
+# update-initramfs
 ```
 
 # Extra Kernel Parameters
