@@ -197,7 +197,7 @@ New tarball releases comes out roughly each season, and it is generally a wise c
 Use the following command to create initialization RAM disk for AOSC OS.
 
 ```
-# sh /var/ab/triggered/dracut
+# update-initramfs
 ```
 
 # Bootloader Configuration

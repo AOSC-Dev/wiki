@@ -204,7 +204,7 @@ Tarball 的更新周期比较长，所以我们建议在启动之前更新您的
 使用下面的命令来初始化 RAM Disk：
 
 ```
-# sh /var/ab/triggered/dracut
+# update-initramfs
 ```
 
 # 配置引导器
