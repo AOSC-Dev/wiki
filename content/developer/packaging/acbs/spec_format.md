@@ -31,8 +31,7 @@ Consult
 [Autobuild3](@/developer/packaging/autobuild3-manual.md#the-defines-file)
 for more information.
 
-spec
-----
+## spec
 
 Defines files are expected to exist in `:/` (root of the top project
 folder). `defines` files are solely processed by `acbs` to fetch source
@@ -45,37 +44,35 @@ files and control `acbs` how to transfer controls to `autobuild`.
 
 `spec` file SHOULD ONLY contain ONE of the following variables:
 
--   `DUMMYSRC` (Bool) If set to 1, indicates this package does not
-    require source files or source files processing cannot be handled
-    well by current version of `acbs`.
--   `SRCTBL` (String) If set, indicates this package requires "zipped"
-    or archived source files.
--   `<VCS_NAME>SRC` If set, indicates required source files for this
-    package are in a version controlled repository. (For a list of
-    supported VCS systems, see `appendix`)
--   `CHKSUM` Expected format: `<ALGO_NAME>::<HASH_VALUE>` If set, `acbs`
-    will check the checksum of the source file against this value can be
-    omitted if the source is from VCS.
-
-`spec` file may also contain the following variables:
-
--   `<VCS_NAME>BRCH` If set, indicates required branch of the repository
-    for the package.
--   `<VCS_NAME>COMMIT` If set, indicates required commit/revision of the
-    repository for the package.
--   `SUBDIR` If set, `acbs` will change to specified directory after
-    finishing preparing the source files. (For a list of supported
-    hashing algorithms, see `appendix`)
-
-Multiple source files:
-
 -   `SRCS` Expected format:
     `<VCS_NAME_1>::<OPTIONS_1>::<URI_1> <VCS_NAME_2>::<URI_2> ...` See
     footnote[1] for details about particular behavior.
+-   `DUMMYSRC` (Bool) If set to 1, indicates this package does not
+    require source files or source files processing cannot be handled
+    well by current version of `acbs`.
+
+`spec` file may also contain the following variables:
+
 -   `CHKSUMS` Expected format:
     `<ALGO_NAME_1>::<HASH_VALUE_1> <ALGO_NAME_2>::<HASH_VALUE_2> ...` If
     set, `acbs` will check the checksum of the source files against this
     value not available if the source is from VCS.[2]
+-   `SUBDIR` If set, `acbs` will change to specified directory after
+    finishing preparing the source files. (For a list of supported
+    hashing algorithms, see `appendix`)
+-   `SRCTBL` (String) **\[Deprecated\]** If set, indicates this package
+    requires "zipped" or archived source files.
+-   `<VCS_NAME>SRC` **\[Deprecated\]** If set, indicates required source
+    files for this package are in a version controlled repository. (For
+    a list of supported VCS systems, see `appendix`)
+-   `<VCS_NAME>BRCH` **\[Deprecated\]** If set, indicates required
+    branch of the repository for the package.
+-   `<VCS_NAME>COMMIT` **\[Deprecated\]** If set, indicates required
+    commit/revision of the repository for the package.
+-   `CHKSUM` **\[Deprecated\]** Expected format:
+    `<ALGO_NAME>::<HASH_VALUE>` If set, `acbs` will check the checksum
+    of the source file against this value can be omitted if the source
+    is from VCS.
 
 Details about the `SRCS` format:
 
@@ -89,11 +86,24 @@ Details about the `SRCS` format:
     -   `commit`: Commit hash
     -   `rename`: Rename the source file (including extension name if
         any)
+    -   `submodule`: Automatically fetch submodules in the repository.
+        -   `true`: Fetch submodules but not recursively (submodules in
+            the submodules are not fetched).
+        -   `false`: Do not fetch submodules.
+        -   `recursive`: \[Default\] Fetch submodules recursively.
+    -   `repo-copy`: Automatically copy the VCS repository to the build
+        directory.
+        -   `true`: Copy the VCS repository prior to the building
+            process, replaces `acbs_copy_git`.
+        -   `false`: \[Default\] Do not copy the VCS repository. However
+            you can still use `acbs_copy_git`.
 
 To specify multiple options, you can join the options with semicolons
-(`;`) like this: :
+(`;`) like this:
 
-    SRCS="tbl::rename=lmms-git;commit=94363be::https://github.com/LMMS/lmms"
+``` bash
+SRCS="tbl::rename=lmms-git;commit=94363be::https://github.com/LMMS/lmms"
+```
 
 The snippet above will make `acbs` rename the source directory to
 `lmms-git` and checkout the commit `94363be`.

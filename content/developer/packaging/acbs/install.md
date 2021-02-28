@@ -2,11 +2,7 @@
 title = "ACBS - Installation"
 +++
 
-Installation
-============
-
-Get Started
------------
+## Get Started
 
 ACBS could be deployed in any appropriate directories, and is invoked by
 calling `acbs-build.py` (you may create a symlink for your convenience).
@@ -15,9 +11,11 @@ dependencies](#Mandatory dependencies) listed below. You may want to
 create a configuration file before using ACBS, although this is not a
 must, but it is highly recommended though.
 
-You can use package manager to install it if you are running AOSC OS: :
+You can use package manager to install it if you are running AOSC OS:
 
-    sudo apt install acbs
+``` bash
+sudo apt install acbs
+```
 
 Or you can get it from source: <https://github.com/AOSC-Dev/acbs/> If
 you don't want to clone it using `git`, you can directly download it:
@@ -30,8 +28,7 @@ configuration file should be stored in `/etc/acbs/forest.conf`.
 
 More detailed instructions are listed below.
 
-Requirements
-------------
+## Requirements
 
 <div id="Mandatory dependencies">
 
@@ -39,7 +36,7 @@ Mandatory dependencies:
 
 </div>
 
--   Python 3 (\>= 3.6): Running the program itself.
+-   Python 3 (&gt;= 3.6): Running the program itself.
 -   GNU File (libmagic): File type detection.
 -   LibArchive (bsdtar): Archive handling.
 -   GNU Wget or Aria2: Source downloading.
@@ -57,24 +54,27 @@ Optional dependencies[1]:
 -   pexpect: Python module to simulate PTY sessions and log output to
     file.
 
-Initial configurations
-----------------------
+## Initial configurations
 
 The configuration file located in `/etc/acbs/forest.conf` is a INI-like
 file.
 
 A bare-minimum configuration example is shown below:
 
-    [default]
-    location = /usr/lib/acbs/repo
+``` ini
+[default]
+location = /usr/lib/acbs/repo
+```
 
 If you are feeling smart, variable substitutions are also supported:
 
-    [vars]
-    base = /mnt
+``` ini
+[vars]
+base = /mnt
 
-    [default]
-    location = ${vars:base}/aosc-os-abbs
+[default]
+location = ${vars:base}/aosc-os-abbs
+```
 
 By default, ACBS builds packages from the tree defined in the
 `[default]` block. You can override this behavior by using
