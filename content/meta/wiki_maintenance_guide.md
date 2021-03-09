@@ -61,3 +61,24 @@ Yes: [Some Hyperlink Title](@/some_section/some_article.md)
 
 Then `@` sign tells [Zola](https://github.com/getzola/zola) to find the link for an internal page, and replace the link with the actual link for that page. By doing so, Zola is able to check if the link is valid. And if the link points to an non-exist file, the build would fail.
 
+# Usage of shortcodes
+Shortcodes is segments of template in your markdown files. It will be compiled into some defined structure when building the Wiki. Shortcodes can be used to create special visual structure on the page.
+
+To see the full list of supported shortcodes, go to the [Shortcode showcase](@/meta/shortcode_showcase.md).
+
+## Cards
+Cards are used to indicate a piece of information that requires special attention. For example, a danger card can be used to indicat the following steps may result in permanent damange in user's hardware.
+
+There are four types of cards available: `success`, `info`, `warn` and `danger`. To use cards, put your desired card type in the type field then fill your information before the end tag.
+
+For example, if you write this in your markdown file:
+```markdown
+{%/* card(type="warning") */%}
+Here is a warning in a card.
+{%/* end */%}
+```
+
+Zola will render it like this:
+{% card(type="warning") %}
+Here is a warning in a card.
+{% end %}

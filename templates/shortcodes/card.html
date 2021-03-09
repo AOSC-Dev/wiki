@@ -1,0 +1,9 @@
+<div class="card {{ type }}">
+  <div class="header">
+    <span class="symbol">🛈</span>
+    <span>{{ type }}</span>
+  </div>
+  <div class="content">
+    {{ body | markdown(inline=true) | safe }}
+  </div>
+</div>
