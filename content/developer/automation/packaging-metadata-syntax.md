@@ -6,6 +6,10 @@ date = 2020-05-04T03:35:18.729Z
 tags = ["dev-automation"]
 +++
 
+{% card(type="info") %}
+This RFC has been succeeded by [ACBS Package Metadata Language](@./apml.md).
+{% end %}
+
 # RFC: Packaging Metadata Syntax
 
 The `spec` and `defines` files currently use Bash syntax to define package metadata, which is not easy to parse strictly according to the [Bash Reference Manual](https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html). Therefore, we propose the use of a reduce set of Bash syntax to reduce parsing and transition cost, as packaging tools will be refactored in languages other than Bash.
