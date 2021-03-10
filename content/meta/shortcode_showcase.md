@@ -1,5 +1,5 @@
 +++
-title = "Shortcode showcase"
+title = "Shortcode Showcase"
 description = "All available shortcodes in a page."
 +++
 
