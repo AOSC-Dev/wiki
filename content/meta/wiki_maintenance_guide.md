@@ -69,7 +69,7 @@ To see the full list of supported shortcodes, go to the [Shortcode showcase](@/m
 ## Cards
 Cards are used to indicate a piece of information that requires special attention. For example, a danger card can be used to indicat the following steps may result in permanent damange in user's hardware.
 
-There are four types of cards available: `success`, `info`, `warn` and `danger`. To use cards, put your desired card type in the type field then fill your information before the end tag.
+There are four types of cards available: `success`, `info`, `warning` and `danger`. To use cards, put your desired card type in the type field then fill your information before the end tag.
 
 For example, if you write this in your markdown file:
 ```markdown
