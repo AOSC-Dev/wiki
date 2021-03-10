@@ -7,7 +7,7 @@ tags = ["dev-automation"]
 +++
 
 {% card(type="info") %}
-This RFC has been succeeded by [ACBS Package Metadata Language](@./apml.md).
+This RFC has been succeeded by [ACBS Package Metadata Language](/developer/automation/apml).
 {% end %}
 
 # RFC: Packaging Metadata Syntax
