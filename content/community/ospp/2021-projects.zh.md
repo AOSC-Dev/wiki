@@ -12,6 +12,6 @@ tags = ["ospp"]
 
 [irc]: ###
 [tg]: https://t.me/joinchat/BMnG9zvfjCgZUTIAoycKkg
-[guide]: https://summer.iscas.ac.cn/help/student/
 [discord]: https://discord.gg/VYPHgt9
 [mlist]: mailto:discussions@aosc.io
+[guide]: https://summer.iscas.ac.cn/help/student/
