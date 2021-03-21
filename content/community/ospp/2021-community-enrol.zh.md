@@ -6,6 +6,8 @@ date = 2021-03-21
 tags = ["ospp"]
 +++
 
+> 本文档仅供协作和透明。
+
 ## 报名信息摘要
 
 - 社区或开源项目名称：安同开源社区（Anthon Open Source Community, 简称 AOSC）
