@@ -24,8 +24,8 @@ tags = ["ospp"]
 2. Website URL: https://aosc.io/
 3. Upload Logo: https://raw.githubusercontent.com/AOSC-Dev/LOGO/master/SVG/Logo%20of%20Anthon%20Open%20Source%20Community.svg
 4. Descriptions
-  - Short Description (up to 180 characters):
-  - Long Description (may include limited Markdown up to 2000 characters):
+  - Short Description (up to 180 characters): AOSC is the open source community supporting the Linux distribution AOSC OS.
+  - Long Description (may include limited Markdown up to 2000 characters): Anthon Open Source Community (AOSC in short) is the open source community supporting AOSC OS, a Linux distribution. AOSC OS is a general purpose Linux distribution that strives to simplify user experience and improve free and open source software for day-to-day productivity, following principles: Simplified, Localized, Permissive, Sustainable, Refined.
 5. Mailing List (In order to help students know more about the community, please fill the developers mailing list.): discussions@lists.aosc.io
 6. Offical Contact E-mail: discussions@lists.aosc.io
 7. Technology Tags: Linux, RISC-V, Kernel, Embedded, Ali T-Head, Rust, C, Python, Bash, GTK, Localization (L10n), Dpkg Package Management
@@ -46,7 +46,7 @@ tags = ["ospp"]
 
 1. What would you like to gain from "Summer 2021"?
 
-In "Summer 2021", we hope student participation in the community can be further ?, students' work can be further integrated into the main working stream of the community, and more people will be able to take part in community affairs with the help of "Summer 2021".
+In "Summer 2021", we hope student participation in the community can be further enhanced, students' work can be further integrated into the main working stream of the community, and more people will be able to take part in community affairs with the help of "Summer 2021".
 
 2. What would your org consider to be a successful summer? (New contributors, new features completed, more code written, better being able to guide new developers into open source world, etc.)
 
