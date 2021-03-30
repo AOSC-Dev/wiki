@@ -8,6 +8,8 @@ tags = ["ospp"]
 
 > 本文档仅供协作和透明。
 
+# 社区报名模板
+
 ## 报名信息摘要
 
 - 社区或开源项目名称：安同开源社区（Anthon Open Source Community, 简称 AOSC）
