@@ -12,7 +12,7 @@ tags = ["ospp"]
 
 ## Application Summary
 
-- Name of Community or Open Source Project: Anthon Open Source Community (AOSC in short)
+- Name of Community or Open Source Project: Anthon Open Source Community (AOSC)
 - Official Website: https://aosc.io/
 - Contact: _(Junde Yhi)_
   - E-mail: lmy441900@aosc.xyz
@@ -24,8 +24,8 @@ tags = ["ospp"]
 2. Website URL: https://aosc.io/
 3. Upload Logo: https://raw.githubusercontent.com/AOSC-Dev/LOGO/master/SVG/Logo%20of%20Anthon%20Open%20Source%20Community.svg
 4. Descriptions
-  - Short Description (up to 180 characters): AOSC is the open source community supporting the Linux distribution AOSC OS.
-  - Long Description (may include limited Markdown up to 2000 characters): Anthon Open Source Community (AOSC in short) is the open source community supporting AOSC OS, a Linux distribution. AOSC OS is a general purpose Linux distribution that strives to simplify user experience and improve free and open source software for day-to-day productivity, following principles: Simplified, Localized, Permissive, Sustainable, Refined.
+  - Short Description (up to 180 characters): AOSC is an open source community built around the AOSC OS Linux distribution project.
+  - Long Description (may include limited Markdown up to 2000 characters): Anthon Open Source Community (AOSC) is an open source community built around the AOSC OS Linux distribution project. AOSC OS is a general purpose Linux distribution that strives to simplify user experience and to improve free and open source software for day-to-day productivity, with the following design principles in mind: Simplified, Localized, Permissive, Sustainable, Refined.
 5. Mailing List (In order to help students know more about the community, please fill the developers mailing list.): discussions@lists.aosc.io
 6. Offical Contact E-mail: discussions@lists.aosc.io
 7. Technology Tags: Linux, RISC-V, Kernel, Embedded, Ali T-Head, Rust, C, Python, Bash, GTK, Localization (L10n), Dpkg Package Management
@@ -46,14 +46,14 @@ tags = ["ospp"]
 
 1. What would you like to gain from "Summer 2021"?
 
-In "Summer 2021", we hope student participation in the community can be further enhanced, students' work can be further integrated into the main working stream of the community, and more people will be able to take part in community affairs with the help of "Summer 2021".
+In "Summer 2021", we hope that student participation in the community can be further enhanced. Further, we aim to better integrate our students' work into our community's daily maintenance and development efforts, as well as longer term goals, such that more people will be compelled to continue their participation and contribution to community affairs with the help of "Summer 2021".
 
 2. What would your org consider to be a successful summer? (New contributors, new features completed, more code written, better being able to guide new developers into open source world, etc.)
 
 We think a successful "Summer 2021" should:
 
-- allow new contributors to bring new features to the various projects in the community with reasonable task schedules;
-- provide necessary platforms and supports to new and potential contributors, making two cents worth of contribution to the open source ecosystem by playing the important role of open source community.
+- Allow new contributors to bring new features to our community projects, under reasonable work schedules.
+- Provide necessary platforms and support to new and potential contributors, and provide guidance for future contributions to the open source ecosystem.
 
 3. How many potential mentors have agreed to mentor this year?
 
@@ -61,19 +61,17 @@ Five.
 
 4. How will you keep mentors engaged with their students?
 
-We plan to require the communication between students and mentors to join the main message stream of the community. In "Summer 2020", our mentors established separate communication channels to students, which later caused opaque about their progresses. Since all community members can view the main message stream of the community, in "Summer 2021" we will change the way we communicate in "Summer 2020".
+We plan to require students and mentors to communicate in community-wide channels, sharing transparent progression and feedback. In "Summer 2020", our mentors established separate communication channels for our students, which later caused communication challenges.
 
 5. How will you help your students stay on schedule to complete their projects?
 
-We plan to:
-
-- provide mentoring to students as professional as possible;
-- assist students to
-- let students to be aware of the importance of communities in the open source ecosystem by providing them the chance of experiencing various community workflows and learing how to communicate with upstreams, in the hope of generating students' _subjective initiative_ to their projects.
+- Provide professional guidance to students wherever possible.
+- ...
+- Building student awareness about the importance and methods of contributing to the open source ecosystem. This is done by providing students with opportunities to communicate and contribute directly to upstream projects with diversified workflows. This is done above all in a hope to establish not only the said awareness, but more importantly, valuable social networks that would help students with future contributions and project building.
 
 6. Have your community ever participated om "Summer 2020"?
   - Yes.
   - How many students did your community accept for 2020?
     - Around 12.
-  - How many of your community’s 2020 students have been active in your community in the last 60 days?
+  - How many of your community's 2020 students have been active in your community in the last 60 days?
     - 0.
