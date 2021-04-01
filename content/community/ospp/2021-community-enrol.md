@@ -66,8 +66,8 @@ We plan to require students and mentors to communicate in community-wide channel
 5. How will you help your students stay on schedule to complete their projects?
 
 - Provide professional guidance to students wherever possible.
-- ...
-- Building student awareness about the importance and methods of contributing to the open source ecosystem. This is done by providing students with opportunities to communicate and contribute directly to upstream projects with diversified workflows. This is done above all in a hope to establish not only the said awareness, but more importantly, valuable social networks that would help students with future contributions and project building.
+- Offer hands-on project planning, attentive progress tracking, and adjust project roadmaps accordingly.
+- Build student awareness about the importance and methods of contributing to the open source ecosystem. This is done by providing students with opportunities to communicate and contribute directly to upstream projects with diversified workflows. This is done above all in a hope to establish not only the said awareness, but more importantly, valuable social networks that would help students with future contributions and project building.
 
 6. Have your community ever participated om "Summer 2020"?
   - Yes.
