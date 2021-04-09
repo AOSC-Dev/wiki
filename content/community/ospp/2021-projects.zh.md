@@ -54,3 +54,29 @@ tags = ["ospp"]
 [discord]: https://discord.gg/VYPHgt9
 [mlist]: mailto:discussions@aosc.io
 [guide]: https://summer.iscas.ac.cn/help/student/
+
+# 自由及开源软件简中本地化工作
+
+当前我国国内有相当数量的 Linux 及各大开源或自由软件 (F/OSS) 使用者，但在使用过程中，用户们不难发现，各种软件的简中翻译及本地化质量参差不齐，错漏繁多。尤其主流桌面环境如 GNOME 及 KDE 简中翻译率并不理想，GIMP 和 Inkscape 这类常用应用的本地化质量相对较低；而我社的 Wiki 站点简中文档翻译也时常欠完整或更新。该项目的主要目的是改善当前开源或自由软件的本地化质量及覆盖率。
+
+- 项目难度：中
+- 项目社区导师：白铭骢
+- 导师联系方式：jeffbai@aosc.io
+- 合作导师联系方式：N/A
+- 项目产出要求：
+  - 完善（或改善，如时间不足）现有开源软件的简中翻译，包括但不限于 CUPS、GNOME、Plasma、MATE Desktop 及 NetSurf（其余项目根据考察决定）。学生可自选 1 - 2 个项目，或由导师推荐。
+    - 导师推荐如下目标项目（最终计划以学生及导师协商结果为准）：完善 KDE、GIMP 及 Inkscape 的简中本地化；若学生对文史创作类的本地化有兴趣，亦可考虑完善回合制对战游戏《韦诺之战》(Wesnoth) 的简中本地化。
+  - （如有额外时间）更新或完善社区 Wiki 站简中文档翻译。
+  - （如有额外时间）审阅并修改现行[大陆简中自由软件本地化工作指南（1.5.4 版）][l10n-guide]，修改后通知各大陆简中 (zh_CN) 翻译小组及社区。
+- 项目技术要求：
+  - 通读[大陆简中自由软件本地化工作指南（1.5.4 版）][l10n-guide]，熟知大陆简中标点、句式及选词规范及技巧。
+  - 了解主要本地化软件框架（如 [GNU Gettext][gettext]）及工具（如 [Poedit][poedit] 及 [Lokalize][lokalize]。
+  - 其余工作流程及技巧将于项目期间沟通及培训。
+- 相关的仓库：
+  - https://github.com/AOSC-Dev/translations
+- 开源协议：视上游项目而定
+
+[l10n-guide]: https://repo.aosc.io/aosc-l10n/zh_CN_l10n_1.5.4.pdf
+[gettext]: http://www.gnu.org/software/gettext/
+[poedit]: https://poedit.net/
+[lokalize]: https://kde.org/applications/office/org.kde.lokalize/
