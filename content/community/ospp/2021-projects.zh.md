@@ -10,6 +10,12 @@ tags = ["ospp"]
 
 > 请先仔细阅读[学生指南][guide]。
 
+[irc]: ###
+[tg]: https://t.me/joinchat/BMnG9zvfjCgZUTIAoycKkg
+[discord]: https://discord.gg/VYPHgt9
+[mlist]: mailto:discussions@aosc.io
+[guide]: https://summer.iscas.ac.cn/help/student/
+
 # 安装程序 DeployKit 的实现
 
 社区项目 [DeployKit][dk] 是未来 AOSC OS 的安装和恢复程序。该程序有两种模式：
@@ -22,6 +28,7 @@ tags = ["ospp"]
 - 项目难度：中
 - 项目社区导师：刘子兴
 - 导师联系方式：liushuyu@aosc.io
+- 合作导师联系方式：N/A
 - 项目产出要求：
   - 实现 DeployKit 的图形用户界面
   - 完善安装器后端库的逻辑和错误处理
@@ -48,12 +55,6 @@ tags = ["ospp"]
 [gtk]: https://www.gtk.org/
 [rust]: https://rust-lang.org
 [inst-guide]: @/aosc-os/installation/amd64.md
-
-[irc]: ###
-[tg]: https://t.me/joinchat/BMnG9zvfjCgZUTIAoycKkg
-[discord]: https://discord.gg/VYPHgt9
-[mlist]: mailto:discussions@aosc.io
-[guide]: https://summer.iscas.ac.cn/help/student/
 
 # 自由及开源软件简中本地化工作
 
@@ -96,11 +97,11 @@ tags = ["ospp"]
 	- 提供一个程序用于查询哪些软件源中的包可以被封存，哪些由于已封存，可以直接丢弃，哪些应当留在仓库中。
 	- 提供一个程序用于封存软件包：移除以及分类归纳为指定大小（目前为 < 25GiB）的档案夹，可能的话，最终生成 Blu-ray ISO。
 	- 提供一个较高效率的方式，可以方便的使用程式查询所有已封存软件包资讯。
-	- （如有额外时间）提供一个方式生成「最小软件仓库」，仅包含最新版本的软件包，占用最少的空间。
+	- （如有额外时间）提供一个方式生成“最小软件仓库”，仅包含最新版本的软件包，占用最少的空间。
 - 项目技术要求：
 	- 能够阅读英文文档（语言官方文档 / API 等）。
 	- 熟练使用一种语言（建议 Python）的字符串处理功能。
-	- 熟练使用一种语言（建议 Python/Bash）的文件系统处理功能。
+	- 熟练使用一种语言（建议 Python / Bash）的文件系统处理功能。
 	- 了解使用该语言访问网路 API 以取得文字的功能。
 	- 了解并可简单使用一种数据库（建议 SQLite）。
 	- 使用较少的依赖，便于在源服务器上（无 root 的 CLI）快速部署与执行。
@@ -110,4 +111,28 @@ tags = ["ospp"]
 	- https://github.com/AOSC-Dev/aosc-archive
 	- https://github.com/AOSC-Dev/p-vector
 	- https://packages.aosc.io/qa/
-- 开源协议：GPLv3 or later version
+- 开源协议：GPLv3 或更新版本
+
+# 全志 RISC-V 芯片主线化开发工作
+
+全志即将推出一款基于 XuanTie C906 RISC-V 核心的 SoC 。本项目将对该芯片进行启动固件（暂定为 U-Boot ，可根据学生兴趣换用其他方案）和 Linux 内核的主线化开发工作。
+该芯片将于 4 月下旬发布，随后将发布官方开发板、SDK 及文档；本项目的开发过程中需要大量参考 SDK 代码。
+
+- 项目难度：高
+- 项目社区导师：郑兴达
+- 导师联系方式：icenowy@aosc.io
+- 合作导师联系方式：N/A
+- 项目产出要求：
+  - 完成该芯片的基本 bootloader 功能，能够启动 Linux 内核，并将相关代码提交给上游。
+  - 完成该芯片的基本 Linux 移植，可以从 MMC 启动现成 Linux 发行版并在串口进行输入 / 输出。
+  - 视完成情况实现各种外设的驱动。
+- 项目技术要求：
+  - 编译交叉工具链（可使用现成工具）和内核。
+  - 使用 Git 代码管理（使用 commit, rebase 等操作）。
+  - 编写 C 语言代码（能参照现有内核代码编写新设备的驱动代码）。
+  - 使用英语与上游项目或社区交流（编写提交信息 \[commit message\]，在邮件列表上接受补丁审阅 \[patch review\]，如果有必要的时候面对 Linus Torvalds 或其他上游维护者的愤怒）。
+  - 了解 RISC-V 指令集（能看懂 GCC 输出的汇编代码）。
+- 相关的开源软件仓库列表：
+  - https://source.denx.de/u-boot/u-boot
+  - https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+- 开源协议：跟随相应上游项目部分的代码，主要是 GPL；存在 GPL + 其他授权双授权 (dual licensing) 的情况（如 device tree source 或 binding）。
