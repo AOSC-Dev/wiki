@@ -60,7 +60,7 @@ At present, a very basic TUI interface has been implemented using [Cursive][curs
 Allwinner will soon release an SoC based on the XuanTie C906 RISC-V core. This project will focus on mainlining the bootloader (tentatively U-Boot, may switch according to student interest) and Linux Kernel for this chip. The chip will be released in late April, with the official development board, SDK and documentation to follow. A lot of references to the SDK code will be needed for the development of this project.
 
 - Difficulty: High
-- Mentor: Xingda Zheng
+- Mentor: Xingda "Icenowy" Zheng
 - Mentor contact: icenowy@aosc.io
 - Project Requirements:
   - Basic bootloader functions, bootable Linux Kernel, and upstreaming all relevant code changes.
