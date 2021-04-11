@@ -54,3 +54,25 @@ At present, a very basic TUI interface has been implemented using [Cursive][curs
 [gtk]: https://www.gtk.org/
 [rust]: https://rust-lang.org
 [inst-guide]: @/aosc-os/installation/amd64.md
+
+# Allwinner RISC-V chip Mainline Development
+
+Allwinner will soon release an SoC based on the XuanTie C906 RISC-V core. This project will focus on mainlining the bootloader (tentatively U-Boot, may switch according to student interest) and Linux Kernel for this chip. The chip will be released in late April, with the official development board, SDK and documentation to follow. A lot of references to the SDK code will be needed for the development of this project.
+
+- Difficulty: High
+- Mentor: Xingda Zheng
+- Mentor contact: icenowy@aosc.io
+- Project Requirements:
+  - Basic bootloader functions, bootable Linux Kernel, and upstreaming all relevant code changes.
+  - Booting currently available Linux distributions from the MMC and input/output over the serial connection.
+  - If time allows, implement drivers for various peripherals.
+- Technical Requirements:
+  - Build cross-compilation toolchains (or use off-the-shelf tools) and the Linux Kernel.
+  - Using Git for code maintenance (commit, rebase, etc.).
+  - Writing C code (implementing drivers for new devices while referencing existing Kernel code).
+  - Writing commit messages, accepting patch reviews on mailing lists, facing the wrath of Linus Torvalds or other upstream maintainers if necessary.
+  - Understanding the RISC-V instruction set (being able to read assembly code output by GCC).
+- Related Repositories:
+  - https://source.denx.de/u-boot/u-boot
+  - https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+- License: Varies based on different upstream projects, mainly GPL; dual licensing in some cases (e.g. GPL + other licenses with device tree sources or bindings).
