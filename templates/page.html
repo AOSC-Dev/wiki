@@ -40,6 +40,12 @@
     {% endfor %}
   </nav>
   <article>
+    {% if page.extra.page_hack %}
+    <div class="{{ page.extra.page_hack }}">
+      {{ page.content | safe }}
+    </div>
+    {% else %}
     {{ page.content | safe }}
+    {% endif %}
   </article>
 {% endblock main %}
