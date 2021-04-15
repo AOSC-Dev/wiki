@@ -1,6 +1,6 @@
 +++
 title = "List of Announced AOSAs (2018)"
-description = "An Archive of Announced AOSC OS Security Advisories (2018)"
+description = "Archive of Announced AOSC OS Security Advisories (2018)"
 date = 2020-05-04T03:34:53.667Z
 [taxonomies]
 tags = ["aosa"]
