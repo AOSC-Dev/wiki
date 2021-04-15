@@ -4,6 +4,8 @@ description = "Security updates for 2020"
 date = 2021-04-04T03:34:57.724Z
 [taxonomies]
 tags = ["aosa"]
+[extra]
+page_hack = "big-min-table-cell-width"
 +++
 
 # Security updates
