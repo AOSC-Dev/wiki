@@ -4,6 +4,8 @@ description = "An Archive of Announced AOSC OS Security Advisories (2018)"
 date = 2020-05-04T03:34:53.667Z
 [taxonomies]
 tags = ["aosa"]
+[extra]
+page_hack = "big-min-table-cell-width"
 +++
 
 | AOSA | Suggestion(s) | Fixed CVE(s) |
