@@ -4,6 +4,8 @@ description = "Buildbots that can be used by AOSC developers"
 date = 2020-05-04T03:36:10.683Z
 [taxonomies]
 tags = ["infra"]
+[extra]
+page_hack = "big-min-table-cell-width"
 +++
 
 # General Information
