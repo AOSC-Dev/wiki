@@ -136,3 +136,26 @@ tags = ["ospp"]
   - https://source.denx.de/u-boot/u-boot
   - https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
 - 开源协议：跟随相应上游项目部分的代码，主要是 GPL；存在 GPL + 其他授权双授权 (dual licensing) 的情况（如 device tree source 或 binding）。
+
+# AOSC OS 的 LoongArch 移植
+
+龙芯即将在六月推出基于 LoongArch 架构的龙芯 3A5000 处理器，本项目的目标是为 AOSC OS 制作针对 LoongArch 的新移植。
+
+- 项目难度：高
+- 项目社区导师：白铭骢
+- 导师联系方式：jeffbai@aosc.io
+- 合作导师联系方式：N/A
+- 项目产出要求：
+  - 为 [Autobuild](https://github.com/AOSC-Dev/autobuild3/) 设定 LoongArch 架构的标准编译优化、系统类型 (tuplet) 及包管理配置。
+  - 结合 [Linux From Scratch](https://www.linuxfromscratch.org/) 及 AOSC OS 的[维护指南](https://wiki.aosc.io/developer/packaging/package-styling-manual/) 构建基本系统。
+  - 如时间允许，构建可启动系统并制作标准发行供其他用户使用。
+- 项目技术要求：
+  - 熟悉 AOSC OS 的基本构建和维护工具，包括 [Autobuild3](https://github.com/AOSC-Dev/autobuild3/)，[ACBS](https://github.com/AOSC-Dev/acbs/) 及 [Ciel](https://github.com/AOSC-Dev/ciel/)。
+  - 基本理解 [Linux From Scratch](https://www.linuxfromscratch.org/) 的流程及原理。
+  - 熟悉 AOSC OS 的[维护指南](https://wiki.aosc.io/developer/packaging/package-styling-manual/) 。
+  - 熟悉 Bash 语法。
+  - 制作或改写补丁。
+  - 使用英语与上游项目或社区交流（编写提交信息 \[commit message\]，在邮件列表上接受补丁审阅 \[patch review\]。
+- 相关的开源软件仓库列表：
+  - https://github.com/AOSC-Dev/aosc-os-abbs
+- 开源协议：跟随相应上游项目部分的代码。
