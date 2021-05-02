@@ -75,6 +75,31 @@ tags = ["sys-installation"]
 
 # 解压 Tarball
 
+> **警告：请务必检查 tarball 解压之后的文件权限是否正确，否则在之后的安装将可能出现错误。** 正确的权限应该是像这样的：(且列表里的所有者都应该是 root:root）
+>
+> ```
+> # ls -l
+> total 60K
+> lrwxrwxrwx  1 root root    7 Apr  5 05:31 bin -> usr/bin/
+> drwxr-xr-x  4 root root 4.0K Apr  5 05:38 boot/
+> drwxr-xr-x  3 root root 4.0K Apr  5 05:31 dev/
+> drwxr-xr-x 74 root root 4.0K Apr  5 05:35 etc/
+> drwxr-xr-x  2 root root 4.0K Apr  5 05:31 home/
+> lrwxrwxrwx  1 root root    7 Apr  5 05:31 lib -> usr/lib/
+> lrwxrwxrwx  1 root root    7 Apr  5 05:31 lib64 -> usr/lib/
+> drwxr-xr-x  4 root root 4.0K Apr  5 05:31 media/
+> drwxr-xr-x  2 root root 4.0K Apr  5 05:31 mnt/
+> drwxr-xr-x  2 root root 4.0K Apr  5 05:31 opt/
+> drwxr-xr-x  2 root root 4.0K Apr  5 05:31 proc/
+> drwxr-x---  2 root root 4.0K Apr  5 05:38 root/
+> drwxr-xr-x  7 root root 4.0K Apr  5 05:32 run/
+> lrwxrwxrwx  1 root root    7 Apr  5 05:31 sbin -> usr/bin/
+> drwxr-xr-x  2 root root 4.0K Apr  5 05:31 srv/
+> drwxr-xr-x  2 root root 4.0K Apr  5 05:31 sys/
+> drwxrwxrwt  2 root root 4.0K Apr  5 05:31 tmp/
+> drwxr-xr-x  9 root root 4.0K Apr  5 05:31 usr/
+> drwxr-xr-x 13 root root 4.0K Apr  5 05:35 var/
+ 
 在分区设置完成后，请解压 tarball 以准备安装。在开始解压前请挂载到欲安装分区。如下（在此假设安装到 `/dev/sda2` ）：
 
 ```
