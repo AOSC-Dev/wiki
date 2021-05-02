@@ -107,19 +107,13 @@ tags = ["sys-installation"]
 # /mnt/usr/bin/genfstab -U -p /mnt >> /mnt/etc/fstab
 ```
 
-## 绑定设备和系统路径
-
-```
-# mkdir /mnt/run/udev
-# for i in dev proc sys run/udev; do mount --rbind /$i /mnt/$i; done
-```
-
 ## 进入新系统
+
 
 进入 Chroot 环境：
 
 ```
-# chroot /mnt /bin/bash
+# /mnt/usr/bin/arch-chroot /mnt /bin/bash
 ```
 
 若你无法进入 Chroot 环境，则可能使用了不合要求的 Tarball（这个在之前已经**加粗**强调过了……）。

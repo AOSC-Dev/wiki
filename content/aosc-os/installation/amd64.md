@@ -107,19 +107,12 @@ If you have chosen to use multi-partition layout for your AOSC OS installation, 
 # /mnt/usr/bin/genfstab -U -p /mnt >> /mnt/etc/fstab
 ```
 
-## Bind mount system/pseudo directories
-
-```
-# mkdir /mnt/run/udev
-# for i in dev proc sys run/udev; do mount --rbind /$i /mnt/$i; done
-```
-
-## Chroot
+## Bind mount system/pseudo directories and Chroot
 
 Enter AOSC OS chroot environment:
 
 ```
-# chroot /mnt /bin/bash
+# /usr/bin/mnt/arch-chroot /mnt /bin/bash
 ```
 
 If you failed to enter chroot, you have probably not downloaded the amd64 version (gosh, we got it in bold as well...).
