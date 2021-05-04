@@ -138,7 +138,7 @@ If you have chosen to use multi-partition layout for your AOSC OS installation, 
 Enter AOSC OS chroot environment:
 
 ```
-# /usr/bin/mnt/arch-chroot /mnt /bin/bash
+# /mnt/usr/bin/arch-chroot /mnt /bin/bash
 ```
 
 If you failed to enter chroot, you have probably not downloaded the amd64 version (gosh, we got it in bold as well...).
