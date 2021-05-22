@@ -34,11 +34,11 @@ If you would like contribute your device to AOSC, please make sure your device h
 
 # List of Buildbots
 
-NOTE: 
-
+{% card(type="info") %}
 - `port_number - 10000` is occupied by that machine. See information above.
 - The parameter speed is defined as the total execution time for `make`, after `mkdir build && cd build && ../configure --prefix=/usr` within the unzipped source tree of GNU C Library (version 2.31)  - this will be the command `time make`, collect the `Real` time, and round up to a second. This test is to be conducted on the main storage/scratch disk/build partition/...
 - A **Port** with a strikethrough means that the buildbot is not online recently.
+{% end %}
 
 ---
 
@@ -46,10 +46,10 @@ NOTE:
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Note |
 |-----------|-----------|-----------|-----------|-----------|---------|-----------|
-| **Curium** | 22003 | Intel i5-9600K (6) @ 4.60GHz | 32GiB | 99s (`-j7`, 2.32) | _Staph Zhang_ | Owned by Leo Shen. Read ~aosc/README.md for usage info. |
-| **gbx-ry3700** | 22182 | AMD Ryzen 7 3700X (16) @ 3.600GHz | 1.5GiB~32GiB | ? | _Dingyuan Wang_ | ~3T ceph storage at `/media/shared`, `/` is on SSD |
+| **Curium** | ~~22003~~ | Intel i5-9600K (6) @ 4.60GHz | 32GiB | 99s (`-j7`, 2.32) | _Staph Zhang_ | Owned by Leo Shen. Read ~aosc/README.md for usage info. |
+| **gbx-ry3700** | ~~22182~~ | AMD Ryzen 7 3700X (16) @ 3.600GHz | 1.5GiB~32GiB | ? | _Dingyuan Wang_ | ~3T ceph storage at `/media/shared`, `/` is on SSD |
 | **Ry3950X** | 22333 | AMD Ryzen 9 3950X @ 3.50 - 4.70GHz | 64GiB | 40s (`-j33`) | _Mingcong Bai_ | Scratch disk at `/buildroots`, create own Ciel workspace |
-| **vmaoscagent001** | 22658 | 2 * Intel Xeon Processor E5-2660 v2 @ 2.20 - 3.00GHz | 64GiB | 82s (`-j41`) | _Kexy Biscuit_ | `/buildroots/` available on SSD, repo mirror: `http://localhost/debs/`, BuildKit mirror: `http://localhost/aosc-os/os-amd64/buildkit/`, users in Asia-Pacific should connect with `vmaoscagent001.biscuit.moe:22658` |
+| **vmaoscagent001** | ~~22658~~ | 2 * Intel Xeon Processor E5-2660 v2 @ 2.20 - 3.00GHz | 64GiB | 82s (`-j41`) | _Kexy Biscuit_ | `/buildroots/` available on SSD, repo mirror: `http://localhost/debs/`, BuildKit mirror: `http://localhost/aosc-os/os-amd64/buildkit/`, users in Asia-Pacific should connect with `vmaoscagent001.biscuit.moe:22658` |
 | **EPSON-PC** | ~~22718~~ | VM on i7-3770, 2vCPU | 4GiB | 502s (`-j2`) | _Zamir Sun_ | Available time: 8:00 - 21:30 UTC+8, use zirouter.tpddns.cn:22718  for direct connection  |
 
 ## **MIPS** (23001-24000)
@@ -57,20 +57,20 @@ NOTE:
 | Name | Port | CPU | Memory | Speed |Maintainer | Note |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **lemote-a1511** | ~~23072~~ | Loongson 3B-1500G (R2, Hexa) @ 1.2GHz (A1511) | 8GiB | 1333s (`-j7`, 2.27) | _Junde Yhi_ | Hosted by the Network Coding Lab at [CUHK(SZ)](https://www.cuhk.edu.cn/) sponsored by _Xiaoxing Ye_; owned by _Mingcong Bai_ |
-| **lemote-a1601** | 23141 | Loongson 3A-2000C (R2) @ 1GHz (A1601) | 8GiB | 801s (`-j5`, 2.27) | _Junde Yhi_ | |
+| **lemote-a1601** | ~~23141~~ | Loongson 3A-2000C (R2) @ 1GHz (A1601) | 8GiB | 801s (`-j5`, 2.27) | _Junde Yhi_ | |
 | **lemote-8089d** | ~~23210~~ | Loongson 2F (STLS2F02-1) @ 1GHz (Lemote Yeeloong 8089D) | 1GiB | 9077s (`-j1`, 2.27) <!-- 10038s (`-j2`) --> | _Junde Yhi_ | For testing purposes only, not 24x7 online (slow, hot and noisy); owned by _Mingcong Bai_ |
-| **lpi-2** | 23456 | Loongson 2K-1000 @ 1GHz (Loongson Pi 2) | 2GiB | 3850s (`-j3`) | _Junde Yhi_ | Sponsored by [windows1089](http://www.openloongson.org/?4655) |
+| **lpi-2** | ~~23456~~ | Loongson 2K-1000 @ 1GHz (Loongson Pi 2) | 2GiB | 3850s (`-j3`) | _Junde Yhi_ | Sponsored by [windows1089](http://www.openloongson.org/?4655) |
 | **lemote-a1901** | 23869 | Loongson 3A-4000 (R4) @ 1.8GHz (A1901) | 16GiB | 335s (`-j5`, 2.31) | _Mingcong Bai_ | Scratch disk at `/buildroots`, create own Ciel workspace |
 
 ## **ARM** (24001-25000)
 
 | Name | Port | CPU | Memory | Speed |Maintainer | Note |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **ice-rockpro64** | 24064 | Quad Core ARM Cortex-A53 @ 1.416GHz + Dual Core ARM Cortex-A72 @ 1.8GHz (Rockchip RK3399, RockPro64) | 4GiB | 565s (`-j7`) | _Icenowy Zheng_ | Scratch disk at `/mnt/sda3`; users in Asia could try `ssh -p 24064 root@aosc-relay-asiapacific.edge.biscuit.moe` |
+| **ice-rockpro64** | ~~24064~~ | Quad Core ARM Cortex-A53 @ 1.416GHz + Dual Core ARM Cortex-A72 @ 1.8GHz (Rockchip RK3399, RockPro64) | 4GiB | 565s (`-j7`) | _Icenowy Zheng_ | Scratch disk at `/mnt/sda3`; users in Asia could try `ssh -p 24064 root@aosc-relay-asiapacific.edge.biscuit.moe` |
 | **Tegra** | ~~24096~~ | Quad Core ARM Cortex-A57 @ 1.73GHz (NVIDIA Jetson TX1 Developer Kit) | 4GiB | 446s (`-j5`, 2.27) |  _Mingcong Bai_ | Device dead, RIP |
 | **Pine64** | ~~24399~~ | Quad Core ARM Cortex-A53 @ 1.2GHz (Allwinner A64, Pine64 Plus) | 2GiB | 1351s (`-j5`, 2.27) |  _Mingcong Bai_ | Retired |
 | **kp920** | 24426 | 2 * 48-Core Huawei Kunpeng 920 @ 2.6GHz (Huawei Taishan 2280 v2; 94 cores allocated) | 192GiB (145GiB allocated) | 71s (`-j95`) | _Undisclosed_ | Scratch disk at `/buildroots`, create own Ciel worksapce; direct access with `ssh -p 2223 root@kp920.ip4.run` |
-| **JellyXavier** | 24444 | 4 x dual core NVIDIA Carmel CPU clusters @ 2.26GHz (NVIDIA Jetson AGX Xavier Developer Kit) | 16GiB | 232s (`-j9`) |  _Mingcong Bai_ | Scratch disk at `/buildroots`, create own Ciel workspace |
+| **JellyXavier** | ~~24444~~ | 4 x dual core NVIDIA Carmel CPU clusters @ 2.26GHz (NVIDIA Jetson AGX Xavier Developer Kit) | 16GiB | 232s (`-j9`) |  _Mingcong Bai_ | Scratch disk at `/buildroots`, create own Ciel workspace |
 | **YetAnotherPine64** | ~~24514~~ | Quad Core ARM Cortex-A53 @ 1.2GHz (Allwinner A64, Pine64 Plus) | 2GiB | 1365s (`-j5`, 2.27) | _Salted Fish_| (Down) Local mirror located at `/dev/sda4` |
 
 ## **PowerPC** (25001-26000)

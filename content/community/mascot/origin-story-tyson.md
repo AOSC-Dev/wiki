@@ -4,10 +4,11 @@ description = "An-an's origin story from Tyson"
 insert_anchor_links = "right"
 +++
 
-> **NOTE:**
-> - This story is not currently canon for the most part.
-> - Any institution, organization or individual mentioned in the story has no affiliation with AOSC.
-> - The story has been modified to exclude some extra details.
+{% card(type="warning") %}
+- This story is not currently canon for the most part.
+- Any institution, organization or individual mentioned in the story has no affiliation with AOSC.
+- The story has been modified to exclude some extra details.
+{% end %}
 
 ## How An-an Became Sentient
 
@@ -35,10 +36,10 @@ broken vintage hardware.
 ## Connections with other characters
 
 An-an befriended [Alice Rosetta](https://twitter.com/TysonTanX/status/1223761663612129280?s=19) in 2016 when Alice was visiting North Institute C. They were introduced by 
-Alice's classmate, Ao Lei-ting, who is a actually a dragon spirit and a 
+Alice's classmate, [Ao Lei-ting](https://twitter.com/TysonTanX/status/1195037920077471749?s=19), who is a actually a dragon spirit and a 
 water manipulator.
 
-Alice has a white rabbit named Cloud that she rescued from the dissect 
+Alice has a white rabbit named [Cloud](https://twitter.com/TysonTanX/status/913067589919809536?s=19) that she rescued from the dissect 
 class of the middle school on the other side of the street of her 
 primary school. Cloud is a normal rabbit, but he can communicate a lot 
 using rabbit gestures with An-an.
