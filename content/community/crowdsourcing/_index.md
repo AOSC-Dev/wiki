@@ -1,5 +1,5 @@
 +++
-title = "Funding"
+title = "Crowdsourcing [RFC]"
 [extra]
 list_section = true
 +++
