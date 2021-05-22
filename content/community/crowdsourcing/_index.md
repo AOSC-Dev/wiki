@@ -1,7 +1,5 @@
 +++
 title = "Crowdsourcing [RFC]"
-[extra]
-list_section = true
 +++
 
 # Rationale
@@ -15,5 +13,3 @@ As outlined in our [Interpersonal Guidelines](@/community/guidelines.md), AOSC d
 + Funding projects are considered complete once the proposed amounts are collected, no further donation will be accepted.
 + In case of unused funds, surplus funds are to be refunded to donors by proportion of the total value of the purchase.
 + In case of a cancelled funding project, donors are to be refunded in full.
-
-# Projects
