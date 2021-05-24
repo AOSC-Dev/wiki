@@ -10,7 +10,7 @@ tags = ["ospp"]
 
 > 请先仔细阅读[学生指南][guide]。
 
-[irc]: ###
+[irc]: ircs://irc.libera.chat:6697/aosc
 [tg]: https://t.me/joinchat/BMnG9zvfjCgZUTIAoycKkg
 [discord]: https://discord.gg/VYPHgt9
 [mlist]: mailto:discussions@aosc.io

@@ -10,7 +10,7 @@ Welcome! The following are project topics that AOSC provides for you to work on.
 
 > Please first read the [Students' Guide][guide].
 
-[irc]: ###
+[irc]: ircs://irc.libera.chat:6697/aosc
 [tg]: https://t.me/joinchat/BMnG9zvfjCgZUTIAoycKkg
 [discord]: https://discord.gg/VYPHgt9
 [mlist]: mailto:discussions@aosc.io
