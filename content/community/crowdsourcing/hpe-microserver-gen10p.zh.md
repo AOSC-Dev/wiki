@@ -52,7 +52,7 @@ title = "[筹备中] 升级社区主软件源服务器"
   - 系统盘组件的报价则为象征价格，仅对应出让人组装该组件的工时与对该组件正常工作的保证。
   - 所转让硬件的原始购买价格如下：
      - ProLiant MicroServer Gen10 Plus Xeon E-2224 16GB S100i 服务器（CDW）：703.99 美元。
-     - iLO Enablement Kit 扩展卡（CDW）：115.99 美元
+     - iLO Enablement Kit 扩展卡（CDW）：115.99 美元。
      - Silicon Power 16GB Hynix IC DDR4 2666MHz 2Rx8 ECC UDIMM 内存（亚马逊美区官方旗舰店）：92.99 美元。
      - Ultrastar HC310 4TB 机械硬盘 (两家不同的新蛋第三方卖家): 119.99 美元 以及 129.95 美元。
      - 西部数据 D10 12TB 外置黑盘（亚马逊美区自营）：每件 223.99 美元（共两件）。
