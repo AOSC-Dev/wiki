@@ -55,7 +55,7 @@ The following upgrades needs to be purchased at marked prices, but can be crouds
       - HPE iLO Enablement Kit (CDW): 115.99 USD.
       - Silicon Power 16GB Hynix IC DDR4 2666MHz 2Rx8 ECC UDIMM (Amazon US): 92.99 USD.
       - Ultrastar HC310 4TB HDD (two different Newegg Marketplace sellers): 119.99 USD and 129.95 USD.
-      - WD Black D10 12TB external HDDs (Amazon US): 223.99 USD each.
+      - WD Black D10 12TB external HDDs (Amazon US): 223.99 USD each (two pieces).
       - QNAP QM2-2S-220A Dual M.2 22110/2280 SATA SSD Expansion Card (Amazon US): 99.00 USD.
       - WD Blue SATA 250GB M.2 2280 SSD (Newegg): 44.99 USD.
 + Why upgrade the CPU?
@@ -63,8 +63,8 @@ The following upgrades needs to be purchased at marked prices, but can be crouds
 
 # Proposed Timeline
 
-- June 2021: Tom finishes decommissioning the server and sanitizing the drives.
-- June-July 2021: Jeff finishes purchasing and setting up the server.
+- June 2021: Sijie finishes decommissioning the server and sanitizing the drives.
+- June-July 2021: Mingcong finishes purchasing and setting up the server.
 - Summer 2021:
     - Server configured and installed at the hosting provider.
     - Workload moved to the new server.
