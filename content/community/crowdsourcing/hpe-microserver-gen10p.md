@@ -22,8 +22,8 @@ Sijie Bu, a community member, will provide the following moderately used hardwar
    - One (1) QNAP QM2-2S-220A Dual M.2 22110/2280 SATA SSD Expansion Card, with two M.2 SATA slots and integrated ASMedia SATA controller.
    - One (1) 250GB WD Blue SATA M.2 2280 SSD.
 + Data drives:
-   - Two (2) Western Digital Ultrastar HC310 4TB hard drives, originally purchased as OEM/gray market drives (w/o warranty from WD) (215 USD).
-   - Two (2) Western Digital Ultrastar HC520 12TB hard drives, shucked from WD Black D10 external drives (125 USD).
+   - Two (2) Western Digital Ultrastar HC310 4TB hard drives, originally purchased as OEM/gray market drives (w/o warranty from WD) (215 USD total).
+   - Two (2) Western Digital Ultrastar HC520 12TB hard drives, shucked from WD Black D10 external drives (125 USD total).
 
 The following upgrades needs to be purchased at marked prices, but can be croudsourced as either a direct donation or funding support:
 
