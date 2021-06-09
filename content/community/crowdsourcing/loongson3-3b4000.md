@@ -1,5 +1,5 @@
 +++
-title = "[PREPARING] Upgrade BuildBot for the Loongson 3 Port"
+title = "[ONGOING] Upgrade BuildBot for the Loongson 3 Port"
 +++
 
 This is a proposal to crowdsource a dual Loongson 3B4000 motherboard from Lemote to supplement the current 3A4000 BuildBot (Relay 23869).
@@ -19,6 +19,7 @@ The following components will be purchased from Lemote:
   - Includes compatible heatsink assemblies.
 + 2 × 16GB DIMM (CNY 750 × 2)
   - To be purchased from OEM to prevent incompatibility.
+  - **Already sourced**
 
 (Plus potential shipping fees)
 
@@ -28,8 +29,10 @@ The following additional components will be required, but could be crowdsourced 
   - Must be E-ATX compatible.
 + Power supply
   - ATX Power supply, ~500W.
+  - **Already sourced**
 + Storage
   - Ideally NVMe.
+  - **Already sourced**
 
 # Proposed Timeline
 
@@ -40,5 +43,5 @@ The following additional components will be required, but could be crowdsourced 
 
 # Participants
 
-- Leo Shen <szc1sya@aosc.io>, purchase contact.
+- Leo Shen <szclsya@aosc.io>, purchase contact.
 - Xiaoxing Ye <xiaoxing@aosc.io>, proposed server host.
