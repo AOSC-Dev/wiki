@@ -56,7 +56,7 @@ tags = ["sys-installation"]
 若要变成这样的分区表，你需要关机长按电源键进入 1TR（macOS 的救援程序，下同），选择 "选项" 后，在救援程序的标题栏中进入终端，执行以下命令：
 
 ```
-# diskutil deketeVolume disk0s2 
+# diskutil apfs deketeVolume disk0s2 
 # diskutil addPartition disk0s1 APFS LinuxBoot 70GB
 # diskutil addPartition disk0s4 FAT32 LB 1GB
 # diskutil addPartition disk0s3 FAT32 LR 0
@@ -64,7 +64,7 @@ tags = ["sys-installation"]
 
 ## 若安装至 USB 磁盘
 
-仅仅只做分配出 70GB 空间，并创建一个叫 "LinuxBoot" 的分区就好。
+仅仅只需分配出 70GB 空间，并创建一个叫 "LinuxBoot" 的分区就好。
 
 # 在 LinuxBoot 分区上安装 macOS
 
@@ -94,7 +94,7 @@ tags = ["sys-installation"]
 # csrutil disable
 ```
 
-选择 LinuxBoot，这样安全检查就完全再见了。但若遇到奇怪的权限问题，你可能还需要执行：
+选择 LinuxBoot，这样安全检查就完全再见了。但若遇到奇怪的权限问题，你可能还需要执行以下命令，重启进 macOS 再重启至 1TR，并重复上述步骤：
 
 ```
 # csrutil clear
@@ -109,54 +109,12 @@ tags = ["sys-installation"]
 - /dev/sda1 1GB FAT32
 - /dev/sda2 （其他剩余容量）ext4
 
-# 编译内核和 preload-m1
+# 写入 corellium 内核二进制
 
-接下来，切换到你的 AArch64 Linux 机器上，拉取需要用到的 linux-m1 内核源码：
-
-```
-$ git clone https://github.com/AOSC-Dev/linux.git
-$ cd linux
-$ git checkout corellium-linux-m1
-```
-
-调整内核配置，由于一开始需要把系统写入 USB 磁盘，要调整内核启动参数的 `root` 为分区位置，所以：
+要从 U 盘启动 AOSC OS，需要首先往应用 Corellium 官方的内核 macho，在 1TR 下执行以下命令：
 
 ```
-$ cp -v ./arch/arm64/configs/defconfig-m1 .config
-$ nano .config // 找到 CONFIG_CMDLINE 并改成 root=/dev/sda2 rw splash=off quiet
-$ make -j$(nproc)
-```
-
-把 kernel modules 提取出来，放到一个压缩包中：
-
-```
-# make modules_install 
-$ tar -cvf linux-modules.tar /usr/lib/modules/5.11.0-rc4-aosc-main-m1+
-$ xz -T0 linux-modules.tar
-```
-
-接下来我们再编译 preload-m1，拉取源码，复制内核和内核树（.dtb 文件）并编译：
-
-```
-$ git clone https://github.com/AOSC-Dev/preloader-m1
-$ cd preloader-m1
-$ cp /linux/m1/source/path/arch/arm64/boot/Image .
-$ cp /linux/m1/source/path/arch/arm64/boot/dts/apple/apple-m1-j274.dtb .
-$ make
-```
-
-编译成功后（会得到一个 linux.macho），再当前位置打开一个 http 服务器，使得 M1 Mac 通过网络可以访问到这里，下载文件：
-
-```
-$ python3 -m http.server
-```
-
-# 往 LinuxBoot 分区写入启动配置
-
-接下来再次进入 1TR，打开终端，执行以下命令下载并安装 macho 文件：
-
-```
-$ curl /your/aarch64/host/ip:8000/linux.macho > linux.macho
+$ curl https://downloads.corellium.info/linux.macho > linux.macho
 # kmutil configure-boot -c linux.macho -C -v /Volume/LinuxBoot
 ```
 
@@ -179,9 +137,10 @@ $ curl /your/aarch64/host/ip:8000/linux.macho > linux.macho
 # passwd
 ```
 
-之后再把之前打包的内核模块解压到对应的路径，否则启动后甚至无法使用键盘：
+接下来把我们提取出来的 corellium 内核模块解压，否则启动后甚至无法使用键盘：
 
 ```
+# wget https://repo.aosc.io/misc/corellium-m1-5.11-rc4.tar.xz
 # tar --numeric-owner -xvf /your/kernel/modules/path.tar.xz /usr/lib/modules
 ```
 
@@ -210,38 +169,79 @@ nvme0n1     259:0    0 465.9G  0 disk
 ...
 ```
 
-这个例子中 nvme0n1p4 就是所要的分区，我们需要继续更改内核配置的 CMDLINE，再编译内核和 preload-m1：
-
-```
-$ nano KERNEL_DIRECTORY/.config // 找到 CONFIG_CMDLINE 并改成 root=/dev/nvme0n1p4 rw splash=off quiet
-$ make -j$(nproc)
-$ cd PRELOAD_M1_DIRECTORY
-$ cp /linux/m1/source/path/arch/arm64/boot/Image .
-$ cp /linux/m1/source/path/arch/arm64/boot/dts/apple/apple-m1-j274.dtb .
-$ make
-```
-
-接下来挂载 `/dev/nvme0n1p4` 并在其中解压 tarball：
+这个例子中 nvme0n1p4 就是所要的分区。接下来解压 tarball 至 `/dev/nvme0n1p4`：
 
 ```
 # mount /dev/nvme0n1p4 /mnt
 # tar --numeric-owner -xvf /your/aosc/tarball/path /mnt
 ```
 
-解压 kernel modules 到 `/mnt/usr/lib/modules`：
+之后，我们需要开始编译自己的内核和 preloader-m1:
+
+## 编译内核和 preload-m1
+
+接下来，切换到你的 AArch64 Linux 机器上，拉取需要用到的 linux-m1 内核源码：
 
 ```
-# tar --numeric-owner -xvf /your/krtnrl/modules/tarball/path /mnt/usr/lib/modules
+$ git clone https://github.com/AOSC-Dev/linux.git
+$ cd linux
+$ git checkout corellium-linux-m1
 ```
 
-Chroot 并修改 Root 密码，否则无法登录：
+调整内核配置，需要调整内核启动参数的 `root` 为分区位置，所以：
+
+```
+$ cp -v ./arch/arm64/configs/defconfig-m1 .config
+$ nano .config // 找到 CONFIG_CMDLINE 并改成 root=/dev/nvme0n1p4 rw splash=off
+$ make -j$(nproc)
+```
+
+把 kernel modules 提取出来，放到一个压缩包中：
+
+```
+# make modules_install 
+$ tar -cvf linux-modules.tar /usr/lib/modules/5.11.0-aosc-main-m1+
+$ xz -T0 linux-modules.tar
+```
+
+接下来我们再编译 preload-m1，拉取源码，复制内核和内核树（.dtb 文件）并编译：
+
+```
+$ git clone https://github.com/AOSC-Dev/preloader-m1
+$ cd preloader-m1
+$ cp /linux/m1/source/path/arch/arm64/boot/Image .
+$ cp /linux/m1/source/path/arch/arm64/boot/dts/apple/apple-m1-j274.dtb .
+$ make
+```
+
+编译成功后（会得到一个 linux.macho），再当前位置打开一个 http 服务器，使得 M1 Mac 通过网络可以访问到这里，下载文件：
+
+```
+$ python3 -m http.server
+```
+
+接下来切换回 M1 机器，进入 Chroot 并修改 Root 密码，否则无法登录：
 
 ```
 # arch-chroot /mnt
 # passwd
 ```
 
-关机，再执行步骤六（即使用 kmutil 写入 macho 到 LinuxBoot 分区），重启，如无意外应该已经进入 AOSC OS 了。
+解压刚刚编译的内核模块：
+
+```
+# cd /usr/lib/modules/
+# tar --numeric-owner -xvf linux-modules.tar
+```
+
+重启进入 1TR，再写入自己编译的 macho 文件：
+
+```
+$ curl http://IP:8000/linux.macho > linux.macho
+# kmutil configure-boot -c linux.macho -C -v /Volume/LinuxBoot
+```
+
+重启，如无意外应该已经进入 AOSC OS 了。
 
 # Wi-Fi
 
