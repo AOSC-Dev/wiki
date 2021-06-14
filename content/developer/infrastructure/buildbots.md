@@ -92,4 +92,4 @@ If you would like contribute your device to AOSC, please make sure your device h
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Note |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **Yukoaioi** | ~~27001~~ | Quad core @ 2.5GHz (Loongson 3A5000) | 16GiB | TBD | _Mag Mell_ | Local mirror located at http://192.168.100.232:2345/debs |
+| **Yukoaioi** | 27001 | Quad core @ 2.5GHz (Loongson 3A5000) | 16GiB | TBD | _Mag Mell_ |
