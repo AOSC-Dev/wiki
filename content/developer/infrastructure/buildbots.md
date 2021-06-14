@@ -68,12 +68,11 @@ If you would like contribute your device to AOSC, please make sure your device h
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **ice-rockpro64** | ~~24064~~ | Quad Core ARM Cortex-A53 @ 1.416GHz + Dual Core ARM Cortex-A72 @ 1.8GHz (Rockchip RK3399, RockPro64) | 4GiB | 565s (`-j7`) | _Icenowy Zheng_ | Scratch disk at `/mnt/sda3`; users in Asia could try `ssh -p 24064 root@aosc-relay-asiapacific.edge.biscuit.moe` |
 | **Tegra** | ~~24096~~ | Quad Core ARM Cortex-A57 @ 1.73GHz (NVIDIA Jetson TX1 Developer Kit) | 4GiB | 446s (`-j5`, 2.27) |  _Mingcong Bai_ | Device dead, RIP |
-| **Mio** | ~~24242~~ | 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (Apple M1 chip) | 16GiB | TBD | _Mag Mell_ | Local mirror located at http://192.168.100.232:2345/debs |
 | **Pine64** | ~~24399~~ | Quad Core ARM Cortex-A53 @ 1.2GHz (Allwinner A64, Pine64 Plus) | 2GiB | 1351s (`-j5`, 2.27) |  _Mingcong Bai_ | Retired |
 | **kp920** | 24426 | 2 * 48-Core Huawei Kunpeng 920 @ 2.6GHz (Huawei Taishan 2280 v2; 94 cores allocated) | 192GiB (145GiB allocated) | 71s (`-j95`) | _Undisclosed_ | Scratch disk at `/buildroots`, create own Ciel worksapce; direct access with `ssh -p 2223 root@kp920.ip4.run` |
 | **JellyXavier** | ~~24444~~ | 4 x dual core NVIDIA Carmel CPU clusters @ 2.26GHz (NVIDIA Jetson AGX Xavier Developer Kit) | 16GiB | 232s (`-j9`) |  _Mingcong Bai_ | Scratch disk at `/buildroots`, create own Ciel workspace |
 | **YetAnotherPine64** | ~~24514~~ | Quad Core ARM Cortex-A53 @ 1.2GHz (Allwinner A64, Pine64 Plus) | 2GiB | 1365s (`-j5`, 2.27) | _Salted Fish_| (Down) Local mirror located at `/dev/sda4` |
-| **Mio** | 24242 | 8-Core Apple Silicon M1 @ 2.064GHz | 16GiB | 71s (`-j8`) | _Xiaoxing Ye_ | Scratch disk at `/buildroots`, create own Ciel worksapce; direct access with `ssh -p 8765 root@athome.utopiosphere.net`; local mirror: http://192.168.100.232:2345/debs |
+| **Mio** | 24242 | 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (Apple M1 chip) | 16GiB | 71s (`-j8`) | _Mag Mell_ | Scratch disk at `/buildroots`, create own Ciel worksapce; direct access with `ssh -p 8765 root@athome.utopiosphere.net`; local mirror: http://192.168.100.232:2345/debs |
 
 ## **PowerPC** (25001-26000)
 
