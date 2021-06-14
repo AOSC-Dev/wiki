@@ -87,3 +87,9 @@ If you would like contribute your device to AOSC, please make sure your device h
 | Name | Port | CPU | Memory | Speed | Maintainer | Note |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **ice-hfu** | ~~26001~~ | SiFive FU540 @ 1.5GHz (SiFive HiFive Unleashed) | 8GiB | 2000s (`-j5`, 2.27) | _Icenowy Zheng_ | On demand |
+
+## **LoongArch** (27001-28000)
+
+| Name | Port | CPU | Memory | Speed | Maintainer | Note |
+|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
+| **yukoaioi** | 27001 | Loongson 3A-5000 @ 2.5GHz (A2101) | 16GiB | Unknown | _Yanqi Xu_ |
