@@ -68,6 +68,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **ice-rockpro64** | ~~24064~~ | Quad Core ARM Cortex-A53 @ 1.416GHz + Dual Core ARM Cortex-A72 @ 1.8GHz (Rockchip RK3399, RockPro64) | 4GiB | 565s (`-j7`) | _Icenowy Zheng_ | Scratch disk at `/mnt/sda3`; users in Asia could try `ssh -p 24064 root@aosc-relay-asiapacific.edge.biscuit.moe` |
 | **Tegra** | ~~24096~~ | Quad Core ARM Cortex-A57 @ 1.73GHz (NVIDIA Jetson TX1 Developer Kit) | 4GiB | 446s (`-j5`, 2.27) |  _Mingcong Bai_ | Device dead, RIP |
+| **Mio** | ~~24242~~ | 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (Apple M1 chip) | 16GiB | TBD | _Mag Mell_ | Local mirror located at http://192.168.100.232:2345/debs |
 | **Pine64** | ~~24399~~ | Quad Core ARM Cortex-A53 @ 1.2GHz (Allwinner A64, Pine64 Plus) | 2GiB | 1351s (`-j5`, 2.27) |  _Mingcong Bai_ | Retired |
 | **kp920** | 24426 | 2 * 48-Core Huawei Kunpeng 920 @ 2.6GHz (Huawei Taishan 2280 v2; 94 cores allocated) | 192GiB (145GiB allocated) | 71s (`-j95`) | _Undisclosed_ | Scratch disk at `/buildroots`, create own Ciel worksapce; direct access with `ssh -p 2223 root@kp920.ip4.run` |
 | **JellyXavier** | ~~24444~~ | 4 x dual core NVIDIA Carmel CPU clusters @ 2.26GHz (NVIDIA Jetson AGX Xavier Developer Kit) | 16GiB | 232s (`-j9`) |  _Mingcong Bai_ | Scratch disk at `/buildroots`, create own Ciel workspace |
@@ -87,3 +88,9 @@ If you would like contribute your device to AOSC, please make sure your device h
 | Name | Port | CPU | Memory | Speed | Maintainer | Note |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **ice-hfu** | ~~26001~~ | SiFive FU540 @ 1.5GHz (SiFive HiFive Unleashed) | 8GiB | 2000s (`-j5`, 2.27) | _Icenowy Zheng_ | On demand |
+
+## **LoongArch** (27001-28000)
+
+| Name | Port | CPU | Memory | Speed | Maintainer | Note |
+|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
+| **Yukoaioi** | ~~27001~~ | Quad core @ 2.5GHz (Loongson 3A5000) | 16GiB | TBD | _Mag Mell_ | Local mirror located at http://192.168.100.232:2345/debs |
