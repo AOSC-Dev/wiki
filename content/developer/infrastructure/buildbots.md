@@ -92,4 +92,4 @@ If you would like contribute your device to AOSC, please make sure your device h
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Note |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **Yukoaioi** | 27001 | Quad core @ 2.5GHz (Loongson 3A5000) | 16GiB | 183s (`-j5`, Loongnix [2.28-10.lnd.26](http://pkg.loongnix.cn:8080/loongnix/pool/main/g/glibc/glibc-source_2.28-10.lnd.26_all.deb) | _Mag Mell_ |
+| **Yukoaioi** | 27001 | Quad core @ 2.5GHz (Loongson 3A5000) | 16GiB | 183s (`-j5`, Loongnix [2.28-10.lnd.26](http://pkg.loongnix.cn:8080/loongnix/pool/main/g/glibc/glibc-source_2.28-10.lnd.26_all.deb)) | _Mag Mell_ |
