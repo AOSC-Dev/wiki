@@ -1,5 +1,5 @@
 +++
-title = "[PREPARING] Upgrade Primary Repository Server"
+title = "[COMPLETE] Upgrade Primary Repository Server"
 +++
 
 This is a proposal to crowdsource an HPE (Hewlett Packard Enterprise) ProLiant MicroServer Gen10 Plus to host the community's primary repo and source code caching (for offline package building purposes) services.
