@@ -12,7 +12,7 @@
 
 {% macro language_select(source) %}
   <div class="right">
-    {% if source.translations | length > 0 %}
+    {% if source.translations | length > 1 %}
       {{ trans(key="also_available_in", lang=lang) }}
       {% for t in source.translations %}
         {% if t.lang != lang %}
