@@ -39,14 +39,12 @@ Next, we will initialise a Ciel workspace. `~/ciel` is used as a sample path for
 ``` bash
 mkdir ~/ciel
 cd ~/ciel
-ciel init
+ciel new
 ```
 
-Now, we can deploy the BuildKit. BuildKit is a minimal AOSC OS variant used specifically for packaging or containerised development. It contains ACBS and Autobuild3, so no additional configuration is required.
+Now, Ciel needs some information like developer's email, whether to enable local cache, DNSSEC and etc. Then Ciel can automatically deploy the BuildKit. BuildKit is a minimal AOSC OS variant used specifically for packaging or containerised development. It contains ACBS and Autobuild3, so no additional configuration is required. If you have already downloaded BuildKit, or if you are not on AMD64, you can manually load it.
 
 ``` bash
-ciel load-os
-# Or if you have already downloaded BuildKit, or if you are not on AMD64
 ciel load-os PATH_TO_BUILDKIT
 ```
 
