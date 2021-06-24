@@ -45,14 +45,11 @@ AOSC OS 采用的是半滚动更新模型，通常每个发布周期都为时三
 ``` bash
 mkdir ~/ciel
 cd ~/ciel
-ciel init
+ciel new
 ```
 
-接下来我们部署 `BuildKit`。`BuildKit` 是一个最小化的 AOSC OS 变体，专门用于打包或容器化开发。它包含了 ACBS 和 Autobuild3，因此我们不需要做额外的配置。
-
+接下来 Ciel 会要求输入一些信息，如开发者邮箱，开启本地缓存，DNSSEC等，之后可选择自动开始部署 `BuildKit`。`BuildKit` 是一个最小化的 AOSC OS 变体，专门用于打包或容器化开发。它包含了 ACBS 和 Autobuild3，因此我们不需要做额外的配置。如果您已经下好了一份 BuildKit 的话可以手动加载。
 ``` bash
-ciel load-os
-# 或者如果您已经下好了一份 BuildKit 的话
 ciel load-os PATH_TO_BUILDKIT
 ```
 
