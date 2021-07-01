@@ -21,7 +21,7 @@ title = "[采购准备中] 升级龙芯 3 移植用构建服务器"
 + 龙梦 LX-2510 主板（11000 元）
   - 板载双路龙芯 3B4000 处理器。
   - 包含散热器。
-  - **已筹资**，感谢 *MariaBombardier*，*weilinfox*，*liangyongxiang*, 和几位匿名赞助者。
+  - **已筹资**，感谢 *MariaBombardier*，*weilinfox*，*LiangYongxiang*, *FlyGoat*, *HenryChen* 和几位匿名赞助者。
 + 2 × 16GB 内存（2 × 750 元）
   - 计划直接通过龙梦购买以确保兼容性
   - **已筹资**，感谢 *JeffBai*。

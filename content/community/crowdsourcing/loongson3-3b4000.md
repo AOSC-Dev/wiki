@@ -21,7 +21,7 @@ The following components will be purchased from Lemote:
 + Lemote LX-2510 motherboard (CNY 11,000)
   - Dual 3B4000 on board.
   - Includes compatible heatsink assemblies.
-  - Completed, thanks to *MariaBombardier*, *weilinfox*, *liangyongxiang*, and other anonymous sponsors.
+  - Completed, thanks to *MariaBombardier*, *weilinfox*, *LiangYongxiang*, *FlyGoat*, *HenryChen* and other anonymous sponsors.
 + 2 × 16GB DIMM (CNY 750 × 2)
   - To be purchased from OEM to prevent incompatibility.
   - Completed, thanks to *JeffBai*.
