@@ -1,6 +1,10 @@
 +++
-title = "[ONGOING] Upgrade BuildBot for the Loongson 3 Port"
+title = "[PURCHASE IN PROGRESS] Upgrade BuildBot for the Loongson 3 Port"
 +++
+
+{% card(type="success") %}
+Thanks to sponsors listed below, the funding process has completed. Purchase will begin shortly.
+{% end %}
 
 This is a proposal to crowdsource a dual Loongson 3B4000 motherboard from Lemote to supplement the current 3A4000 BuildBot (Relay 23869).
 
@@ -17,9 +21,10 @@ The following components will be purchased from Lemote:
 + Lemote LX-2510 motherboard (CNY 11,000)
   - Dual 3B4000 on board.
   - Includes compatible heatsink assemblies.
+  - Completed, thanks to *MariaBombardier*, *weilinfox*, *liangyongxiang*, and other anonymous sponsors.
 + 2 × 16GB DIMM (CNY 750 × 2)
   - To be purchased from OEM to prevent incompatibility.
-  - **Already sourced**
+  - Completed, thanks to *JeffBai*.
 
 (Plus potential shipping fees)
 
@@ -29,17 +34,15 @@ The following additional components will be required, but could be crowdsourced 
   - Must be E-ATX compatible.
 + Power supply
   - ATX Power supply, ~500W.
-  - **Already sourced**
+  - Completed, thanks to *PegionFish*.
 + Storage
   - Ideally NVMe.
-  - **Already sourced**
+  - Completed, thanks to *PegionFish*.
 
-# Proposed Timeline
+# Current Timeline
 
-- End-of-Year 2021: Coordinator to complete purchase.
-- Q1 2022:
-    - A community contributor or colocation provider to host the Relay server.
-    - Server to go online for distribution maintenance.
+- July 2021: Coordinator to complete purchase, test the board, and transfer ownership to maintainer.
+- August 2022: Server to go online for distribution maintenance.
 
 # Participants
 
