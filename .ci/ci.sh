@@ -1,5 +1,5 @@
 #!/bin/bash
-ZOLA_VERSION='0.13.0'
+ZOLA_VERSION='0.14.0'
 
 echo 'Installing Zola ...'
 wget -q https://github.com/getzola/zola/releases/download/v"$ZOLA_VERSION"/zola-v"$ZOLA_VERSION"-x86_64-unknown-linux-gnu.tar.gz
