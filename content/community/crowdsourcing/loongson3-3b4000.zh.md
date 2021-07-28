@@ -1,9 +1,9 @@
 +++
-title = "[采购准备中] 升级龙芯 3 移植用构建服务器"
+title = "[众筹成功] 升级龙芯 3 移植用构建服务器"
 +++
 
 {% card(type="success") %}
-筹集已完成。采购过程将在几天内开始。
+众筹已完成，设备已转交至托管方。
 {% end %}
 
 本文为众筹龙梦双路龙芯 3B4000 主板并组装服务器的计划。本服务器将辅佐当前的龙芯 3A4000 构建服务器 (Relay 23869)。
@@ -47,4 +47,4 @@ title = "[采购准备中] 升级龙芯 3 移植用构建服务器"
 # 参与者
 
 - Leo Shen <szclsya@aosc.io>，购置联系人。
-- Xiaoxing Ye <xiaoxing@aosc.io>，计划托管方。
+- KexyBiscuit <kexybiscuit@aosc.io>，设备托管方。

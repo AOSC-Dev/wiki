@@ -1,9 +1,9 @@
 +++
-title = "[PURCHASE IN PROGRESS] Upgrade BuildBot for the Loongson 3 Port"
+title = "[COMPLETE] Upgrade BuildBot for the Loongson 3 Port"
 +++
 
 {% card(type="success") %}
-Thanks to sponsors listed below, the funding process has completed. Purchase will begin shortly.
+Thanks to sponsors listed below, this project has completed.
 {% end %}
 
 This is a proposal to crowdsource a dual Loongson 3B4000 motherboard from Lemote to supplement the current 3A4000 BuildBot (Relay 23869).
@@ -47,4 +47,4 @@ The following additional components will be required, but could be crowdsourced 
 # Participants
 
 - Leo Shen <szclsya@aosc.io>, purchase contact.
-- Xiaoxing Ye <xiaoxing@aosc.io>, proposed server host.
+- KexyBiscuit <kexybiscuit@aosc.io>, BuildBot host.
