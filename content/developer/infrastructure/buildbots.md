@@ -19,6 +19,7 @@ AOSC buildbots are all connected to our central relay node (`relay.aosc.io`), an
 - **ARM**: 24001-25000
 - **PowerPC**: 25001-26000
 - **RISC-V**: 26001-27000
+- **LoongArch**: 27001-28000
 
 Between the relay and the buildbots, [Popub](https://github.com/m13253/popub) is used to forward your SSH port to our relay server. For usage of Popub, please read their README.
 
