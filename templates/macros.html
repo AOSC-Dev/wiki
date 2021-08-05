@@ -1,8 +1,8 @@
 {% macro head(title, url, description) %}
-  <title>{{ title }} - {{ config.title }}</title>
+  <title>{{ title }} - {{ trans(key="title", lang=lang) }}</title>
   <link rel="icon" href="{{ config.extra.logo }}">
 
-  <meta property="og:title" content="{{ title }} - {{ config.title }}"/>
+  <meta property="og:title" content="{{ title }} - {{ trans(key="title", lang=lang) }}"/>
   <meta property="og:type" content="article" />
   <meta property="og:url" content="{{ url }}" />
   <meta property="og:image" content="{{ config.extra.logo }}" />

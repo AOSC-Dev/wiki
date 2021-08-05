@@ -13,7 +13,7 @@
 <div class="card {{ type }}">
   <div class="header">
     <div class="symbol">{{ icon | safe }}</div>
-    <span>{{ type }}</span>
+    <span>{{ trans(key=type) }}</span>
   </div>
   <div class="content">
     {{ body | markdown(inline=true) | safe }}

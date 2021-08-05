@@ -14,7 +14,7 @@
 	<link rel="stylesheet" href="/main-{{ lang }}.css">
 
     {% block head %}
-    {{ macros::head(title="Index", url=config.base_url, description=config.description) }}
+    {{ macros::head(title=trans(key="index_page", lang=lang), url=config.base_url, description=config.description) }}
     {% endblock head %}
   </head>
 
