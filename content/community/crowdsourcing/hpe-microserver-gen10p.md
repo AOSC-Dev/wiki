@@ -12,6 +12,8 @@ This proposal aims to acquire a server with sufficient storage capacities and pe
 
 # Budget
 
+Update: The funds and additional hardware needed to complete this project have been fulfieed, thanks to everyone who contributed!
+
 Sijie Bu, a community member, will provide the following moderately used hardware at discounted prices as his way of supporting this project:
 
 + HPE ProLiant MicroServer Gen10 Plus Base System (320 USD):
@@ -27,14 +29,14 @@ Sijie Bu, a community member, will provide the following moderately used hardwar
 
 The following upgrades needs to be purchased at marked prices, but can be croudsourced as either a direct donation or funding support:
 
-+ CPU:
++ [Purchased as used] CPU:
   - Either an Xeon E-2234 or Xeon E-2236 will be required. However the final decision would rely on the progress of crowdsourcing.
   - Xeon E-2234: 230 USD.
-  - Xeon E-2236: 340 USD.
-+ Secondary boot SSD (250 GB, optional):
+  - [Selected] Xeon E-2236: 340 USD.
++ [Purchased as new] Secondary boot SSD (250 GB, optional):
   - Needed if redundant boot drive is required (desirable since the server will be hosted in a data center out of easy reach of community members).
   - WD Blue SATA M.2 2280: 44.99 USD.
-  - Samsung 860 EVO M.2 SATA: 44.99 USD.
+  - [Selected] Samsung 860 EVO M.2 SATA: 44.99 USD.
 
 (CPU prices are from eBay and SSD prices are from Amazon US, both pre-tax)
 
@@ -63,11 +65,11 @@ The following upgrades needs to be purchased at marked prices, but can be crouds
 
 # Proposed Timeline
 
-- June 2021: Sijie finishes decommissioning the server and sanitizing the drives.
-- June-July 2021: Mingcong finishes purchasing and setting up the server.
+- [Completed] June 2021: Sijie finishes decommissioning the server and sanitizing the drives.
+- [Completed] June-July 2021: Mingcong finishes purchasing and setting up the server.
 - Summer 2021:
-    - Server configured and installed at the hosting provider.
-    - Workload moved to the new server.
+    - [Completed] Server configured and installed at the hosting provider.
+    - [In progress] Workload moved to the new server.
 
 # Participants
 
