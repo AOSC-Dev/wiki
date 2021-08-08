@@ -28,17 +28,17 @@ For the manual method, you can take a look at [systemd-boot - ArchWiki](https://
     list              List all available kernels
     install           Install the specified kernel
 
-- init
+- `init`
   Initialize systemd-boot and install the newest kernel.
 
-- mkconf
+- `mkconf`
   Generate a systemd-boot entry config for the chosen kernel, you can pass custom boot arguments in `/etc/systemd-boot-friend.conf`.
   If the entry file already exists, it will ask if you want to overwrite the file. You can also pass `-f` or `--force` to overwrite the file.
 
-- list
+- `list`
   List all available kernels.
 
-- install
+- `install`
   Install a specific kernel or install the newest kernel if no argument is given.
   The argument can either be the number corresponding to the kernel in `systemd-boot-friend list` or the kernel's name (e.g. `5.12.0-aosc-main`).
 
