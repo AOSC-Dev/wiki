@@ -26,7 +26,7 @@ For the manual method, you can take a look at [systemd-boot - ArchWiki](https://
     init              Initialize systemd-boot-friend
     mkconf            Create systemd-boot entry config
     list              List all available kernels
-    install-kernel    Install the specified kernel
+    install           Install the specified kernel
 
 - init
   Initialize systemd-boot and install the newest kernel.
