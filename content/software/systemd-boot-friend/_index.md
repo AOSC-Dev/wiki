@@ -38,7 +38,7 @@ For the manual method, you can take a look at [systemd-boot - ArchWiki](https://
 - list
   List all available kernels.
 
-- install-kernel
+- install
   Install a specific kernel or install the newest kernel if no argument is given.
   The argument can either be the number corresponding to the kernel in `systemd-boot-friend list` or the kernel's name (e.g. `5.12.0-aosc-main`).
 
