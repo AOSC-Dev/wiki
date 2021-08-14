@@ -54,7 +54,7 @@ tags = ["ospp"]
 [cursive]: https://lib.rs/crates/cursive
 [gtk]: https://www.gtk.org/
 [rust]: https://rust-lang.org
-[inst-guide]: @/aosc-os/installation/amd64.md
+[inst-guide]: @/aosc-os/installation/manual/amd64.md
 
 # 自由及开源软件简中本地化工作
 

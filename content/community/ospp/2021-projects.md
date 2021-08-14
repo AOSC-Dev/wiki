@@ -53,7 +53,7 @@ At present, a very basic TUI interface has been implemented using [Cursive][curs
 [cursive]: https://lib.rs/crates/cursive
 [gtk]: https://www.gtk.org/
 [rust]: https://rust-lang.org
-[inst-guide]: @/aosc-os/installation/amd64.md
+[inst-guide]: @/aosc-os/installation/manual/amd64.md
 
 # Allwinner RISC-V chip Mainline Development
 

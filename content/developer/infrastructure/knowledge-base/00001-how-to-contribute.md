@@ -31,7 +31,7 @@ Here are some requirements and expectations specific to each of the sections def
 
 ### General
 
-- Each page should be linked to and from its related pages. For example, there is a tool called [apt-gen-list](@/software/00001-apt-gen-list.md) for configuring the package manager APT. Page [installation](@/aosc-os/installation/amd64.md) should provide a short introduction and also a link to it.
+- Each page should be linked to and from its related pages. For example, there is a tool called [apt-gen-list](@/software/00001-apt-gen-list.md) for configuring the package manager APT. Page [installation](@/aosc-os/installation/manual/amd64.md) should provide a short introduction and also a link to it.
 - Each page should at least contain the following...
 	- General summary of the topic.
 	- Section generalising related operations/usages.

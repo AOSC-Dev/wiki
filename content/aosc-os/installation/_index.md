@@ -22,7 +22,7 @@ Windows Subsystem for Linux
 For details on how to install AOSC OS on WSL, please refer to the following
 page for details.
 
-- [Installation/WSL](@/aosc-os/instllation/wsl.md)
+- [Installation/WSL](@/aosc-os/installation/wsl.md)
 
 ARM Raw Images
 ==============
