@@ -68,7 +68,7 @@ Now that you have read through all those boring marketing material, time to make
 
 ## Give it a shot, if...
 
-- You have a computer of the [AMD64](@/aosc-os/installation/amd64-notes-sysreq.md), [ARMv7](@/aosc-os/installation/arm-notes-sysreq.md), [AArch64](@/aosc-os/installation/arm-notes-sysreq.md), [Big-Endian PowerPC 32-bit 64-bit Macintosh](@/aosc-os/installation/powermac-notes-sysreq.md) architectures.
+- You have a computer of the [AMD64](@/aosc-os/installation/sysreq/amd64-notes-sysreq.md), [ARMv7](@/aosc-os/installation/sysreq/arm-notes-sysreq.md), [AArch64](@/aosc-os/installation/sysreq/arm-notes-sysreq.md), [Big-Endian PowerPC 32-bit 64-bit Macintosh](@/aosc-os/installation/sysreq/powermac-notes-sysreq.md) architectures.
 	- And they come with adequate storage availability for the present and the future, by your judgement.
 	- Stable Internet connection for updates and security advisories (subscription optional at [security@lists.aosc.io](mailto:security@lists.aosc.io).
 - You don't particularly like configuring your system and expect a functional system without much tweaking.
