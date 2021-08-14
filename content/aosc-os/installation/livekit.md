@@ -54,7 +54,7 @@ Windows
 
 Since there is no easy way to use `dd` or identify device node in a standard
 Windows installation (especially in versions prior to Windows 10), we recommend
-using the [Rufus](https://rufus.ie/zh/) tool to achieve the same effect.
+using the [Rufus](https://rufus.ie/) tool to achieve the same effect.
 
 Please refer to the Rufus site for usage details.
 
