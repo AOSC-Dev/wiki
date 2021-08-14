@@ -16,7 +16,7 @@ tags = ["sys-installation"]
 
 # 变种版本及系统要求
 
-我们为 ARMv7/AArch64 设备提供了以下的变种版本。每个变种版本都有各自的特性和系统要求，请阅读 [系统要求](@/aosc-os/installation/arm-notes-sysreq.zh.md) 了解更多信息。
+我们为 ARMv7/AArch64 设备提供了以下的变种版本。每个变种版本都有各自的特性和系统要求，请阅读 [系统要求](@/aosc-os/installation/sysreq/arm-notes-sysreq.zh.md) 了解更多信息。
 
 ## 可引导
 
