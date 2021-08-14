@@ -27,15 +27,15 @@ page for details.
 ARM Raw Images
 ==============
 
-For ARMv4, ARMv6, and ARMv7, as well as AArch64-devices which does not
-use (U)EFI boot facilities, you would want to use device-specific raw
-system images. The downloads for which are listed in our
+For ARM and RISC-V devices which do not make use of (U)EFI boot facilities,
+you would want to use device-specific raw system images. The downloads for
+which are listed in our
 [Alternative Downloads](https://aosc.io/downloads/alternative/) page.
 
 For instructions on how to write these images, please refer to the
 following page for details.
 
-- [Writing ARM System Images](@/aosc-os/installation/arm-rawimgs.md)
+- [Writing System Images](@/aosc-os/installation/rawimgs.md)
 
 Manual Installation
 ===================
