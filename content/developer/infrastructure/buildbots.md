@@ -23,15 +23,15 @@ AOSC buildbots are all connected to our central relay node (`relay.aosc.io`), an
 
 Between the relay and the buildbots, [Popub](https://github.com/m13253/popub) is used to forward your SSH port to our relay server. For usage of Popub, please read their README.
 
-Each buildbot is allocated 2 ports; the smaller one is for connection between your machine and the relay, and the larger one is for outside connections to the relay. For example, the AMD64 buildbot _Ry1800X_ is using 12333 and 22333, where _Ry1800X_ forwards its SSH port using `popub-local` to 12333 on the relay, and the relay exposes this port to the outside on port 22333.
+Each buildbot is allocated 2 ports; the smaller one is for connection between your machine and the relay, and the larger one is for outside connections to the relay. For example, the AMD64 buildbot _Ry3950X_ is using 12333 and 22333, where _Ry3950X_ forwards its SSH port using `popub-local` to 12333 on the relay, and the relay exposes this port to the outside on port 22333.
 
-You can log into these buildbots over SSH (by using `ssh -p <port_number> <username>@relay.aosc.io`). Contact buildbot owners for usernames, and submit your public keys for authentication at the [dev-pubkeys](https://github.com/AOSC-Dev/dev-pubkeys) repository.
+Submit your public keys for authentication at the [dev-pubkeys](https://github.com/AOSC-Dev/dev-pubkeys) repository, then view [Buildbots](https://github.com/AOSC-Dev/Buildbots) on GitHub for connection infomation.
 
-If you would like contribute your device to AOSC, please make sure your device have an usable Ciel installation, and contact Kexy Biscuit [<kexybiscuit@aosc.io>](mailto:kexybiscuit@aosc.io), providing:
+If you would like contribute your device to AOSC, please make sure your device have a usable Ciel installation, and contact Kexy Biscuit <kexybiscuit@aosc.io> by [email](mailto:kexybiscuit@aosc.io) or [Telegram](https://t.me/KexyBiscuit), providing:
 
 - Name for your device (optional, just for fun).
 - Port number of your choice, correspondent to the device's architecture.
-- SSH access for Kexy Biscuit for Relay configuration.
+- Shell access for Kexy Biscuit for Relay configuration.
 
 # List of Buildbots
 
@@ -72,7 +72,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 | **Tegra** | ~~24096~~ | Quad Core ARM Cortex-A57 @ 1.73GHz (NVIDIA Jetson TX1 Developer Kit) | 4GiB | 446s (`-j5`, 2.27) |  _Mingcong Bai_ | Device dead, RIP |
 | **Pine64** | ~~24399~~ | Quad Core ARM Cortex-A53 @ 1.2GHz (Allwinner A64, Pine64 Plus) | 2GiB | 1351s (`-j5`, 2.27) |  _Mingcong Bai_ | Retired |
 | **kp920** | 24426 | 2 * 48-Core Huawei Kunpeng 920 @ 2.6GHz (Huawei Taishan 2280 v2; 94 cores allocated) | 192GiB (145GiB allocated) | 71s (`-j95`) | _Undisclosed_ | Scratch disk at `/buildroots`, create own Ciel worksapce; direct access with `ssh -p 2223 root@kp920.ip4.run` |
-| **JellyXavier** | ~~24444~~ | 4 x dual core NVIDIA Carmel CPU clusters @ 2.26GHz (NVIDIA Jetson AGX Xavier Developer Kit) | 16GiB | 232s (`-j9`) |  _Mingcong Bai_ | Scratch disk at `/buildroots`, create own Ciel workspace |
+| **JellyXavier** | 24444 | 4 x dual core NVIDIA Carmel CPU clusters @ 2.26GHz (NVIDIA Jetson AGX Xavier Developer Kit) | 16GiB | 232s (`-j9`) |  _Mingcong Bai_ | Scratch disk at `/buildroots`, create own Ciel workspace |
 | **YetAnotherPine64** | ~~24514~~ | Quad Core ARM Cortex-A53 @ 1.2GHz (Allwinner A64, Pine64 Plus) | 2GiB | 1365s (`-j5`, 2.27) | _Salted Fish_| (Down) Local mirror located at `/dev/sda4` |
 | **Mio** | 24242 | 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (Apple M1 chip) | 16GiB | 71s (`-j8`) | _Mag Mell_ | Scratch disk at `/buildroots`, create own Ciel worksapce; direct access with `ssh -p 8765 root@athome.utopiosphere.net`; local mirror: http://192.168.100.232:2345/debs |
 
