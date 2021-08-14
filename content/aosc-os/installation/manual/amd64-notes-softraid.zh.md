@@ -6,7 +6,7 @@ date = 2020-05-04T03:36:58.392Z
 tags = ["sys-installation"]
 +++
 
-要想在配置有软件磁盘阵列的设备上安装 AOSC OS，在执行完 [常规的安装流程](@/aosc-os/installation/amd64.zh.md) 之后还需要进行一些额外的操作。
+要想在配置有软件磁盘阵列的设备上安装 AOSC OS，在执行完 [常规的安装流程](@/aosc-os/installation/manual/amd64.zh.md) 之后还需要进行一些额外的操作。
 
 # 注意
 

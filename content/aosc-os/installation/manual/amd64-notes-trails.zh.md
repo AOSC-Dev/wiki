@@ -8,7 +8,7 @@ tags = ["sys-installation"]
 
 请注意 Linux 对 Bay Trail 和 Cherry Trail 设备的支持可以是残废的，也从未达到令人满意的状态）。因此，非必要情况下还是建议您放弃折腾。
 
-在这些设备上安装 AOSC OS 的大体流程和在其它 AMD64/x86_64 设备上安装 AOSC OS [基本是一致的](@/aosc-os/installation/amd64.zh.md) 的，但是请注意：
+在这些设备上安装 AOSC OS 的大体流程和在其它 AMD64/x86_64 设备上安装 AOSC OS [基本是一致的](@/aosc-os/installation/manual/amd64.zh.md) 的，但是请注意：
 
 - 部分基于 eMMC 的设备将 `/dev/mmcblkNpN` 作为储存设备。
 - 一些特定的设备需要执行额外的操作。

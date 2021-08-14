@@ -6,7 +6,7 @@ date = 2020-05-04T03:36:58.392Z
 tags = ["sys-installation"]
 +++
 
-Installing AOSC OS on software-RAID configuration may require extra steps after installing using the [regular installation guide](@/aosc-os/installation/amd64.md).
+Installing AOSC OS on software-RAID configuration may require extra steps after installing using the [regular installation guide](@/aosc-os/installation/manual/amd64.md).
 
 # Forenotes
 

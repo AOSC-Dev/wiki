@@ -8,9 +8,9 @@ tags = ["sys-installation"]
 
 Installation of AOSC OS on x86-64 systems/environments are generally universal for all systems of this architectures. But for some specific device configurations and virtualized environments, here below are some extra notes:
 
-- [Notes for KVM](@/aosc-os/installation/amd64-notes-kvm.md)
-- [Notes for Bay Trail/Cherry Trail](@/aosc-os/installation/amd64-notes-trails.md)
-- [Notes for software RAID](@/aosc-os/installation/amd64-notes-softraid.md)
+- [Notes for KVM](@/aosc-os/installation/manual/amd64-notes-kvm.md)
+- [Notes for Bay Trail/Cherry Trail](@/aosc-os/installation/manual/amd64-notes-trails.md)
+- [Notes for software RAID](@/aosc-os/installation/manual/amd64-notes-softraid.md)
 
 # Forenotes
 
@@ -20,7 +20,7 @@ Installation of AOSC OS on x86-64 systems/environments are generally universal f
 
 All AMD64/x86-64 tarballs are generic (universal for all supported devices), the only thing you would have to do here is choosing your favourite one - appropriate for your taste and your use case.
 
-> Note: Another consideration is whether your device is capable for a specific variant, please consult the [AMD64/x86-64 system requirements](@/aosc-os/installation/amd64-notes-sysreq.md) page for more information.
+> Note: Another consideration is whether your device is capable for a specific variant, please consult the [AMD64/x86-64 system requirements](@/aosc-os/installation/sysreq/amd64-notes-sysreq.md) page for more information.
 
 ## Bootable
 
@@ -117,7 +117,7 @@ And now, un-tar the tarball:
 # tar --numeric-owner -pxvf /path/to/tarball/tarball.tar.xz
 ```
 
-**Notes:** 
+**Notes:**
 - When executing un-tar, be sure to use the root user to execute.
 - If you want to have full-disk encryption with `dm-crypt` under `LUKS` before installation, configure it here. Refer to [this article](https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_an_entire_system) for details. Mount the mapped `luks-*` virtual partition instead of bare `sda2`.
 

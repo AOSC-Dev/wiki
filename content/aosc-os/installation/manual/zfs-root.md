@@ -89,7 +89,7 @@ zpool import -d /dev/disk/by-id -R /tmp/aosc <yourpoolname>
 cd /tmp/aosc
 ```
 
-While many of the information in the [official installation instructions](@/aosc-os/installation/amd64.md) are still valid, and you should follow those, there are several things to take care of. Personally I have chosen to mount my EFI system partition to `/boot`, which requires extra caution, and because how ZFS works, I have chosen to manually write my `/etc/fstab`.
+While many of the information in the [official installation instructions](@/aosc-os/installation/manual/amd64.md) are still valid, and you should follow those, there are several things to take care of. Personally I have chosen to mount my EFI system partition to `/boot`, which requires extra caution, and because how ZFS works, I have chosen to manually write my `/etc/fstab`.
 
 Here is what the `/etc/fstab` should look like if you have decided to use my partition scheme:
 

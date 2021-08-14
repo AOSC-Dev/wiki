@@ -8,9 +8,9 @@ tags = ["sys-installation"]
 
 本文适用于 AMD64 架构通用环境。对于部分特殊环境，请参考：
 
-- [针对 KVM 的跗注](@/aosc-os/installation/amd64-notes-kvm.zh.md)
-- [针对 Bay Trail/Cherry Trail 的跗注](@/aosc-os/installation/amd64-notes-trails.zh.md)
-- [针对 software RAID 的跗注](@/aosc-os/installation/amd64-notes-softraid.zh.md)
+- [针对 KVM 的跗注](@/aosc-os/installation/manual/amd64-notes-kvm.zh.md)
+- [针对 Bay Trail/Cherry Trail 的跗注](@/aosc-os/installation/manual/amd64-notes-trails.zh.md)
+- [针对 software RAID 的跗注](@/aosc-os/installation/manual/amd64-notes-softraid.zh.md)
 
 # 注意
 
@@ -20,7 +20,7 @@ tags = ["sys-installation"]
 
 所有 AMD64 的 .tar 归档包都通用。任君选择即可。下面列出可引导与不可引导的 tarball。
 
-> 注意：在选择 .tar 归档包时，请查看设备是否受支持，于此请参考 [AMD64/x86_64 system requirements](@/aosc-os/installation/amd64-notes-sysreq.md)。
+> 注意：在选择 .tar 归档包时，请查看设备是否受支持，于此请参考 [AMD64/x86_64 system requirements](@/aosc-os/installation/sysreq/amd64-notes-sysreq.md)。
 
 ## 可引导
 
