@@ -19,7 +19,7 @@ environment) which provides a self-contained and complete environment
 deployed on media such as USB flash drives and optical discs.
 
 Creating the LiveKit Media
---------------------------
+==========================
 
 Creating LiveKit media is easy. This section shows how to create USB LiveKit
 media under Linux (or other *nix operating systems with the `dd` command
@@ -27,7 +27,8 @@ available), Windows, and macOS. To create an optical media, simply use
 any optical disc burner to write the .iso you have obtained from the
 [Downloads page](https://aosc.io/).
 
-### Linux, *nix, and macOS
+Linux, *nix, and macOS
+----------------------
 
 In operating systems using the /dev/sdXY (where X is the device number, denoted
 with a letter; Y is the partition number, denoted with a number), please first
@@ -48,7 +49,8 @@ which represents your USB device (for macOS, use `diskutil list` in the Terminal
 application), then run the two commands as shown above using
 *superuser previlege*.
 
-### Windows
+Windows
+-------
 
 Since there is no easy way to use `dd` or identify device node in a standard
 Windows installation (especially in versions prior to Windows 10), we recommend
@@ -57,12 +59,13 @@ using the [Rufus](https://rufus.ie/zh/) tool to achieve the same effect.
 Please refer to the Rufus site for usage details.
 
 Booting the LiveKit Media
--------------------------
+=========================
 
 Before you boot the LiveKit media, several precautions and procedures should be
 followed. Here are a few common considerations for your reference:
 
-### What devices are supported?
+What devices are supported?
+---------------------------
 
 LiveKit supports booting on the following device types:
 
@@ -71,7 +74,8 @@ LiveKit supports booting on the following device types:
 - OpenFirmware- or Petitboot-based PowerPC Macintosh, POWER, and OpenPOWER devices.
 - PMON- or Kunlun-based Loongson 2/3 Devices.
 
-### Is my RAM large enough?
+Do I have enough RAM?
+---------------------
 
 For booting a Live media, assume that your RAM is *at least half the size* of
 the iso downloaded. Insufficient RAM will result in failure during start up or
@@ -81,14 +85,15 @@ While this is a less common issue with newer devices with RAM sizes in the
 gigabytes, devices targetted by AOSC OS/Retro, such as a Pentium MMX computer
 with 32MiB of RAM could easily run into this issue.
 
-### Other necessary tweaks for Secure Boot-enabled devices
+Other necessary tweaks for Secure Boot-enabled devices
+------------------------------------------------------
 
 LiveKit does not, and will probably not support Secure Boot. Therefore, for
 UEFI-based systems with Secure Boot support, you *must* disable Secure Boot
 in order to boot LiveKit.
 
 Installing AOSC OS
-------------------
+==================
 
 After starting up LiveKit, you should be greeted with a command prompt with
 minimal direction shown on screen. To install AOSC OS, first connect to the
@@ -109,13 +114,14 @@ directions to install AOSC OS. This can take between minutes and nearly an hour
 depending on your device performance.
 
 Maintaining or Repairing AOSC OS
---------------------------------
+================================
 
 In case of an unbootable system, or catastrophic system failures, LiveKit could
 prove useful as an environment for system maintenance and repair. Here are
 several classic use cases, for your reference.
 
-### Repairing a Broken ext4 System Partition
+Repairing a Broken ext4 System Partition
+----------------------------------------
 
 In case of a broken ext4 system partition, you may experience file access
 errors and system boot failure as the Kernel or initialisation mechanism fail
@@ -126,7 +132,7 @@ environment.
 In this case, you may start LiveKit and, as you get to the command prompt, you
 may use the `fsck.ext4` command to repair your ext4 partition.
 
-#### For Partition on IDE/ATA/SCSI/SAS Devices
+### For Partition on IDE/ATA/SCSI/SAS Devices
 
 ```
 fsck.ext4 -F /dev/sdXY
@@ -134,7 +140,7 @@ fsck.ext4 -F /dev/sdXY
 # number, denoted with a number
 ```
 
-#### For Partitions on NVMe-based Devices
+### For Partitions on NVMe-based Devices
 
 ```
 fsck.ext4 -F /dev/nvmeXnYpZ
@@ -142,7 +148,7 @@ fsck.ext4 -F /dev/nvmeXnYpZ
 # represents the partition number, all denoted with numbers.
 ```
 
-#### For Partitions on eMMC or SD Cards
+### For Partitions on eMMC or SD Cards
 
 ```
 fsck.ext4 -F /dev/mmcblkXpY
@@ -150,7 +156,8 @@ fsck.ext4 -F /dev/mmcblkXpY
 # number, both denoted with numbers.
 ```
 
-### Continuing an Interrupted System Update
+Continuing an Interrupted System Update
+---------------------------------------
 
 In case of power loss, system crash, or other fatal errors during system
 updates, or user errors, such as powering down or interrupting system updates,
@@ -160,7 +167,7 @@ To attempt a repair, first identify your system partition by using the
 `fdisk -l` command, and mount the system partition, the command differs based
 on your storage configuration.
 
-#### For Partition on IDE/ATA/SCSI/SAS Devices
+### For Partition on IDE/ATA/SCSI/SAS Devices
 
 ```
 mount /dev/sdXY /mnt
@@ -168,7 +175,7 @@ mount /dev/sdXY /mnt
 # number, denoted with a number
 ```
 
-#### For Partitions on NVMe-based Devices
+### For Partitions on NVMe-based Devices
 
 ```
 mount /dev/nvmeXnYpZ /mnt
@@ -176,7 +183,7 @@ mount /dev/nvmeXnYpZ /mnt
 # represents the partition number, all denoted with numbers.
 ```
 
-#### For Partitions on eMMC or SD Cards
+### For Partitions on eMMC or SD Cards
 
 ```
 mount /dev/mmcblkXpY /mnt
@@ -223,13 +230,14 @@ sync
 
 Finally, to reboot to your AOSC OS installation, execute the `reboot` command.
 
-### Repairing Broken GRUB Installation
+Repairing Broken GRUB Installations
+-----------------------------------
 
 In case of an unbootable system as a result of a broken GRUB installation (this
 can happen as a result of an overwritten boot sector, accidentally deleted GRUB
 configuration, etc.), you will first need to mount your system partition:
 
-#### For Partition on IDE/ATA/SCSI/SAS Devices
+### For Partition on IDE/ATA/SCSI/SAS Devices
 
 ```
 mount /dev/sdXY /mnt
@@ -237,7 +245,7 @@ mount /dev/sdXY /mnt
 # number, denoted with a number
 ```
 
-#### For Partitions on NVMe-based Devices
+### For Partitions on NVMe-based Devices
 
 ```
 mount /dev/nvmeXnYpZ /mnt
@@ -245,7 +253,7 @@ mount /dev/nvmeXnYpZ /mnt
 # represents the partition number, all denoted with numbers.
 ```
 
-#### For Partitions on eMMC or SD Cards
+### For Partitions on eMMC or SD Cards
 
 ```
 mount /dev/mmcblkXpY /mnt
@@ -263,7 +271,7 @@ arch-chroot /mnt
 If you are able to see the AOSC OS command prompt, we may now commence on
 repairing your GRUB installation.
 
-#### For (U)EFI- or Kunlun-based Systems
+### For (U)EFI- or Kunlun-based Systems
 
 Further mount your EFI system partition. You may identify this partition,
 labelled as "EFI System," with the `fdisk -l` command. After idenfying your EFI
@@ -286,7 +294,7 @@ grub-install --efi-directory=/efi --bootloader-id="AOSC OS"
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-#### For BIOS-based Systems
+### For BIOS-based Systems
 
 First, identify the disk on which you installed AOSC OS with `fdisk -l`. This
 will be listed in a line starting with `Disk`.
@@ -303,7 +311,7 @@ grub-install $DEVICE
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-#### For OpenFirmware-based Systems (Macintosh)
+### For OpenFirmware-based Systems (Macintosh)
 
 Execute the following commands in succession to repair your GRUB installation.
 *Proceed only if the current command completes successfully*. You should see a
@@ -317,7 +325,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
 Further Help Needed?
---------------------
+====================
 
 If you would need further assistance with repairing your AOSC OS installation,
 please contact us via [Discord](https://discord.gg/VYPHgt9),
@@ -326,7 +334,7 @@ please contact us via [Discord](https://discord.gg/VYPHgt9),
 and advise to help you navigate this sticky situation.
 
 Reporting Bugs
---------------
+==============
 
 If you have identified a bug while using LiveKit, or any tools pre-installed
 with LiveKit, please [file a bug report](https://github.com/AOSC-Dev/aosc-os-abbs/issues/new?assignees=&labels=&template=bug-report.yml).
