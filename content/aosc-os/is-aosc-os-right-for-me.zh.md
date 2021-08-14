@@ -59,7 +59,7 @@ AOSC OS 是由志愿者经过多年努力构建的，这些志愿者对制作 Li
 
 ## 一些适合你使用 AOSC OS 的场景
 
-- 你有 [AMD64](@/aosc-os/installation/amd64-notes-sysreq.md)、[ARMv7](@/aosc-os/installation/arm-notes-sysreq.md)、[AArch64](@/aosc-os/installation/arm-notes-sysreq.md)、[Big-Endian PowerPC 32-bit 64-bit Macintosh](@/aosc-os/installation/powermac-notes-sysreq.md) 之中任一架构的电脑。
+- 你有 [AMD64](@/aosc-os/installation/sysreq/amd64-notes-sysreq.md)、[ARMv7](@/aosc-os/installation/sysreq/arm-notes-sysreq.md)、[AArch64](@/aosc-os/installation/sysreq/arm-notes-sysreq.md)、[Big-Endian PowerPC 32-bit 64-bit Macintosh](@/aosc-os/installation/sysreq/powermac-notes-sysreq.md) 之中任一架构的电脑。
   - 根据你的判断，无论是现在还是将来，这台电脑都会有足够储存。
   - 这台电脑有稳定的网络，用于接收版本更新和安全修复。
 - 你并不喜欢配置系统，而是期望少量调整就能获得能用的系统。
