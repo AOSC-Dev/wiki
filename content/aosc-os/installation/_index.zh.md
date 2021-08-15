@@ -41,5 +41,4 @@ Windows Subsystem for Linux
 系统需求
 ========
 
-欲知 AOSC OS 及 AOSC OS/Retro 各版本的系统需求，请查阅我们的[系统需求](/aosc-os/installation/sysreq/)
-列表。
+欲知 AOSC OS 及 AOSC OS/Retro 各版本的系统需求，请查阅我们的[系统需求](/aosc-os/installation/sysreq/)列表。
