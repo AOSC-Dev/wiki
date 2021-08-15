@@ -8,7 +8,7 @@ tags = ["sys-installation"]
 
 {% card(type="warning") %}
 本指南中展示的安装步骤仅适用于**最简系统配置**，该配置将系统安装至单个 ext4
-分区。如果您希望在多分区、RAID 或加密分区上安装 AOSC OS，请参阅我们的[手动安装指南](@/aosc-os/installation/manual/)。
+分区。如果您希望在多分区、RAID 或加密分区上安装 AOSC OS，请参阅我们的[手动安装指南](/aosc-os/installation/manual/)。
 {% end %}
 
 除介绍如何创建 LiveKit 介质外，本指南展示两种 LiveKit 的典型用例：安装及维护
