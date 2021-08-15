@@ -36,7 +36,7 @@ with a letter; Y is the partition number, denoted with a number), please first
 identify your USB device (via `lsblk` or simply `ls /dev/sd*`), then execute
 the following commands *as root*:
 
-```
+```bash
 # aosc-os_livekit_$DATE_$ARCH.iso, where $DATE is the release date, and $ARCH
 # is the architecture number which the LiveKit targets. Please refer to your
 # download for exact file name.
@@ -106,7 +106,7 @@ After you are connected, you may now use the included [DeployKit](https://github
 installer to install AOSC OS. Simply run the following command to start the
 DeployKit installer:
 
-```
+```bash
 deploykit
 ```
 
@@ -135,7 +135,7 @@ may use the `fsck.ext4` command to repair your ext4 partition.
 
 ### For Partition on IDE/ATA/SCSI/SAS Devices
 
-```
+```bash
 fsck.ext4 -F /dev/sdXY
 # Where X is the device number, denoted with a letter; Y is the partition
 # number, denoted with a number.
@@ -143,7 +143,7 @@ fsck.ext4 -F /dev/sdXY
 
 ### For Partitions on NVMe-based Devices
 
-```
+```bash
 fsck.ext4 -F /dev/nvmeXnYpZ
 # Where X represents the device node, Y represents the device number, and Z
 # represents the partition number, all denoted with numbers.
@@ -151,7 +151,7 @@ fsck.ext4 -F /dev/nvmeXnYpZ
 
 ### For Partitions on eMMC or SD Cards
 
-```
+```bash
 fsck.ext4 -F /dev/mmcblkXpY
 # Where X represents the device number, and Z represents the partition
 # number, both denoted with numbers.
@@ -170,7 +170,7 @@ on your storage configuration.
 
 ### For Partition on IDE/ATA/SCSI/SAS Devices
 
-```
+```bash
 mount /dev/sdXY /mnt
 # Where X is the device number, denoted with a letter; Y is the partition
 # number, denoted with a number
@@ -178,7 +178,7 @@ mount /dev/sdXY /mnt
 
 ### For Partitions on NVMe-based Devices
 
-```
+```bash
 mount /dev/nvmeXnYpZ /mnt
 # Where X represents the device node, Y represents the device number, and Z
 # represents the partition number, all denoted with numbers.
@@ -186,7 +186,7 @@ mount /dev/nvmeXnYpZ /mnt
 
 ### For Partitions on eMMC or SD Cards
 
-```
+```bash
 mount /dev/mmcblkXpY /mnt
 # Where X represents the device number, and Z represents the partition
 # number, both denoted with numbers.
@@ -200,7 +200,7 @@ on-screen directions to configure your network connection.
 After you have successfully connected to your specified network, you may now
 switch into your AOSC OS installation by running the following command:
 
-```
+```bash
 arch-chroot /mnt
 ```
 
@@ -210,7 +210,7 @@ You should see a command prompt ending with `#` with a successfully completed
 command (otherwise, in case of an error, you will see `!`; in case of missing
 commands or files, you will see `?`):
 
-```
+```bash
 dpkg --configure -a
 apt -f install
 apt full-upgrade
@@ -219,13 +219,13 @@ apt full-upgrade
 After the three commands completed successfully, use the following command to
 exit out of your AOSC OS installation:
 
-```
+```bash
 exit
 ```
 
 Further, run the following command to ensure all data are written to the disk:
 
-```
+```bash
 sync
 ```
 
@@ -240,7 +240,7 @@ configuration, etc.), you will first need to mount your system partition:
 
 ### For Partition on IDE/ATA/SCSI/SAS Devices
 
-```
+```bash
 mount /dev/sdXY /mnt
 # Where X is the device number, denoted with a letter; Y is the partition
 # number, denoted with a number
@@ -248,7 +248,7 @@ mount /dev/sdXY /mnt
 
 ### For Partitions on NVMe-based Devices
 
-```
+```bash
 mount /dev/nvmeXnYpZ /mnt
 # Where X represents the device node, Y represents the device number, and Z
 # represents the partition number, all denoted with numbers.
@@ -256,7 +256,7 @@ mount /dev/nvmeXnYpZ /mnt
 
 ### For Partitions on eMMC or SD Cards
 
-```
+```bash
 mount /dev/mmcblkXpY /mnt
 # Where X represents the device number, and Z represents the partition
 # number, both denoted with numbers.
@@ -265,7 +265,7 @@ mount /dev/mmcblkXpY /mnt
 You may now switch into your AOSC OS installation by running the following
 command:
 
-```
+```bash
 arch-chroot /mnt
 ```
 
@@ -278,7 +278,7 @@ Further mount your EFI system partition. You may identify this partition,
 labelled as "EFI System," with the `fdisk -l` command. After idenfying your EFI
 system partition, run the following command to mount it:
 
-```
+```bash
 # $DEVICE is the device node listed in the first column on the line corresponding
 # the EFI system parititon (a parition of the "EFI System" type).
 mount $DEVICE /efi
@@ -290,7 +290,7 @@ command prompt ending with `#` with a successfully completed command (otherwise,
 in case of an error, you will see `!`; in case of missing commands or files, you
 will see `?`):
 
-```
+```bash
 grub-install --efi-directory=/efi --bootloader-id="AOSC OS"
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
@@ -306,7 +306,7 @@ command prompt ending with `#` with a successfully completed command (otherwise,
 in case of an error, you will see `!`; in case of missing commands or files, you
 will see `?`):
 
-```
+```bash
 # $DEVICE is the disk drive on which you installed AOSC OS.
 grub-install $DEVICE
 grub-mkconfig -o /boot/grub/grub.cfg
@@ -320,7 +320,7 @@ command prompt ending with `#` with a successfully completed command (otherwise,
 in case of an error, you will see `!`; in case of missing commands or files, you
 will see `?`):
 
-```
+```bash
 grub-install
 grub-mkconfig -o /boot/grub/grub.cfg
 ```

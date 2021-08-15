@@ -27,10 +27,10 @@ Linux，*nix 及 macOS
 --------------------
 
 在使用 `/dev/sdXY`（X 是用字母指代的设备编号，Y 是用数字指代的分区编号）设备名
-的操作系统中，请先辨认 U 盘的设备名（使用 `lsblk`或 `ls /dev/sd*` 均可），然后
-**使用 root 用户**运行如下命令：
+的操作系统中，请先辨认 U 盘的设备名（使用 `lsblk` 或 `ls /dev/sd*` 均可），
+然后**使用 root 用户**运行如下命令：
 
-```
+```bash
 # aosc-os_livekit_$DATE_$ARCH.iso，$DATE 为发布日期，$ARCH 为 LiveKit 架构。
 # 请根据您下载的 LiveKit iso 文件填入文件名。
 dd if=aosc-os_livekit_$DATE_$ARCH.iso of=/dev/sdXY status=progress
@@ -85,17 +85,17 @@ LiveKit 不支持且不计划支持安全启动 (Secure Boot)。因此，在支�
 
 在启动 LiveKit 后，LiveKit 会展示简短使用指南及命令提示符。在安装 AOSC OS 前，
 您需要先使用 NetworkManager 配置互联网连接。NetworkManager 提供一款名为 `nmtui`
-的简易配置界面，请跟随屏上指示配置网络连接。
+的简易配置界面，请跟随屏幕指示配置网络连接。
 
 成功配置网络连接后，便可以使用预装的 [DeployKit](https://github.com/AOSC-Dev/aoscdk-rs)
 程序安装 AOSC OS。运行如下命令即可启动安装程序：
 
 
-```
+```bash
 deploykit
 ```
 
-运行该命令后，DeployKit 会以向导形式指引您安装 AOSC OS，此时跟随屏上指示即可
+运行该命令后，DeployKit 会以向导形式指引您安装 AOSC OS，此时跟随屏幕指示即可
 完成系统安装和配置。根据设备性能的区别，安装过程可能需要五分钟到接近一小时。
 
 维护或修复 AOSC OS
@@ -115,14 +115,14 @@ deploykit
 
 ### IDE/ATA/SCSI/SAS 设备上的分区
 
-```
+```bash
 fsck.ext4 -F /dev/sdXY
 # X 是用字母指代的设备编号，Y 是用数字指代的分区编号。
 ```
 
 ### NVMe 设备上的分区
 
-```
+```bash
 fsck.ext4 -F /dev/nvmeXnYpZ
 # X 是用数字指代的设备节点，Y 是用数字指代的设备编号，Z 是用数字指代的
 # 分区编号。
@@ -130,7 +130,7 @@ fsck.ext4 -F /dev/nvmeXnYpZ
 
 ### eMMC 或 SD 卡上的分区
 
-```
+```bash
 fsck.ext4 -F /dev/mmcblkXpY
 # X 是用数字指代的设备编号，Y 是用数字指代的分区编号。
 ```
@@ -146,14 +146,14 @@ fsck.ext4 -F /dev/mmcblkXpY
 
 ### IDE/ATA/SCSI/SAS 设备上的分区
 
-```
+```bash
 mount /dev/sdXY /mnt
 # X 是用字母指代的设备编号，Y 是用数字指代的分区编号。
 ```
 
 ### NVMe 设备上的分区
 
-```
+```bash
 mount /dev/nvmeXnYpZ /mnt
 # X 是用数字指代的设备节点，Y 是用数字指代的设备编号，Z 是用数字指代的
 # 分区编号。
@@ -161,18 +161,18 @@ mount /dev/nvmeXnYpZ /mnt
 
 ### eMMC 或 SD 卡上的分区
 
-```
+```bash
 mount /dev/mmcblkXpY /mnt
 # X 是用数字指代的设备编号，Y 是用数字指代的分区编号。
 ```
 
 接下来，为了保证修复过程中能够正确下载额外软件包，您可能需要连接到互联网。
-NetworkManager 提供一款名为 `nmtui` 的简易配置界面，请跟随屏上指示配置
+NetworkManager 提供一款名为 `nmtui` 的简易配置界面，请跟随屏幕指示配置
 网络连接。
 
 在成功建立互联网连接后，即可使用如下命令切换到需修复的 AOSC OS 系统中：
 
-```
+```bash
 arch-chroot /mnt
 ```
 
@@ -181,7 +181,7 @@ arch-chroot /mnt
 应显示 `#`（在发生错误时，提示符结尾会显示 `!`，而在命令或文件缺失的情况下，
 提示符结尾会显示 `?`）：
 
-```
+```bash
 dpkg --configure -a
 apt -f install
 apt full-upgrade
@@ -189,13 +189,13 @@ apt full-upgrade
 
 在如上三个命令均成功完成后，请使用如下命令退出 AOSC OS 环境：
 
-```
+```bash
 exit
 ```
 
 接下来，运行如下命令以确保数据完成写入：
 
-```
+```bash
 sync
 ```
 
@@ -209,14 +209,14 @@ GRUB 启动配置等原因导致的）。此时，您需要挂载您的系统分
 
 ### IDE/ATA/SCSI/SAS 设备上的分区
 
-```
+```bash
 mount /dev/sdXY /mnt
 # X 是用字母指代的设备编号，Y 是用数字指代的分区编号。
 ```
 
 ### NVMe 设备上的分区
 
-```
+```bash
 mount /dev/nvmeXnYpZ /mnt
 # X 是用数字指代的设备节点，Y 是用数字指代的设备编号，Z 是用数字指代的
 # 分区编号。
@@ -224,14 +224,14 @@ mount /dev/nvmeXnYpZ /mnt
 
 ### eMMC 或 SD 卡上的分区
 
-```
+```bash
 mount /dev/mmcblkXpY /mnt
 # X 是用数字指代的设备编号，Y 是用数字指代的分区编号。
 ```
 
 然后，使用如下命令切换到需修复的 AOSC OS 系统中：
 
-```
+```bash
 arch-chroot /mnt
 ```
 
@@ -243,7 +243,7 @@ arch-chroot /mnt
 查找类型为 "EFI System" 的分区来确定 EFI 系统分区的设备名。在确定 EFI 设备分区
 后，请运行如下命令挂载该分区：
 
-```
+```bash
 # $DEVICE 为位于 "EFI System" 分区对应行头的设备名。
 mount $DEVICE /efi
 ```
@@ -252,7 +252,7 @@ mount $DEVICE /efi
 如命令运行成功，您的命令提示符结尾应显示 `#`（在发生错误时，提示符结尾会显示
 `!`，而在命令或文件缺失的情况下，提示符结尾会显示 `?`）：
 
-```
+```bash
 grub-install --efi-directory=/efi --bootloader-id="AOSC OS"
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
@@ -266,7 +266,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 如命令运行成功，您的命令提示符结尾应显示 `#`（在发生错误时，提示符结尾会显示
 `!`，而在命令或文件缺失的情况下，提示符结尾会显示 `?`）：
 
-```
+```bash
 # $DEVICE is the disk drive on which you installed AOSC OS.
 grub-install $DEVICE
 grub-mkconfig -o /boot/grub/grub.cfg
@@ -278,7 +278,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 如命令运行成功，您的命令提示符结尾应显示 `#`（在发生错误时，提示符结尾会显示
 `!`，而在命令或文件缺失的情况下，提示符结尾会显示 `?`）：
 
-```
+```bash
 grub-install
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
