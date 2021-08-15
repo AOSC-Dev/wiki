@@ -24,8 +24,8 @@ page for details.
 
 - [Installation/WSL](@/aosc-os/installation/wsl.md)
 
-ARM Raw Images
-==============
+Raw System Images
+=================
 
 For ARM and RISC-V devices which do not make use of (U)EFI boot facilities,
 you would want to use device-specific raw system images. The downloads for
