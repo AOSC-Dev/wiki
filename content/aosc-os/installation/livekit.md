@@ -13,10 +13,11 @@ install AOSC OS on multi-partition, RAID, or encrypted configurations, you
 may want to refer to our [manual installation guides](/aosc-os/installation/manual/).
 {% end %}
 
-This guide outlines two main use cases for LiveKit, the installation and
-maintenance of AOSC OS. LiveKit is a portable AOSC OS installation (i.e. a Live
-environment) which provides a self-contained and complete environment
-deployed on media such as USB flash drives and optical discs.
+Apart from guides on how to create LiveKit media, this guide also outlines two
+main use cases for LiveKit, the installation and maintenance of AOSC OS.
+LiveKit is a portable AOSC OS installation (i.e. a Live environment) which
+provides a self-contained and complete environment deployed on media such as
+USB flash drives and optical discs.
 
 Creating the LiveKit Media
 ==========================
@@ -25,12 +26,12 @@ Creating LiveKit media is easy. This section shows how to create USB LiveKit
 media under Linux (or other *nix operating systems with the `dd` command
 available), Windows, and macOS. To create an optical media, simply use
 any optical disc burner to write the .iso you have obtained from the
-[Downloads page](https://aosc.io/).
+[Downloads page](https://aosc.io/downloads/).
 
 Linux, *nix, and macOS
 ----------------------
 
-In operating systems using the /dev/sdXY (where X is the device number, denoted
+In operating systems using the `/dev/sdXY` (where X is the device number, denoted
 with a letter; Y is the partition number, denoted with a number), please first
 identify your USB device (via `lsblk` or simply `ls /dev/sd*`), then execute
 the following commands *as root*:
@@ -47,7 +48,7 @@ In operating systems what does not use the device name scheme shown above, such
 as macOS, the procedure is much of the same: First identify the device node
 which represents your USB device (for macOS, use `diskutil list` in the Terminal
 application), then run the two commands as shown above using
-*superuser previlege*.
+*superuser privilege*.
 
 Windows
 -------
@@ -70,7 +71,7 @@ What devices are supported?
 LiveKit supports booting on the following device types:
 
 - BIOS- or (U)EFI-based x86_64 and i486 devices.
-- (U)EFI-based, SBSA and SystemReady ES certified AArch64 devices.
+- (U)EFI-based, or SBSA and SystemReady ES certified AArch64 devices.
 - OpenFirmware- or Petitboot-based PowerPC Macintosh, POWER, and OpenPOWER devices.
 - PMON- or Kunlun-based Loongson 2/3 Devices.
 
@@ -126,7 +127,7 @@ Repairing a Broken ext4 System Partition
 In case of a broken ext4 system partition, you may experience file access
 errors and system boot failure as the Kernel or initialisation mechanism fail
 to mount the system partition. Depending on your system configuration, you may
-not be able to repair your system file system without the help of an external
+not be able to repair your system partition without the help of an external
 environment.
 
 In this case, you may start LiveKit and, as you get to the command prompt, you
@@ -137,7 +138,7 @@ may use the `fsck.ext4` command to repair your ext4 partition.
 ```
 fsck.ext4 -F /dev/sdXY
 # Where X is the device number, denoted with a letter; Y is the partition
-# number, denoted with a number
+# number, denoted with a number.
 ```
 
 ### For Partitions on NVMe-based Devices
@@ -327,8 +328,8 @@ grub-mkconfig -o /boot/grub/grub.cfg
 Further Help Needed?
 ====================
 
-If you would need further assistance with repairing your AOSC OS installation,
-please contact us via [Discord](https://discord.gg/VYPHgt9),
+If you would need further assistance with installing AOSC OS or repairing your
+AOSC OS installation, please contact us via [Discord](https://discord.gg/VYPHgt9),
 [Telegram](https://t.me/joinchat/QVkNCQXYd_kAOMTX), or #aosc on the
 [Libera Chat IRC](https://libera.chat/). Our developers will be ready to assist
 and advise to help you navigate this sticky situation.
