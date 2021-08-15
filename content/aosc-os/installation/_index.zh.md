@@ -12,14 +12,14 @@ title = "AOSC OS 安装指南"
 均可使用 LiveKit 便捷地安装 AOSC OS 及 AOSC OS/Retro。请参见如下页面以
 了解 LiveKit 的用法及典型用途。
 
-- [LiveKit 用户指南](@/aosc-os/installation/livekit.md)
+- [LiveKit 用户指南](@/aosc-os/installation/livekit.zh.md)
 
 Windows Subsystem for Linux
 ===========================
 
 欲知安装 AOSC OS on WSL 的详情，请参阅如下页面。
 
-- [Installation/WSL](@/aosc-os/installation/wsl.md)
+- [Installation/WSL](@/aosc-os/installation/wsl.zh.md)
 
 系统镜像
 ========
@@ -30,7 +30,7 @@ Windows Subsystem for Linux
 
 欲知写入系统镜像的具体步骤，请参阅如下页面。
 
-- [Writing System Images](@/aosc-os/installation/rawimgs.md)
+- [Writing System Images](@/aosc-os/installation/rawimgs.zh.md)
 
 手动安装
 ========
