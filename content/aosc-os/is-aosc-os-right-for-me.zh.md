@@ -6,6 +6,10 @@ date = 2020-07-30T05:42:37.511Z
 tags = ["sys-info"]
 +++
 
+{% card(type="info") %}
+本文介绍的是 AOSC OS 主线发行，AOSC OS/Retro 发行的某些设计特性和主线略有不同。欲知关于 AOSC OS/Retro 发行的详情，请参阅 [AOSC OS/Retro 用户及开发者入门](@/aosc-os/retro/intro.md)。
+{% end %}
+
 # AOSC OS 是？
 
 AOSC OS 是独立于 Debian 构建和维护的发行版。此举虽不特别，但为我们做出符合社区理念的 Linux 发行版提供了空间。
@@ -37,7 +41,7 @@ AOSC OS 是由志愿者经过多年努力构建的，这些志愿者对制作 Li
 - 预装所有的“语言包”和相应的字体，只需要一个简单的命令就可以切换语言，在 GNOME 和 Plasma 下甚至点鼠标就行。
 - 我们在上游参与本地化工作（多为翻译），目标语言通常是简体中文。包括 WineHQ、FreeDesktop.org、GNOME、MATE 和 LMMS 等项目。因此其他发行版用户也受益。
 - 为 32-bit x86 应用程序和 Windows 应用（使用 Wine）提供支持，包括测试和本地化工作。
-- 除了安装流程，在[支持的架构](@/aosc-os/information/arch-specs.md)上使用 AOSC OS 在体验上是没有区别的。
+- 除了安装流程，在[支持的架构](@/aosc-os/information/arch-support.md)上使用 AOSC OS 在体验上是没有区别的。
 - 闭源和非自由软件在软件源中可用，包括 NVIDIA 驱动、Google Chrome、Opera 和闭源固件 `firmware-nonfree`。
 - 你可以在 IRC 或 Telegram 频道上使用 `/pakreq` 或 `/updreq` 命令请求新软件包或软件包更新。另外任何软件包建议都可以通过 `/optreq` 发送，令开发者接受到请求。
 - AOSC OS 有着开箱即用的电源管理配置，在笔电上也能良好地工作。
@@ -59,7 +63,7 @@ AOSC OS 是由志愿者经过多年努力构建的，这些志愿者对制作 Li
 
 ## 一些适合你使用 AOSC OS 的场景
 
-- 你有 [AMD64](@/aosc-os/installation/sysreq/amd64-notes-sysreq.md)、[ARMv7](@/aosc-os/installation/sysreq/arm-notes-sysreq.md)、[AArch64](@/aosc-os/installation/sysreq/arm-notes-sysreq.md)、[Big-Endian PowerPC 32-bit 64-bit Macintosh](@/aosc-os/installation/sysreq/powermac-notes-sysreq.md) 之中任一架构的电脑。
+- 您的设备[受 AOSC OS 支持](@/aosc-os/information/arch-support.md).
   - 根据你的判断，无论是现在还是将来，这台电脑都会有足够储存。
   - 这台电脑有稳定的网络，用于接收版本更新和安全修复。
 - 你并不喜欢配置系统，而是期望少量调整就能获得能用的系统。

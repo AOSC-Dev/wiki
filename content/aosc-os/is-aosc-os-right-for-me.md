@@ -6,6 +6,10 @@ date = 2020-05-04T03:37:21.732Z
 tags = ["sys-info"]
 +++
 
+{% card(type="info") %}
+This article is an introduction of our AOSC OS mainline distribution, some design features of our AOSC OS/Retro distribution differs from what this page describes. For an introduction of our AOSC OS/Retro distribution, please refer to [AOSC OS/Retro: An Introduction to Users and Maintainers](@/aosc-os/retro/intro.md).
+{% end %}
+
 # What Is AOSC OS, Anyways?
 
 Good question, we have been exploring this question for a long time now. But through the seven years of its development, it has become increasingly clear that we are building this Linux distribution with several subtle features that we find essential. Though first, let's return to the basics...
@@ -39,7 +43,7 @@ With all these philosophies above, AOSC OS has been built by large in accordance
 - All "language packs" along with appropriate fonts are pre-installed, and a simple command or GUI (GNOME and Plasma Desktop) allows for quick language switching.
 	- Some AOSC developers have been participating in L10n (localisation, or simply translation) work upstream, mainly for zh_CN (Simplified Chinese). Upstreams like WineHQ, FreeDesktop.org, GNOME, MATE, and LMMS, etc. benefit from our contribution, and these improvements benefit users of other Linux distributions or these specific applications on other operating systems.
 - Adequate support for 32-bit x86 applications (natively on AMD64, and via Qemu user emulation on other architectures) and Windows applications via Wine, with adequate testing and adaptation for CJK languages.
-- Apart from the installation process, you should feel no difference in appearance and usage with AOSC OS across our [supported architectures](@/aosc-os/information/arch-specs.md) - of course, depending on the performance of your devices, your mileage may vary.
+- Apart from the installation process, you should feel no difference in appearance and usage with AOSC OS across our [supported architectures](@/aosc-os/information/arch-support.md) - of course, depending on the performance of your devices, your mileage may vary.
 - Proprietary software, like the closed-source NVIDIA Unix driver packages, Google Chrome, Opera, and device firmwares (`firmware-nonfree` necessary for many wireless cards and graphics cards) can be easily obtained via our main repository.
 - A relatively strong software collection built upon user suggestions and active work of our developers.
 	- Software addition and updates could be easily requested on our community IRC and Telegram groups via the `/pakreq` and `/updreq` bot commands; additionally, any optimisation suggestions could be similarly made via the `/optreq` command. Developers can be easily reached most of the time.
@@ -68,7 +72,7 @@ Now that you have read through all those boring marketing material, time to make
 
 ## Give it a shot, if...
 
-- You have a computer of the [AMD64](@/aosc-os/installation/sysreq/amd64-notes-sysreq.md), [ARMv7](@/aosc-os/installation/sysreq/arm-notes-sysreq.md), [AArch64](@/aosc-os/installation/sysreq/arm-notes-sysreq.md), [Big-Endian PowerPC 32-bit 64-bit Macintosh](@/aosc-os/installation/sysreq/powermac-notes-sysreq.md) architectures.
+- You have a computer of any architecture [supported by AOSC OS](@/aosc-os/information/arch-support.md).
 	- And they come with adequate storage availability for the present and the future, by your judgement.
 	- Stable Internet connection for updates and security advisories (subscription optional at [security@lists.aosc.io](mailto:security@lists.aosc.io).
 - You don't particularly like configuring your system and expect a functional system without much tweaking.
