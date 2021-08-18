@@ -1,5 +1,5 @@
 +++
-title = "软件包维护入门：进阶"
+title = "软件包维护入门：进阶教程"
 description = "本文由 Commit-O-Matic™ 赞助"
 +++
 
