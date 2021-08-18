@@ -13,6 +13,5 @@ If you are wondering what to do with your ancient device, we got you covered! Ch
 
 Other useful resources:
 
-- [Errata](@/aosc-os/errata/_index.md) records caveats you may face.
 - [AOSC OS Security Advisories (AOSA)](@/aosc-os/aosa/_index.md) covers how AOSC handles security vulnerabilities and contains past security advisories.
 - [Information](@/aosc-os/information/_index.md) covers some design choices and system information.

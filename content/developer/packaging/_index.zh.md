@@ -4,7 +4,7 @@ title = "打包"
 
 您好呀！如果您正在阅读这篇文章，您可能希望参与到 AOSC OS 开发当中。本系列指南将指导您如何创建、更新和维护 AOSC OS 软件包。
 
-如果您还没有为 AOSC OS 打过包，我们推荐您首先阅读 [软件包维护入门之基础篇](@/developer/packaging/basics.zh.md)。接下来，您可以继续阅读 [软件包维护入门之进阶篇](@/developer/packaging/advanced-techniques.zh.md) 了解在实际打包过程中经常使用的一些的技术。
+如果您还没有为 AOSC OS 打过包，我们推荐您首先阅读 [软件包维护入门之基础篇](@/developer/packaging/basics.zh.md)。接下来，您可以继续阅读 [软件包维护入门之进阶篇](@/developer/packaging/advanced-techniques.md) 了解在实际打包过程中经常使用的一些的技术。
 
 为了确保构建好的软件包的质量，请遵循下面的这些指南：
 
