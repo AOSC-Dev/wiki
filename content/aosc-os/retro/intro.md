@@ -29,7 +29,7 @@ AOSC OS/Retro currently support the following processing architectures and devic
 
 | Architecture                                        | Typical Devices                                                                      |
 |-----------------------------------------------------|--------------------------------------------------------------------------------------|
-| ARMv4, soft float with no THUMB SIMD support        | HP Jornada 710/720/728/820, etc.                                                     |
+| ARMv4, soft float with no Thumb support             | HP Jornada 710/720/728/820, etc.                                                     |
 | ARMv6, hard float                                   | Raspberry Pi 1, etc.                                                                 |
 | ARMv7, hard float with NEON SIMD support            | Raspberry Pi 2, etc.                                                                 |
 | Intel 80486 compatible or above (`i486`)            | IBM Palm Top PC110, Toshiba Satellite 430CDT, Dell Latitude CPi, Asus EeePC 901 etc. |
