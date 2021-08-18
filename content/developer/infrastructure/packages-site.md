@@ -55,6 +55,25 @@ The website is served in `main.py`. We use [Bottle](https://bottlepy.org/) frame
 The recommended resource requirement is at least 1GiB of free space (current usage: 450MiB), at least 512MiB of total RAM (actually won't exceed 100M). Software requirement is Python 3.5+ or PyPy3.5, recent SQLite3 with FTS5 support, Fossil 2.6+, bash, Git.
 We currently use uWSGI and nginx to host the website. See https://github.com/AOSC-Dev/packages-site#deploy for simple instructions. Set up systemd timers for update.sh and piss.
 
+### PostgreSQL Hot-Standby Configuration
+
+If a hot-standby instance is required, you can set up like this:
+
+Please note that if you perform this operation while the primary server is running, you need to perform the following steps as fast as you can to avoid de-sync.
+
+- Transfer cold backup files from primary to secondary
+    - Create a new user with replication permissions, this user needs to have a password assigned
+    - Backup the database on the primary server: `pg_basebackup -F t -D /path/to/backup/path -U postgres -P`
+    - Transfer backup files in `/path/to/backup/path` to the secondary server
+    - On the secondary server: `tar -C /var/lib/postgresql/data/ -xvf </path/to/backup/path/>/base.tar && tar -C /tmp/backups/ -xvf </path/to/backup/path>/pg_wal.tar`, then open the `postgresql.conf` or `postgresql.auto.conf` file and append: `primary_conninfo = 'host=<hostname> port=<port> user=<user_with_replication_perms> password=<password>'` and `restore_command = 'cp /tmp/backups/%f %p'`
+- Promote the secondary warm backup to hot-standby
+    - On the secondary server: `touch /var/lib/postgresql/data/standby.signal` and then start `postgresql` server
+    - Wait until you see "consistent recovery state reached at " line appears in the log file
+- Add a local read-only user
+    - On the secondary server: stop `postgresql` server, then remove `/var/lib/postgresql/data/standby.signal`, and restart `postgresql` server
+    - Add a new user to the secondary server using `createuser`. Or you can re-use the replication user's name and assign a password like this in the `psql` shell: `ALTER USER <name> PASSWORD '<password>';`
+    - Then `touch /var/lib/postgresql/data/standby.signal` and then start `postgresql` server
+
 ## Plans
 
 - Add file lists.
