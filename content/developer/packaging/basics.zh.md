@@ -230,7 +230,7 @@ ciel build -i main light
 
 在成功构建软件包后，您可以将本地 Git 分支（如 `light-1.2.1-new`）推送至您的 fork 中（如有提交权限，可推送至主树中）。随后，您需要创建 Pull Request 并按模板要求填入信息，最后即可将软件包推送至社区软件源的测试分支中供用户测试。
 
-我们要求使用 [pushpkg](https://github.com/AOSC-Dev/scriptlets/tree/master/pushpkg) 推送成品软件包。如果您在使用 AOSC OS，可以直接安装 `pushpkg` 包（否则可以自行下载脚本，将其添加到可执行文件目录中，并确定脚本已设定可执行位）。一切就绪后，便可在 `OUTPUT` 目录后执行 `pushpkg` 上传软件包。请注意，该脚本需要您指定自己的 LDAP 凭证和目标源分支（`light-1.2.1-new`）。
+我们要求使用 [pushpkg](https://github.com/AOSC-Dev/scriptlets/tree/master/pushpkg) 推送成品软件包。如果您在使用 AOSC OS，可以直接安装 `pushpkg` 包（否则可以自行下载脚本，将其添加到可执行文件目录中，并确定脚本已设定可执行位）。一切就绪后，便可在切换到 `OUTPUT` 目录后执行 `pushpkg` 上传软件包。请注意，该脚本需要您指定自己的 LDAP 凭证和目标源分支（`light-1.2.1-new`）。
 
 接下来，请静候 Pull Request 审核和软件包测试。如果一切顺利，在您的 Pull Request 被合并后，请重构相关软件包并将其上传至 `stable` 源。
 
