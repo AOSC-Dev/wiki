@@ -3,73 +3,75 @@ title = "Intro to Package Maintenance: Advanced Techniques"
 description = "This article is sponsered by Commit-O-Matic™"
 +++
 
-> **Attention: The maintenance guideline that this introduction is describing has been deprecated from October 25, 2020.** We've switched to a newly-proposed [Topic-Based Maintenance Guidelines](@/developer/packaging/topic-based-maintenance-guideline.md). Before we update this document, you could refer to that document instead, or stay tuned.
-
----
-
 > So you want to make a package, you've got the urge to make a package, you've got the nerve to make a package, so go ahead, so go ahead, so go ahead and make a package we can use\!
 
 After learning the [basics](@/developer/packaging/basics.md) about building packages, we can now start exploring some advanced techniques.
 
-Pleaese note that you don't have to read this documentation word-by-word, as it should serve as a point of reference for your future work. Just take a quick look, remember these concepts, and come back when you encounter a problem.
+Please note that you don't have to read this documentation word-by-word, as it should serve as a point of reference for your future work. Just take a quick look, remember these concepts, and come back when you encounter a problem.
 
-# Advanced Operations in `Autobuild3`
+# Advanced Operations in Autobuild3
 
-We've already seen that in many packages, `Autobuild3` can automatically determine the build system used in the source tree, then generate and execute build scripts accordingly. But there are many (complex or primitive) programs that require more steps to build and install, or they may require specific build parameters and compiler flags.
+We've already seen that with many packages, Autobuild3 can automatically determine the build system used in the source tree, then generate and execute build scripts accordingly. But there are many (complex or primitive) programs that require more steps to build and install, or they may require specific build parameters and compiler flags.
 
 We will now introduce how to deal with these issues in AOSC OS's build system.
 
 ## Manually Select Different Build Systems
 
-Sometimes, `Autobuild3` may make wrong assumptions about the build system, and this would probably result a build failure. In other cases, when building projects where multiple build systems are avaliable, it may not select the optimal one (for build time or reliability).
+Sometimes, Autobuild3 may make wrong assumptions about the build system, and this would probably result a build failure. In other cases, when building projects where multiple build systems are avaliable, it may not select the optimal one (for build time or reliability).
 
 In this case, we can manually specify which build system to use by defining `ABTYPE=` in the `autobuild/defines` file.
 
 Currently, these build types are supported:
 
-  - `self` : when a autobuild/build file is provided, uses user created autobuild/build as build script.
-  - `autotools` : generally used for GNU autotools-based source trees, with an available configure script in source root, or defined $configure script.
-  - `cmake` : used for CMake-based source tree, generates and executes Makefiles, Autobuild3 detects for CMakeList.txt in the source trees.
-  - `cmakeninja` : same as above, but generates and executes Ninja build scripts.
-  - `waf` : used for Waf-based source tree, Autobuild3 detects for waf file/script in the source trees.
-  - `plainmake` : used for source trees with a written Makefile, and therefore is able to be built with make command.
-  - `haskell` : used for standard Haskell Cabal/Hackage source trees, comes with a set of scripts that provides Haskell package management functions like registering and unregistering.
-  - `perl` : used for standard CPAN source trees.
-  - `python` : used for standard PyPI source trees.
-  - `qtproj` : used for Qt projects with .pro files in the source trees.
-  - `ruby` : used for RubyGems source trees.
-
+  - `self`: When a autobuild/build file is provided, uses user created autobuild/build as build script.
+  - `autotools`: Generally used for GNU autotools-based source trees, with an available configure script in source root, or defined $configure script.
+  - `cmake`: Used for CMake-based source trees, generates and executes Makefiles, Autobuild3 detects for CMakeList.txt in the source trees.
+  - `cmakeninja`: Same as above, but generates and executes Ninja build scripts.
+  - `dummy`: Generates an empty package, useful for generating meta packages.
+  - `dune`: Used for Dune-based source trees (generally used for OCaml sources).
+  - `gomod`: Used for Gomod adapted Go langauge source trees.
+  - `meson`: Used for Meson-based source trees, generates and executes Ninja build scripts.
+  - `npm`: Used for NPM modules (generally used for Node.js module sources).
+  - `perl`: Used for standard CPAN source trees.
+  - `plainmake`: Used for source trees with a written Makefile, and therefore is able to be built with make command.
+  - `python`: Used for standard PyPI source trees.
+  - `qtproj`: Used for Qt projects with .pro files in the source trees.
+  - `ruby`: Used for RubyGems source trees.
+  - `rust`: Used for Cargo source trees (generally used for Rust sources).
+  - `waf`: Used for Waf-based source trees, Autobuild3 detects for waf file/script in the source trees.
+  
 ## Custom Build System/Compiler Parameters
 
-`Autobuild3` integrates a list of optimal build parameters. However, sometimes these parameters are not entirely compatible with the software and may cause troubles. In this case, have a look at [Autobuild3's default parameters](https://github.com/AOSC-Dev/autobuild3/blob/master/etc/autobuild/ab3_defcfg.sh#L105), and override them accordingly. A complete list of parameters can be found at the [Autobuil3 Wiki](https://github.com/AOSC-Dev/aosc-os-abbs/wiki/Autobuild3).
+Autobuild3 integrates a list of optimal build parameters. However, sometimes these parameters are not entirely compatible with the software and may cause troubles. In this case, have a look at [Autobuild3's default parameters](https://github.com/AOSC-Dev/autobuild3/blob/master/etc/autobuild/ab3_defcfg.sh#L105), and override them accordingly. A complete list of parameters can be found at the [Autobuil3 Wiki](https://github.com/AOSC-Dev/aosc-os-abbs/wiki/Autobuild3).
 
-One problem that stands out is LTO (or Link Time Optimization). This technique can improve run-time efficiency and reduce the size of the binary, but for now enabling LTO may result build failure (the number is constantly decreasing), and consumes a lot of RAM during build-time. Autobuild3 uses LTO by default on AMD64 for its improved efficiency, but if you encounter LTO related issues, you can disable it via adding `NOLTO=1` in `autobuild/defines`.
+One problem that stands out is LTO (or Link Time Optimization). This technique can improve run-time efficiency and reduce the size of the binary, but for now enabling LTO may result build failure (the number is constantly decreasing), and consumes a lot of RAM during build-time. Autobuild3 enable LTO by default in interest of performance (and sometimes binary sizes), but if you encounter LTO related issues, you can disable it via adding `NOLTO=1` in `autobuild/defines`.
 
 ## Custom Build Scripts
 
 In some cases, the software uses a special build system (or they don't need a build system at all, like pre-built binaries). In this case, you may take control over the build process by writing build scripts in Bash.
 
-The build script is located in `autobuild/build`. If this script exists, the build type will be locked to `self` (unless otherwise overriden if another `ABTYPE=` was defined), which means `Autobuild3` will not try to determine the build system and execute its integrated build script, but simply execute this script.
+The build script is located in `autobuild/build`. If this script exists, the build type will be locked to `self` (unless overriden if another `ABTYPE=` was defined), which means Autobuild3 will not try to determine the build system and execute its integrated build script, but simply execute this script.
 
-This script should look very similar to what you would do to manually compile programs. But one key difference is that you should **NOT** install the compiled program to the system root directory. Instead, it should be installed in `$PKGDIR`, where later `Autobuild3` will make the deb based on the file inside this directory. For example, if the compiled binary is called `hugo` in the root of the build directory, you should install it to the `bin` directory of the package by:
+This script should look very similar to what you would do to manually compile programs. But one key difference is that you should **NOT** install the compiled program to the system root directory. Instead, it should be installed in `$PKGDIR`, where later Autobuild3 will make the deb based on the file inside this directory. For example, if the compiled binary is called `hugo` in the root of the build directory, you should install it to the `bin` directory of the package by:
 
 ``` bash
-abinfo "Installing Hugo binary..."
-install -Dvm755 hugo "$PKGDIR"/usr/bin/hugo
+abinfo "Installing Hugo binary ..."
+install -Dvm755 hugo \
+    "$PKGDIR"/usr/bin/hugo
 ```
 
-Notice that we used a simple function to print log information to the build log called `abinfo()`. Just call `abinfo "Desired build infomation"` in the script, and it will be recorded into the build log. It is considered a good practice to use `abinfo()` as a way to comment your build scripts, as this could be beneficial for maintainers who may come after.
+Notice that we used a simple function to print log information to the build log called `abinfo()`. `abinfo()` works similarly to the `echo` program. Just call `abinfo "Desired build infomation"` in the script, and it will be recorded into the build log. It is considered a good practice to use `abinfo()` as a way to comment your build scripts, as this could be beneficial for maintainers who may come after. There is also `abwarn()` which works in an identical fashion, if you would like to print a warning.
 
 ## Post-Build Tweaks
 
-Sometimes `Autobuild3` handles the build process just fine, but the finished product may need some extra tweaks (i.e: wrong directory for man pages, shell completion scripts need to be copied into the `$PKGDIR`, and so on). In this case, we use the `autobuild/beyond` script, which, like `autobuild/build`, is executed as a plain Bash script. It will be executed after the build process.
+Sometimes Autobuild3 handles the build process just fine, but the finished product may need some extra tweaks (i.e: wrong directory for man pages, shell completion scripts need to be copied into the `$PKGDIR`, and so on). In this case, we use the `autobuild/beyond` script, which, like `autobuild/build`, is executed as a plain Bash script. It will be executed after the build process.
 
 This is an example taken from `TREE/extra-web/aria2`. Here, we need to install `aria2c`'s bash<sub>completion</sub> file, so we use the `autobuild/beyond` script.
 
 ``` bash
-install -dv "$PKGDIR"/usr/share/bash-completion/completions
-install -vm644 "$PKGDIR"/usr/share/doc/aria2/bash_completion/aria2c \
-    "$PKGDIR"/usr/share/bash-completion/completions
+abinfo "Installing Bash completions ..."
+install -Dvm644 "$PKGDIR"/usr/share/doc/aria2/bash_completion/aria2c \
+    "$PKGDIR"/usr/share/bash-completion/completions/aria2c
 ```
 
 ## The `autobuild/override` Directory
@@ -82,9 +84,9 @@ For example, if we are building a package called `foo` and it does not contain t
 
 ## Advanced Patch Management
 
-We've already learned in the *Basics* that we can patch the source code by simply placing patches inside the `autobuild/patches` directory. But sometimes the patches has to be applied in a specific order in order to work.
+We have already discussed in the *Basics* that we can patch the source code by simply placing patches inside the `autobuild/patches` directory. But sometimes the patches has to be applied in a specific order in order to work.
 
-To mitigate this issue, we introduced the `autobuild/patches/series` file. This file contains an ordred list of the names of the patches (one filename per line). If this file is present, `Autobuild3` will apply patches as specified in the list.
+To mitigate this issue, we introduced the `autobuild/patches/series` file. This file contains an ordred list of the names of the patches (one filename per line). If this file is present, Autobuild3 will apply patches as specified in the list.
 
 In some other cases, the patches will not apply if they are not on a strip level of 1 (one). Here below is an example header from a strip level 1 patch:
 
@@ -102,15 +104,13 @@ In this case, you would need to write your own `autobuild/patch`, which is also 
 
 When maintaining packages, it is common that a batch of packages (for example, KDE Applications) need to be updated and/or built together. It would be frustrating if we have to manually change the version number and checksum.
 
-So, there are several automation tools written by our maintainers to simplify this process. We will try to update all packages to the latest <span class="underline">patch releases</span> in `TREE/extra-gnome` here.
+So, there are several automation tools written by our maintainers to simplify this process. We will try to update all packages to the latest versions in `TREE/extra-gnome` here.
 
 ## Update Version Numbers, Automatically
 
-First, we have the [PISS (Project Information Storage System)](https://github.com/AOSC-Dev/piss) \[1\], which monitors package updates from upstreams and provides an API that obtains and analyzes these information.
+For monitoring package updates, we use the [aosc-findupdate](https://github.com/AOSC-Dev/aosc-findupdate) tool (available from AOSC OS as the `aosc-findupdate` package), which pulls package update information from various sources, such as Fedora's [Anitya](https://release-monitoring.org/), GitHub, GitLab, or from an HTML file parsed with a custom regex expression.
 
 Then, have a look at `git diff`, you should be able to see a bunch of changes on various of `VER` and `REL` lines.
-
-If you are dealing with major version bumps, use `findupd` instead of `findupd-stable`.
 
 ## Update Checksums, Automatically
 
@@ -122,19 +122,10 @@ There's also ways to automate this process, but there's not a standard script ye
 cd TREE/
 # First, generate a temporary group.
 git --no-pager diff --name-only | grep spec | sed 's/\/spec//' > groups/gnome-changes
-# Use addchksum.py to generate a patch of all the checksums
-for i in `cat groups/gnome-changes`; do; python3 ../abbs-meta/tools/addchksum.py $i/spec 2> dev/null\ndone > checksums.patch
-# Then, apply the patch
-patch -Np0 -i checksums.patch
-```
-
-Another (down right dirty) implementation exists, which does not involve creating any temporary files in the repository (this should be merged into our [`scriptlets`](https://github.com/AOSC-Dev/scriptlets) repository:
-
-``` bash
-#!/bin/sh
-for i in `git status | grep modified | grep /spec | awk '{ print $2 }'`; do
-    python3 ../abbs-meta/tools/addchksum.py $i
-done | patch -Np0 -i -
+# Enter the Ciel environment.
+ciel shell
+# Update source checksums using ACBS.
+acbs-build -gw groups/gnome-changes
 ```
 
 After this, checksums should be up-to-date.
@@ -144,18 +135,24 @@ After this, checksums should be up-to-date.
 Then we can try to build the new packages. This should be as simple as:
 
 ``` bash
-cd ciel/ # Enter ciel root directory
-ciel build -i INSTANCE groups/gnome-changes
+# Replace $INSTANCE with your instance name.
+ciel build -i $INSTANCE groups/gnome-changes
 ```
 
 ## Commit Changes, Automatically
 
-If all packages are built successfully, we can go ahead and commit our changes. Our [commit-o-matic](https://github.com/AOSC-Dev/scriptlets/tree/master/commit-o-matic) will accomplish just that. Similar with `findupd`, simply download the script, put it into your `PATH`, invoke the script, and bob's your auntie.
+If all packages are built successfully, we can go ahead and commit our changes. Our [commit-o-matic](https://github.com/AOSC-Dev/scriptlets/tree/master/commit-o-matic) will accomplish just that. Simply download the script, put it into your `PATH`, invoke the script, and bob's your uncle.
 
 Note that if any extra modification was needed, you must note the said modifications in the git log. That said, before invoking `commit-o-matic`, you should first remove the modified package from the temporary group, and commit it manually.
 
 ``` bash
-commit-o-matic.sh groups/gnome-changes
+commit-o-matic groups/gnome-changes update
+```
+
+If you would like to use a different commit message than the generic `update to ...`, say, you would like to drop a set of package due to upstream orphaning them, you may do so as follows.
+
+``` bash
+commit-o-matic groups/gnome-changes bump-rel 'drop, orphaned'
 ```
 
 ## Push Changes, Automatically
@@ -168,11 +165,25 @@ pushpkg LDAP_IDENTITY BRANCH
 
 Note that `LDAP_IDENTITY` and `BRANCH` are by definition users and repositories on our [Community Repository](https://repo.aosc.io/). Contributors are audited before an LDAP identities are granted by our Infrustructure Work Group - we will get in touch with you via your first PR to our ABBS tree.
 
-1.  A great name, I know…
+# Advanced Techniques in Ciel
 
-    In order to actually utilize these information, there is a tool called [findupd](https://github.com/AOSC-Dev/scriptlets/tree/master/findupd), which automatically downloads the infomation from `PISS` and change the corresponding version in package's `spec` file. Simply clone the repository, copy all executables and Python scripts into your `PATH`, and trigger:
+There are some tips to make your life easier while using Ciel, here are a few.
 
-    ``` bash
-    cd TREE/
-    findupd-stable extra-gnome
-    ```
+## Automatically Specify Instance Name
+
+Notice how you had to append the `-i $INSTANCE` parameter to each `ciel build` command? Here's a tip to save your nails. First, we create a file in the Ciel workspace root called `.env`, and input the following to the file.
+
+``` bash
+# Replace $INSTANCE name with your own.
+CIEL_INST=$INSTANCE
+```
+
+Save the file, and you can now build packages without the `-i` parameter.
+
+``` bash
+ciel build gnome-shell
+```
+
+## Ciel, Ciel Everywhere!
+
+With Ciel version >= 3.0.6, you can use Ciel like you would with Git - it will try and seek up the directory tree and find the Ciel workspace root. No need to switch to the Ciel workspace root to run any Ciel command, if it's convenient in the `TREE/`, stay comfortable there.
