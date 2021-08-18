@@ -151,7 +151,7 @@ PKGCONFL="i3-gaps"
 
 Notice here that you can actually write Bash logic inside `defines`. This is useful when adding platform-specific flags or dependencies, but this is **NO LONGER** recommended, and will be prohibited in the future. For adding platform specific info, use `$VAR__$ARCH` (for example, `AUTOTOOLS_AFTER__AMD64`).
 
-For a complete list of available parameters, visit [Autobuild3 User and Developer Manual](@/developer/packaging/autobuild3-manual/).
+For a complete list of available parameters, visit [Autobuild3 User and Developer Manual](@/developer/packaging/autobuild3-manual.md).
 
 ## `autobuild/prepare`
 

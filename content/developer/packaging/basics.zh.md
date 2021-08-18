@@ -153,7 +153,7 @@ PKGCONFL="i3-gaps"
 
 此外，`defines` 也支持 Bash 逻辑判断式，便于定义针对特定平台的配置或依赖等，但是这一用法现在已**不推荐使用**，以后也会禁止这种用法。如需定义特定平台的各项配置信息，请使用 `$VAR__$ARCH`（如 `AUTOTOOLS_AFTER__AMD64`）变量。
 
-如需了解其他 Autobuild3 参数，请参阅 [Autobuild3 用户及开发者手册 (Autobuild3 User and Developer Manual)](@/developer/packaging/autobuild3-manual/)
+如需了解其他 Autobuild3 参数，请参阅 [Autobuild3 用户及开发者手册 (Autobuild3 User and Developer Manual)](@/developer/packaging/autobuild3-manual.md)
 
 ## `autobuild/prepare`
 
