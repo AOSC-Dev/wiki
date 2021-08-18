@@ -1,5 +1,5 @@
 +++
-title = "AOSC OS/Retro: An Introduction to Users and Maintainers (RFC)"
+title = "AOSC OS/Retro: An Introduction to Users and Maintainers"
 description = "Enjoying AOSC OS on Your Retro Devices"
 date = 2020-05-04T03:37:46.485Z
 [taxonomies]
