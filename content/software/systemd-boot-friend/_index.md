@@ -23,7 +23,7 @@ If everything goes well, you should have a working `systemd-boot` installation.
 
 For the manual method, you can take a look at [systemd-boot - ArchWiki](https://wiki.archlinux.org/index.php/systemd-boot),
 which describes how to set up systemd-boot by yourself. Then after you have decided on where to mount your *ESP partition*,
-you can fill in the mountpoint at `/etc/systemd-boot-friend.conf` and create `$ESP_MOUNTPOINT/EFI/systemd-boot-friend/` folder,
+you can fill in the mountpoint at `/etc/systemd-boot-friend.conf` and create the `$ESP_MOUNTPOINT/EFI/systemd-boot-friend/` folder,
 and then you are good to go.
 
 # Usage
@@ -37,27 +37,27 @@ and then you are good to go.
     update            Install all kernels and update boot entries
 
 - `init`
-  Initialize systemd-boot, install the newest kernel and generate its boot entry.
+  Initializes systemd-boot, installs the newest kernel and generate its boot entry.
 
 - `list`
-  List all available kernels.
+  Lists all available kernels.
 
 - `install`
-  Install a specific kernel or install the newest kernel if no argument is given.
+  Installs a specific kernel or the newest kernel if no argument is given.
   The argument can either be the number corresponding to the kernel in `systemd-boot-friend list` or the kernel's name (e.g. `5.12.0-aosc-main`).
 
 - `list-installed`
-  List all kernels installed in systemd-boot.
+  Lists all kernels installed in systemd-boot.
 
 - `remove`
-  Similar to `install`. Remove a specific kernel or choose a kernel if no argument is given.
+  Similar to `install`. Removes a specific kernel or choose a kernel if no argument is given.
   The argument can either be the number corresponding to the kernel in `systemd-boot-friend list-installed` or the kernel's name (e.g. `5.12.0-aosc-main`).
 
 - `update`
-  Remove all installed kernels, reinstall all available kernels and re-generate the corresponding boot entries.
+  Removes all installed kernels, reinstalls all available kernels and re-generates the corresponding boot entries.
 
 # Configuration
-`/etc/systemd-boot-friend.conf` is the configuration file of systemd-boot-friend.
+`/etc/systemd-boot-friend.conf` is systemd-boot-friend's configuration file.
 
 - `VMLINUZ`
   vmlinuz filename format, you can find the filename at /boot usually.
