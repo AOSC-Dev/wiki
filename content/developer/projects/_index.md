@@ -24,7 +24,7 @@ A tool for controlling AOSC OS packaging environments using multi-layer filesyst
 
 - Maintainers: Neruthes
 - Repo: [AOSC-Dev/ciel-layman](https://github.com/AOSC-Dev/ciel-layman)
-- Status: **Early WIP**, help wated
+- Status: **Early WIP**, help wanted
 
 Overlay management tool for AOSC OS. Works with Ciel and ACBS.
 
