@@ -13,12 +13,12 @@ page_hack = "big-min-table-cell-width"
 | Website | | | | @xiaoxing |
 | CDN | | | Cloudflare | @xiaoxing |
 | Repo server | | xTom | | @xiaoxing, LDAP infra group |
-| Email | | | Mailcheap | @OverfullHbox |
+| Email | | | Mailcheap | @UnderfullHbox |
 | LDAP server | whoami | | BandwagonHost | @zamirsun |
 | LDAP record | whoami | | | @zamirsun, @xiaoxing, @jeffbai |
 | Relay | relay | | | @KexyBiscuit |
 | Relay APAC | relay-asia | | | @KexyBiscuit |
-| IRC channel | | | | @TransmetaCPU |
+| IRC channel | | | | @TransmetaCPU, @UnderfullHbox |
 | Discord | | | | @liushuyu |
 | IRC bridge | | | | @Staph |
 | Paste v1 | | | | @liushuyu @xiaoxing |
