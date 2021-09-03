@@ -18,7 +18,7 @@ page_hack = "big-min-table-cell-width"
 | LDAP record | whoami | | | @zamirsun, @xiaoxing, @jeffbai |
 | Relay | relay | | | @KexyBiscuit |
 | Relay APAC | relay-asia | | | @KexyBiscuit |
-| IRC channel | | | | @TransmetaCPU, @UnderfullHbox |
+| IRC channel | | | libera.chat | @TransmetaCPU, @UnderfullHbox |
 | Discord | | | | @liushuyu |
 | IRC bridge | | | | @Staph |
 | Paste v1 | | | | @liushuyu @xiaoxing |
