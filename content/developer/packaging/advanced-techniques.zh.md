@@ -5,7 +5,7 @@ description = "This article is sponsered by Commit-O-Matic™"
 
 > So you want to make a package, you've got the urge to make a package, you've got the nerve to make a package, so go ahead, so go ahead, so go ahead and make a package we can use\!
 
-在学习过软件包维护入门[基础教程](@/developer/packaging/basics.md)之后，我们现在可以开始探索一些进阶技巧了。
+在学习过软件包维护入门 [基础教程](@/developer/packaging/basics.md) 之后，我们现在可以开始探索一些进阶技巧了。
 
 请注意，你不必对这篇文档字字计较，因为它应当为你未来的工作提供参考。快速浏览一下，记住这些概念，遇到问题后再回来。
 
@@ -40,11 +40,11 @@ description = "This article is sponsered by Commit-O-Matic™"
   - `rust`：用于 Cargo 源代码树（通常用于 Rust 源代码）。
   - `waf`：用于基于 Waf 的而源代码树，Autobuild3 会检测源代码树中的 waf 文件或脚本。
   
-## Custom Build System/Compiler Parameters
+## 自定义构建系统/编译器参数
 
-Autobuild3 integrates a list of optimal build parameters. However, sometimes these parameters are not entirely compatible with the software and may cause troubles. In this case, have a look at [Autobuild3's default parameters](https://github.com/AOSC-Dev/autobuild3/blob/master/etc/autobuild/ab3_defcfg.sh#L105), and override them accordingly. A complete list of parameters can be found at the [Autobuil3 Wiki](https://github.com/AOSC-Dev/aosc-os-abbs/wiki/Autobuild3).
+Autobuild3 内置了一份最佳构建参数列表。不过，有时这些参数并不完全与软件相容，而且可能会引发问题。这时，请看一看 [Autobuild3 的默认参数](https://github.com/AOSC-Dev/autobuild3/blob/master/etc/autobuild/ab3_defcfg.sh#L105)，并重写相应的参数。你可以在 [Autobuil3 Wiki](https://github.com/AOSC-Dev/aosc-os-abbs/wiki/Autobuild3) 中找到完整的参数列表。
 
-One problem that stands out is LTO (or Link Time Optimization). This technique can improve run-time efficiency and reduce the size of the binary, but for now enabling LTO may result build failure (the number is constantly decreasing), and consumes a lot of RAM during build-time. Autobuild3 enable LTO by default in interest of performance (and sometimes binary sizes), but if you encounter LTO related issues, you can disable it via adding `NOLTO=1` in `autobuild/defines`.
+链接时优化（Link Time Optimization，LTO）是一个突出的问题。这项技术可以改善运行时效率并减小二进制文件的体积，但是目前来讲启用 LTO 可能会导致构建失败（这样的数量正在持续降低），并且会在构建过程中消耗更多内存。Autobuild3 默认启用 LTO 以提高性能（有时也为了减小二进制体积），但是如果遇到了 LTO 相关问题，可以通过在 `autobuild/defines` 中添加 `NOLTO=1` 变量来禁用 LTO。
 
 ## Custom Build Scripts
 
