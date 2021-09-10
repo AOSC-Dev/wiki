@@ -44,15 +44,15 @@ description = "This article is sponsered by Commit-O-Matic™"
 
 Autobuild3 内置了一份最佳构建参数列表。不过，有时这些参数并不完全与软件相容，而且可能会引发问题。这时，请看一看 [Autobuild3 的默认参数](https://github.com/AOSC-Dev/autobuild3/blob/master/etc/autobuild/ab3_defcfg.sh#L105)，并重写相应的参数。你可以在 [Autobuil3 Wiki](https://github.com/AOSC-Dev/aosc-os-abbs/wiki/Autobuild3) 中找到完整的参数列表。
 
-链接时优化（Link Time Optimization，LTO）是一个突出的问题。这项技术可以改善运行时效率并减小二进制文件的体积，但是目前来讲启用 LTO 可能会导致构建失败（这样的数量正在持续降低），并且会在构建过程中消耗更多内存。Autobuild3 默认启用 LTO 以提高性能（有时也为了减小二进制体积），但是如果遇到了 LTO 相关问题，可以通过在 `autobuild/defines` 中添加 `NOLTO=1` 变量来禁用 LTO。
+链接时优化（Link Time Optimization，LTO）是一个突出的问题。这项技术可以改善运行时效率并减小二进制文件的体积，但是目前来讲，启用 LTO 可能会导致构建失败（这样的数量正在持续降低），并且会在构建过程中消耗更多内存。Autobuild3 默认启用 LTO 以提高性能（有时也为了减小二进制体积），但是如果遇到了 LTO 相关问题，可以通过在 `autobuild/defines` 中添加 `NOLTO=1` 变量来禁用 LTO。
 
-## Custom Build Scripts
+## 自定义构建脚本
 
-In some cases, the software uses a special build system (or they don't need a build system at all, like pre-built binaries). In this case, you may take control over the build process by writing build scripts in Bash.
+在一些情况下，软件使用了特殊的构建系统，或者完全不使用构建系统（比如预构建好的二进制）。这时，可能需要用 Bash 编写构建脚本来接管构建过程。
 
-The build script is located in `autobuild/build`. If this script exists, the build type will be locked to `self` (unless overriden if another `ABTYPE=` was defined), which means Autobuild3 will not try to determine the build system and execute its integrated build script, but simply execute this script.
+构建脚本位于 `autobuild/build`。如果脚本存在，构建类型会锁定为 `self`（除非定义了另外的 `ABTYPE=` 变量重写了构建类型），这意味着 Autobuild3 将不会判定构建系统和执行其内置的构建脚本，而是只执行这个脚本。
 
-This script should look very similar to what you would do to manually compile programs. But one key difference is that you should **NOT** install the compiled program to the system root directory. Instead, it should be installed in `$PKGDIR`, where later Autobuild3 will make the deb based on the file inside this directory. For example, if the compiled binary is called `hugo` in the root of the build directory, you should install it to the `bin` directory of the package by:
+这个脚本看起来应该和手动编译程序时要完成的步骤十分相似。但关键的区别在于，你**不应当**将编译好的程序安装到系统根目录去。相反，程序需要安装到 `$PKGDIR`，Autobuild3 稍后会基于这个目录里的文件制作 deb 安装包。举个例子，如果构建根目录里的编译好的二进制叫 `hugo`，你应该通过以下命令将它安装到软件包的 `bin` 目录里去：
 
 ``` bash
 abinfo "Installing Hugo binary ..."
@@ -60,7 +60,7 @@ install -Dvm755 hugo \
     "$PKGDIR"/usr/bin/hugo
 ```
 
-Notice that we used a simple function to print log information to the build log called `abinfo()`. `abinfo()` works similarly to the `echo` program. Just call `abinfo "Desired build infomation"` in the script, and it will be recorded into the build log. It is considered a good practice to use `abinfo()` as a way to comment your build scripts, as this could be beneficial for maintainers who may come after. There is also `abwarn()` which works in an identical fashion, if you would like to print a warning.
+注意，我们用了一个叫 `abinfo()` 的简单小函数来把日志信息打印到构建日志中。`abinfo()` 和 `echo` 程序的作用相似。只要在脚本中调用 `abinfo "Desired build infomation"`，那么构建日志就会记录它。用 `abinfo()` 注释构建脚本也是一种不错的做法，因为这可能对后来的维护人员有益。 如果想打印警告，还有个类似的函数 `abwarn()`。
 
 ## Post-Build Tweaks
 
