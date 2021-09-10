@@ -11,34 +11,34 @@ description = "This article is sponsered by Commit-O-Matic™"
 
 # Autobuild3 中的进阶操作
 
-我们已经见识到，对于许多软件包，Autobuild3 可以自动判决其源码树中使用的构建系统，然后生成并执行相应的构建脚本。但是有许多程序需要多一些步骤来构建和安装，或者它们需要指定的构建参数和编译器标记（complier flags）。
+我们已经见识到，对于许多软件包，Autobuild3 可以自动判定其源代码树中使用的构建系统，然后生成并执行相应的构建脚本。但是有许多程序需要多一些步骤来构建和安装，或者它们需要指定的构建参数和编译器标记（complier flags）。
 
 我们现在将介绍如何在 AOSC OS 的构建系统中应对这些问题。
 
-## Manually Select Different Build Systems
+## 手动选择不同的构建系统
 
-Sometimes, Autobuild3 may make wrong assumptions about the build system, and this would probably result a build failure. In other cases, when building projects where multiple build systems are avaliable, it may not select the optimal one (for build time or reliability).
+有时，Autobuild3 可能会对构建系统做出错误假设，而这很有可能最终导致构建失败。还有其他情况是，当要构建的项目有多个构建系统可用时，Autobuild3 出于构建时间成本或可靠性考虑，可能不会选择最佳的那一个。
 
-In this case, we can manually specify which build system to use by defining `ABTYPE=` in the `autobuild/defines` file.
+此时，我们可以在 `autobuild/defines` 文件中定义 `ABTYPE=` 变量来手动指定要用哪一个构建系统。
 
-Currently, these build types are supported:
+目前，Autobuild3 支持下列构建类型：
 
-  - `self`: When a autobuild/build file is provided, uses user created autobuild/build as build script.
-  - `autotools`: Generally used for GNU autotools-based source trees, with an available configure script in source root, or defined $configure script.
-  - `cmake`: Used for CMake-based source trees, generates and executes Makefiles, Autobuild3 detects for CMakeList.txt in the source trees.
-  - `cmakeninja`: Same as above, but generates and executes Ninja build scripts.
-  - `dummy`: Generates an empty package, useful for generating meta packages.
-  - `dune`: Used for Dune-based source trees (generally used for OCaml sources).
-  - `gomod`: Used for Gomod adapted Go langauge source trees.
-  - `meson`: Used for Meson-based source trees, generates and executes Ninja build scripts.
-  - `npm`: Used for NPM modules (generally used for Node.js module sources).
-  - `perl`: Used for standard CPAN source trees.
-  - `plainmake`: Used for source trees with a written Makefile, and therefore is able to be built with make command.
-  - `python`: Used for standard PyPI source trees.
-  - `qtproj`: Used for Qt projects with .pro files in the source trees.
-  - `ruby`: Used for RubyGems source trees.
-  - `rust`: Used for Cargo source trees (generally used for Rust sources).
-  - `waf`: Used for Waf-based source trees, Autobuild3 detects for waf file/script in the source trees.
+  - `self`：当提供 autobuild/build 文件时，使用用户创建的 autobuild/build 作为构建脚本。
+  - `autotools`：通常用于基于 GNU autotools 的源代码树，源码根目录下会有一个可用的 configure 脚本，或已定义的 $configure 脚本。
+  - `cmake`：用于基于 CMake 的源代码树，生成并执行 Makefile，Autobuild3 会检测源代码树中的 CMakeList.txt。
+  - `cmakeninja`：同上，但是会生成和执行 Ninja 构建脚本。
+  - `dummy`：生成空软件包，这在生成元软件包时会有用。
+  - `dune`：用于基于 Dune 的源代码树（通常用于 OCaml 源代码）。
+  - `gomod`：用于 Gomod 改编过的 Go 语言源代码树。
+  - `meson`：用于基于 Meson 的源代码树，生成并执行 Ninja 构建脚本。
+  - `npm`：用于 NPM 模块（通常用于 Node.js 模块源代码）。
+  - `perl`：用于标准 CPAN 源代码树。
+  - `plainmake`：用于带有成文 Makefile 的源代码树，因此能够使用 make 命令构建。
+  - `python`：用于标准 PyPI 源代码树。
+  - `qtproj`：用于源代码树中有 .pro 文件的 Qt 项目。
+  - `ruby`：用于 RubyGems 源代码树。
+  - `rust`：用于 Cargo 源代码树（通常用于 Rust 源代码）。
+  - `waf`：用于基于 Waf 的而源代码树，Autobuild3 会检测源代码树中的 waf 文件或脚本。
   
 ## Custom Build System/Compiler Parameters
 
