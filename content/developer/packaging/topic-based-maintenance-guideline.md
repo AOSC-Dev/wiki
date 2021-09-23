@@ -103,13 +103,13 @@ surveying, discussion, packaging, testing, notification, and shipping.
       introduced, use `gnome-shell-ng-4.0-new`).
     - In case of multi-package topics, topics takes name from the "main player"
       along with its general version, e.g. `gnome-3.38`, `boost-1.73`.
-    - In multi-package, multi-version topics, use main package name and date
-      of update survey, e.g. `rime-data-20200928`.
+    - In multi-package, multi-version topics, use main package name, followed by
+      "-survey", and date of update survey, e.g. `rime-data-survey-20200928`.
 5. When building packages for a topic, a clean environment is required for each
    package. This means rolling back each environment to a bare BuildKit, before
    building the next.
     - There is no exception to this rule.
-6. When a topic's work is complete, open a Pull Request for audition.
+6. Open a Pull Request for review.
    Maintainers are directed to test affected packages, users are also notified
    via a topic manager installed on their AOSC OS deployment.
     - When testing is done, merge pull request.
@@ -138,22 +138,24 @@ A topic-based iteration cycle follows these general steps:
       of rebuilds required by said Boost update. If such update or change falls
       under this list, delay the non-Boost topic, otherwise, proceed as normal.
 - Packaging: Maintainers create their topic.
-    - Apart from committing and building all updates or changes necessary
-      according to each topic's own schedule, maintainers will also register
-      their topic on the [TODO: Iteration Editor](#) along with each topic's
-      description, list of packages affected, etc.
-    - Built packages are then uploaded to its respective repository.
-- Testing: Once packaging is complete, maintainers create Pull Requests against
-  the `stable` branch.
-    - At this point, maintainers are directed to audit Git changes, as well as
-      test packages from topic repositories.
-- Notification: Maintainers may also encourage users to join the testing cycle
-  using their locally installed topic manager. They are free to withdraw.
-- Shipping: Once testing is complete, Pull Requests are then green-lit and
-  merged into the `stable` branch.
-    - At this point, all packages affected in a topic must be rebuilt against a
-      clean `stable` environment, before they are pushed to the `stable`
-      branch for general adoption.
+    - Upload built packages their respective topic repositories.
+- Review: Maintainers must create Pull Requests for other maintainers to review
+  their build scripts.
+    - Once their script-level changes are approved, another maintainer may add
+      the `lint-free` label to the pull request, indicating that the build
+      scripts comply with the [Package Styling Manual](https://wiki.aosc.io/developer/packaging/package-styling-manual/).
+- Testing: Maintainers and users alike may use the [AOSC OS Topic Manager](https://github.com/AOSC-Dev/atm/)
+  to enroll in testing topics.
+    - Once ser/maintainer feedback indicates that the update(s) work as
+      expected and find its quality satisfactory, another maintainer may
+      now review this pull request and mark it as Approved.
+    - After which, the maintainer will build affected package(s) and upload
+      them to the `stable` repository.
+- Shipping: After maintainers marked the Pull Request as "Approved," topic
+  maintainer may merge the Pull Request, and upload the updates to the `stable`
+  repository.
+    - At this point, maintainers must rebuild all packages affected in the
+      topic against a clean `stable` environment before uploading.
 
 ## Stable Branch Protection
 
