@@ -142,7 +142,7 @@ A topic-based iteration cycle follows these general steps:
 - Review: Maintainers must create Pull Requests for other maintainers to review
   their build scripts.
     - Once their script-level changes are approved, another maintainer may add
-      the `lint-free` label to the pull request, indicating that the build
+      the `lgtm` label to the pull request, indicating that the build
       scripts comply with the [Package Styling Manual](https://wiki.aosc.io/developer/packaging/package-styling-manual/).
 - Testing: Maintainers and users alike may use the [AOSC OS Topic Manager](https://github.com/AOSC-Dev/atm/)
   to enroll in testing topics.
