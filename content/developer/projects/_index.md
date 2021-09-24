@@ -28,6 +28,12 @@ A tool for controlling AOSC OS packaging environments using multi-layer filesyst
 
 Overlay management tool for AOSC OS. Works with Ciel and ACBS.
 
+# systemd-boot-friend
+
+- Maintainers: Kaiyang Wu (OriginCode)
+- Repo: [AOSC-Dev/systemd-boot-friend-rs](https://github.com/AOSC-Dev/systemd-boot-friend-rs)
+- Status: Normal
+
 # Others
 
 More should be added here...
