@@ -34,6 +34,17 @@ Overlay management tool for AOSC OS. Works with Ciel and ACBS.
 - Repo: [AOSC-Dev/systemd-boot-friend-rs](https://github.com/AOSC-Dev/systemd-boot-friend-rs)
 - Status: Normal
 
+# Wallpapers
+
+- Maintainers: liushuyu, Neruthes
+- Repo:
+  - [AOSC-Dev/community-wallpapers](https://github.com/AOSC-Dev/community-wallpapers)
+  - [AOSC-Dev/WallColle](https://github.com/AOSC-Dev/WallColle)
+  - [AOSC-Dev/WallColle-make](https://github.com/AOSC-Dev/WallColle-make)
+- Status: Normal
+
+A series of repositories (data and program) for managing wallpapers for AOSC OS.
+
 # Others
 
 More should be added here...
