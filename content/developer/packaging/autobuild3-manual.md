@@ -233,7 +233,7 @@ Here below is a list of variables available when using the `qtproj` build type.
 
 Here below is a list of variables available when using the `gomod` build type.
 
-**GO_BUILD_AFTER=** expects a string value containing all extra arguments to be passed to `go build`, you can specify extra flags for the go compiler using this variable. 
+**GO_BUILD_AFTER=** expects a string value containing all extra arguments to be passed to `go build`, you can specify extra flags for the go compiler using this variable.
 >**Hint:** you might want to use this variable to define version numbers or other constants through linker flags.
 
 ### rust
@@ -241,6 +241,18 @@ Here below is a list of variables available when using the `gomod` build type.
 Here below is a list of variables available when using the `rust` build type.
 
 **CARGO_AFTER=** expects a string value containing all extra arguments to be passed to `cargo build`, you can enable extra features for the project using this variable.
+
+## Path-related variables
+
+When writing build scripts, to refer to specific locations in the source tree, Autobuild3 designates the following variables.
+
+**$SRCDIR** Refers to the source root, where packager would invoke `autobuild` to initiate build.
+
+**$BLDDIR** Refers to the shadow build root when `ABSHADOW` is set to true.
+
+**$PKGDIR** Refers to the packaging root, storing installed binaries and data as they would in a system root.
+
+**$SYMDIR** Refers to the debug packaging root, storing debug symbols.
 
 ## The “prepare” file
 
