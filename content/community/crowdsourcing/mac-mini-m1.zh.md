@@ -1,6 +1,5 @@
 +++
-Title = "[众筹中] 购买用作 AArch64 构建服务器的 Mac mini M1"
-draft = true
+title = "[众筹中] 购买用作 AArch64 构建服务器的 Mac mini M1"
 +++
 
 本文为众筹 Mac mini M1 的计划书。这台机器将替代目前托管在广州市的 Mac mini (Relay 24242) 用作 AArch64 构建服务器。
@@ -15,12 +14,12 @@ draft = true
     - Apple Silicon M1 SoC（8 核心处理器，8 核 GPU）
     - 16GiB 内存
     - 256GiB NVMe 存储
-    
+
 ## 附注
 
 - 本次众筹包含来自 CrossOver 套件开发商 [CodeWeaver](https://www.codeweavers.com/) 的 500 美元单次赞助。
 - 您可以通过我们的 [GitHub Sponsors](https://github.com/sponsors/AOSC-Dev) 捐赠款项，如需使用其他捐赠方式，请联系白铭骢（联系方式请见页尾）。
-    
+
 # 日程计划
 
 - 2021 年 11 月：接收来自 CodeWeavers 的 500 美元捐赠。

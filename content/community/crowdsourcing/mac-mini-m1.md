@@ -1,6 +1,5 @@
 +++
-Title = "[IN PROGRESS] Purchase Apple Mac mini M1 as AArch64 Build Server"
-draft = false
+title = "[IN PROGRESS] Purchase Apple Mac mini M1 as AArch64 Build Server"
 +++
 
 This is a proposal to crowdsource a Apple Mac mini with M1 SoC to replace the current AArch64 BuildBot located in Guangzhou (Relay 24242, also a Mac mini M1).
@@ -20,7 +19,7 @@ By purchasing an additional Mac mini M1, we plan to effectively relocate the cur
 
 - [CodeWeavers](https://www.codeweavers.com/), the creator of the CrossOver software suite based on Wine, partly funds this crowdsource project with a single-time $500 donation.
 - You may fund this hardware purchase via our [GitHub Sponsors](https://github.com/sponsors/AOSC-Dev) page, or contact Mingcong Bai (contact information listed below) for alternative payment methods.
-  
+
 # Timeline
 
 - November 2021: Receipt of $500 donation from CodeWeavers.
