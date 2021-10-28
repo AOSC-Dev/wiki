@@ -1,5 +1,5 @@
 +++
-title = "[IN PROGRESS] Purchase Apple Mac mini M1 as AArch64 Build Server"
+title = "[COMPLETE] Purchase Apple Mac mini M1 as AArch64 Build Server"
 +++
 
 This is a proposal to crowdsource a Apple Mac mini with M1 SoC to replace the current AArch64 BuildBot located in Guangzhou (Relay 24242, also a Mac mini M1).
