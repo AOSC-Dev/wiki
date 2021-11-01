@@ -75,6 +75,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 | **JellyXavier** | 24444 | 4 x dual core NVIDIA Carmel CPU clusters @ 2.26GHz (NVIDIA Jetson AGX Xavier Developer Kit) | 16GiB | 232s (`-j9`) |  _Mingcong Bai_ | Scratch disk at `/buildroots`, create own Ciel workspace |
 | **YetAnotherPine64** | ~~24514~~ | Quad Core ARM Cortex-A53 @ 1.2GHz (Allwinner A64, Pine64 Plus) | 2GiB | 1365s (`-j5`, 2.27) | _Salted Fish_| (Down) Local mirror located at `/dev/sda4` |
 | **Mio** | 24242 | 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (Apple M1 chip) | 16GiB | 71s (`-j8`) | _Mag Mell_ | Scratch disk at `/buildroots`, create own Ciel worksapce; direct access with `ssh -p 8765 root@athome.utopiosphere.net`; local mirror: http://192.168.100.232:2345/debs |
+| **eleventh** | 24808 | 8-Core Huawei Kunpeng 920 @ 2.4GHz | 16GiB | 136s (`-j`) | _Undisclosed_ | Scratch disk at `/buildroots`, create own Ciel worksapce; direct access with `ssh -oProxyJump=aosc-build@hw-hk.innull.com:20022 root@192.168.1.11` |
 
 ## **PowerPC** (25001-26000)
 
@@ -94,4 +95,4 @@ If you would like contribute your device to AOSC, please make sure your device h
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Note |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **Yukoaioi** | 27001 | Quad core @ 2.5GHz (Loongson 3A5000) | 16GiB | 183s (`-j5`, Loongnix [2.28-10.lnd.26](http://pkg.loongnix.cn:8080/loongnix/pool/main/g/glibc/glibc-source_2.28-10.lnd.26_all.deb)) | _Mag Mell_ |
+| **Yukoaioi** | ~~27001~~ | Quad core @ 2.5GHz (Loongson 3A5000) | 16GiB | 183s (`-j5`, Loongnix [2.28-10.lnd.26](http://pkg.loongnix.cn:8080/loongnix/pool/main/g/glibc/glibc-source_2.28-10.lnd.26_all.deb)) | _Mag Mell_ | Temporarily down to conserve energy |
