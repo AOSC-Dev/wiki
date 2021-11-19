@@ -22,7 +22,7 @@ Here is a list of devices supported by our community members. You can either che
 
 | Device Name | Vendor | Platform | Device Type | Maintenance Status | Image Download |
 | ------ | --------- | ------- | ------ | -------- | -------- |
-| [Raspberry Pi 4B][raspberry-pi-4b] | [Raspberry Pi Foundation][rpi-home] | Broadcom BCM2711 | Single Borad Computer） | Maintained by community members | Not available |
+| [Raspberry Pi 4B][raspberry-pi-4b] | [Raspberry Pi Foundation][rpi-home] | Broadcom BCM2711 | Single Board Computer） | Maintained by community members | Not available |
 | [Mac Mini Late 2020 (Macmini9,1)][apple-macmini9-1] | [Apple][applemac-home] | Apple M1 | Mini Desktop | Maintained by community members | Not available |
 | Pinebook Pro | Pine64 | Rockchip RK3399 |Laptop | Maintained by community members | [Download Page][downloadpage] |
-| Rock64 | Pine64 | Rockchip RK3399 | Single Borad Computer） | Maintained by community members | [Download Page][downloadpage] |
+| Rock64 | Pine64 | Rockchip RK3399 | Single Board Computer） | Maintained by community members | [Download Page][downloadpage] |
