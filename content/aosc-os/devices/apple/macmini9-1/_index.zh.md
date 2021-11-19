@@ -1,10 +1,15 @@
 +++
-title = "Mac Mini（2020 年末）设备指南"
+title = "Mac Mini（2020 年末）"
 description = "用于 Mac Mini Late 2020 的支持文档"
 date = 2021-06-02
 [taxonomies]
 tags = ["sys-installation"]
 +++
+
+
+# 指南
+
+- [安装指南](@/aosc-os/devices/apple/macmini9-1/installation.zh.md)
 
 # 设备简介
 
@@ -18,8 +23,4 @@ tags = ["sys-installation"]
 | CPU 架构 | AArch64 |
 | RAM | 8 GB 或 16 GB |
 | 固件 | iBoot |
-
-# 指南
-
-- [安装指南](@/aosc-os/devices/apple/macmini9-1-installation.zh.md)
 

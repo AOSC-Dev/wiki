@@ -15,7 +15,7 @@ tags = ["sys-installation"]
 
 - 移除连接到树莓派上的所有外设、存储，包括 SD 卡。然后将 MicroHDMI 线插入 Type-C 接口旁的 MicroHDMI 口。
 - 如果你能看到启动诊断屏幕，则说明树莓派启动正常，请进一步检查操作系统的安装。
-- 如果依旧无输出，则请(重新写入 EEPROM 固件)[https://www.raspberrypi.org/documentation/hardware/raspberrypi/booteeprom.md]。
+- 如果依旧无输出，则请[重新写入 EEPROM 固件](https://www.raspberrypi.org/documentation/hardware/raspberrypi/booteeprom.md)。
 
 ## 卡在启动诊断屏幕
 

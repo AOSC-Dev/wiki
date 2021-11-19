@@ -2,7 +2,7 @@
 title = "Raspberry Pi 设备主页"
 insert_anchor_links = "right"
 [extra]
-list_section = true
+list_section = false
 +++
 
 在这里可以获取有关在树莓派上运行 AOSC OS 的一些帮助，以及一些与发行版无关的、可能对用户有帮助的信息。
@@ -17,7 +17,7 @@ list_section = true
 
 | 设备名称 | 设备类型 | 设备平台 | 维护情况 | 维护者 |
 | --- | --- | --- | --- | --- |
-| [树莓派 4B](@/aosc-os/devices/raspberrypi/4b.zh.md) | 单板计算机 | 博通 BCM2711 | 受支持 | Cinhi Young |
+| [树莓派 4B](@/aosc-os/devices/raspberrypi/4b/_index.zh.md) | 单板计算机 | 博通 BCM2711 | 受支持 | Cinhi Young |
 
 
 # 单板支持包（BSP）仓库

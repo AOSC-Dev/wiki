@@ -2,7 +2,7 @@
 title = "苹果 Mac 系列设备主页"
 insert_anchor_links = "right"
 [extra]
-list_section = true
+list_section = false
 +++
 
 欢迎浏览 AOSC OS Mac 设备文档。
@@ -16,5 +16,5 @@ list_section = true
 
 | 设备名称 | 设备类型 | 设备平台 | 维护情况 | 维护者 |
 | --- | --- | --- | --- | --- |
-| [Mac Mini Late 2020](@/aosc-os/devices/apple/macmini9-1.zh.md) | 台式主机 | Apple M1 | 受支持 | Mag Mell |
+| [Mac Mini（2020 年末）](@/aosc-os/devices/apple/macmini9-1/_index.zh.md) | 台式主机 | Apple M1 | 受支持 | Mag Mell |
 

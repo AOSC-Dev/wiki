@@ -8,7 +8,7 @@ tags = ["sys-installation"]
 +++
 
 [general-postinst]: /aosc-os/installation/amd64#user-and-post-installation-configuration
-[troubleshooting]: /aosc-os/devices/raspberrypi/4b-troubleshooting
+[troubleshooting]: /aosc-os/devices/raspberrypi/4b/troubleshooting
 
 With community support you can enjoy AOSC OS in your Raspberry Pi with ease.  
 There are many way to boot Linux on a Raspberry Pi, e.g. UEFI, U-Boot, etc. This tutorial is meant for plain boot method.

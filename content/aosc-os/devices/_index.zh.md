@@ -1,16 +1,15 @@
 +++
 title = "AOSC OS 设备门户"
+[extra]
+list_section = false
 +++
 
 [livekit]: @/aosc-os/installation/livekit.zh.md
 [rpi-home]: @/aosc-os/devices/raspberrypi/_index.zh.md
-<!-- [pine64-home]: @/aosc-os/devices/pine64/_index.md -->
 [applemac-home]: @/aosc-os/devices/apple/_index.zh.md
-[raspberry-pi-4b]: @/aosc-os/devices/raspberrypi/4b.zh.md
-<!-- [pine64-pbp]: @/aosc-os/devices/pine64/pinebook-pro.md
-[pine64-rock64]: @/aosc-os/devices/pine64/rock64.md -->
-[apple-macmini9-1]: @/aosc-os/devices/apple/macmini9-1.zh.md
-
+[raspberry-pi-4b]: @/aosc-os/devices/raspberrypi/4b/_index.zh.md
+[apple-macmini9-1]: @/aosc-os/devices/apple/macmini9-1/_index.zh.md
+[downloadpage]: https://aosc.io/downloads/alternative/
 
 在这里，你可以找到一些针对特定设备撰写的文档，包含安装教程、常见问题以及故障排除指南。
 
@@ -22,10 +21,9 @@ title = "AOSC OS 设备门户"
 支持的设备列表
 ------
 
-| 硬件制造商 | 设备平台 | 设备名 | 设备类型 | 维护情况 |
-| --------- | ------- | ------ | ------ | -------- |
-| [Raspberry Pi Foundation][rpi-home] | 博通 BCM2711 | [Raspberry Pi 4B][raspberry-pi-4b] | 单板计算机（SBC） | 由维护者维护 |
-| [Apple][applemac-home] | Apple M1 | [Mac Mini Late 2020 (Macmini9,1)][apple-macmini9-1] | 迷你台式主机 | 由维护者维护 |
-
-<!-- | [Pine64][pine64-home] | 瑞芯微 RK3399 | [PineBook Pro][pine64-pbp] | 笔记本电脑 | 由维护者维护 | -->
-<!-- | [Pine64][pine64-home] | 瑞芯微 RK3399 | [Rock64][pine64-pbp] | 单板计算机（SBC） | 由维护者维护 | -->
+| 设备名 | 硬件制造商 | 设备平台 | 设备类型 | 维护情况 | 镜像下载 |
+| ------ | --------- | ------- | ------ | -------- | ------- |
+| [Raspberry Pi 4B][raspberry-pi-4b] | [Raspberry Pi Foundation][rpi-home] | 博通 BCM2711 | 单板计算机（SBC） | 由维护者维护 | 暂不可用 |
+| [Mac Mini Late 2020 (Macmini9,1)][apple-macmini9-1] | [Apple][applemac-home] | Apple M1 | 迷你台式主机 | 由维护者维护 | 暂不可用 |
+| PineBook Pro | Pine64 | 瑞芯微 RK3399 | 笔记本电脑 | 由维护者维护 | [下载页面][downloadpage] |
+| Rock64 | Pine64 | 瑞芯微 RK3399 | 单板计算机（SBC） | 由维护者维护 | [下载页面][downloadpage] |

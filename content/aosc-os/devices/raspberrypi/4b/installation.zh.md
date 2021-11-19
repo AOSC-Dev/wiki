@@ -6,8 +6,8 @@ date = 2021-11-16
 tags = ["sys-installation"]
 +++
 
-[general-postinst]: /zh/aosc-os/installation/amd64/#yong-hu-zi-ding-yi-she-zhi
-[troubleshooting]: /zh/aosc-os/installation/arm-rpi-troubleshooting
+[general-postinst]: /zh/aosc-os/installation/manual/amd64/#yong-hu-zi-ding-yi-she-zhi
+[troubleshooting]: @/aosc-os/devices/raspberrypi/4b/troubleshooting.zh.md
 
 AOSC OS 对树莓派的支持由社区进行维护，所以你可以轻松地为树莓派安装 AOSC OS。
 
