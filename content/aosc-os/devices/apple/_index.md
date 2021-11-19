@@ -2,7 +2,7 @@
 title = "Mac Home Page"
 insert_anchor_links = "right"
 [extra]
-list_section = true
+list_section = false
 +++
 
 Welcome to our Mac support page!
@@ -17,5 +17,5 @@ Here is a list of devices supported by our community members. You can either che
 
 | Name | Device Type | Platform | Maintenance Status | Maintainer |
 | --- | --- | --- | --- | --- |
-| [Mac Mini Late 2020](@/aosc-os/devices/apple/macmini9-1.zh.md) | Mini Desktop | Apple M1 | Supported | Mag Mell |
+| [Mac Mini Late 2020](@/aosc-os/devices/apple/macmini9-1/_index.zh.md) | Mini Desktop | Apple M1 | Supported | Mag Mell |
 
