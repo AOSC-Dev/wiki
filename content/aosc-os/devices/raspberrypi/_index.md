@@ -19,7 +19,7 @@ Here is a list of community supported devices. Click the name to checkout the do
 
 | Name | Type | Platform | Maintenance Status | Maintainer |
 | --- | --- | --- | --- | --- |
-| [Raspberry Pi 4B](@/aosc-os/devices/raspberrypi/4b/_index.md) | Single Borad Computer | Broadcom BCM2711 | Supported | Cinhi Young |
+| [Raspberry Pi 4B](@/aosc-os/devices/raspberrypi/4b/_index.md) | Single Board Computer | Broadcom BCM2711 | Supported | Cinhi Young |
 
 Board Support Packages repository
 ------
