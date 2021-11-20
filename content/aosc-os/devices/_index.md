@@ -1,5 +1,7 @@
 +++
 title = "AOSC OS Device Portal"
+[extra]
+list_section = false
 +++
 
 [livekit]: @/aosc-os/installation/livekit.md
