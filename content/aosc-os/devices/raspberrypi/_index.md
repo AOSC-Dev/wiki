@@ -1,5 +1,5 @@
 +++
-title = "Raspberry Pi Homepage"
+title = "Raspberry Pi Devices"
 insert_anchor_links = "right"
 [extra]
 list_section = false
