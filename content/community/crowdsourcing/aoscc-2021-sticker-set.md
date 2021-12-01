@@ -1,5 +1,5 @@
 +++
-title = "[IN PROGRESS] Printing the AOSCC 2021 Sticker Set"
+title = "[COMPLETE] Printing the AOSCC 2021 Sticker Set"
 +++
 
 This is a proposal to crowdsource the necessary funds to print the AOSCC 2021 Sticker Set.
