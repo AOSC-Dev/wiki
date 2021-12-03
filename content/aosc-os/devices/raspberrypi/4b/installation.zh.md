@@ -160,11 +160,15 @@ tar --numeric-owner -pxvf /path/to/tarball.tar.xz
 Chroot 到安装的系统：
 
 ```sh
+sudo cp /usr/bin/qemu-aarch64-static /mnt/usr/bin/
 sudo arch-chroot /mnt
 ```
 
 > **注意：**  
 > 在此之后的命令都要在 chroot 环境下进行。
+> 
+> 切记要在安装完成后移除 `/usr/bin/qemu-aarch64-static` ！
+
 在 chroot 中挂载启动分区：
 
 ```sh

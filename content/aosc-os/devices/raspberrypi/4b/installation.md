@@ -7,7 +7,7 @@ tags = ["sys-installation"]
 
 +++
 
-[general-postinst]: /aosc-os/installation/amd64#user-and-post-installation-configuration
+[general-postinst]: /aosc-os/installation/manual/amd64#user-and-post-installation-configuration
 [troubleshooting]: /aosc-os/devices/raspberrypi/4b/troubleshooting
 
 With community support you can enjoy AOSC OS in your Raspberry Pi with ease.  
@@ -164,11 +164,15 @@ tar --numeric-owner -pxvf /path/to/tarball.tar.xz
 Chroot into the target OS:
 
 ```sh
+sudo cp /usr/bin/qemu-aarch64-static /mnt/usr/bin/
 sudo arch-chroot /mnt
 ```
 
 > **Notice:**  
 > From now on all commands should be run in chroot environment.
+> 
+> Remember to remove `/usr/bin/qemu-aarch64-static` from target OS after finishing setup!
+
 
 Mount the boot partition inside the target OS:
 
