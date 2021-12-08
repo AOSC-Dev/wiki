@@ -24,7 +24,7 @@ A tool for controlling AOSC OS packaging environments using multi-layer filesyst
 
 - Maintainers: Neruthes
 - Repo: [AOSC-Dev/ciel-layman](https://github.com/AOSC-Dev/ciel-layman)
-- Status: **Early WIP**, help wanted
+- Status: Early Demo, Stale
 
 Overlay management tool for AOSC OS. Works with Ciel and ACBS.
 
@@ -44,6 +44,15 @@ Overlay management tool for AOSC OS. Works with Ciel and ACBS.
 - Status: Normal
 
 A series of repositories (data and program) for managing wallpapers for AOSC OS.
+
+# os-install
+
+- Maintainers: Neruthes
+- Repo: [AOSC-Dev/os-install](https://github.com/AOSC-Dev/os-install)
+- Status: Early Demo, Refactor Wanted
+
+Interactive installer script. An alternative of DeployKit, for architectures that DeployKit cannot support.
+
 
 # Others
 
