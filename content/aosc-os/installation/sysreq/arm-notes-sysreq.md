@@ -14,7 +14,7 @@ Moreover, development, and container variants not intended for installation are 
 
 AOSC OS is provided with the following installable and bootable variants, each with their own features and implications on their system requirements. System requirements may vary greatly between different variants, but processor requirements are known for each architecture (although suggestions will be provided for each variant for ideal experience):
 
-- ARMv7: Any processor with ARMv7-A+, and NEON FPU support.
+- ARMv7: Any processor with ARMv7-A+, and Neon AdvSIMD support.
 - AArch64: Any AArch64, 64-bit ARMv8 processor.
 
 And provided with the following variants:
@@ -32,7 +32,7 @@ This variant of AOSC OS is intended for non-graphical and minimal installation, 
 
 - Processor: Any processor supported.
 - Memory: 128MB, 512MB recommended for heavier workload (Node.js).
-- Storage: 2GB, 4GB recommended.
+- Storage: 6GB minimum, 12GB recommended.
 - Display: Not necessary (SSH, Serial).
 - GPU: Not necessary.
 
@@ -42,7 +42,7 @@ GNOME, with its GNOME Shell interface, is a fully featured desktop environment w
 
 - Processor: Any processor supported, quad core recommended.
 - Memory: 512MB, 2GB or more recommended for multitasking.
-- Storage: 8GB, 16GB recommended.
+- Storage: 32GB minimum, 64GB recommended.
 - Display: XGA, 1080p or higher recommended.
 - GPU: Recommended, with OpenGL 2.1+ or GLES2 support.
 
@@ -52,7 +52,7 @@ A fork of GNOME 2, therefore less taxing on graphic card (GPU), this is *not* a 
 
 - Processor: Any processor supported, dual core recommended.
 - Memory: 512MB, 1GB or more recommended for multitasking.
-- Storage: 8GB, 16GB recommended.
+- Storage: 32GB minimum, 64GB recommended.
 - Display: SVGA, XGA or higher recommended.
 - GPU: Recommended, but framebuffer device support will do.
 
@@ -62,7 +62,7 @@ XFCE is a relatively lightweight, and fully modular desktop environment. XFCE ha
 
 - Processor: Any processor supported, dual core recommended.
 - Memory: 256MB, 512MB or more recommended for multitasking.
-- Storage: 6GB, 12GB recommended.
+- Storage: 32GB minimum, 64GB recommended.
 - Display: SVGA, XGA or higher recommended.
 - GPU: Recommended, but framebuffer device support will do.
 
@@ -72,7 +72,7 @@ LXDE is lighter (yet) than XFCE, also fully modular, and based on GTK+ 3, perfor
 
 - Processor: Any processor supported.
 - Memory: 256MB, 512MB or more recommended for multitasking.
-- Storage: 6GB, 12GB recommended.
+- Storage: 32GB minimum, 64GB recommended.
 - Display: SVGA, XGA or higher recommended.
 - GPU: Recommended, but framebuffer device support will do.
 
