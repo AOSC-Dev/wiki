@@ -86,16 +86,6 @@ LXDE 比 XFCE 更加轻量，也是完全模块化的，基于 GTK 3。推荐在
 - 显示：SVGA、XGA 或更优配置。
 - GPU：建议。
 
-## i3 Window Manager
-
-这是带有图形界面的最轻量的变种版本，但您可能需要花费一定的时间熟悉 i3 窗口管理器的使用。
-
-- 处理器：无附加要求。
-- 内存：128MB 或以上，建议 512MB 或以上。
-- 储存空间：6GB 或以上，建议 12GB 或以上。
-- 显示：SVGA、XGA 或更优配置。
-- GPU：建议。
-
 # 备注
 
 - 部分网络浏览器（例如 Chromium 和 Firefox）可能需要更好的处理器和内存。如果您使用 Intel Pentium 4/D 或 AMD Athlon64 这样的老处理器或者不足 2GB 的内存，很难流畅地使用这些浏览器浏览网页。这个页面的英文版初稿是在联想 ThinkPad T61（Intel Core 2 T9300 处理器，8GB RAM）上完成的，使用的是 Chromium 62；中文版初稿是在戴尔 Inspiron 7591（Intel Core i5 9300H 处理器，8GB RAM）上完成的，使用的是 Firefox 78。

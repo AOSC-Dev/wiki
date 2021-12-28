@@ -87,16 +87,6 @@ LXDE is lighter (yet) than XFCE, also fully modular, and based on GTK 3. Recomme
 - Display: SVGA, XGA or higher recommended.
 - GPU: Recommended, but framebuffer device support will do.
 
-## i3 Window Manager
-
-i3 Window Manager variant of AOSC OS comes with Conky and i3block for system information monitor, and Compton for desktop composition support (disabled on framebuffer devices). This is the lightest variant that comes with a graphical interface, but also comes with a steeper learning curve.
-
-- Processor: Any processor supported.
-- Memory: 128MB, 512MB or more recommended for multitasking.
-- Storage: 6GB, 12GB recommended.
-- Display: SVGA, XGA or higher recommended.
-- GPU: Recommended, but framebuffer device support will do.
-
 # Extra Notes
 
 - Web Browsers, especially mainstream choices like Chromium (Google Chrome), and Firefox may require significantly more memeory capacity and processing power. It will be very difficult to browse any webpage smoothly with an older processor like Intel Pentium 4/D's or AMD Athlon64's with less than 2GB (arguably 4GB) of RAM. As of this note, this Wiki page is edited on a Lenovo ThinkPad T61, with an Intel Core 2 T9300 processor and 8GB of RAM, running Chromium 62.
