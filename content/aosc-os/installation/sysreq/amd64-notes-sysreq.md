@@ -33,7 +33,7 @@ This variant of AOSC OS is intended for non-graphical and minimal installation, 
 
 - Processor: Any processor supported.
 - Memory: 128MB, 512MB recommended for heavier workload (Node.js).
-- Storage: 2GB, 4GB recommended.
+- Storage: 8GB minimum, 16GB recommended.
 - Display: Not necessary (SSH, Serial).
 - GPU: Not necessary.
 
@@ -43,7 +43,7 @@ KDE, or Plasma Desktop is a complete desktop interface and application suite. Th
 
 - Processor: Any processor supported, Intel Sandy Bridge recommended.
 - Memory: 2GB, 4GB or more recommended.
-- Storage: 8GB, 16GB recommended.
+- Storage: 32GB minimum, 64GB recommended.
 - Display: XGA, 1080p or higher recommended.
 - GPU: Required, with OpenGL 2.1+ support.
 
@@ -53,7 +53,7 @@ GNOME, with its GNOME Shell interface, is a fully featured desktop environment w
 
 - Processor: Any processor supported, Intel Sandy Bridge recommended.
 - Memory: 2GB, 4GB or more recommended.
-- Storage: 8GB, 16GB recommended.
+- Storage: 32GB minimum, 64GB recommended.
 - Display: XGA, 1080p or higher recommended.
 - GPU: Required, with OpenGL 2.1+ support.
 
@@ -63,7 +63,7 @@ A fork of GNOME 2, therefore less taxing on graphic card (GPU), this is *not* a 
 
 - Processor: Any processor supported, Core 2 Duo recommended.
 - Memory: 512MB, 1GB or more recommended for multitasking.
-- Storage: 8GB, 16GB recommended.
+- Storage: 32GB minimum, 64GB recommended.
 - Display: SVGA, XGA or higher recommended.
 - GPU: Recommended, but framebuffer device support will do.
 
@@ -73,7 +73,7 @@ XFCE is a relatively lightweight, and fully modular desktop environment. XFCE ha
 
 - Processor: Any processor supported.
 - Memory: 256MB, 512MB or more recommended for multitasking.
-- Storage: 6GB, 12GB recommended.
+- Storage: 32GB minimum, 64GB recommended.
 - Display: SVGA, XGA or higher recommended.
 - GPU: Recommended, but framebuffer device support will do.
 
@@ -83,7 +83,7 @@ LXDE is lighter (yet) than XFCE, also fully modular, and based on GTK 3. Recomme
 
 - Processor: Any processor supported.
 - Memory: 256MB, 512MB or more recommended for multitasking.
-- Storage: 6GB, 12GB recommended.
+- Storage: 32GB minimum, 64GB recommended.
 - Display: SVGA, XGA or higher recommended.
 - GPU: Recommended, but framebuffer device support will do.
 
