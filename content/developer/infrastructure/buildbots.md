@@ -76,6 +76,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 | **YetAnotherPine64** | ~~24514~~ | Quad Core ARM Cortex-A53 @ 1.2GHz (Allwinner A64, Pine64 Plus) | 2GiB | 1365s (`-j5`, 2.27) | _Salted Fish_| (Down) Local mirror located at `/dev/sda4` |
 | **Mio** | 24242 | 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (Apple M1 chip) | 16GiB | 71s (`-j8`) | _Mag Mell_ | Scratch disk at `/buildroots`, create own Ciel worksapce; direct access with `ssh -p 8765 root@athome.utopiosphere.net`; local mirror: http://192.168.100.213:2345/debs |
 | **eleventh** | 24808 | 8-Core Huawei Kunpeng 920 @ 2.4GHz | 16GiB | 136s (`-j`, 2.34) | _Undisclosed_ | Scratch disk at `/buildroots`, create own Ciel worksapce; direct access with `ssh -oProxyJump=aosc-build@hw-hk.innull.com:20022 root@192.168.1.11` |
+| **Zinfandel** | 24222 | 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (Apple M1 chip) | 16GiB | 80s (`-j`, 2.31) | _Salted Fish_ | Scratch disk at `/buildroots`, create own Ciel workspace; local mirror: http://pit.aosc.saltedfi.sh/mirror/aosc/debs |
 
 ## **PowerPC** (25001-26000)
 
