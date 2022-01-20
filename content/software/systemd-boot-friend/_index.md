@@ -61,12 +61,12 @@ and then you are good to go.
 
 - `VMLINUZ`
   vmlinuz filename format, you can find the filename at /boot usually.
-  The format is `vmlinuz-{VERSION}-{LOCALVERSION}` by default, this is for filenames like `vmlinuz-5.12.0-aosc-main` or `vmlinuz-5.12.0-200.fc34.x86_64`.
+  The format is `vmlinuz-{VERSION}` by default, this is for filenames like `vmlinuz-5.12.0-aosc-main` or `vmlinuz-5.12.0-200.fc34.x86_64`.
 
 - `INITRD`
   Similar to `VMLINUZ`, this is initrd filename format.
-  The format is `initramfs-{VERSION}-{LOCALVERSION}.img` by default, this is for filenames like `initramfs-5.12.0-aosc-main.img` or `initramfs-5.12.0-200.fc34.x86_64`.
-  For Debian users, modify it to `initrd.img-{VERSION}-{LOCALVERSION}`.
+  The format is `initramfs-{VERSION}.img` by default, this is for filenames like `initramfs-5.12.0-aosc-main.img` or `initramfs-5.12.0-200.fc34.x86_64`.
+  For Debian users, modify it to `initrd.img-{VERSION}`.
 
 - `DISTRO`
   Distribution name, this is used in boot entry titles.
