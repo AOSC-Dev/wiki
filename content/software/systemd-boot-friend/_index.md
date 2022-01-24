@@ -60,23 +60,28 @@ and then you are good to go.
 `/etc/systemd-boot-friend.conf` is systemd-boot-friend's configuration file.
 
 - `VMLINUZ`
+
   vmlinuz filename format, you can find the filename at /boot usually.
   The format is `vmlinuz-{VERSION}` by default, this is for filenames like `vmlinuz-5.12.0-aosc-main` or `vmlinuz-5.12.0-200.fc34.x86_64`.
 
 - `INITRD`
+
   Similar to `VMLINUZ`, this is initrd filename format.
   The format is `initramfs-{VERSION}.img` by default, this is for filenames like `initramfs-5.12.0-aosc-main.img` or `initramfs-5.12.0-200.fc34.x86_64`.
   For Debian users, modify it to `initrd.img-{VERSION}`.
 
 - `DISTRO`
+
   Distribution name, this is used in boot entry titles.
   Default value is `AOSC OS`.
 
 - `ESP_MOUNTPOINT`
+
   ESP mountpoint, modify it to your mountpoint before using `systemd-boot-friend`.
   Default value is `/efi`.
 
 - `BOOTARG`
+
   This is the kernel parameters used in boot process. In a boot entry file, this is filled after `options` key.
   Usually, you have to specify the root partition and make it rw here. For example `root=/dev/sda2 rw`.
   See https://systemd.io/BOOT_LOADER_SPECIFICATION/ and https://wiki.archlinux.org/title/systemd-boot#Adding_loaders for further information.
