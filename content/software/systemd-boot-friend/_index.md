@@ -10,7 +10,9 @@ package_site_url = "https://packages.aosc.io/packages/systemd-boot-friend"
 `systemd-boot-friend` is a software which helps you to use [systemd-boot](https://www.freedesktop.org/software/systemd/man/systemd-boot.html).
 
 **NOTICE**: If you have installed `systemd-boot-friend`,
-it will automatically install all existing kernels
+it will automatically install all existing kernels **on the current operating system**
+(`systemd-boot` does support detecting other EFI boot entries installed on the same EFI system partition, please visit
+[systemd-boot](https://www.freedesktop.org/software/systemd/man/systemd-boot.html) for further information)
 and generate entries for you once the kernel is upgraded or modified.
 
 # Initialize
