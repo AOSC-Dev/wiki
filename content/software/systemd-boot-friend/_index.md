@@ -32,31 +32,31 @@ and then you are good to go.
 `systemd-boot-friend` has several subcommands.
 
     init              Initialize systemd-boot-friend
-    list              List all available kernels
-    install           Install the kernel specified
-    list-installed    List all installed kernels
-    remove            Remove the kernel specified
     update            Install all kernels and update boot entries
+    install-kernel    Install the kernel specified
+    remove-kernel     Remove the kernel specified
+    list-available    List all available kernels
+    list-installed    List all installed kernels
 
 - `init`
-  Initializes systemd-boot, installs the newest kernel and generate its boot entry.
-
-- `list`
-  Lists all available kernels.
-
-- `install`
-  Installs a specific kernel or the newest kernel if no argument is given.
-  The argument can either be the number corresponding to the kernel in `systemd-boot-friend list` or the kernel's name (e.g. `5.12.0-aosc-main`).
-
-- `list-installed`
-  Lists all kernels installed in systemd-boot.
-
-- `remove`
-  Similar to `install`. Removes a specific kernel or choose a kernel if no argument is given.
-  The argument can either be the number corresponding to the kernel in `systemd-boot-friend list-installed` or the kernel's name (e.g. `5.12.0-aosc-main`).
+  Initializes systemd-boot, and asks if you would like to install all available kernels and generate corresponding boot entries.
 
 - `update`
   Removes all installed kernels, reinstalls all available kernels and re-generates the corresponding boot entries.
+
+- `install-kernel`
+  Installs a specific kernel or choose a kernel if no argument is given.
+  The argument can either be the number corresponding to the kernel in `systemd-boot-friend list` or the kernel's name (e.g. `5.12.0-aosc-main`).
+
+- `remove-kernel`
+  Similar to `install`. Removes a specific kernel or choose a kernel if no argument is given.
+  The argument can either be the number corresponding to the kernel in `systemd-boot-friend list-installed` or the kernel's name (e.g. `5.12.0-aosc-main`).
+
+- `list-available`
+  Lists all available kernels.
+
+- `list-installed`
+  Lists all kernels installed (from the current OS) in systemd-boot.
 
 # Configuration
 `/etc/systemd-boot-friend.conf` is systemd-boot-friend's configuration file.
@@ -90,4 +90,4 @@ and then you are good to go.
 
 # Technical details
 `systemd-boot-friend` will install kernels to `/EFI/systemd-boot-friend/` directory in your ESP partition,
-and generate boot entries naming with `$VERSION-$LOCALVERSION.conf` (e.g. `5.12.0-aosc-main.conf` or `5.12.0-200.fc34.x86_64.conf`)
+and generate boot entries named `$VERSION-$LOCALVERSION.conf` (e.g. `5.12.0-aosc-main.conf` or `5.12.0-200.fc34.x86_64.conf`)
