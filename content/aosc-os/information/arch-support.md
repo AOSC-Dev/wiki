@@ -74,7 +74,7 @@ and key feature support for each AOSC OS/Retro port.
 | ARMv4              | `armv4`           | arm-aosc-linux-gnueabi       | 32   | N/A                                    | No                    | No                  | No                          |
 | ARMv6 (Hard Float) | `armv6hf`         | arm-aosc-linux-gnueabihf     | 32   | Thumb, Thumb-2                         | Yes                   | Yes                 | Yes                         |
 | ARMv7 (Hard Float) | `armv7hf`         | arm-aosc-linux-gnueabihf     | 32   | NEON, Thumb, Thumb-2                   | Yes                   | Yes                 | Yes                         |
-| i486 (80486)       | `i486`            | i486-aosc-linux-gnu          | 32   | N/A                                    | Yes (i686 Required)   | Yes (SSE Required)  | Yes                         |
+| i486 (80486)       | `i486`            | i486-aosc-linux-gnu          | 32   | N/A                                    | Yes                   | Yes (SSE Required)  | Yes                         |
 | Loongson 2F        | `loongson2f`      | mips64el-aosc-linux-gnuabi64 | 64   | Loongson-MMI                           | Yes, Buggy            | Yes                 | Yes                         |
 | PowerPC G3/G4      | `powerpc`         | powerpc-aosc-linux-gnu       | 32   | N/A                                    | Yes                   | Yes                 | Yes                         |
 | PowerPC G5+        | `ppc64`           | powerpc64-aosc-linux-gnu     | 64   | AltiVec/VMX                            | Yes                   | Yes                 | Yes                         |
