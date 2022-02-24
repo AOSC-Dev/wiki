@@ -50,6 +50,7 @@ defer certain updates for one of these architectures.
 |-------------------------|-------------------|------------------------------|------|-----------------------------------------|-----------------------|---------------------|------------------------------------------------|--------------------------------|
 | Loongson 3A/B 1000-4000 | `loongson3`       | mips64el-aosc-linux-gnuabi64 | 64   | LoongEXT, LoongEXT2, LoongMMI           | Yes, Buggy            | Yes                 | Yes (HotSpot JIT for JDK 8 only), Non-Mainline | Yes                            |
 | POWER8+ (Little Endian) | `ppc64el`         | powerpc64le-aosc-linux-gnu   | 64   | AltiVec/VMX, VSX-2                      | Yes                   | Yes                 | Yes                                            | Yes (No IonMonkey JIT)         |
+| RISC-V (rv64gc)         | `riscv64`         | riscv64-aosc-linux-gnu       | 64   | RV64GC                                  | Yes                   | Yes                 | Yes (No HotSpot JIT)                           | Yes (No IonMonkey JIT)          |
 
 ## Experimental Architectures
 
@@ -61,7 +62,6 @@ More importantly, these ports *may terminate* at the maintainers discretion.
 | Architecture    | DPKG Architecture | Compiler Tuplet            | Bits | Instruction Set Extension Requirements | Rust Language Support | Go Language Support | Java Support         | Mozilla (Firefox, Thunderbird)  |
 |-----------------|-------------------|----------------------------|------|----------------------------------------|-----------------------|---------------------|----------------------|---------------------------------|
 | LoongArch64     | `loongarch64`     | loongarch64-aosc-linux-gnu | 64   | ???                                    | No                    | No                  | No                   | No (?)                          |
-| RISC-V (rv64gc) | `riscv64`         | riscv64-aosc-linux-gnu     | 64   | RV64GC                                 | Yes                   | Yes                 | Yes (No HotSpot JIT) | Yes (No IonMonkey JIT)          |
 
 # AOSC OS/Retro
 
