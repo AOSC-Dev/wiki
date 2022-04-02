@@ -3,7 +3,7 @@ title = "Firefox"
 template = "software.html"
 insert_anchor_links = "right"
 [extra]
-software_category = "Web Broswer"
+software_category = "Web Browser"
 upstream_url = "https://www.mozilla.org/en-US/firefox/new/"
 package_site_url = "https://packages.aosc.io/packages/firefox"
 +++
