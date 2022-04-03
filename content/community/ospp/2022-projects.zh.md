@@ -41,6 +41,7 @@ tags = ["ospp"]
 [poedit]: https://poedit.net/
 [lokalize]: https://kde.org/applications/office/org.kde.lokalize/
 
+
 # 全志 RISC-V 芯片主线化开发工作
 
 全志 D1 是一款基于 XuanTie C906 RISC-V 核心的 SoC。本项目将对该芯片进行 U-Boot 的主线化开发工作。
@@ -103,3 +104,22 @@ AOSC 的软件包信息站现已与目前 AOSC OS 的构建系统和元数据格
   - https://github.com/AOSC-Dev/aosc-os-abbs
   - https://github.com/AOSC-Dev/packages-site
 - 开源协议：GPLv2
+
+# AOSC Wiki 缺失文档条目补全和现有文档更新
+
+AOSC Wiki 目前尚缺失大量社区项目的文档，以及存在大量过期信息和条目。需要更新已有条目及增改未记录项目的文档条目。
+
+- 项目难度：进阶 [暂定]
+- 项目社区导师：吴楷阳
+- 导师联系方式：origincode@aosc.io
+- 项目产出要求：
+  - 为工作单内的项目或功能更新或新增内容，尽可能保证英文版本的 Wiki 内容为最新。
+- 项目技术要求：
+  - 有足够英语写作能力，熟悉计算机、Linux 相关术语。
+  - 熟悉 Markdown 的编写和格式规范。
+  - 熟悉各类开源项目文档的查找（如 manpage、README 等）。
+  - 尽可能熟悉 Rust、Python 等语言的代码。
+  - 对 AOSC 当前维护和 AOSC OS 当前使用的项目有基础了解。
+- 相关的开源软件仓库列表：
+  - https://github.com/AOSC-Dev/wiki
+- 开源协议：MIT

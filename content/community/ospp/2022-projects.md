@@ -18,6 +18,7 @@ Welcome! The following are project topics that AOSC provides for you to work on.
 
 # Allwinner RISC-V chip Mainline Development
 
+
 Allwinner has release an SoC (Allwinner D1) based on the XuanTie C906 RISC-V core. This project will focus on mainlining the U-Boot bootloader.
 
 - Difficulty: Advanced
@@ -78,3 +79,22 @@ AOSC's package information site is now severely disconnected from the current AO
   - https://github.com/AOSC-Dev/aosc-os-abbs
   - https://github.com/AOSC-Dev/packages-site
 - License: GNU Public License Version 2
+
+# Add Missing Documents on AOSC Wiki and Update Existing Documents
+
+There are many AOSC projects missing documents on AOSC Wiki, and many existing documents are outdated. This project will update existing documents and add undocumented project documents to AOSC Wiki.
+
+- Difficulty: Advanced [Temporary]
+- Mentor: Kaiyang Wu
+- Mentor contact: origincode@aosc.io
+- Project Requirements:
+  - Add documents for the projects in the work ticket, make sure the English contents are the latest if possible
+- Technical Requirements:
+  - Ability to write in formal English, familiarity with computer/Linux-related terminologies.
+  - Familiarity with Markdown format.
+  - Familiarity with searching documents for open-source projects (manpage, README etc.).
+  - (If possible) be familiar with Rust, Python etc.
+  - Essential familiarity with the current projects maintained by AOSC and the projects used by AOSC OS.
+- Related Repositories:
+  - https://github.com/AOSC-Dev/wiki
+- License: MIT License
