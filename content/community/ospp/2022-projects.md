@@ -18,7 +18,6 @@ Welcome! The following are project topics that AOSC provides for you to work on.
 
 # Allwinner RISC-V chip Mainline Development
 
-
 Allwinner has release an SoC (Allwinner D1) based on the XuanTie C906 RISC-V core. This project will focus on mainlining the U-Boot bootloader.
 
 - Difficulty: Advanced

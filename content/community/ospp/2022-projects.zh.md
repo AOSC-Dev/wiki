@@ -41,7 +41,6 @@ tags = ["ospp"]
 [poedit]: https://poedit.net/
 [lokalize]: https://kde.org/applications/office/org.kde.lokalize/
 
-
 # 全志 RISC-V 芯片主线化开发工作
 
 全志 D1 是一款基于 XuanTie C906 RISC-V 核心的 SoC。本项目将对该芯片进行 U-Boot 的主线化开发工作。
