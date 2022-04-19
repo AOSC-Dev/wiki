@@ -112,13 +112,13 @@ AOSC Wiki 目前尚缺失大量社区项目的文档，以及存在大量过期�
 - 项目社区导师：吴楷阳
 - 导师联系方式：origincode@aosc.io
 - 项目产出要求：
-  - 为工作单内的项目或功能更新或新增内容，尽可能保证英文版本的 Wiki 内容为最新。
+  - 与社区贡献者沟通并收集修缮或撰写的条目，制定工作计划。
+  - 按工作计划修缮或撰写 Wiki 条目，以确保 Wiki 站点中的英文页面内容最新。
 - 项目技术要求：
   - 有足够英语写作能力，熟悉计算机、Linux 相关术语。
-  - 熟悉 Markdown 的编写和格式规范。
-  - 熟悉各类开源项目文档的查找（如 manpage、README 等）。
-  - 尽可能熟悉 Rust、Python 等语言的代码。
-  - 对 AOSC 当前维护和 AOSC OS 当前使用的项目有基础了解。
+  - 熟悉 Markdown 的编写。
+  - 熟悉查阅各类开源项目文档（如 manpage、README 等）。
+  - 了解 AOSC 目前维护的工具（如 autobuild3，systemd-boot-friend 等）。如有时间，进一步将这些条目翻译成中文（zh_CN）。
 - 相关的开源软件仓库列表：
   - https://github.com/AOSC-Dev/wiki
 - 开源协议：MIT
