@@ -27,9 +27,9 @@ Allwinner has release an SoC (Allwinner D1) based on the XuanTie C906 RISC-V cor
   - Basic bootloader functions, can boot a Linux kernel, and upstreaming all relevant code changes.
   - If the U-Boot itself is successfully implemented, the student could try to implement SPL based on it, and then implement the display support.
 - Technical Requirements:
-  - Build cross-compilation toolchains (or use off-the-shelf tools) and the Linux Kernel.
+  - Build cross-compilation toolchains (or use off-the-shelf tools).
   - Using Git for code maintenance (commit, rebase, etc.).
-  - Writing C code (implementing drivers for new devices while referencing existing Kernel code).
+  - Writing C code (implementing drivers for new devices while referencing existing code).
   - Writing commit messages, accepting patch reviews on mailing lists.
   - Understanding the RISC-V instruction set (being able to read assembly code output by GCC).
 - Related Repositories:
