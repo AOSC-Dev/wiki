@@ -18,15 +18,11 @@ As stated above, this guide is specific to installing AOSC OS on PowerPC-based (
 
 All PowerPC 32/64-bit tarballs are generic (universal for all supported devices), the only thing you would have to do here is choosing your favourite one - appropriate for your taste and your use case.
 
-Another consideration is whether your device is capable for a specific variant, please consult the [PowerPC system requirements](@/aosc-os/installation/sysreq/powermac-notes-sysreq.md) page for more information.
-
 ## Bootable
 
 - Base
-- MATE
-- XFCE
-- LXDE
-- i3 Window Manager
+- Trinity
+- X11
 
 ## Non-bootable
 - Container

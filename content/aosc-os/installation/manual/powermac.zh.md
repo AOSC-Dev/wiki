@@ -22,15 +22,12 @@ Needs update: The "User, and Post-installation Configuration" chapter is PROBABL
 
 所有的 PowerPC 32/64-bit 的 .tar 压缩包都是通用的。您要做的就是按您的喜好和需求选择他们。
 
-> 注意：您在选择 .tar 压缩包的时候还要考虑您的设备是否支持，关于这部分的信息请参考 [PowerPC 系统要求](@/aosc-os/installation/sysreq/powermac-notes-sysreq.md)。
 
 ## 可引导
 
 - Base
-- MATE
-- XFCE
-- LXDE
-- i3 Window Manager
+- Trinity
+- X11
 
 ## 不可引导
 

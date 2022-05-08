@@ -20,17 +20,11 @@ Installation of AOSC OS on x86-64 systems/environments are generally universal f
 
 All AMD64/x86-64 tarballs are generic (universal for all supported devices), the only thing you would have to do here is choosing your favourite one - appropriate for your taste and your use case.
 
-> Note: Another consideration is whether your device is capable for a specific variant, please consult the [AMD64/x86-64 system requirements](@/aosc-os/installation/sysreq/amd64-notes-sysreq.md) page for more information.
-
 ## Bootable
 
 - Base
-- Cinnamon
-- GNOME
-- KDE Plasma
-- MATE
-- LXDE
-- XFCE
+- Desktop
+- Server
 
 ## Non-bootable
 

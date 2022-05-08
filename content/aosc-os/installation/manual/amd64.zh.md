@@ -20,17 +20,11 @@ tags = ["sys-installation"]
 
 所有 AMD64 的 .tar 归档包都通用。任君选择即可。下面列出可引导与不可引导的 tarball。
 
-> 注意：在选择 .tar 归档包时，请查看设备是否受支持，于此请参考 [AMD64/x86_64 system requirements](@/aosc-os/installation/sysreq/amd64-notes-sysreq.md)。
-
 ## 可引导
 
 - Base
-- KDE/Plasma
-- GNOME
-- MATE
-- XFCE
-- LXDE
-- i3 Window Manager
+- Desktop
+- Server
 
 ## 不可引导
 
