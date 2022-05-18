@@ -13,7 +13,7 @@ distribution reviews, aggregated in tables in the following sections.
 
 - ✓ : Good feature(s) planned for implementation in AOSC OS.
 - ? : Questionable feature(s), further discussion needed.
-- ✕ : Anti-feature(s), flaw(s), and bad decision(s) to not repeat in AOSC OS.
+- × : Anti-feature(s), flaw(s), and bad decision(s) to not repeat in AOSC OS.
 
 # Manjaro
 
@@ -27,7 +27,7 @@ distribution reviews, aggregated in tables in the following sections.
 | ✓    | Graphical utility for installing NVIDIA drivers.                       |
 | ?    | OnlyOffice as LibreOffice replacement, where possible.                 |
 | ?    | A snazzy and semi-graphical (font-dependent) shell prompt.             |
-| ✕    | Messy application menus.                                               |
+| ×    | Messy application menus.                                               |
 
 # Deepin
 
@@ -41,9 +41,9 @@ distribution reviews, aggregated in tables in the following sections.
 | ✓    | Audio effects on login and other system events.                        |
 | ?    | Virtual machine detection and warning about possible performance penalties. |
 | ?    | A/B partiton scheme for more efficient and reliable system upgrades.   |
-| ✕    | Sluggish installation UI.                                              |
-| ✕    | No final confirmation between configuration wizard and installation.   |
-| ✕    | Useless installer log.                                                 |
+| ×    | Sluggish installation UI.                                              |
+| ×    | No final confirmation between configuration wizard and installation.   |
+| ×    | Useless installer log.                                                 |
 
 # Pop_OS!
 
@@ -59,7 +59,7 @@ distribution reviews, aggregated in tables in the following sections.
 | ✓    | Popsicle, a USB backup media creator.                                  |
 | ?    | Mandatory installation media checksum verification (skip unavailable). |
 | ?    | Full-disk encryption option on installer.                              |
-| ✕    | Poor layering handling with modified GNOME Shell.                      |
+| ×    | Poor layering handling with modified GNOME Shell.                      |
 
 # openSUSE
 
@@ -72,8 +72,8 @@ distribution reviews, aggregated in tables in the following sections.
 | ✓    | "Boot from Hard Disk" entry on installation media GRUB menu (detects whether openSUSE was installed on the hard disk; displayed if detected). |
 | ✓    | Option to check installation media.                                    |
 | ?    | Option to enable automatic login during installation.                  |
-| ✕    | Ugly boot splash.                                                      |
-| ✕    | Poor colour scheme and contrast on installation UI.                    |
+| ×    | Ugly boot splash.                                                      |
+| ×    | Poor colour scheme and contrast on installation UI.                    |
 
 # ZorinOS
 
