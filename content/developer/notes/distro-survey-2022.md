@@ -128,6 +128,33 @@ distribution reviews, aggregated in tables in the following sections.
 | ×    | Inconsistent L10n settings: incomplete language packs and confused KDE localization settings (stating that language packs were not installed when they were) |
 | ×    | No L10n support for LibreOffice.                                       |
 
+# Ubuntu MATE
+
+- Date of Review: 20220522
+- Version: 22.04
+
+- ✓ : Good feature(s) planned for implementation in AOSC OS.
+- ? : Questionable feature(s), further discussion needed.
+- × : Anti-feature(s), flaw(s), and bad decision(s) to not repeat in AOSC OS.
+
+| Type | Remark                                                                 |
+|------|------------------------------------------------------------------------|
+| ✓    | OOBE dialog and a quick navigation for pre-installed software.         |
+| ✓    | Fast LibreOffice launch.                                               |
+| ✓    | Screen narrator (Orca); KDE equivalent available?                      |
+| ✓    | Fcitx5 as default input method framework, works on first boot.         |
+| ?    | Pre-installed gufw firewall manager.                                   |
+| ?    | Sound effects for login and desktop.                                   |
+| ?    | Preinstalled BitTorrent (Transmission) client.                         |
+| ?    | Evolution as default e-mail client.                                    |
+| ?    | Webcamoid to augment Webcam functions (like a simple OBS).             |
+| ?    | Out-of-tree `v4l2loopback` driver for virtual video input devices.     |
+| ?    | "Boutique" application store for recommended applications, with detailed introductions and reviews. |
+| ×    | L10n provided via (unreliable and incomplete, such was the case with LibreOffice) language packs. |
+| ×    | Loads of updates on first boot, before language packs could be installed. |
+| ×    | Two bluetooth managers (MATE and Blueman).                             |
+| ×    | No graphical configuration tool for Fcitx5.                            |
+
 # Miscellaneous Notes
 
 | Type | Remark                                                                 |
