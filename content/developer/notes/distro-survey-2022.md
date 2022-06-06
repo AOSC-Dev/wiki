@@ -155,6 +155,33 @@ distribution reviews, aggregated in tables in the following sections.
 | ×    | Two bluetooth managers (MATE and Blueman).                             |
 | ×    | No graphical configuration tool for Fcitx5.                            |
 
+# MX Linux
+
+- Date of Review: 20220605
+- Version: 21.1 (non-AHS)
+
+| Type | Remark                                                                 |
+|------|------------------------------------------------------------------------|
+| ×    | Installer does not have any i18n support.                              |
+
+# UOS
+
+- Date of Review: 20220605
+- Version: 21.3 (revision 13000034, Home Edition)
+
+Note: Most of the remarks overlap with [Deepin](#deepin) since UOS is a rebranded version of Deepin.
+
+| Type | Remark                                                                 |
+|------|------------------------------------------------------------------------|
+| ✓    | Out-of-the-Box Experience (OOBE) wizard on first boot.                 |
+| ✓    | Audio effects on login and other system events.                        |
+| ?    | Virtual machine detection and warning about possible performance penalties. |
+| ?    | A/B partiton scheme for more efficient and reliable system upgrades.   |
+| ?    | Included an Android compatibility layer to run Android applications.   |
+| ×    | Sluggish installation UI.                                              |
+| ×    | No final confirmation between configuration wizard and installation.   |
+| ×    | Useless installer log.                                                 |
+
 # Miscellaneous Notes
 
 | Type | Remark                                                                 |
