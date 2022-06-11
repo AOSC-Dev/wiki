@@ -1,77 +1,87 @@
 +++
-title = "[WIP] Autobuild3 and ACBS Build-time Integrated Test Standard RFC"
+title = "[WIP, Rivision3] Autobuild3 and ACBS Build-time Integrated Test Standard RFC"
 description = "(To be filled)"
 +++
 
-## Some Questions
+## Revision Notes
 
-1. Should the manual introduce a new unprivileged user to perform tests?
-  - Some unit tests is not able to be processed as root, and some do the contrary.
-  - If introduced, whether AB3 or buildkit would provide the user?
-2. Should enabling the test alternate the normal process of acbs?
-  - E.g. , if test is enabled, QA check will not be performed, or the final `.deb` package will not be produced;
-    - Maybe, if tests are enabled, QA error may not stop the autobuild, but make `build/{80-pm_pack,90-pm_install,99-pm_archive}.sh` not to be executed.
-  - Tests may generate unnecessary executable files, and may be packaged to `$PKGDIR` if ABTYPE is set other than `self`;
-  - Performing tests between `build/90-pm_install.sh` and `99-pm_archive.sh` might be a solution, but needs more discussion. (Assuming all tests are executed inside a container)
-3. Should introduce a new QA issue code to indicate that test mode is not set?
+### TO-DO
 
-## Introductions
+- Wants a pretty output for test results, like: (Even when there is only one test)
+```
+$TESTNAME: $STATUS 
+...
+------------------
+Total: PASS: $PASS_COUNT, FAIL: $FAIL_COUNT(, SKIP, PASS(yellow))
+```
+
+### Revision 3 | Jun 11th, 2022
+
+- Adapted some suggestions from Mingcong Bai about test file format.
+
+## Rational and Introductions
 
 (--- Snipped while being in WIP state ---)
 
 ## Details
 
-### Environmental Variables
-
-- `ABTEST_ENABLED(__${ARCH})=(0|1)`: 
-  - 0: DEFAULT VALUE. Test will not be performed. All test related files and variables are ignored.
-  - 1: Integrated tests is enabled. Setting this to 1 will alternate default behaviours of Autobuild3.
-- `ABTEST_TESTONLY(__${ARCH})=(0|1)`: Applicable if `ABTEST_ENABLED` is set to 1, ignored otherwitse
-  - 0: DEFAULT VALUE. Nothing will be altered.
-  - 1: Unnecessary script like `80-pm_pack.sh`, `90-pm_install.sh` and `99-pm_archive.sh` will not be performed.
-
-### Tree File Hierarchy 
-
-#### `autobuild/defines`
-
-Dependencies:
-- `TESTDEP(__${ARCH})`: Representing the dependencies required by the process of testing.
-
-Test Configurations:
-- `ABTEST_ENABLED(__${ARCH})=(0|1)`: Same as environmental variables. Variable defined externally is prior to `autobuild/defines`
-- `ABTEST_TYPE(__${ARCH})=(notest|self|(other ABTESTTYPE))`
-  - `notest`: DEFAULT VALUE. Representing either automated test is not available for the package, or there is no need to perform tests. Tests for this package is always considered successful.
-  - `self`:  Functions are provided by `autobuild/test`. See below for details.
-  - `(ABTESTTYPE)`: Functions are provided by `autobuild3/tests/(ABTESTTYPE).sh`.
-- ~~`ABTEST_PLACE` (Discussion needed)~~
-
-
-#### `autobuild/{,"$ARCH"/}test`
-
-Applicable if `ABTEST_TYPE` is set to `self`, ignored otherwise. (Different from `build` which will set `ABTYPE` to `self`)
-
-This file should contain two functions: `abtest()` and `abtest_unprivileged()` . Test will be proceeded via calling these two functions. 
-
 ### Autobuild3
 
-Introduce a new module `tests`. File hierarchy is similar to `build`.
+To ensure temporary files related to integrated test are not included in output package, test will be performed right after `proc/80_pm-pack.sh`.
 
-#### `proc/xx-test.sh`
+#### Generic Configuration
 
-(To be filled.)
+- `ABTEST_ENABLED=(0|1)`: Toggle whether integrated test is on.
+  - Defined in `ab3_defcfg.sh` and environmental variable.
+  - 0: Test will not be performed. All test related files and variables are ignored.
+  - 1: DEFAULT VALUE. Integrated tests is enabled.
 
-#### `tests/notest.sh`
+#### Test Template
 
-Both `abtest()` and `abtest_unprivileged()` are dummy and will return 0;
+**Note: Should autobuild3 probe test type when there is no test specification file?**  
 
-#### `tests/self.sh`
+Test templates are located in `"$AB"/tests`. Similar to building template (defined by `ABTYPE`), a test template describes how a test is performed. Test templates is useful when `ABTYPE` is set other than `self`. A test template should contain the following functions:
+- `abtest_"$TESTTYPE"_probe(){}`: Probing function;
+- `abtest_"$TESTTYPE"_exec(){}`: Describing how a test should be performed.
 
-Including two dummy function returning 254 to represent that test function is missing. Then redefine them by using function `arch_loadfile` to execute `autobuild/test`. Call `abtest()` and `abtest_unprivileged()` in the end.
+Autobuild3 will include the following ABTYPE-independent templates:
+- `00-self_files.sh`: Using test specification defined in `autobuild/tests/*`
+- `01-self.sh`: Using test specification defined in `autobuild/test`
+- `99-notest.sh`
+
+#### QA
+
+**Note: Should introduce new QA code relating to integrated tests?**
+
+To be filled.
+
+### ABBS Tree  
+
+#### `defines`
+
+- `TESTDEP={dependency string}`: Whitespace-split dependencies list.
+
+#### Test Specification File
+
+A test specification file describes how a test is performed. Test specification file(s) should be placed under `autobuild/tests/` with suffix `.abtest` (details can be found in package styling manual, not write yet. **Need further discussion**). In case of a single test specification file, it can also be placed under `autobuild/` with the name `test`;
+
+A test specification file should contain the following fields:
+- `TESTNAME`: Identifier of the test.
+- `TESTTYPE`: Describes which template should be used.
+
+A test specification file can also contain the following fields:
+- `ABTEST_UNPRIVILEGED`: Boolean value; Indicating test should be performed using an unprivileged user if the variable is set to 1;
+- `abtest()`: Packager-defined test function/script. Applicable when `TESTTYPE` is set to `self`; 
+- `ABTEST_FAIL_ARCH`
 
 ### ACBS
 
-The standard will introduce new options `--with-check`.
+The standard will introduce new options `--without-check`.
 
 ### Ciel-rs
 
-`ciel` will not be affected by the standard. All test-related operations are expected to be executed via `ciel shell`.
+`ciel` will not be affected by the standard. 
+
+## Examples
+
+To be filled
