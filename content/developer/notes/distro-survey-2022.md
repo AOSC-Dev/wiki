@@ -203,6 +203,49 @@ Note: Most of the remarks overlap with [Deepin](#deepin) since UOS is a rebrande
 | ×    | No final confirmation between configuration wizard and installation.   |
 | ×    | Useless installer log.                                                 |
 
+# UbuntuKylin
+
+- Date of Review: 20220611
+- Version: 22.04 Professional
+
+| Type | Remark                                                                 |
+|------|------------------------------------------------------------------------|
+| ✓    | Out-of-the-Box Experience (OOBE) wizard on first boot.                 |
+| ✓    | Device Manager-like Hardware information application.                  |
+| ?    | Mandatory Live media verification (skippable via ^C).                  |
+| ?    | Windows 7-like desktop interface.                                      |
+| ×    | 50GiB disk requirement for automatic partitioning (but not for manual partitioning: 25GiB). |
+| ×    | Useless installation progress indicator (stuck at 96% throughout installation). |
+| ×    | Systemd service failures.                                              |
+| ×    | Boots to TTY login prompt... then X11.                                 |
+| ×    | Desktop crashes randomly to a blank screen with a cursor (VirtualBox). |
+| ×    | File manager pops up on first boot... for some reason.                 |
+| ×    | Pre-installed Fcitx 4 does not come with Qt support - but self-developed applications uses Qt. |
+| ×    | Opt-out distro telemetry.                                              |
+| ×    | Two scanner applications and music players installed by default.       |
+
+# elementaryOS
+
+- Date of Review: 20220611
+- Version: 6.1-stable.20211218-rc
+
+| Type | Remark                                                                 |
+|------|------------------------------------------------------------------------|
+| ✓    | Out-of-the-Box Experience (OOBE) wizard on first boot.                 |
+| ✓    | Clean application menu.                                                |
+| ?    | Mandatory Live media verification (skippable via Esc).                 |
+| ?    | An application for system maintenance (file clean-up, etc.) scheduling. |
+| ×    | Installer UI (Ubiquity?) takes ~30 seconds to respond after language change. |
+| ×    | LiveCD's "Boot from HDD" option does not work.                         |
+| ×    | "Purchase" button for paid applications crashes App Center.            |
+| ×    | Default video player fails to launch.                                  |
+| ×    | No zh_CN locale option by default in settings application.             |
+| ×    | Ambiguous name for "Chinese" language pack.                            |
+| ×    | zh_CN locale paired to Bulgarian (then Denmark?!) regional formats.    |
+| ×    | Random, rapidly repeating PolicyKit agent crashes.                     |
+| ×    | Uses an IDE as default text editor.                                    |
+| ×    | Automatic system update does not check space availability, crashes desktop. |
+
 # Miscellaneous Notes
 
 | Type | Remark                                                                 |
