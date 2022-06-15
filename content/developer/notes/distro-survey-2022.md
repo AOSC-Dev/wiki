@@ -133,10 +133,6 @@ distribution reviews, aggregated in tables in the following sections.
 - Date of Review: 20220522
 - Version: 22.04
 
-- ✓ : Good feature(s) planned for implementation in AOSC OS.
-- ? : Questionable feature(s), further discussion needed.
-- × : Anti-feature(s), flaw(s), and bad decision(s) to not repeat in AOSC OS.
-
 | Type | Remark                                                                 |
 |------|------------------------------------------------------------------------|
 | ✓    | OOBE dialog and a quick navigation for pre-installed software.         |
@@ -145,7 +141,7 @@ distribution reviews, aggregated in tables in the following sections.
 | ✓    | Fcitx5 as default input method framework, works on first boot.         |
 | ?    | Pre-installed gufw firewall manager.                                   |
 | ?    | Sound effects for login and desktop.                                   |
-| ?    | Preinstalled BitTorrent (Transmission) client.                         |
+| ?    | Preinstalled BitTorrent client (Transmission).                         |
 | ?    | Evolution as default e-mail client.                                    |
 | ?    | Webcamoid to augment Webcam functions (like a simple OBS).             |
 | ?    | Out-of-tree `v4l2loopback` driver for virtual video input devices.     |
@@ -154,6 +150,31 @@ distribution reviews, aggregated in tables in the following sections.
 | ×    | Loads of updates on first boot, before language packs could be installed. |
 | ×    | Two bluetooth managers (MATE and Blueman).                             |
 | ×    | No graphical configuration tool for Fcitx5.                            |
+
+# Linux Mint Cinnamon
+
+- Date of Review: 20220529
+- Version: 20.3
+
+| Type | Remark                                                                 |
+|------|------------------------------------------------------------------------|
+| ✓    | "Mint Upgrade" offers mirror tester.                                   |
+| ✓    | Fast LibreOffice launch.                                               |
+| ✓    | Windows XP "Security Center"-like user suggestion application (asks to enable backup via Timeshift). |
+| ?    | Hardware detection and listing tool at Live medium boot menu.          |
+| ?    | OOBE/Onboarding wizard starts by default unless unchecked.             |
+| ?    | A wizard for creating progressive Web application entries (webapp-manager). |
+| ?    | Pre-installed BitTorrent client (Transmission).                        |
+| ?    | Pre-installed IRC client (HexChat) joins #linuxmint channel on first launch. |
+| ?    | A flash drive formatter?                                               |
+| ×    | Installer runs localedef for all locales (takes years).                |
+| ×    | Ambiguous "Skip" button on installer (Ubiquity) for seemingly key steps. |
+| ×    | Asks to install extra graphical drivers on Qemu, then prompts that no driver was necessary (with a big tick mark on the UI). |
+| ×    | Applications freeze on exit occasionally.                              |
+| ×    | HYpotix TV channel streamer... but nothing works.                      |
+| ×    | Dated Sunpinyin as default Simplified Chinese input method.            |
+| ×    | Two backup applications pre-installed.                                 |
+| ×    | Sluggish software center UI - Python applications with loads of fading animations. |
 
 # MX Linux
 
