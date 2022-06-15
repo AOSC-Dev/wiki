@@ -183,7 +183,23 @@ distribution reviews, aggregated in tables in the following sections.
 
 | Type | Remark                                                                 |
 |------|------------------------------------------------------------------------|
+| ✓    | Help message for each installation step.                               |
+| ✓    | Option for RTC as local time.                                          |
+| ✓    | Snapshot manager saves current system state into live installation media. |
+| ✓    | "MX Tour" as a short visual guide for new users.                       |
+| ?    | "MX Tools" as a collection of (not so) distro-specific administration tools/utilities. |
+| ?    | Uses gfxboot for MBR by default.                                       |
+| ?    | Option to migrate Live media state to installed system.                |
+| ×    | Live system froze on first boot.                                       |
 | ×    | Installer does not have any i18n support.                              |
+| ×    | Ugly installer UI with a narrow log window.                            |
+| ×    | No confirmation before installation - procedure starts after partition selection. |
+| ×    | Tips only showing after user configuration wizard - not much time to read. |
+| ×    | Peculiar desktop layout, with logoff menu button on top left and application menu button on bottom left. |
+| ×    | Multiple backup tools (MX Snapshot + luckyBackup).                     |
+| ×    | Midnight Commander on a desktop distribution.                          |
+| ×    | Messy init system situation (sysvinit as PID 1, runit as extra tools, and systemd for desktop sessions). |
+| ×    | Systemd not PID 1, but pre-installs systemd tools - most report errors and will not function. |
 
 # UOS
 
