@@ -36,7 +36,7 @@ distribution reviews, aggregated in tables in the following sections.
 
 | Type | Remark                                                                 |
 |------|------------------------------------------------------------------------|
-| ✓    | Extremely fast browser and LibreOffice launch times ([deepin-turbo?](https://github.com/linuxdeepin/deepin-turbo). |
+| ✓    | Extremely fast browser and LibreOffice launch times ([deepin-turbo?](https://github.com/linuxdeepin/deepin-turbo)). |
 | ✓    | Out-of-the-Box Experience (OOBE) wizard on first boot.                 |
 | ✓    | Audio effects on login and other system events.                        |
 | ?    | Virtual machine detection and warning about possible performance penalties. |
