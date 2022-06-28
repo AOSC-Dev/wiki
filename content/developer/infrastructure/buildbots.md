@@ -91,7 +91,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 | Name | Port | CPU | Memory | Speed | Maintainer | Note |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **SiFarce** | 26002 | SiFive FU740 @ 1.4GHz (SiFive HiFive Unmatched) | 16GiB | 2446 (`-j5`, 2.34) | _Mingcong Bai_ | Scratch disk at `/buildroots`, create own Ciel workspace; local mirror at http://192.168.88.3/debs |
-| **lorenz** | ~~26022~~ | SiFive FU540 @ 1.5GHz (SiFive HiFive Unleashed) | 8GiB | 2785s (`-j6`, 2.34) | _Icenowy Zheng_ | (Down due to hardware failure) NBD root, create own Ciel workspace at `/buildroots`, behind GFW, a HTTP proxy is available at http://dedue:8118 |
+| **lorenz** | 26022 | SiFive FU540 @ 1.5GHz (SiFive HiFive Unleashed) | 8GiB | 2785s (`-j6`, 2.34) | _Icenowy Zheng_ | NBD root, create own Ciel workspace at `/buildroots`, behind GFW, a HTTP proxy is available at http://dedue:8118 |
 
 ## **LoongArch** (27001-28000)
 
