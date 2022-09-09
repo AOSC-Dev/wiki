@@ -242,6 +242,16 @@ Here below is a list of variables available when using the `rust` build type.
 
 **CARGO_AFTER=** expects a string value containing all extra arguments to be passed to `cargo build`, you can enable extra features for the project using this variable.
 
+### dune
+
+Here below is a list of variables available when using the `dune` build type.
+
+**DUNE_BUILD_AFTER** expects a string value containing all extra arguments to be passed after `dune build`.
+
+**DUNE_INSTALL_AFTER** expects a string value containing all extra arguments to be passed after `dune install`.
+
+**DUNE_PACKAGES** is a space-split string value containing opam packages to be build and installed. When specified, autobuild3 will replace its space with comma and pass it with `-p ` prefix to `dune build`, and installing packages one by one when calling `dune install`. Useful when you come into a source tree containing multiple `.opam` files, or when you don't want to build all components.
+
 ## Path-related variables
 
 When writing build scripts, to refer to specific locations in the source tree, Autobuild3 designates the following variables.
