@@ -172,6 +172,7 @@ Autobuild has a set of pre-defined build routine called Build Types, or `$ABTYPE
 - **gomod:** used for Golang projects using `go mod` as the only module management system. Autobuild3 detects for `go.mod` in the source trees.
 - **rust:** used for Rust projects using Cargo build system. Autobuild3 detects for `Cargo.toml` in the source trees.
 - **npm:** used for Node.js source trees with dependencies from [NPM](https://www.npmjs.com/). Autobuild3 detects for `package.json` in the source trees.
+- **dune:** used for OCaml projects using dune build system. Autobuild3 detects for `dune-project` file in the source trees.
 
 Pre-defined scripts of these build types may be found [here](https://github.com/AOSC-Dev/autobuild3/tree/master/build). You may find that they are all prefixed with numbers - prefixes with smaller numbers are of higher priority when detecting for build types. More explained in the example below.
 
