@@ -78,6 +78,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 | **eleventh** | 24808 | 8-Core Huawei Kunpeng 920 @ 2.4GHz | 16GiB | 136s (`-j`, 2.34) | _Undisclosed_ | Scratch disk at `/buildroots`, create own Ciel worksapce; direct access with `ssh -oProxyJump=aosc-build@hw-hk.innull.com:20022 root@192.168.1.11` |
 | **Zinfandel** | 24222 | 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (Apple M1 chip) | 16GiB | 80s (`-j`, 2.31) | _Salted Fish_ | Scratch disk at `/buildroots`, create own Ciel workspace; local mirror: http://pit.aosc.saltedfi.sh/mirror/aosc/debs |
 | **Kirin** | N/A | HUAWEI Kirin 9006C (8) (1x Cortex-A77@3.13 GHz + 3x Cortex-A77@2.54 GHz + 4x Cortex-A55@2.05 GHz) | 8GiB | 143.5s (`-j9`, 2.34) | _Rick Liu_ | Scratch disk at `/buildroots`,  create own Ciel workspace, direct access with `ssh root@nkg.rickliu.im -p 8038` |
+| **Maple** | 24191 | Snapdragon 8cx Gen 3 (8) (4x Cortex-X1@3.00 GHz + 4x Cortex-A78@2.40 GHZ) | 16GiB | 142s (`-j`, 2.36) | _Canarypwn_ | Scratch disk at `/buildroots`, create own Ciel workspace |
 
 ## **PowerPC** (25001-26000)
 
@@ -85,7 +86,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **G5-PPC64BE** | ~~25120~~ | IBM PowerPC 970MP @ 2.5GHz (PowerMac G5, Quad, 2005) | 8GiB | 566s (`-j5`, 2.27) | _Mingcong Bai_ | Scratch disk at `/buildroots`, create own Ciel workspace |
 | **G5-PPC32BE** | ~~25121~~ | IBM PowerPC 970MP @ 2.5GHz (PowerMac G5, Quad, 2005) | 16GiB | 553s (`-j5`, 2.27) | _Mingcong Bai_ | Temporarily down to conserve energy |
-| **powernv** | 25202 | IBM POWER9 CPU (4-Core) CP9M01 (3 cores, 12 threads allocated) | 24GiB | 178s (`-j13`) | _Mingcong Bai_ | PowerKVM based |
+| **powernv** | 25202 | IBM POWER9 CPU (4-Core) CP9M01 (3 cores, 12 threads allocated) | 24GiB | 178s (`-j13`) | _Mingcong Bai_ | PowerKVM based | 
 
 ## **RISC-V** (26001-27000)
 
