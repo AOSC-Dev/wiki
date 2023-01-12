@@ -38,7 +38,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 
 {% card(type="info") %}
 - `port_number - 10000` is occupied by that machine. See information above.
-- The parameter "speed" is used to offer a rough idea on the relative performance of each Buildbot. To benchmark, download the LLVM (version 15.0.6) [tarball](https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.6/llvm-project-15.0.6.src.tar.xz), untar the tarball, configure the source tree by running `mkdir llvm/build && cd llvm/build && cmake -DCMAKE_BUILD_TYPE=Release -GNinja ..`. Collect execution time by running `time ninja`, record the `Real` time, and round up to a second. This test is to be conducted on the device where future package building will be conducted.
+- The parameter "Speed" presents an approximation on the relative performance of each Buildbot. To benchmark, download and run the [buildbot-benchmark.bash](https://github.com/AOSC-Dev/scriptlets/tree/master/buildbot-benchmark) script.
 - A **Port** with a strikethrough means that the buildbot is not online recently.
 {% end %}
 
