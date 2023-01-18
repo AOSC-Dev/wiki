@@ -61,7 +61,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Note |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **Maple** | ~~24191~~ | Snapdragon 8cx Gen 3 (8) (4 * Cortex-X1 @ 3.00 GHz + 4 * Cortex-A78 @ 2.40 GHz) | 16GiB | 1098s | _Canarypwn_ | Scratch disk at `/buildroots`, create own Ciel workspace |
+| **Maple** | 24191 | Snapdragon 8cx Gen 3 (8) (4 * Cortex-X1 @ 3.00 GHz + 4 * Cortex-A78 @ 2.40 GHz) | 16GiB | 1098s | _Canarypwn_ | Scratch disk at `/buildroots`, create own Ciel workspace |
 | **Zinfandel** | ~~24222~~ | 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (Apple M1 chip) | 16GiB | - | _Salted Fish_ | Scratch disk at `/buildroots`, create own Ciel workspace; local mirror: http://pit.aosc.saltedfi.sh/mirror/aosc/debs |
 | **Mio** | ~~24242~~ | 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (Apple M1 chip) | 16GiB | - | _Mag Mell_ | Scratch disk at `/buildroots`, create own Ciel worksapce; direct access with `ssh -p 8765 root@athome.miraclemilk.me`; local mirror: http://192.168.100.240:2345/debs |
 | **kp920** | 24426 | 2 * 48-Core Huawei Kunpeng 920 @ 2.60GHz (Huawei Taishan 2280 v2; 94 cores allocated) | 192GiB (145GiB allocated) | 439s | _Undisclosed_ | Scratch disk at `/buildroots`, create own Ciel worksapce; direct access with `ssh -p 2223 root@kp920.ip4.run` |
