@@ -68,7 +68,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 | **JellyXavier** | ~~24444~~ | 4 x dual core NVIDIA Carmel CPU clusters @ 2.26GHz (NVIDIA Jetson AGX Xavier Developer Kit) | 16GiB | - |  _Mingcong Bai_ | Scratch disk at `/buildroots`, create own Ciel workspace |
 | **JellyPhy** | 24451 | 8-Core Phytium D2000 @ 2.30GHz | 32GiB | 2589s | _Mingcong Bai_ | Scratch disk at `/buildroots`, create own Ciel workspace; local mirror at http://192.168.88.3/debs |
 | **eleventh** | 24808 | 8-Core Huawei Kunpeng 920 @ 2.40GHz | 16GiB | 1582s | _Undisclosed_ | Scratch disk at `/buildroots`, create own Ciel worksapce; direct access with `ssh -oProxyJump=aosc-build@hw-hk.innull.com:20022 root@192.168.1.11` |
-| **Kirin** | ~~PENDING~~ | HUAWEI Kirin 9006C (8) (1 * Cortex-A77 @ 3.13 GHz + 3 * Cortex-A77 @ 2.54 GHz + 4x Cortex-A55@2.05 GHz) | 8GiB | - | _Rick Liu_ | Scratch disk at `/buildroots`,  create own Ciel workspace, direct access with `ssh root@nkg.rickliu.im -p 8038` |
+| **Kirin** | ~~PENDING~~ | HUAWEI Kirin 9006C (8) (1 * Cortex-A77 @ 3.13 GHz + 3 * Cortex-A77 @ 2.54 GHz + 4x Cortex-A55@2.05 GHz) | 8GiB | 1826s | _Rick Liu_ | Scratch disk at `/buildroots`,  create own Ciel workspace, direct access with `ssh root@nkg.rickliu.im -p 8038` |
 
 ## **PowerPC** (25001-26000)
 
