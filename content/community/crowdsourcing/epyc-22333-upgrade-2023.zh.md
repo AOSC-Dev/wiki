@@ -35,5 +35,5 @@ draft = false
 # 负责人
 
 - Lain Yang <fsf@live.com> ：采购负责人
-- 王江津 <thesaltedfish@aosc.io>：运输大队长
+- 王江津 <kaymw@aosc.io>：运输大队长
 - 白铭骢 <jeffbai@aosc.io>： 托管方

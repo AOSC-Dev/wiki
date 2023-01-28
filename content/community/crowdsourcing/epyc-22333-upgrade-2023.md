@@ -37,5 +37,5 @@ We would like to budget 17,000 CNY (2,506.12 USD as of January 27, 2023). The ac
 # Participants
 
 - Lain Yang <fsf@live.com>, purchase coordinator.
-- Jiangjin Wang <thesaltedfish@aosc.io>, transportation coordinator.
+- Jiangjin Wang <kaymw@aosc.io>, transportation coordinator.
 - Mingcong Bai <jeffbai@aosc.io>, server host.
