@@ -1,5 +1,5 @@
 +++
-title = "[ONGOING] Upgrade Primary AMD64 Build Server (22333)"
+title = "[COMPLETE] Upgrade Primary AMD64 Build Server (22333)"
 draft = false
 +++
 
