@@ -1,5 +1,5 @@
 +++
-title = "[ONGOING] Additional Loongson 3A5000 Relay"
+title = "[COMPLETE] Additional Loongson 3A5000 Relay"
 +++
 
 This crowdsourcing project aims to fund an additional Loongson 3A5000 device as
