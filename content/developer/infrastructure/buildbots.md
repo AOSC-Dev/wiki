@@ -49,6 +49,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 | Name | Port | CPU | Memory | Speed | Maintainer | Note |
 |-----------|-----------|-----------|-----------|-----------|---------|-----------|
 | **Ry3950X** | 22333 | AMD Ryzen 9 3950X @ 3.50 - 4.70GHz | 64GiB | 318s | _Mingcong Bai_ | Scratch disk at `/buildroots`, create own Ciel workspace; local mirror at http://192.168.88.3/debs |
+| **YeRUS** | ~~22666~~ | AMD EPYC 7H12 @ 2.6 - 3.3GHz | 1TiB | ~~(WAIT FOR TEST)~~ | _Lain Yang_ | This machine is the succeder of `Ry3950X` which relay port is `22333`. **The `22666` relay port is temporary allocated.** |
 
 ## **MIPS** (23001-24000)
 
@@ -95,3 +96,4 @@ If you would like contribute your device to AOSC, please make sure your device h
 | Name | Port | CPU | Memory | Speed | Maintainer | Note |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **PorterAle** | 28001 | Intel i7-8700T @ 2.40 - 4.00GHz | 16GiB | 996s | _MingcongBai_ | Scratch disk at `/buildroots`, create own Ciel workspace; local mirror at http://192.168.88.3/debs |
+| **Taple** | 28002 | AMD Ryzen R5 5600G @ 3.9 - 4.4GHz | 32GiB | 714s | _Lain Yang_ | Scratch disk at `/buildroots`, create own Ciel workspace; local mirror at http://localhost/debs |
