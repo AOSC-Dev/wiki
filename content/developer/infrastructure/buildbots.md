@@ -48,7 +48,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Note |
 |-----------|-----------|-----------|-----------|-----------|---------|-----------|
-| **Yerus** | 22333 | AMD EPYC 7H12 @ 2.6 - 3.3GHz | 1TiB | 173s | _Jiangjin Wang_ | Scratch disk at `/buildroots`, create own Ciel workspace | 
+| **Yerus** | 22333 | AMD EPYC 7H12 @ 2.6 - 3.3GHz | 1TiB | 173s | _Jiangjin Wang_ | Scratch disk at `/buildroots`, create own Ciel workspace |
 
 ## **MIPS** (23001-24000)
 
