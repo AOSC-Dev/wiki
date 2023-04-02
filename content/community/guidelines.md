@@ -30,7 +30,7 @@ This section describes *unquestionable* foundational principles on which our com
 
 - AOSC will remain as an *independent community of hobbists and enthusiasts*.
 - AOSC will *not* reward any contributors with *monetary or material goods*.
-- AOSC will *not* tolerate any form of plagarism.
+- AOSC will *not* tolerate any form of plagiarism.
 
 # The Guidelines
 
