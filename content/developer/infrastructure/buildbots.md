@@ -83,7 +83,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 | **SiFarce** | ~~26002~~ | SiFive FU740 @ 1.4GHz (SiFive HiFive Unmatched) | 16GiB | - | _Mingcong Bai_ | Scratch disk at `/buildroots`, create own Ciel workspace |
 | **marianne** | 26055 | SiFive FU740 @ 988MHz (SiFive HiFive Unmatched) | 16GiB | 22515s | _Icenowy Zheng_ | Scratch at `/buildroots` is on NBD and needs to be mounted manually by nbd-mount.sh in /root (currently using the `/buildroots` from **lorenz**), behind GFW, a HTTP proxy is available at http://dedue:8118, device sponsored by the PLCT Lab |
 | **leonie** | 26056 | SiFive FU740 @ 988MHz (SiFive HiFive Unmatched) | 16GiB | 22612s | _Icenowy Zheng_ | Scratch at `/buildroots` is on NVMe disk (maybe buggy, investigation needed), behind GFW, a HTTP proxy is available at http://dedue:8118, device sponsored by the PLCT Lab |
-| **greengoo** | 26666 | 63 mysterious rv64imafdcv cores @ ???? MHz | 96GiB | 1376s | _Icenowy Zheng_ | TBC |
+| **greengoo** | 26666 | 63 mysterious rv64imafdcv cores @ ????MHz | 96GiB | 1376s | _Icenowy Zheng_ | TBC |
 
 ## **LoongArch** (27001-28000)
 
