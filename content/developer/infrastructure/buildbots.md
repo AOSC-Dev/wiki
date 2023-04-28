@@ -55,7 +55,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 | Name | Port | CPU | Memory | Speed |Maintainer | Note |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **lemote-a1901** | 23869 | Loongson 3A-4000 (R4) @ 1.80GHz (A1901) | 16GiB | 5604s | _Mingcong Bai_ | Scratch disk at `/buildroots`, create own Ciel workspace |
-| **Resonance** | 23541 | Loongson 3B-4000 (R4) @ 1.80GHz (LX-2510) | 32GiB | 3748s | _Kexy Biscuit_ | Community crowdsourced; Scratch disk at `/buildroots`, create own Ciel workspace; repo mirror at `http://localhost/debs/`, BuildKit mirror at `http://localhost/aosc-os/os-amd64/buildkit/` |
+| **Resonance** | 23541 | Loongson 3B-4000 (R4) @ 1.80GHz (LX-2510) | 32GiB | 3748s | _Kexy Biscuit_ | Community crowdsourced; directly connect with `ssh -4p23541 root@home.biscuit.moe`; Scratch disk at `/buildroots`, create own Ciel workspace; repo mirror at `http://localhost/debs/`, BuildKit mirror at `http://localhost/aosc-os/os-amd64/buildkit/` |
 
 ## **ARM** (24001-25000)
 
@@ -83,7 +83,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 | **SiFarce** | ~~26002~~ | SiFive FU740 @ 1.4GHz (SiFive HiFive Unmatched) | 16GiB | - | _Mingcong Bai_ | Scratch disk at `/buildroots`, create own Ciel workspace |
 | **marianne** | 26055 | SiFive FU740 @ 988MHz (SiFive HiFive Unmatched) | 16GiB | 22515s | _Icenowy Zheng_ | Scratch at `/buildroots` is on NBD and needs to be mounted manually by nbd-mount.sh in /root (currently using the `/buildroots` from **lorenz**), behind GFW, a HTTP proxy is available at http://dedue:8118, device sponsored by the PLCT Lab |
 | **leonie** | 26056 | SiFive FU740 @ 988MHz (SiFive HiFive Unmatched) | 16GiB | 22612s | _Icenowy Zheng_ | Scratch at `/buildroots` is on NVMe disk (maybe buggy, investigation needed), behind GFW, a HTTP proxy is available at http://dedue:8118, device sponsored by the PLCT Lab |
-| **greengoo** | 26666 | 63 mysterious rv64imafdcv cores @ ????MHz | 96GiB | 1376s | _Icenowy Zheng_ | TBC |
+| **greengoo** | 26666 | T-Head XuanTie C920 @ 2GHz | 96GiB | 1376s | _Icenowy Zheng_ | TBC |
 
 ## **LoongArch** (27001-28000)
 
