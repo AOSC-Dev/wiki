@@ -76,7 +76,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Note |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **powernv** | ~~25202~~ | IBM POWER9 CPU (4 cores, 16 threads) | 128GiB | 1293s | _Mingcong Bai_ | |
+| **powernv** | 25202 | IBM POWER9 CPU (4 cores, 16 threads) | 128GiB | 1293s | _Mingcong Bai_ | |
 
 ## **RISC-V** (26001-27000)
 
