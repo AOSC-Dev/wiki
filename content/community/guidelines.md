@@ -48,9 +48,9 @@ The rules specified below applies to all AOSC Telegram channels/groups (and thei
 
 ### Hard Rules
 
-1. Discussions of politics, violence, religion, sex, and crime are banned community-wide with one exception - the [Tuosai (托腮)](https://t.me/joinchat/BMnG9zvfjCgZUTIAoycKkg) channel.
+1. Discussions of political, religious, and sexual topics are banned community-wide with one exception - the [Tuosai (托腮)](https://t.me/joinchat/BMnG9zvfjCgZUTIAoycKkg) offtopic channel.
 	- Offenders (including those participating in the topic) will be asked to stop. Repeated offenses will result in a one-time community-wide ban (you may re-enter immediately, but take the hint and stop).
-2. Suicidal topics, discussion of its methods, "live coverage" of your own or others suicide attempts are banned community-wide *with no exception*.
+2. Discussion and instigation of physical harm upon any person are banned community-wide *with no exception*.
 	- Offenders (including those participating in the topic) will be *immediately* subjected to a one-time community-wide ban (you may re-enter immediately, but take the hint and stop).
 3. Aggravated verbal abuse and humiliation of the members or their implied relatives are banned community-wide *with no exception*.
 	- This does not include occasionally used profanities, or those used jokingly or to strengthen the tone - however, if anyone were to be annoyed, stop.
