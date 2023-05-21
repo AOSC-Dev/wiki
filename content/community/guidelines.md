@@ -41,6 +41,7 @@ The guidelines are further grouped into "Hard Rules" and "Soft Rules":
 - Hard Rules are specified that *all* members of the community must comply, and failure to comply will result in penalties (specified under each categories).
 	- Admins who fails to comply will be stripped of their title immediately, and (at the same time) penalised with the same severity.
 - Soft Rules are specified as guidelines, and are only *suggestions* with the hope to maintain civilised, productive, and fun conversations. Failure to adhere to these Soft Rules will only make you increasingly unwelcomed, so keep that in mind.
+- Group administrators reserve all rights to the final interpretation of the rules outlined below.
 
 ## Community Wide
 
