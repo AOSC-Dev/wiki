@@ -1,0 +1,112 @@
+\usepackage{xeCJK,xeCJKfntef}
+\usepackage{calc,fontspec,listings,tcolorbox,paralist,enumitem,makecmds}
+\usepackage{graphicx,eso-pic,datetime2}
+
+% ============================================
+% Adjust fonts here...
+% ============================================
+\setmainfont{Noto Serif}
+\setromanfont{Noto Serif}
+\setsansfont{Inter}
+\setmonofont{JetBrains Mono NL}
+
+\setCJKmainfont{Noto Serif CJK SC}
+\setCJKromanfont{Noto Serif CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Noto Sans CJK SC}
+
+
+% ============================================
+% Style settings
+% ============================================
+\frenchspacing
+\linespread{1.21}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=cyan,
+    citecolor=magenta,
+}
+
+
+
+
+% ============================================
+% Fix the "too deeply nested" error
+% ============================================
+\setlistdepth{9}
+\setlist[itemize,1]{label=$\bullet$}
+\setlist[itemize,2]{label=$\bullet$}
+\setlist[itemize,3]{label=$\bullet$}
+\setlist[itemize,4]{label=$\bullet$}
+\setlist[itemize,5]{label=$\bullet$}
+\setlist[itemize,6]{label=$\bullet$}
+\setlist[itemize,7]{label=$\bullet$}
+\setlist[itemize,8]{label=$\bullet$}
+\setlist[itemize,9]{label=$\bullet$}
+\renewlist{itemize}{itemize}{9}
+
+\setlist[enumerate,1]{label=$\arabic*.$}
+\setlist[enumerate,2]{label=$\alph*.$}
+\setlist[enumerate,3]{label=$\roman*.$}
+\setlist[enumerate,4]{label=$\arabic*.$}
+\setlist[enumerate,5]{label=$\alpha*$}
+\setlist[enumerate,6]{label=$\roman*.$}
+\setlist[enumerate,7]{label=$\arabic*.$}
+\setlist[enumerate,8]{label=$\alph*.$}
+\setlist[enumerate,9]{label=$\roman*.$}
+\renewlist{enumerate}{enumerate}{9}
+
+
+% ============================================
+% Overwrite some default commands
+% ============================================
+\makeatletter
+\renewcommand{\maketitle}[0]{
+    \parbox{\linewidth}{
+        \sffamily\raggedright
+        \includegraphics[width=18mm]{./static/img/aosc.png}\par\vskip 15pt
+        \large
+        \bfseries AOSC Wiki\par\vskip 8pt
+        \bfseries
+        \LARGE\@title\par\vskip 15pt
+        \small\mdseries\copyright~AOSC Contributors (License: CC BY 4.0) \hfill Last build: \today
+    }\par
+    \vskip 18pt
+    \hrule
+    \vskip 36pt
+}
+\makeatother
+
+\let\oldstdhref\href
+\renewcommand{\href}[2]{\oldstdhref{#1}{\textcolor{blue!80!green!90!black}{\CJKunderline{#2}}}}
+
+\let\oldstdtableofcontents\tableofcontents
+\renewcommand{\tableofcontents}[0]{\oldstdtableofcontents\vfill\clearpage}
+
+
+
+
+
+
+
+
+
+
+
+
+
+% ============================================
+% <pre> and <code>
+% ============================================
+\makeatletter
+\renewcommand{\texttt}[1]{%
+    \mbox{\textcolor{black!18!red}{\ttfamily#1}}%
+}
+\provideenvironment{Shaded}{}{}
+\renewenvironment{Shaded}{\begingroup\footnotesize\begin{tcolorbox}[colback=white!96!black,colframe=black!40!white,boxrule=0.6pt,arc=2.5pt,top=4pt,bottom=4pt,left=4pt,right=4pt]}{\end{tcolorbox}\endgroup}
+\makeatother
