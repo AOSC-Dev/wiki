@@ -92,6 +92,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 | Name | Port | CPU | Memory | Speed | Maintainer | Note |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **Yukoaioi** | ~~27001~~ | Quad core @ 2.50GHz (Loongson 3A5000) | 16GiB | - | _Mag Mell_ | Direct access with `ssh -p9876 root@athome.miraclemilk.me` |
+| **Stomatopoda** | 27863 | 16x LA464 cores @ 2.20GHz (Loongson 3C5000) | 32GiB | 1376s (with LLVM 16.0.4) | _Loongson Technology (Wuhan)_ | Direct access with `ssh -p2222 root@211.137.78.121` |
 
 ## **Emulation Hosts** (28001-29000)
 
