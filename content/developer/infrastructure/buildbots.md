@@ -36,7 +36,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 - Port number of your choice, correspondent to the device's architecture;
 - Shell access for Kexy Biscuit for Relay configuration.
 
-# List of Buildbots
+# List of buildbots
 
 {% card(type="info") %}
 - `port_number - 10000` is occupied by that machine. See information above.
@@ -94,7 +94,8 @@ If you would like contribute your device to AOSC, please make sure your device h
 | **Taple** | 28002 | AMD Ryzen R5 5500 @ 3.9 - 4.4GHz | 32GiB | 726s | _Lain Yang_ | Local mirror at http://localhost/debs |
 | **PorterAlePro** | 28003 | AMD Ryzen 9 3950X @ 3.50 - 4.70GHz | 64GiB | 313s | _Mingcong Bai_ | |
 
-## **Archived Hosts**
+# List of archived buildbots
+
 | Name | Port | CPU | Memory | Speed | Maintainer | Note |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **Zinfandel** | ~~24222~~ | 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (Apple M1 chip) | 16GiB | - | _Salted Fish_ | Local mirror: http://pit.aosc.saltedfi.sh/mirror/aosc/debs |
