@@ -100,8 +100,8 @@ If you would like contribute your device to AOSC, please make sure your device h
 | **Zinfandel** | ~~24222~~ | 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (Apple M1 chip) | 16GiB | - | _Salted Fish_ | Local mirror: http://pit.aosc.saltedfi.sh/mirror/aosc/debs |
 | **Mio** | ~~24242~~ | 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (Apple M1 chip) | 16GiB | - | _Mag Mell_ | Direct access with `ssh -p8765 root@athome.miraclemilk.me`; local mirror: http://192.168.100.240:2345/debs |
 | **JellyXavier** | ~~24444~~ | 4 x dual core NVIDIA Carmel CPU clusters @ 2.26GHz (NVIDIA Jetson AGX Xavier Developer Kit) | 16GiB | - |  _Mingcong Bai_ | |
-| **JellyPhy** | 24451 | 8-Core Phytium D2000 @ 2.30GHz | 32GiB | 2589s | _Mingcong Bai_ | |
+| **JellyPhy** | ~~24451~~ | 8-Core Phytium D2000 @ 2.30GHz | 32GiB | 2589s | _Mingcong Bai_ | |
 | **Kirin** | ~~PENDING~~ | HUAWEI Kirin 9006C (8) (1 * Cortex-A77 @ 3.13GHz + 3 * Cortex-A77 @ 2.54GHz + 4x Cortex-A55@2.05GHz) | 8GiB | 1826s | _Rick Liu_ | Direct access with `ssh -p8038 root@nkg.rickliu.im` |
 | **SiFarce** | ~~26002~~ | SiFive FU740 @ 1.4GHz (SiFive HiFive Unmatched) | 16GiB | - | _Mingcong Bai_ | |
 | **Yukoaioi** | ~~27001~~ | Quad core @ 2.50GHz (Loongson 3A5000) | 16GiB | - | _Mag Mell_ | Direct access with `ssh -p9876 root@athome.miraclemilk.me` |
-| **PorterAle** | 28001 | Intel i7-8700T @ 2.40 - 4.00GHz | 16GiB | 996s | _MingcongBai_ | |
+| **PorterAle** | ~~28001~~ | Intel i7-8700T @ 2.40 - 4.00GHz | 16GiB | 996s | _MingcongBai_ | |
