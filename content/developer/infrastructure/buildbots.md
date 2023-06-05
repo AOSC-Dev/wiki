@@ -96,6 +96,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 
 ## **Archived Hosts**
 | Name | Port | CPU | Memory | Speed | Maintainer | Note |
+|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **Zinfandel** | ~~24222~~ | 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (Apple M1 chip) | 16GiB | - | _Salted Fish_ | Local mirror: http://pit.aosc.saltedfi.sh/mirror/aosc/debs |
 | **Mio** | ~~24242~~ | 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (Apple M1 chip) | 16GiB | - | _Mag Mell_ | Direct access with `ssh -p8765 root@athome.miraclemilk.me`; local mirror: http://192.168.100.240:2345/debs |
 | **JellyXavier** | ~~24444~~ | 4 x dual core NVIDIA Carmel CPU clusters @ 2.26GHz (NVIDIA Jetson AGX Xavier Developer Kit) | 16GiB | - |  _Mingcong Bai_ | |
