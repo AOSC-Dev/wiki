@@ -1,5 +1,5 @@
 +++
-title = "[筹款中] 为 LoongArch 构建服务器购买 Intel 750 SSD"
+title = "[众筹成功] 为 LoongArch 构建服务器购买 Intel 750 SSD"
 draft = false
 +++
 

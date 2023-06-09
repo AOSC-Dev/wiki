@@ -1,5 +1,5 @@
 +++
-title = "[IN PROGRESS] Intel 750 SSD for LoongArch Build Server"
+title = "[COMPLETED] Intel 750 SSD for LoongArch Build Server"
 draft = false
 +++
 
