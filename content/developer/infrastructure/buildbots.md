@@ -79,7 +79,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **marianne** | 26055 | SiFive FU740 @ 988MHz (SiFive HiFive Unmatched) | 16GiB | 22515s | _Icenowy Zheng_ | Scratch needs to be mounted manually by nbd-mount.sh in /root (currently using the scratch disk from **lorenz**); behind GFW, a HTTP proxy is available at http://dedue:8118, device sponsored by the PLCT Lab |
 | **leonie** | 26056 | SiFive FU740 @ 988MHz (SiFive HiFive Unmatched) | 16GiB | 22612s | _Icenowy Zheng_ | Scratch is on NVMe disk ,maybe buggy, investigation needed; behind GFW, a HTTP proxy is available at http://dedue:8118, device sponsored by the PLCT Lab |
-| **greengoo** | 26666 | T-Head XuanTie C920 @ 2GHz | 96GiB | 1376s | _Icenowy Zheng_ | TBC |
+| **GreenGoo** | 26666 | T-Head XuanTie C920 @ 2GHz | 96GiB | 1376s | _Icenowy Zheng_ | TBC |
 
 ## **LoongArch** (27001-28000)
 
