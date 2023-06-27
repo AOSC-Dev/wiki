@@ -34,7 +34,7 @@ AOSC OS/Retro 是 AOSC OS 的一个分支，而不是 AOSC OS 的派生版本，
 
 - 软件包树：[aosc-os-abbs](https://github.com/AOSC-Dev/aosc-os-abbs) 的 [`retro`](https://github.com/AOSC-Dev/aosc-os-abbs/tree/retro) 分支。
   - 这意味着 AOSC OS/Retro 会使用 systemd 作为初始化系统。事实上我们曾在一台搭载 Intel Pentium 75MHz 处理器，有着 16MiB RAM 和 810MiB HDD 的 Toshiba T4900CT 上做过测试，systemd 确实能良好地工作。
-- AOSC OS Core 是被共享的，但只有适用于 AOSC OS/Retro 的更新会被同步到 `retro` 分支。详见 [维护计划](#维护计划).
+- AOSC OS Core 是被共享的，但只有适用于 AOSC OS/Retro 的更新会被同步到 `retro` 分支。详见 [维护计划](#wei-hu-ji-hua).
 - 打包工具和维护工具：
   - [Autobuild3](https://github.com/AOSC-Dev/autobuild3)，用于运行构建脚本。
   - [ACBS](https://github.com/AOSC-Dev/acbs)，用于软件包树管理和打包。
