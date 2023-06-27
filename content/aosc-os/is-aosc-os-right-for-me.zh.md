@@ -7,7 +7,7 @@ tags = ["sys-info"]
 +++
 
 {% card(type="info") %}
-本文介绍的是 AOSC OS 主线发行，AOSC OS/Retro 发行的某些设计特性和主线略有不同。欲知关于 AOSC OS/Retro 发行的详情，请参阅 [AOSC OS/Retro 用户及开发者入门](@/aosc-os/retro/intro.md)。
+本文介绍的是 AOSC OS 主线发行，AOSC OS/Retro 发行的某些设计特性和主线略有不同。欲知关于 AOSC OS/Retro 发行的详情，请参阅 [AOSC OS/Retro 用户及开发者入门](@/aosc-os/retro/intro.zh.md)。
 {% end %}
 
 # AOSC OS？
