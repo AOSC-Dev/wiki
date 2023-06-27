@@ -10,7 +10,7 @@ AOSC OS 是社区的主要项目。它是一个遵循简约、本地化、包容
 - [AOSC OS 及 AOSC OS/Retro 架构支持表](@/aosc-os/information/arch-support.md)
 - [安装指南](@/aosc-os/installation/_index.md)
 
-想为您的旧式设备或低性能设备寻找一个合适的发行版？试试我们的 [AOSC/Retro](@/aosc-os/retro/intro.md) 项目吧，我们正致力于为这些设备提供稳定流畅而不失现代的使用体验。
+想为您的旧式设备或低性能设备寻找一个合适的发行版？试试我们的 [AOSC OS/Retro](@/aosc-os/retro/intro.md) 项目吧，我们正致力于为这些设备提供稳定流畅而不失现代的使用体验。
 
 其它的一些实用链接和资源：
 
