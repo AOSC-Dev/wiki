@@ -1,5 +1,5 @@
 +++
-title = "[众筹中] AOSCC 2023 会务款项"
+title = "[众筹成功] AOSCC 2023 会务款项"
 draft = false
 +++
 

@@ -1,5 +1,5 @@
 +++
-title = "[IN PROGRESS] AOSCC 2023 Budgets"
+title = "[COMPLETE] AOSCC 2023 Budgets"
 draft = false
 +++
 
