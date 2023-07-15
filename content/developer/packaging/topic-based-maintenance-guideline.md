@@ -1,6 +1,6 @@
 +++
 title = "AOSC OS Topic-Based Maintenance Guidelines"
-description = "General Procedural Guidlelines for AOSC OS Package Maintenance"
+description = "General Procedural Guidelines for AOSC OS Package Maintenance"
 date = 2020-05-04T03:35:53.850Z
 [taxonomies]
 tags = ["dev-sys"]
