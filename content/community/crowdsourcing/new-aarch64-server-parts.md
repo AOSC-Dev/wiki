@@ -1,5 +1,5 @@
 +++
-title = "[CROWDSOURCING] Parts for New AArch64 Build Servers"
+title = "[COMPLETE] Parts for New AArch64 Build Servers"
 +++
 
 We plan to deploy two new AArch64 servers donated by friends of the community. However, these servers needs additional components before deployment, this crowdsourcing project will reimburse purchases already made for these servers.
