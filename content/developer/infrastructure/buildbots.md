@@ -63,7 +63,6 @@ If you would like contribute your device to AOSC, please make sure your device h
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Note |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **Maple** | 24191 | Snapdragon 8cx Gen 3 (8) (4 * Cortex-X1 @ 3.00GHz + 4 * Cortex-A78 @ 2.40GHz) | 16GiB | 1098s | _Canarypwn_ | |
 | **kp920** | 24426 | 2 * 48-Core Huawei Kunpeng 920 @ 2.60GHz (Huawei Taishan 2280 v2; 94 cores allocated) | 192GiB (145GiB allocated) | 439s | _Undisclosed_ | Direct access with `ssh -4p2223 root@kp920.ip4.run` |
 | **eleventh** | 24808 | 8-Core Huawei Kunpeng 920 @ 2.40GHz | 16GiB | 1582s | _Undisclosed_ | Direct access with `ssh -oProxyJump=aosc-build@hw-hk.innull.com:20022 root@192.168.1.11` |
 
@@ -77,8 +76,6 @@ If you would like contribute your device to AOSC, please make sure your device h
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Note |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **marianne** | 26055 | SiFive FU740 @ 988MHz (SiFive HiFive Unmatched) | 16GiB | 22515s | _Icenowy Zheng_ | Scratch needs to be mounted manually by nbd-mount.sh in /root (currently using the scratch disk from **lorenz**); behind GFW, a HTTP proxy is available at http://dedue:8118, device sponsored by the PLCT Lab |
-| **leonie** | 26056 | SiFive FU740 @ 988MHz (SiFive HiFive Unmatched) | 16GiB | 22612s | _Icenowy Zheng_ | Scratch is on NVMe disk ,maybe buggy, investigation needed; behind GFW, a HTTP proxy is available at http://dedue:8118, device sponsored by the PLCT Lab |
 | **GreenGoo** | 26666 | T-Head XuanTie C920 @ 2GHz | 96GiB | 1376s | _Icenowy Zheng_ | TBC |
 
 ## **LoongArch** (27001-28000)
@@ -94,15 +91,18 @@ If you would like contribute your device to AOSC, please make sure your device h
 | **Taple** | 28002 | AMD Ryzen R5 5500 @ 3.9 - 4.4GHz | 32GiB | 726s | _Lain Yang_ | Local mirror at http://localhost/debs |
 | **PorterAlePro** | 28003 | AMD Ryzen 9 3950X @ 3.50 - 4.70GHz | 64GiB | 313s | _Mingcong Bai_ | |
 
-# List of archived buildbots
+# List of archived buildbots (not an exhaustive list)
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Note |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
+| **Maple** | ~~24191~~ | Snapdragon 8cx Gen 3 (8) (4 * Cortex-X1 @ 3.00GHz + 4 * Cortex-A78 @ 2.40GHz) | 16GiB | 1098s | _Canarypwn_ | |
 | **Zinfandel** | ~~24222~~ | 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (Apple M1 chip) | 16GiB | - | _Salted Fish_ | Local mirror: http://pit.aosc.saltedfi.sh/mirror/aosc/debs |
 | **Mio** | ~~24242~~ | 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (Apple M1 chip) | 16GiB | - | _Mag Mell_ | Direct access with `ssh -p8765 root@athome.miraclemilk.me`; local mirror: http://192.168.100.240:2345/debs |
 | **JellyXavier** | ~~24444~~ | 4 x dual core NVIDIA Carmel CPU clusters @ 2.26GHz (NVIDIA Jetson AGX Xavier Developer Kit) | 16GiB | - |  _Mingcong Bai_ | |
 | **JellyPhy** | ~~24451~~ | 8-Core Phytium D2000 @ 2.30GHz | 32GiB | 2589s | _Mingcong Bai_ | |
 | **Kirin** | ~~PENDING~~ | HUAWEI Kirin 9006C (8) (1 * Cortex-A77 @ 3.13GHz + 3 * Cortex-A77 @ 2.54GHz + 4x Cortex-A55@2.05GHz) | 8GiB | 1826s | _Rick Liu_ | Direct access with `ssh -p8038 root@nkg.rickliu.im` |
 | **SiFarce** | ~~26002~~ | SiFive FU740 @ 1.4GHz (SiFive HiFive Unmatched) | 16GiB | - | _Mingcong Bai_ | |
+| **marianne** | ~~26055~~ | SiFive FU740 @ 988MHz (SiFive HiFive Unmatched) | 16GiB | 22515s | _Icenowy Zheng_ | Scratch needs to be mounted manually by nbd-mount.sh in /root (currently using the scratch disk from **lorenz**); behind GFW, a HTTP proxy is available at http://dedue:8118, device sponsored by the PLCT Lab |
+| **leonie** | ~~26056~~ | SiFive FU740 @ 988MHz (SiFive HiFive Unmatched) | 16GiB | 22612s | _Icenowy Zheng_ | Scratch is on NVMe disk ,maybe buggy, investigation needed; behind GFW, a HTTP proxy is available at http://dedue:8118, device sponsored by the PLCT Lab |
 | **Yukoaioi** | ~~27001~~ | Quad core @ 2.50GHz (Loongson 3A5000) | 16GiB | - | _Mag Mell_ | Direct access with `ssh -p9876 root@athome.miraclemilk.me` |
 | **PorterAle** | ~~28001~~ | Intel i7-8700T @ 2.40 - 4.00GHz | 16GiB | 996s | _MingcongBai_ | |
