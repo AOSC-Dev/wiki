@@ -100,3 +100,24 @@ Version: 1.0
 | ×    | Installer log/status indication has poor readability. | 
 | ×    | Bad line-wrap for desktop icons. | 
 | ×    | Application menu is sometimes unresponsive. | 
+
+# Solus Budgie
+
+Date of Review: 20230827
+Version: 4.4
+
+| Type | Remark                                                                             |
+|------|------------------------------------------------------------------------------------|
+| ✓    | Keyboard layout tester integrated in the installer. |
+| ✓    | Provides Steam native runtime. |
+| ?    | Opt-in location services to detect timezone and locale defaults. |
+| ?    | Option to create multiple users from the installer. |
+| ?    | GRUB menu hidden by default. |
+| ×    | Language settings does nothing to the installer interface. |
+| ×    | No slideshow during installation (the UI looked broken). |
+| ×    | Desktop unresponsive to drag and select events. |
+| ×    | No highlighting for selected icons (also opens on single click). |
+| ×    | No translation for application categories. |
+| ×    | Language packs not installed by default for Firefox and Thunderbird. |
+| ×    | Searching for "terminal" in the application menu did not show Terminal as a candidate. |
+| ×    | System update compulsory when installing a package. |
