@@ -9,11 +9,11 @@ tags = ["minutes"]
 # Legend
 
 Below are the symbols used to denote different types of notes taken during
-distribution reviews, aggregated in tables in the following sections. | 
+distribution reviews, aggregated in tables in the following sections.
 
-- ✓ : Good feature(s) planned for implementation in AOSC OS. | 
-- ? : Questionable feature(s), further discussion needed. | 
-- × : Anti-feature(s), flaw(s), and bad decision(s) to not repeat in AOSC OS. | 
+- ✓ : Good feature(s) planned for implementation in AOSC OS.
+- ? : Questionable feature(s), further discussion needed.
+- × : Anti-feature(s), flaw(s), and bad decision(s) to not repeat in AOSC OS.
 
 # openEuler Community Edition
 
