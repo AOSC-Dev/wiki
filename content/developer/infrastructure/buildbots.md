@@ -97,7 +97,9 @@ If you would like contribute your device to AOSC, please make sure your device h
 | **Taple** | 28002 | AMD Ryzen R5 5500 @ 3.9 - 4.4GHz | 32GiB | 726s | _Lain Yang_ | Local mirror at http://localhost/debs |
 | **PorterAlePro** | 28003 | AMD Ryzen 9 3950X @ 3.50 - 4.70GHz | 64GiB | 313s | _Mingcong Bai_ | |
 
-# List of archived buildbots (not an exhaustive list)
+# List of archived buildbots
+
+Please note that the following is not an exhaustive list.
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Note |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
