@@ -22,13 +22,19 @@ AOSC buildbots are all connected to our central relay nodes (`relay.aosc.io` and
 - **LoongArch**: 27001-28000
 - **Emulation hosts**: 28001-29000
 
-Between the relay and the buildbots, [Popub](https://github.com/m13253/popub) is used to forward your SSH port to our relay server. For usage of Popub, please read their README.
+## Before You Start
 
-Each buildbot is allocated 2 ports; the smaller one is for connection between your machine and the relay, and the larger one is for outside connections to the relay. For example, the AMD64 buildbot _Yerus_ is using 12333 and 22333, where _Yerus_ forwards its SSH port using `popub-local` to 12333 on the relay, and the relay exposes this port to the outside on port 22333.
+1. You are *not* to use these community Buildbots for personal purposes, *nor* to resell them.
+2. *Do not* alter terminal sessions or files in others' workspaces.
+3. You *must* inform contributors and infrastructure administrators regarding any changes to the host system, network configuration, or hardware.
+
+## Signing In
 
 Submit your public keys for authentication at the [dev-pubkeys](https://github.com/AOSC-Dev/dev-pubkeys) repository, then view [Buildbots](https://github.com/AOSC-Dev/Buildbots) on GitHub for connection infomation.
 
 For most buildbots, scratch disk is at `/buildroots`, create your own Ciel workspace there, and don't forget to clean it up after finishing your work, storage space isn't infinite unfortunately.
+
+## Contributing a Buildbot
 
 If you would like contribute your device to AOSC, please make sure your device has a usable [Ciel 3](https://github.com/AOSC-Dev/ciel-rs) installation, and contact Kexy Biscuit <kexybiscuit@aosc.io> by [Telegram (preferred)](https://t.me/KexyBiscuit) or [email](mailto:kexybiscuit@aosc.io), providing:
 
@@ -36,7 +42,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 - Port number of your choice, correspondent to the device's architecture;
 - Shell access for Kexy Biscuit for Relay configuration.
 
-# List of buildbots
+# List of Buildbots
 
 {% card(type="info") %}
 - `port_number - 10000` is occupied by that machine. See information above.
@@ -106,3 +112,11 @@ If you would like contribute your device to AOSC, please make sure your device h
 | **leonie** | ~~26056~~ | SiFive FU740 @ 988MHz (SiFive HiFive Unmatched) | 16GiB | 22612s | _Icenowy Zheng_ | Scratch is on NVMe disk ,maybe buggy, investigation needed; behind GFW, a HTTP proxy is available at http://dedue:8118, device sponsored by the PLCT Lab |
 | **Yukoaioi** | ~~27001~~ | Quad core @ 2.50GHz (Loongson 3A5000) | 16GiB | - | _Mag Mell_ | Direct access with `ssh -p9876 root@athome.miraclemilk.me` |
 | **PorterAle** | ~~28001~~ | Intel i7-8700T @ 2.40 - 4.00GHz | 16GiB | 996s | _MingcongBai_ | |
+
+# Maintainer Notes
+
+## Popub
+
+Between the relay and the buildbots, [Popub](https://github.com/m13253/popub) is used to forward your SSH port to our relay server. For usage of Popub, please read their README.
+
+Each buildbot is allocated 2 ports; the smaller one is for connection between your machine and the relay, and the larger one is for outside connections to the relay. For example, the AMD64 buildbot _Yerus_ is using 12333 and 22333, where _Yerus_ forwards its SSH port using `popub-local` to 12333 on the relay, and the relay exposes this port to the outside on port 22333.
