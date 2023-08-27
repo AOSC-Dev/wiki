@@ -42,6 +42,6 @@ On-going effort to automate AOSC OS maintenance and quality assurance
 {% end %}
 
 {% section(name="Infrastructure") %}
-[BuildBots](/developer/infrastructure/buildbots/)
+[Buildbots](/developer/infrastructure/buildbots/)
 Public Build Servers for AOSC OS Maintainers
 {% end %}
