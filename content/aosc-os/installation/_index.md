@@ -9,7 +9,7 @@ is suitable for your device.
 LiveKit Installation
 ====================
 
-For the majority of x86-, PowerPC-, OpenPOWER- and Loonson-based desktop
+For the majority of x86-, PowerPC-, OpenPOWER- and Loongson-based desktop
 devices, as well as some AArch64-based devices, AOSC OS and AOSC OS/Retro
 could be easily installed with LiveKit. For details on how to make use of
 LiveKit, please refer to the following page for details.
