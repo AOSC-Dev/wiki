@@ -1,15 +1,15 @@
 +++
-title = "Development on Autobuild3 Testing Framework"
-description = "Document and implementation of a test script and the testing framework itself"
+title = "Autobuild3 Testing Framework: Design and Implementation"
+description = "Document on maintaining autobuild3 testing framework and implementing new testing templates"
 +++
 
-This wiki page is for autobuild3 developers and packagers who wants to write their own test scripts. Make sure you have read the [package testing guide](@/developer/packaging/package-testing-guide.md) before reading this.
+This wiki page is for autobuild3 developers, especially new testing template maintainers. Make sure you have read the [package testing guide](@/developer/packaging/package-testing-guide.md) before reading this.
 
 # The framework
 
 The autobuild3 testing framework consists of these parts:
 
-- Scanners, which reads `TESTS` variable and all of the test specification file for analysis.
+- Scanners, which reads `TESTS` variable and all of the test specification file for the main autobuild3 process.
 - Anchors, scripts under `procs/` that calls the actual test.
 - Executors, which are sets of script that provides the abstraction mentioned in the package testing guide.
 - Test scripts, pre-defined scripts for reuse on well-known test suites.
