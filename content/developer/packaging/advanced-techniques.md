@@ -100,6 +100,18 @@ But sometimes, sources may come in different strip levels, for instance, this pa
 
 In this case, you would need to write your own `autobuild/patch`, which is also a plain Bash script, call your own `patch` commands from the script.
 
+## Enable Tests
+
+Autobuild3 provides testing functionalities.
+
+For some `ABTYPE`s, tests will be automatically enabled, to disable this feature, use `ABTEST_AUTO_DETECT=no`.
+
+If the build system is not supported by default templates, you can always write your own `autobuild/check` script.
+
+```bash
+make -C $BLDDIR -k check
+```
+
 # Dealing with Package Groups
 
 When maintaining packages, it is common that a batch of packages (for example, KDE Applications) need to be updated and/or built together. It would be frustrating if we have to manually change the version number and checksum.
