@@ -54,44 +54,44 @@ If you would like contribute your device to AOSC, please make sure your device h
 
 ## **AMD64** (22001 - 23000)
 
-| Name | Port | CPU | Memory | Speed | Maintainer | Note |
+| Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|---------|-----------|
 | **Yerus** | 22333 | AMD EPYC 7H12 @ 2.6 - 3.3GHz | 1TiB | 173s | _Jiangjin Wang_ | |
 
 ## **MIPS** (23001-24000)
 
-| Name | Port | CPU | Memory | Speed |Maintainer | Note |
+| Name | Port | CPU | Memory | Speed |Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **Resonance** | 23541 | Loongson 3B-4000 (R4) @ 1.80GHz (LX-2510) | 32GiB | 3748s | _Kexy Biscuit_ | Community crowdsourced; direct access with `ssh -4p23541 root@home.biscuit.moe`; repo mirror at `http://localhost/debs/`, BuildKit mirror at `http://localhost/aosc-os/os-amd64/buildkit/` |
 
 ## **ARM** (24001-25000)
 
-| Name | Port | CPU | Memory | Speed | Maintainer | Note |
+| Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **kp920** | 24426 | 2 * 48-Core Huawei Kunpeng 920 @ 2.60GHz (Huawei Taishan 2280 v2; 94 cores allocated) | 192GiB (145GiB allocated) | 439s | _Undisclosed_ | Direct access with `ssh -4p2223 root@kp920.ip4.run` |
 | **eleventh** | 24808 | 8-Core Huawei Kunpeng 920 @ 2.40GHz | 16GiB | 1582s | _Undisclosed_ | Direct access with `ssh -oProxyJump=aosc-build@hw-hk.innull.com:20022 root@192.168.1.11` |
 
 ## **PowerPC** (25001-26000)
 
-| Name | Port | CPU | Memory | Speed | Maintainer | Note |
+| Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **PowerNV** | 25202 | IBM POWER9 CPU (3 cores, 12 threads) | 36GiB | 1293s | _Mingcong Bai_ | |
 
 ## **RISC-V** (26001-27000)
 
-| Name | Port | CPU | Memory | Speed | Maintainer | Note |
+| Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **GreenGoo** | 26666 | T-Head XuanTie C920 @ 2GHz | 96GiB | 1376s | _Icenowy Zheng_ | TBC |
 
 ## **LoongArch** (27001-28000)
 
-| Name | Port | CPU | Memory | Speed | Maintainer | Note |
+| Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **Stomatopoda** | 27863 | 16x LA464 cores @ 2.20GHz (Loongson 3C5000) | 32GiB | 1376s (with LLVM 16.0.4) | _Loongson Technology (Wuhan)_ | Direct access with `ssh -p2222 root@211.137.78.121` |
 
 ## **Emulation Hosts** (28001-29000)
 
-| Name | Port | CPU | Memory | Speed | Maintainer | Note |
+| Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **Taple** | 28002 | AMD Ryzen R5 5500 @ 3.9 - 4.4GHz | 32GiB | 726s | _Lain Yang_ | Local mirror at http://localhost/debs |
 | **PorterAlePro** | 28003 | AMD Ryzen 9 3950X @ 3.50 - 4.70GHz | 64GiB | 313s | _Mingcong Bai_ | |
@@ -100,7 +100,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 
 Please note that the following is not an exhaustive list.
 
-| Name | Port | CPU | Memory | Speed | Maintainer | Note |
+| Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **JellyShrimp** | ~23869~ | Loongson 3A-4000 (R4) @ 1.80GHz (A1901) | 16GiB | 5604s | _Mingcong Bai_ | |
 | **Maple** | ~~24191~~ | Snapdragon 8cx Gen 3 (8) (4 * Cortex-X1 @ 3.00GHz + 4 * Cortex-A78 @ 2.40GHz) | 16GiB | 1098s | _Canarypwn_ | |
