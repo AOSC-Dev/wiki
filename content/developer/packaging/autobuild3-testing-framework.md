@@ -7,7 +7,7 @@ description = "Advanced usage of autobuild3 testing framework and its internal i
 
 Proper package testing is an important and necessary way to assure the package quality. Testing, in this case, involves upstream provided tests (includes unit tests and integration tests) and the system tests (which should be implemented by packagers or other AOSC maintainers).
 
-Most of the tests can be done in the packaging building process, in this case, the Autobuild3. The audience of this article is packagers who want to use the package testing framework in Autobuild3. Before continue, make sure you have read the brief introduction in [advanced techniques](@/developer/packaging/advanced-techniques.md)
+Most of the tests can be done in the packaging building process, in this case, the Autobuild3. The audience of this article is packagers who want to use the package testing framework in Autobuild3. Before continue, make sure you have read the brief introduction in [advanced techniques](@/developer/packaging/advanced-techniques.md).
 
 # Specifications
 
@@ -41,7 +41,7 @@ Packagers can specify some basic properties in `defines`. To disable the automat
 
 ## Execution environments
 
-*Execution environment* are environments for running the tests. A executor is an abstraction with:
+*Execution environment* are environments for running the tests. A such environement is an abstraction with:
 
 - A working AOSC OS, with systemd running
 - Same architecture with the package
@@ -51,7 +51,7 @@ Packagers can specify some basic properties in `defines`. To disable the automat
 - pipes connected to the autobuild3's stdout and stderr for log output
 - a result report method via temporary file
 
-Some example executors are:
+List of execution environments:
 - `plain`: the default one, just run it in a subshell, enough for most packages
 - `sd-run`: systemd-run in current environment, that provides resource controls, permission limitations and time limits
 - `qemu`: for kernel related tests or other operation that requires privileges that may break the host environment (not implemented yet)
@@ -87,7 +87,7 @@ autobuild/
 
 Except for the automatically generated test, tests should have their properties placed in the test specification file.
 
-### `TESTDESC`
+### `TESTDES`
 
 A human readable short description of the test. Optional but strongly recommended.
 
@@ -103,7 +103,7 @@ The execution environment name. Defaults to `"plain"`.
 
 The test type. Required.
 
-### Executor dependent metadata
+### Execution wrapper metadata
 
 - qemu
     - QEMUEXEC_MEMORY
@@ -116,7 +116,7 @@ The test type. Required.
 
 - custom
     - CUSTOM_IS_BASHSCRIPT  # controls source or fork-then-exec
-    - CUSTOM_SCRIPT         # absolute location of the script, prefixes such as $SRCDIR should be used
+    - CUSTOM_SCRIPT         # absolute location of the script, prefixes it with $SRCDIR is recommended
     - CUSTOM_ARGS           # extra arguments for the script
     - CUSTOM_STAGE          # anchors to be used
 
@@ -126,25 +126,23 @@ The autobuild3 testing framework consists of these parts:
 
 - Scanners, which reads `TESTS` variable and all of the test specification file for the main autobuild3 process.
 - Anchors, scripts under `procs/` that calls the actual test.
-- Execution wrappers, which are sets of script that provides the abstraction mentioned in the package testing guide.
-- Test scripts, pre-defined scripts for reuse on well-known test suites.
+- Execution wrappers, which are sets of script that provides the abstraction mentioned above.
+- Test scripts, pre-defined scripts for reuse on well-known test suites, also known as testing templates.
 - Collectors, which collects test result report and generates `X-AOSC-Autobuild-` prefixed dpkg metadata based on test results.
 
 ## Scanner
 
 Autobuild3 will read the `ABTESTS` variable in `defines`. For each test name in `ABTESTS`, create a bash sub-shell that sources the test specification file. The sub-shell will output needed variables to its stdout. Then the main process can read the output, so that each test's main properties will be known by the main process. These variables should be named as `ABTEST_${TEST_NAME}_${VARIABLE_NAME}`.
 
-Note: A source operation is required to correctly expand variable names.
-
 Involves `proc/10-tests_scan.sh` and `lib/tests.sh`.
 
 ## Anchors
 
-Tests may run at different stage of the building process. Most likely we'd run tests in post-build stage. In custom tests, we will use `CUSTOM_STAGE` for specifying this. Anchor scripts are placed in the `proc/` directory like other build procedures, they invokes corresponding executors and test scripts accordingly.
+Tests may run at different stage of the building process. Most likely we'd run tests in post-build stage. In custom tests, we will use `CUSTOM_STAGE` for specifying this. Anchor scripts are placed in the `proc/` directory like other build procedures, they invokes corresponding execution environment and test scripts accordingly.
 
-Note: Do not be confused by the stage2 building flavor, which is just for minimum building environment setup.
+Note: Naming it "stage" here is probably a bad idea. Do not be confused by the stage2 building flavor, which is just for minimum building environment setup. 
 
-Involves `proc/51-tests_post-build.sh`, `proc/92-tests_post_install.sh` and `lib/tests.sh#abtest_run`
+Involves `proc/51-tests_post-build.sh`, `proc/92-tests_post_install.sh` and `lib/tests.sh#abtest_run`.
 
 ## Execution wrappers
 
@@ -156,14 +154,12 @@ The autobuild3 process for testing is a partly functional one. Only basic `proc/
 
 Test scripts are the place where tests are actually ran. They looks and works just like a normal build script under `ab3/build/`.
 
-But as described in the executors, the results are passed via pipes. So the communication will be handled in both sides, if you write custom test scripts, you should report correct test result in the schema described later.
+As described in the execution wrappers, the results are passed via temporary files and return values. If you're writing custom test scripts, keep an eye on `abtest_result` function for additional and always return a meaningful exit code.
 
-Related files:
-- `lib/tests.sh`
-- `contrib/autobuild-test`
+Involves `lib/tests.sh`, `tests/` and `contrib/autobuild-test`.
 
 ## Collectors
 
 Collectors copies test result to dpkg control file and generates a machine-readable result for future use such as quality assurance.
 
-Involves `pm/dpkg/pack`
+Involves `pm/dpkg/pack`.
