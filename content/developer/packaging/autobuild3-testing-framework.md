@@ -51,10 +51,10 @@ Packagers can specify some basic properties in `defines`. To disable the automat
 - pipes connected to the autobuild3's stdout and stderr for log output
 - a result report method via temporary file
 
-List of execution environments:
+List of currently supported execution environments:
 - `plain`: the default one, just run it in a subshell, enough for most packages
 - `sd-run`: systemd-run in current environment, that provides resource controls, permission limitations and time limits
-- `qemu`: for kernel related tests or other operation that requires privileges that may break the host environment (not implemented yet)
+<!-- - `qemu`: for kernel related tests or other operation that requires privileges that may break the host environment (not implemented yet) -->
 
 ## Templates
 
@@ -105,10 +105,12 @@ The test type. Required.
 
 ### Execution wrapper metadata
 
+<!--
 - qemu
     - QEMUEXEC_MEMORY
     - QEMUEXEC_SMP
     - QEMUEXEC_CMDLINE
+-->
 - systemd-run
     - SDRUNEXEC_PROPERTY
 
