@@ -7,7 +7,7 @@ description = "Advanced usage of autobuild3 testing framework and its internal i
 
 Proper package testing is an important and necessary way to assure the package quality. Testing, in this case, involves upstream provided tests (includes unit tests and integration tests) and the system tests (which should be implemented by packagers or other AOSC maintainers).
 
-Most of the tests can be done in the packaging building process, in this case, the Autobuild3. The audience of this article is packagers who want to use the package testing framework in Autobuild3.
+Most of the tests can be done in the packaging building process, in this case, the Autobuild3. The audience of this article is packagers who want to use the package testing framework in Autobuild3. Before continue, make sure you have read the brief introduction in [advanced techniques](@/developer/packaging/advanced-techniques.md)
 
 # Specifications
 
@@ -21,11 +21,11 @@ A test can be in these *states*:
 - Pending
 - Running
 - Passed
-- Failed (throws a QA Error)
+- Failed (throws a QA Error, fails the build)
 - Soft failed (throws a QA Warning)
 - Critical (encountered unexpected failure in testing, the result cannot be collected, fails the build immediately)
 
-A finished test must return its status by return value, either be 0 (Passed), 1 (Failed), 255 (Critical).
+A finished test must return its status by return value.
 
 A non-critical test result can give *additional information*. This may include failed sub-tests, statistics and other machine readable information. 
 
@@ -39,26 +39,26 @@ For packages that leverages the automatically generated one, only `defines` and 
 
 Packagers can specify some basic properties in `defines`. To disable the automatically generated test, use `ABTEST_AUTO_DETECT=no`. To disable all test features in autobuild3, use `NOTEST=yes`. To override the anchor point where tests runs in the whole building process, use `ABTEST_AUTO_DETECT_STAGE`, for valid values, see anchors.
 
-## Executors
+## Execution environments
 
-*Executors* are environments for running the tests. A executor is an abstraction with:
+*Execution environment* are environments for running the tests. A executor is an abstraction with:
 
-- A working AOSC OS, with systemd and dbus running
+- A working AOSC OS, with systemd running
 - Same architecture with the package
 - autobuild3 with same version installed
 - read ability of the build directory (temporary writes can be implemented by overlay filesystem or simply a copy, so write is not a problem here)
 - an interface for autobuild3 to run commands in it and stop it
 - pipes connected to the autobuild3's stdout and stderr for log output
-- a result report method
+- a result report method via temporary file
 
 Some example executors are:
 - `plain`: the default one, just run it in a subshell, enough for most packages
 - `sd-run`: systemd-run in current environment, that provides resource controls, permission limitations and time limits
-- `qemu`: for kernel related tests or other operation that requires privileges that may break the host environment
+- `qemu`: for kernel related tests or other operation that requires privileges that may break the host environment (not implemented yet)
 
 ## Templates
 
-TESTTYPE defines the testing template to use. A special one called "custom" can invoke your own test script, and in most case, the `autobuild/check` script.
+TESTTYPE defines the testing template to use. A special one called "custom" can invoke your own test script. The `autobuild/check` script is run by this "custom" template.
 
 ## Multi-case testing
 
@@ -76,11 +76,11 @@ Example:
 autobuild/
     defines
     tests/
-        screenshot
-        ctest
+        foo
+        bar
     testdata/
-        screenshot/
-            startup.png
+        foo/
+            screenshot.png
 ```
 
 ## Test Metadata
@@ -89,15 +89,15 @@ Except for the automatically generated test, tests should have their properties 
 
 ### `TESTDESC`
 
-A human readable short description of the test. Required.
+A human readable short description of the test. Optional but strongly recommended.
 
-### `TESTDEPS`
+### `TESTDEP`
 
 A space separated list of dependencies for running the test. Defaults to `""`.
 
 ### `TESTEXEC`
 
-The executor name. Defaults to `"plain"`.
+The execution environment name. Defaults to `"plain"`.
 
 ### `TESTTYPE`
 
@@ -126,13 +126,13 @@ The autobuild3 testing framework consists of these parts:
 
 - Scanners, which reads `TESTS` variable and all of the test specification file for the main autobuild3 process.
 - Anchors, scripts under `procs/` that calls the actual test.
-- Executors, which are sets of script that provides the abstraction mentioned in the package testing guide.
+- Execution wrappers, which are sets of script that provides the abstraction mentioned in the package testing guide.
 - Test scripts, pre-defined scripts for reuse on well-known test suites.
 - Collectors, which collects test result report and generates `X-AOSC-Autobuild-` prefixed dpkg metadata based on test results.
 
 ## Scanner
 
-Autobuild3 will read the `ABTESTS` variable in `defines`. For each test name in `ABTESTS`, create a bash sub-shell that sources the test specification file. The sub-shell will output needed variables to its stdout. Then the main process can read the output, so that each test's main properties will be known by the main process. These variables should be named as `TEST_${TEST_NAME}_${VARIABLE_NAME}`.
+Autobuild3 will read the `ABTESTS` variable in `defines`. For each test name in `ABTESTS`, create a bash sub-shell that sources the test specification file. The sub-shell will output needed variables to its stdout. Then the main process can read the output, so that each test's main properties will be known by the main process. These variables should be named as `ABTEST_${TEST_NAME}_${VARIABLE_NAME}`.
 
 Note: A source operation is required to correctly expand variable names.
 
@@ -146,11 +146,11 @@ Note: Do not be confused by the stage2 building flavor, which is just for minimu
 
 Involves `proc/51-tests_post-build.sh`, `proc/92-tests_post_install.sh` and `lib/tests.sh#abtest_run`
 
-## Executors
+## Execution wrappers
 
-Autobuild3 runs test in a new process, defined in `contrib/autobuild-test`. This design provides the ability to run tests in other environments and even hosts or run tests without rebuilding the whole project.
+Autobuild3 runs test as a new process, in `contrib/autobuild-test`. This design provides the ability to run tests in other environments and even hosts or run tests without rebuilding the whole project. You can also manually run `autobuild test <testname>` if you know what you are doing.
 
-The autobuild3 running in executor is a partly functional one. Only basic `proc/` scripts and libs are sourced. Not all of the variable are available to them. Users should always be aware that they are isolated by processes or even virtual machines and are running independently. The communication are limited to the defined test result reporting schemes and build directory reading.
+The autobuild3 process for testing is a partly functional one. Only basic `proc/` scripts and essential libs are loaded. Not all of the variable are available. Users should always be aware that they are isolated by processes or even virtual machines. The communication are limited to the defined test result reporting mechanism and build directory reading.
 
 ## Test scripts
 
@@ -159,23 +159,11 @@ Test scripts are the place where tests are actually ran. They looks and works ju
 But as described in the executors, the results are passed via pipes. So the communication will be handled in both sides, if you write custom test scripts, you should report correct test result in the schema described later.
 
 Related files:
-- `test/testlib.sh`
-    - `test_emit_result`
-
-Example test scripts:
-- `<aosc-os-abbs>/app-devel/strace/`
-    - `autobuild/`
-        - `test/`
-            - `strace`
+- `lib/tests.sh`
+- `contrib/autobuild-test`
 
 ## Collectors
 
-Collectors are another end of the test scripts' pipe, where test result are sent to. Collectors also combines multiple tests' (if exists) result into a final result.
+Collectors copies test result to dpkg control file and generates a machine-readable result for future use such as quality assurance.
 
-Note that the test result may be available later than the archive of deb file, so the package need to be rebuilt to include this kinds of information.
-
-Related files:
-- `proc/`
-    - `98-tests_meta.sh`
-- `test/`
-    - `testlib.sh`
+Involves `pm/dpkg/pack`

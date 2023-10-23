@@ -104,9 +104,11 @@ In this case, you would need to write your own `autobuild/patch`, which is also 
 
 Autobuild3 provides testing functionalities.
 
-For some `ABTYPE`s, tests will be automatically enabled, to disable this feature, use `ABTEST_AUTO_DETECT=no`.
+Testing features are currently disabled, to enable them, add `NOTEST=no` to your `autobuild/defines` file.
 
-If the build system is not supported by default templates, you can always write your own `autobuild/check` script.
+For some `ABTYPE`s, tests can be automatically generated. To disable automatic detection, use `ABTEST_AUTO_DETECT=no`.
+
+If your `ABTYPE` is not covered by the default testing templates, you can write your own `autobuild/check` script. For example:
 
 ```bash
 make -C $BLDDIR -k check
