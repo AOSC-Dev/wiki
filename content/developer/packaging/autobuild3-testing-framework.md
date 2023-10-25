@@ -7,11 +7,11 @@ description = "Advanced usage of Autobuild3 testing framework and its internal i
 
 Proper package testing is an important and necessary way to assure package quality. Testing, in this case, involves upstream-supplied tests (unit tests and/or integration tests) and distribution tests (which should be implemented by packagers or other AOSC maintainers).
 
-Most of the tests can be done in the packaging building process, in this case, the Autobuild3. The audience of this article is packagers who want to use the package testing framework in Autobuild3. Before we continue, make sure you have read the brief introduction in [advanced techniques](@/developer/packaging/advanced-techniques.md).
+Most of the tests can be done in the packaging building process, in this case, the Autobuild3. The audience of this article is packagers who want to use the package testing framework in Autobuild3. Before we continue, make sure you have read the brief introduction in [advanced techniques](@/developer/packaging/advanced-techniques.md#enable-tests).
 
 # Specifications
 
-A *test* in Autobuild3 testing framework refers to a set of operations that gives no extra effect on the build directory and gives a result (passed or not, and why not). For a given package, multiple *test*s can be specified.
+A *test* in Autobuild3 testing framework refers to a set of operations that supplies a series of test results (passed or not, and why not) to help packagers determine the quality of a package. For a given package, multiple *test*s can be specified.
 
 ## Results
 
@@ -31,11 +31,9 @@ A non-critical test result can give *additional information*. This may include f
 
 ## Automatic detection
 
-A package, depending on its `ABTYPE`, may leverage one of the pre-defined tests.
+A package, depending on its `ABTYPE`, may leverage one of the pre-defined testing templates via automatic detection and generation.
 
-For packages that leverages the pre-defined tests, Autobuild3 reads from `defines` and `check` for testing procedures.
-
-Packagers can specify some basic properties in `defines`. To disable the automatically generated test, use `ABTEST_AUTO_DETECT=no`. To disable all test features in Autobuild3, use `NOTEST=yes`. To override the anchor point where tests runs in the whole building process, use `ABTEST_AUTO_DETECT_l`, for valid values, see anchors.
+For packages that may leverage a pre-defined testing templates, `autobuild/defines` can override some of its behavior. To disable the automatically generated test, use `ABTEST_AUTO_DETECT=no`. To override the anchor point where tests runs in the whole building process, use `ABTEST_AUTO_DETECT_ANCHOR`. For valid values of `ABTEST_AUTO_DETECT_ANCHOR`, see [anchors](#anchors).
 
 ## Execution environments
 
@@ -51,7 +49,7 @@ Packagers can specify some basic properties in `defines`. To disable the automat
 
 List of currently supported execution environments:
 - `plain`: Default, runs in a subshell, sufficient for most packages
-- `sd-run`: Runs via `systemd-run`, providing controls over resources, permissions and execution durations.
+- `sdrun`: Runs via `systemd-run`, providing controls over resources, permissions and execution durations.
 <!-- - `qemu`: for kernel related tests or other operation that requires privileges that may break the host environment (not implemented yet) -->
 
 ## Templates

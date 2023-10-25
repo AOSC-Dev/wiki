@@ -104,7 +104,7 @@ In this case, you would need to write your own `autobuild/patch`, which is also 
 
 Autobuild3 provides testing functionalities.
 
-Testing features are currently disabled, to enable them, add `NOTEST=no` to your `autobuild/defines` file.
+Testing features are disabled by default, to enable them, add `NOTEST=no` to your `autobuild/defines` file.
 
 For some `ABTYPE`s, Autobuild3 provides pre-defined testing templates and can match and enable them automatically. To disable automatic detection, use `ABTEST_AUTO_DETECT=no`.
 
