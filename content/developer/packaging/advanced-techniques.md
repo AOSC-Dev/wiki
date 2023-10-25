@@ -100,6 +100,22 @@ But sometimes, sources may come in different strip levels, for instance, this pa
 
 In this case, you would need to write your own `autobuild/patch`, which is also a plain Bash script, call your own `patch` commands from the script.
 
+## Enable Tests
+
+Autobuild3 provides testing functionalities.
+
+Testing features are disabled by default, to enable them, add `NOTEST=no` to your `autobuild/defines` file.
+
+For some `ABTYPE`s, Autobuild3 provides pre-defined testing templates and can match and enable them automatically. To disable automatic detection, use `ABTEST_AUTO_DETECT=no`.
+
+If your `ABTYPE` is not covered by the default testing templates, you can write your own `autobuild/check` script. For example:
+
+```bash
+make -C $BLDDIR -k check
+```
+
+Or to `/etc/autobuild3/ab3cfg.sh` to enable testing globally.
+
 # Dealing with Package Groups
 
 When maintaining packages, it is common that a batch of packages (for example, KDE Applications) need to be updated and/or built together. It would be frustrating if we have to manually change the version number and checksum.
