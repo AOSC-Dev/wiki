@@ -1,5 +1,5 @@
 +++
-title = "[IN PROGRESS] Build Server Upgrades"
+title = "[COMPLETE] Build Server Upgrades"
 draft = false
 +++
 
