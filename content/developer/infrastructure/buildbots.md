@@ -62,7 +62,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 
 | Name | Port | CPU | Memory | Speed |Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **Resonance** | 23541 | Loongson 3B-4000 (R4) @ 1.80GHz (LX-2510) | 32GiB | 3748s | _Kexy Biscuit_ | Community crowdsourced; direct access with `ssh -4p23541 root@home.biscuit.moe`; repo mirror at `http://localhost/debs/`, BuildKit mirror at `http://localhost/aosc-os/os-amd64/buildkit/` |
+| **Resonance** | 23541 | Loongson 3B-4000 (R4) @ 1.80GHz (LX-2510) | 32GiB | 3724s | _Kexy Biscuit_ | Community crowdsourced; direct access with `ssh -4p23541 root@home.biscuit.moe`; repo mirror at `http://localhost/debs/`, BuildKit mirror at `http://localhost/aosc-os/os-amd64/buildkit/` |
 
 ## **ARM** (24001-25000)
 
