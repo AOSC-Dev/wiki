@@ -1,5 +1,5 @@
 +++
-title = "[CROWDSOURCING] Components for A New Loongson 3B4000 Build Server"
+title = "[COMPLETE] Components for A New Loongson 3B4000 Build Server"
 draft = false
 +++
 
