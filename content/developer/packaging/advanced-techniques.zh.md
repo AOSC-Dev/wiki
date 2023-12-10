@@ -88,21 +88,21 @@ install -Dvm644 "$PKGDIR"/usr/share/doc/aria2/bash_completion/aria2c \
 
 为了缓解这个问题，我们引入了 `autobuild/patches/series` 文件。这个文件包含补丁名称的有序列表（每行一个文件名）。如果存在这个文件，Autobuild3 将按照列表中指定的顺序应用补丁。
 
-在其他一些情况下，如果补丁不在条带级别 1 上，这个补丁将不会应用。下面是一个条带级别 1 补丁的示例标题：
+在某些情况下，补丁只有在 strip level（需要剥离的目录层级）为 1 时才能应用。下面是一个 strip level 为 1 补丁的示例标题：
 
     --- a/kernel/init.c
     +++ a/kernel/init.c
 
-但有时，源代码可能具有不同的条带级别，例如，这个补丁的条带级别为 3：
+但有时，源代码可能具有不同的 strip level，例如，这个补丁的 strip level 为 3：
 
     --- dev/working/jelly/kernel/init.c
     +++ dev/working/lion/kernel/init.c
 
-在这种情况下，您需要编写自己的 `autobuild/patch`（一个普通的 Bash 脚本），再从脚本中调用自己的 `patch` 命令。
+在这种情况下，您需要编写自己的 `autobuild/patch`（一个普通的 Bash 脚本），再手动在脚本中调用 `patch` 命令。
 
 ## 启用测试
 
-Autobuild3 提供了测试功能。
+Autobuild3 提供测试功能。
 
 测试功能默认情况下是禁用的，要启用它们，可以在 `autobuild/defines` 文件中添加 `NOTEST=no`。
 
