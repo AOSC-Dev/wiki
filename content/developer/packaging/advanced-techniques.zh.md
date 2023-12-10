@@ -60,7 +60,7 @@ install -Dvm755 hugo \
     "$PKGDIR"/usr/bin/hugo
 ```
 
-请注意，我们使用了 `abinfo()` 这个简单的函数来将日志信息输出到构建日志中。`abinfo()` 的工作方式类似于 `echo` 程序。只需要在脚本中调用 `abinfo "Desired build information"`，这段信息就会被记录到构建日志中。使用 `abinfo()` 对构建脚本进行注释是一个好习惯，因为这会帮助到对后来可能的维护者。另一个类似的函数是 `abwarn()`，这个函数用于输出警告。
+请注意，上述例子中的 `abinfo()` 用于在构建日志中输出状态信息，其工作方式类似于 `echo`。只需要在脚本中调用 `abinfo "Desired build information"`，这段信息就会被记录到构建日志中。使用 `abinfo()` 对构建脚本进行注释是一个好习惯，因为这会帮助到对后来可能的维护者。另一个类似的函数是 `abwarn()`，这个函数用于输出警告。
 
 ## 构建后的调整
 
