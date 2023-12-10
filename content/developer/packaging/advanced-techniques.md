@@ -60,7 +60,7 @@ install -Dvm755 hugo \
     "$PKGDIR"/usr/bin/hugo
 ```
 
-Notice that we used a simple function to print log information to the build log called `abinfo()`. `abinfo()` works similarly to the `echo` program. Just call `abinfo "Desired build infomation"` in the script, and it will be recorded into the build log. It is considered a good practice to use `abinfo()` as a way to comment your build scripts, as this could be beneficial for maintainers who may come after. There is also `abwarn()` which works in an identical fashion, if you would like to print a warning.
+Notice that the `abinfo()` function in the above example is used to print log information to the build log, and it works similiar to `echo`. Just call `abinfo "Desired build infomation"` in the script, and it will be recorded into the build log. It is considered a good practice to use `abinfo()` as a way to comment your build scripts, as this could be beneficial for maintainers who may come after. There is also `abwarn()` which works in an identical fashion, if you would like to print a warning.
 
 ## Post-Build Tweaks
 
@@ -88,7 +88,7 @@ We have already discussed in the *Basics* that we can patch the source code by s
 
 To mitigate this issue, we introduced the `autobuild/patches/series` file. This file contains an ordred list of the names of the patches (one filename per line). If this file is present, Autobuild3 will apply patches as specified in the list.
 
-In some other cases, the patches will not apply if they are not on a strip level of 1 (one). Here below is an example header from a strip level 1 patch:
+In some other cases, the patches will not apply if they are not on a strip level (directory hierarchy that need to be stripped) of 1 (one). Here below is an example header from a strip level 1 patch:
 
     --- a/kernel/init.c
     +++ a/kernel/init.c
