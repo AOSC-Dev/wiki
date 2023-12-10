@@ -60,7 +60,7 @@ install -Dvm755 hugo \
     "$PKGDIR"/usr/bin/hugo
 ```
 
-Notice that the `abinfo()` function in the above example is used to print log information to the build log, and it works similiar to `echo`. Just call `abinfo "Desired build infomation"` in the script, and it will be recorded into the build log. It is considered a good practice to use `abinfo()` as a way to comment your build scripts, as this could be beneficial for maintainers who may come after. There is also `abwarn()` which works in an identical fashion, if you would like to print a warning.
+Notice that the `abinfo()` function in the above example is used to print log information to the build log, and it works similarly to `echo`. Just call `abinfo "Desired build infomation"` in the script, and it will be recorded into the build log. It is considered a good practice to use `abinfo()` as a way to comment your build scripts, as this could be beneficial for maintainers who may come after. There is also `abwarn()` which works in an identical fashion, if you would like to print a warning.
 
 ## Post-Build Tweaks
 
