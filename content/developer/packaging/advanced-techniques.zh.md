@@ -23,13 +23,13 @@ description = "本文由 Commit-O-Matic™ 强力驱动"
 
 目前，支持这些构建类型：
 
-  - `self`：当存在 autobuild 或构建文件时，使用用户创建的 autobuild 或构建文件作为构建脚本。
+  - `self`：当存在 autobuild 或 build 文件时，使用用户创建的 autobuild 或 build 文件作为构建脚本。
   - `autotools`：通常用于基于 GNU autotools 的源代码树，在源根目录中具有可用的 configure 脚本，或定义的 $configure 脚本。
   - `cmake`：用于基于 CMake 的源代码树，生成并执行 Makefile，Autobuild3 在源代码树中 CMakeList.txt。
   - `cmakeninja`：与上面相同，但生成并执行 Ninja 构建脚本。
-  - `dummy`：生成一个空包，这在生成元包是很有用。
+  - `dummy`：生成一个空包，通常只用于生成元包。
   - `dune`：用于基于 Dune 的源代码树（通常用于 OCaml 源代码）。
-  - `gomod`：用于 Gomod 改编的 Go 语言源代码树。
+  - `gomod`：用于使用了 Gomod 的 Go 语言源代码树。
   - `meson`：用于基于 Meson 的源代码树，生成并执行 Ninja 构建脚本。
   - `npm`：用于 NPM 模块（通常用于 Node.js 模块的源代码）。
   - `perl`：用于标准 CPAN 源代码树。
@@ -60,17 +60,13 @@ install -Dvm755 hugo \
     "$PKGDIR"/usr/bin/hugo
 ```
 
-请注意，我们使用了一个名为 `abinfo()` 的简单函数将日志信息打印到构建日志中。`abinfo()` 的工作方式类似于 `echo` 程序。只需在脚本中调用 `abinfo "Desired build infomation"`，它就会被记录到构建日志中。使用 `abinfo()` 作为评论构建脚本的一种方式被认为是一种很好的做法，因为这可能对后续的维护者有益。如果您想打印警告，还有 `abwarn()` 以相同的方式工作。
-
-请注意，我们使用了一个简单的函数来将日志信息打印到构建日志中，这个函数被称为 `abinfo()`。`abinfo()` 的工作方式类似于 `echo` 程序。只需要在脚本中调用 `abinfo "Desired build information"`，这段信息就会被记录到构建日志中。使用 `abinfo()` 作为注释构建脚本的方式被认为是一种良好的实践，因为这对于可能对于后来的维护者来说可能是有益的。还有一个类似的函数是 `abwarn()`，如果你想要打印一个警告，可以使用它。
+请注意，我们使用了一个简单的函数来将日志信息输出到构建日志中，这个函数被称为 `abinfo()`。`abinfo()` 的工作方式类似于 `echo` 程序。只需要在脚本中调用 `abinfo "Desired build information"`，这段信息就会被记录到构建日志中。使用 `abinfo()` 对构建脚本进行注释是一种良好的实践，因为这有助于后来的维护者。还有一个类似的函数是 `abwarn()`，你可以使用它输出一个警告。
 
 ## 构建后的调整
 
-有时 Autobuild3 可以很好地处理构建过程，但最终产品可能需要一些额外的调整（即：手册页目录错误，需要将 shell 自动补全脚本复制到 `$PKGDIR` 中，等等）。在这种情况下，我们使用 `autobuild/beyond` 脚本，它与 `autobuild/build` 一样，作为纯 Bash 脚本执行。它将在构建过程之后执行。
+有时 Autobuild3 可以很好地处理构建过程，但最终产出的包可能需要一些额外的调整（例如：man 页面的目录不对，需要将 shell 自动补全脚本复制到 `$PKGDIR` 等）。在这种情况下，我们使用 `autobuild/beyond` 脚本。与 `autobuild/build` 类似，这个脚本作为纯 Bash 脚本在构建后执行。
 
-有时 Autobuild3 可以很好地处理构建过程，但最终产出的包可能需要一些额外的调整（例如：man 页面的目录不对，需要将 shell 完成脚本复制到 `$PKGDIR` 等）。在这种情况下，我们使用 `autobuild/beyond` 脚本。与 `autobuild/build` 类似，这个脚本作为纯 Bash 脚本在构建过程之后执行。
-
-这是一个来自 `TREE/extra-web/aria2` 的例子。这里我们需要安装 `aria2c` 的 bash<sub>completion</sub> 文件，所以我们使用如下的 `autobuild/beyond` 脚本。
+这是一个来自 `TREE/extra-web/aria2` 的例子。这里我们需要安装 `aria2c` 的 bash 命令行补全支持文件，所以我们使用如下的 `autobuild/beyond` 脚本。
 
 ``` bash
 abinfo "Installing Bash completions ..."
