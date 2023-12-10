@@ -23,7 +23,7 @@ description = "本文由 Commit-O-Matic™ 强力驱动"
 
 目前，支持这些构建类型：
 
-  - `self`：当存在 autobuild 或 build 文件时，使用用户创建的 autobuild 或 build 文件作为构建脚本。
+  - `self`：当存在 `autobuild/build` 文件时，直接使用该文件作为为构建脚本。
   - `autotools`：通常用于基于 GNU autotools 的源代码树，在源根目录中具有可用的 configure 脚本，或定义的 $configure 脚本。
   - `cmake`：用于基于 CMake 的源代码树，生成并执行 Makefile，Autobuild3 在源代码树中 CMakeList.txt。
   - `cmakeninja`：与上面相同，但生成并执行 Ninja 构建脚本。
