@@ -3,11 +3,11 @@ title = "软件包维护入门：进阶教程"
 description = "本文由 Commit-O-Matic™ 强力驱动"
 +++
 
-> 所以你想、你渴望、你有勇气去打一个包，所以请开始打包，打出一个我们能用的包！
+> 所以您想、您渴望、您有勇气去打一个包，所以请开始打包，打出一个我们能用的包！
 
 在学习了关于构建包的 [基础](@/developer/packaging/basics.md) 之后，我们现在可以开始探索一些高级技术了。
 
-请注意，您不必逐字阅读本文档，因为这篇文档应该作为你未来工作的参考。你只需要快速浏览一下，记住这些概念，当你遇到问题时再回来查。
+请注意，您不必逐字阅读本文档，因为这篇文档应该作为您未来工作的参考。您只需要快速浏览一下，记住这些概念，当您遇到问题时再回来查。
 
 # Autobuild3 中的高级操作
 
@@ -44,15 +44,15 @@ description = "本文由 Commit-O-Matic™ 强力驱动"
 
 Autobuild3 集成了一系列最佳构建参数。但是，有时这些参数与软件不完全兼容，可能会引起问题。在这种情况下，请查看 [Autobuild3 的默认参数](https://github.com/AOSC-Dev/autobuild3/blob/master/etc/autobuild/ab3_defcfg.sh#L105)，并根据需要覆盖对应的参数。完整的参数列表可以在 [Autobuil3 Wiki](https://github.com/AOSC-Dev/aosc-os-abbs/wiki/Autobuild3) 中找到。
 
-其中一个突出的问题是 LTO（链接时优化）。这种技术可以提高运行时的效率，并减小二进制文件的大小，但目前启用 LTO 可能导致构建失败（这种情况的数量在不断减少），并且在构建时消耗大量内存。Autobuild3 默认启用 LTO 以提高性能（有时也是为了减小二进制文件的大小）。但如果你遇到与 LTO 相关的问题，可以通过在 `autobuild/defines` 中添加 `NOLTO=1` 来禁用 LTO。
+其中一个突出的问题是 LTO（链接时优化）。这种技术可以提高运行时的效率，并减小二进制文件的大小，但目前启用 LTO 可能导致构建失败（这种情况的数量在不断减少），并且在构建时消耗大量内存。Autobuild3 默认启用 LTO 以提高性能（有时也是为了减小二进制文件的大小）。但如果您遇到与 LTO 相关的问题，可以通过在 `autobuild/defines` 中添加 `NOLTO=1` 来禁用 LTO。
 
 ## 自定义构建脚本
 
-在某些情况下，软件使用特殊的构建系统（或者根本不需要构建系统，如预构建的二进制文件）。在这种情况下，你可以通过使用 Bash 编写构建脚本来控制构建过程。
+在某些情况下，软件使用特殊的构建系统（或者根本不需要构建系统，如预构建的二进制文件）。在这种情况下，您可以通过使用 Bash 编写构建脚本来控制构建过程。
 
 构建脚本位于 `autobuild/build`。如果存在该脚本，构建类型将被锁定为 `self`（除非通过定义了另一个 `ABTYPE=` 覆盖了构建类型），这意味着 Autobuild3 不会尝试确定构建系统并执行其集成的构建脚本，而是简单地执行这个脚本。
 
-这个脚本应该看起来非常类似于手动编译程序的过程。但是有一个关键的区别：你 **不** 应该将编译后的程序安装到系统根目录。而是应该安装在 `$PKGDIR` 中，稍后 Autobuild3 将根据此目录中的文件创建 deb 包。例如，如果编译后的二进制文件在构建目录的根目录中称为 `hugo`，那么你应该将其安装到软件包的 `bin` 目录中，如下所示：
+这个脚本应该看起来非常类似于手动编译程序的过程。但是有一个关键的区别：您 **不** 应该将编译后的程序安装到系统根目录。而是应该安装在 `$PKGDIR` 中，稍后 Autobuild3 将根据此目录中的文件创建 deb 包。例如，如果编译后的二进制文件在构建目录的根目录中称为 `hugo`，那么您应该将其安装到软件包的 `bin` 目录中，如下所示：
 
 ``` bash
 abinfo "Installing Hugo binary ..."
@@ -108,7 +108,7 @@ Autobuild3 提供测试功能。
 
 对于一些 `ABTYPE`，Autobuild3 提供了预定义的测试模板，并且可以自动匹配并使用。要禁用自动检测，可以使用 `ABTEST_AUTO_DETECT=no`。
 
-如果你的 `ABTYPE` 没有对应的预定义测试模板，你可以编写自己的 `autobuild/check` 脚本。例如：
+如果您的 `ABTYPE` 没有对应的预定义测试模板，您可以编写自己的 `autobuild/check` 脚本。例如：
 
 ```bash
 make -C $BLDDIR -k check
@@ -124,7 +124,7 @@ make -C $BLDDIR -k check
 
 为了监控软件包更新，我们使用 [aosc-findupdate](https://github.com/AOSC-Dev/aosc-findupdate) 工具（在 AOSC OS 中作为 `aosc-findupdate` 软件包提供），该工具从各种来源获取软件包更新信息，例如 Fedora 的 [Anitya](https://release-monitoring.org/)，GitHub、GitLab 或者从使用自定义正则表达式解析的 HTML 文件中提取。
 
-接着，查看 `git diff`，你应该能够看到各种 `VER` 和 `REL` 行上的一系列更改。
+接着，查看 `git diff`，您应该能够看到各种 `VER` 和 `REL` 行上的一系列更改。
 
 ## 自动更新校验和
 
@@ -185,7 +185,7 @@ pushpkg LDAP_IDENTITY BRANCH
 
 ## 自动指定实例名称
 
-你应该注意到了，你每次都必须在每个 `ciel build` 命令后附加 `-i $INSTANCE` 参数。为了节约时间，你可以这么做：首先，在 Ciel 工作区根目录中创建名为 `.env` 的文件，然后在该文件中输入以下内容。
+您应该注意到了，您每次都必须在每个 `ciel build` 命令后附加 `-i $INSTANCE` 参数。为了节约时间，您可以这么做：首先，在 Ciel 工作区根目录中创建名为 `.env` 的文件，然后在该文件中输入以下内容。
 
 ``` bash
 # Replace $INSTANCE name with your own.
@@ -200,4 +200,4 @@ ciel build gnome-shell
 
 ## 在任何目录下使用 Ciel
 
-当你的 Ciel 版本 >= 3.0.6 时，你可以像使用 Git 一样使用 Ciel——Ciel 会尝试在目录树上向上查找并找到工作区的根目录。所以，无需切换到根目录就可以运行任何 Ciel 命令，比如说，你不必离开 `TREE/` 目录，这是很方便的。
+当您的 Ciel 版本 >= 3.0.6 时，您可以像使用 Git 一样使用 Ciel——Ciel 会尝试在目录树上向上查找并找到工作区的根目录。所以，无需切换到根目录就可以运行任何 Ciel 命令，比如说，您不必离开 `TREE/` 目录，这是很方便的。
