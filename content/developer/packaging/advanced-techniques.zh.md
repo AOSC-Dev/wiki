@@ -7,17 +7,17 @@ description = "本文由 Commit-O-Matic™ 强力驱动"
 
 在学习了关于构建包的 [基础](@/developer/packaging/basics.md) 之后，我们现在可以开始探索一些高级技术了。
 
-请注意，您不必逐字阅读本文档，因为它应该作为您未来工作的参考。你只需要快速浏览一下，记住这些概念，当你遇到问题时再回来查。
+请注意，您不必逐字阅读本文档，因为这篇文档应该作为你未来工作的参考。你只需要快速浏览一下，记住这些概念，当你遇到问题时再回来查。
 
 # Autobuild3 中的高级操作
 
-我们已经看到，对于许多包，Autobuild3 可以自动确定源代码树中使用的构建系统，然后相应地生成和执行构建脚本。但是有许多（复杂的或原始的）程序需要更多步骤来构建和安装，或者它们可能需要特定的构建参数和编译参数。
+我们已经看到，对于许多包，Autobuild3 可以自动确定源代码树中使用的构建系统，然后相应地生成和执行构建脚本。但是有许多（复杂的或原始的）程序需要更多步骤来构建和安装，或者可能需要特定的构建参数和编译参数。
 
 现在我们将介绍如何在 AOSC OS 的构建系统中处理这些问题。
 
 ## 手动选择不同的构建系统
 
-有时，Autobuild3 可能会对构建系统做出错误的假设，这可能会导致构建失败。在其他情况下，当构建多个构建系统可用的项目时，它可能不会选择（对于构建时间或可靠性来说）最佳的一个。
+有时 Autobuild3 可能对选择错误的构建系统，并可能会导致构建失败。比如当一个项目有多个构建系统可用时，Autobuild3 可能不会选择（对于构建时间或可靠性来说）最好的一个。
 
 在这种情况下，我们可以通过在 `autobuild/defines` 文件中定义 `ABTYPE=` 来手动指定要使用的构建系统。
 
@@ -27,7 +27,7 @@ description = "本文由 Commit-O-Matic™ 强力驱动"
   - `autotools`：通常用于基于 GNU autotools 的源代码树，在源根目录中具有可用的 configure 脚本，或定义的 $configure 脚本。
   - `cmake`：用于基于 CMake 的源代码树，生成并执行 Makefile，Autobuild3 在源代码树中 CMakeList.txt。
   - `cmakeninja`：与上面相同，但生成并执行 Ninja 构建脚本。
-  - `dummy`：生成一个空包，通常只用于生成元包。
+  - `dummy`：生成空包，通常只用于生成元包。
   - `dune`：用于基于 Dune 的源代码树（通常用于 OCaml 源代码）。
   - `gomod`：用于使用了 Gomod 的 Go 语言源代码树。
   - `meson`：用于基于 Meson 的源代码树，生成并执行 Ninja 构建脚本。
@@ -44,15 +44,15 @@ description = "本文由 Commit-O-Matic™ 强力驱动"
 
 Autobuild3 集成了一系列最佳构建参数。但是，有时这些参数与软件不完全兼容，可能会引起问题。在这种情况下，请查看 [Autobuild3 的默认参数](https://github.com/AOSC-Dev/autobuild3/blob/master/etc/autobuild/ab3_defcfg.sh#L105)，并根据需要覆盖对应的参数。完整的参数列表可以在 [Autobuil3 Wiki](https://github.com/AOSC-Dev/aosc-os-abbs/wiki/Autobuild3) 中找到。
 
-一个突出的问题是 LTO（链接时优化）。这种技术可以提高运行时的效率，并减小二进制文件的大小，但目前启用 LTO 可能导致构建失败（这种情况的数量在不断减少），并且在构建时消耗大量内存。Autobuild3 默认启用 LTO 以提高性能（有时也是为了减小二进制文件的大小）。但如果你遇到与 LTO 相关的问题，可以通过在 `autobuild/defines` 中添加 `NOLTO=1` 来禁用它。
+其中一个突出的问题是 LTO（链接时优化）。这种技术可以提高运行时的效率，并减小二进制文件的大小，但目前启用 LTO 可能导致构建失败（这种情况的数量在不断减少），并且在构建时消耗大量内存。Autobuild3 默认启用 LTO 以提高性能（有时也是为了减小二进制文件的大小）。但如果你遇到与 LTO 相关的问题，可以通过在 `autobuild/defines` 中添加 `NOLTO=1` 来禁用 LTO。
 
 ## 自定义构建脚本
 
 在某些情况下，软件使用特殊的构建系统（或者根本不需要构建系统，如预构建的二进制文件）。在这种情况下，你可以通过使用 Bash 编写构建脚本来控制构建过程。
 
-构建脚本位于 `autobuild/build`。如果存在这个脚本，构建类型将被锁定为 `self`（除非通过定义了另一个 `ABTYPE=` 覆盖了它），这意味着 Autobuild3 不会尝试确定构建系统并执行其集成的构建脚本，而是简单地执行这个脚本。
+构建脚本位于 `autobuild/build`。如果存在该脚本，构建类型将被锁定为 `self`（除非通过定义了另一个 `ABTYPE=` 覆盖了构建类型），这意味着 Autobuild3 不会尝试确定构建系统并执行其集成的构建脚本，而是简单地执行这个脚本。
 
-这个脚本应该看起来非常类似于手动编译程序的过程。但一个关键的区别是，你 **不** 应该将编译后的程序安装到系统根目录。相反，它应该安装在 `$PKGDIR` 中，稍后 Autobuild3 将根据此目录中的文件创建 deb 包。例如，如果编译后的二进制文件在构建目录的根目录中称为 `hugo`，那么你应该将其安装到软件包的 `bin` 目录中，如下所示：
+这个脚本应该看起来非常类似于手动编译程序的过程。但是有一个关键的区别：你 **不** 应该将编译后的程序安装到系统根目录。而是应该安装在 `$PKGDIR` 中，稍后 Autobuild3 将根据此目录中的文件创建 deb 包。例如，如果编译后的二进制文件在构建目录的根目录中称为 `hugo`，那么你应该将其安装到软件包的 `bin` 目录中，如下所示：
 
 ``` bash
 abinfo "Installing Hugo binary ..."
@@ -60,7 +60,7 @@ install -Dvm755 hugo \
     "$PKGDIR"/usr/bin/hugo
 ```
 
-请注意，我们使用了一个简单的函数来将日志信息输出到构建日志中，这个函数被称为 `abinfo()`。`abinfo()` 的工作方式类似于 `echo` 程序。只需要在脚本中调用 `abinfo "Desired build information"`，这段信息就会被记录到构建日志中。使用 `abinfo()` 对构建脚本进行注释是一种良好的实践，因为这有助于后来的维护者。还有一个类似的函数是 `abwarn()`，你可以使用它输出一个警告。
+请注意，我们使用了 `abinfo()` 这个简单的函数来将日志信息输出到构建日志中。`abinfo()` 的工作方式类似于 `echo` 程序。只需要在脚本中调用 `abinfo "Desired build information"`，这段信息就会被记录到构建日志中。使用 `abinfo()` 对构建脚本进行注释是一个好习惯，因为这会帮助到对后来可能的维护者。另一个类似的函数是 `abwarn()`，这个函数用于输出警告。
 
 ## 构建后的调整
 
@@ -76,19 +76,19 @@ install -Dvm644 "$PKGDIR"/usr/share/doc/aria2/bash_completion/aria2c \
 
 ## `autobuild/override` 目录
 
-有时源代码不包含（或包含不适当的版本）包所需的某些文件。在这种情况下，我们可以将文件放在 `autobuild/override` 目录中。请注意，文件需要放在相应的目录中，就像它们被安装在 `$PKGDIR` 中一样。
+有时源代码不包含（或包含不适当的版本）包所需的某些文件。在这种情况下，我们可以将文件放在 `autobuild/override` 目录中。请注意，文件需要放在与 `$PKGDIR` 中的文件结构对应的目录下。
 
-例如，如果我们正在构建一个名为 `foo` 的包，它在源代码树中不包含桌面环境所需的 `.desktop` 文件，我们可以编写自己的 `.desktop` 文件，并将其放置在：
+例如，如果我们正在构建名为 `foo` 的包，这个包的源代码树中不包含桌面环境所需的 `.desktop` 文件，我们可以编写自己的 `.desktop` 文件，并将其放置在：
 
     autobuild/overrides/usr/share/applications/foo.desktop
     
 ## 高级补丁管理
 
-我们已经在 *基础* 部分讨论过，我们可以通过简单地将补丁放置在 `autobuild/patches` 目录中来对源代码打补丁。但有时为了使补丁生效，它们必须按照特定顺序应用。
+我们已经在 *基础* 部分讨论过，我们可以通过简单地将补丁放置在 `autobuild/patches` 目录中来对源代码打补丁。但有时为了使补丁生效，必须按照特定顺序应用补丁。
 
 为了缓解这个问题，我们引入了 `autobuild/patches/series` 文件。这个文件包含补丁名称的有序列表（每行一个文件名）。如果存在这个文件，Autobuild3 将按照列表中指定的顺序应用补丁。
 
-在某些情况下，补丁只有在 strip level（需要剥离的目录层级）为 1 时才能应用。下面是一个 strip level 为 1 补丁的示例标题：
+在某些情况下，补丁只有在 strip level（需要剥离的目录层级）为 1 时才能应用。下面是一个 strip level 为 1 的补丁的示例标题：
 
     --- a/kernel/init.c
     +++ a/kernel/init.c
@@ -98,15 +98,15 @@ install -Dvm644 "$PKGDIR"/usr/share/doc/aria2/bash_completion/aria2c \
     --- dev/working/jelly/kernel/init.c
     +++ dev/working/lion/kernel/init.c
 
-在这种情况下，您需要编写自己的 `autobuild/patch`（一个普通的 Bash 脚本），再手动在脚本中调用 `patch` 命令。
+在这种情况下，您需要使用 Bash 编写自己的 `autobuild/patch` 脚本，再手动在脚本中调用 `patch` 命令。
 
 ## 启用测试
 
 Autobuild3 提供测试功能。
 
-测试功能默认情况下是禁用的，要启用它们，可以在 `autobuild/defines` 文件中添加 `NOTEST=no`。
+测试功能默认情况下是禁用的，可以在 `autobuild/defines` 文件中添加 `NOTEST=no` 来启用。
 
-对于一些 `ABTYPE`，Autobuild3 提供了预定义的测试模板，并且可以自动匹配并启用它们。要禁用自动检测，可以使用 `ABTEST_AUTO_DETECT=no`。
+对于一些 `ABTYPE`，Autobuild3 提供了预定义的测试模板，并且可以自动匹配并使用。要禁用自动检测，可以使用 `ABTEST_AUTO_DETECT=no`。
 
 如果你的 `ABTYPE` 没有对应的预定义测试模板，你可以编写自己的 `autobuild/check` 脚本。例如：
 
@@ -185,8 +185,7 @@ pushpkg LDAP_IDENTITY BRANCH
 
 ## 自动指定实例名称
 
-你应该注意到了，你每次都必须在每个 `ciel build` 命令后附加 `-i $INSTANCE` 参数。这里有一个节约打字
-的小窍门。首先，在 Ciel 工作区根目录中创建一个名为 `.env` 的文件，然后在该文件中输入以下内容。
+你应该注意到了，你每次都必须在每个 `ciel build` 命令后附加 `-i $INSTANCE` 参数。为了节约时间，你可以这么做：首先，在 Ciel 工作区根目录中创建名为 `.env` 的文件，然后在该文件中输入以下内容。
 
 ``` bash
 # Replace $INSTANCE name with your own.
@@ -201,4 +200,4 @@ ciel build gnome-shell
 
 ## 在任何目录下使用 Ciel
 
-使用 Ciel 版本 >= 3.0.6，您可以像使用 Git 一样使用 Ciel——它会尝试在目录树上向上查找并找到 Ciel 工作区的根目录。所以，无需切换到 Ciel 工作区根目录就可以运行任何 Ciel 命令，比如说，你不必离开 `TREE/` 目录，这是很方便的。
+当你的 Ciel 版本 >= 3.0.6 时，你可以像使用 Git 一样使用 Ciel——Ciel 会尝试在目录树上向上查找并找到工作区的根目录。所以，无需切换到根目录就可以运行任何 Ciel 命令，比如说，你不必离开 `TREE/` 目录，这是很方便的。
