@@ -27,7 +27,7 @@ Currently, these build types are supported:
   - `autotools`: Generally used for GNU autotools-based source trees, with an available configure script in source root, or defined $configure script.
   - `cmake`: Used for CMake-based source trees, generates and executes Makefiles, Autobuild3 detects for CMakeList.txt in the source trees.
   - `cmakeninja`: Same as above, but generates and executes Ninja build scripts.
-  - `dummy`: Generates an empty package, useful for generating meta packages.
+  - `dummy`: Generates an empty package, typically used only for creating meta-packages.
   - `dune`: Used for Dune-based source trees (generally used for OCaml sources).
   - `gomod`: Used for Gomod adapted Go langauge source trees.
   - `meson`: Used for Meson-based source trees, generates and executes Ninja build scripts.
@@ -66,7 +66,7 @@ Notice that we used a simple function to print log information to the build log 
 
 Sometimes Autobuild3 handles the build process just fine, but the finished product may need some extra tweaks (i.e: wrong directory for man pages, shell completion scripts need to be copied into the `$PKGDIR`, and so on). In this case, we use the `autobuild/beyond` script, which, like `autobuild/build`, is executed as a plain Bash script. It will be executed after the build process.
 
-This is an example taken from `TREE/extra-web/aria2`. Here, we need to install `aria2c`'s bash<sub>completion</sub> file, so we use the `autobuild/beyond` script.
+This is an example taken from `TREE/extra-web/aria2`. Here, we need to install `aria2c`'s bash completion file, so we use the `autobuild/beyond` script.
 
 ``` bash
 abinfo "Installing Bash completions ..."
