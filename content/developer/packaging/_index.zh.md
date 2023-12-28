@@ -10,6 +10,7 @@ title = "打包"
 
 - [AOSC OS 主题制维护指南 (English)](@/developer/packaging/topic-based-maintenance-guideline.md)
 - [AOSC OS 软件包样式指南](@/developer/packaging/package-styling-manual.zh.md)
+- [使用自动化设施构建软件包](@/developer/packaging/buildit-bot.zh.md)
 
 想要进一步了解我们在打包中常用的一些应用程序，可以阅读下面的文档：
 

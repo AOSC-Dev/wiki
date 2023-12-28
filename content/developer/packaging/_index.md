@@ -10,6 +10,7 @@ In order to ensure the quality of our packages (and reduce wtf moments for other
 
 - [AOSC OS Topic-Based Maintenance Guidelines](@/developer/packaging/topic-based-maintenance-guideline.md)
 - [AOSC OS Package Styling Manual](@/developer/packaging/package-styling-manual.md)
+- [Making Use of the Automated Maintenance Infrastructure](@/developer/packaging/buildit-bot.md)
 
 Also, you may want to read these documentations about the tools we use.
 - [Autobuild3 Manual](@/developer/packaging/autobuild3-manual.md)
