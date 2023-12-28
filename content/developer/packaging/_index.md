@@ -13,6 +13,7 @@ In order to ensure the quality of our packages (and reduce wtf moments for other
 
 Also, you may want to read these documentations about the tools we use.
 - [Autobuild3 Manual](@/developer/packaging/autobuild3-manual.md)
+- [Autobuild4 Manual](@/developer/packaging/autobuild4/_index.md)
 - [Ciel Manual](@/developer/packaging/ciel-manual.md)
 
 Other useful information of this section:

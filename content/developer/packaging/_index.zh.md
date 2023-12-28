@@ -14,6 +14,7 @@ title = "打包"
 想要进一步了解我们在打包中常用的一些应用程序，可以阅读下面的文档：
 
 - [Autobuild3 帮助文档](@/developer/packaging/autobuild3-manual.md)
+- [Autobuild4 帮助文档](@/developer/packaging/autobuild4/_index.zh.md)
 - [Ciel 帮助文档](@/developer/packaging/ciel-manual.md)
 
 您可能也会对本版块的其它文章感兴趣：
