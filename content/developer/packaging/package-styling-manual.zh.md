@@ -43,16 +43,15 @@ Executed Packager <suffering@pakreq.work>
 - 结尾没有句号或其它标点符号。
 
 
-
 值得注意的是，AOSC OS 软件包的包描述应该是描述性的，而不是定义性的。可接受的包描述应该类似于： 
 
     "Library with common API for various MATE modules"
 		
-这样写描述性就降低了：
+而不应过于简略：
 
     "MATE Desktop Library"
 
-这样写定义性就太强了：
+亦不应过于详尽或复述来自上游项目的宣传性口吻：
 
     "Library with concise and convenient API for various MATE modules"
     
@@ -66,7 +65,7 @@ Executed Packager <suffering@pakreq.work>
 
 ### VER
 
-`$VER` 变量定义软件包的主版本号。在为 AOSC OS 打包时，打包者应遵守下列规则。
+`VER=` 行（`$VER` 变量）定义软件包的主版本号。在为 AOSC OS 打包时，打包者应遵守下列规则。
 
 | 情形 | 应当采取的措施 | 举例 |
 |-------------------|-------------------------------------|-------------------|
@@ -78,31 +77,32 @@ Executed Packager <suffering@pakreq.work>
 | 版本号为格式化后的日期 | 将短横线替换为小数点 (`.`) | QuickJS 2020-09-06 -> `VER=2020.09.06` |
 | 版本号基于版本控制系统的提交哈希值 | 由最后 tag 版本开头（如“3.2.1”），如从未 tag 则写“0”；而后接上“+”、版本控制器名称（如“git”）及提交日期 | Shadowsocks 5ff694b2c2978b432918dea6ac104706b25cbf48 -> `VER=0+git20181219` |
 
-### REL
+### REL=
 
-`$REL` 变量定义软件包的修订号。此变量只应使用一个正整数作为其值。 
+`REL=` 行（`$REL` 变量）定义软件包的修订号。此变量只应使用一个正整数作为其值。更新软件包时硬应删除 `REL=` 行以将修订号复位为 0。
 
 ## 源码文件
 
 源码文件变量定义了软件源码的下载地址。对于使用了版本控制系统的软件，还额外定义了选取的快照。
 
-### SRCTBL
+### SRCS=
 
-`$SRCTBL` 变量适用于以单个压缩包的形式发布的软件包，要求（或建议）遵守的规则如下：
+`SRCS=` 行（`$SRCS`）变量用于声明软件包要使用的各类文件，要求（或建议）遵守的规则如下。`SRCS=` 的写法请详见 [ACBS - Specification Files](@/developer/packaging/acbs/spec-format.md) 一文。
 
 | 项目 | 级别 | 应当采取的措施 |
 |-------------|----------------------------------------|---------------------------------|
 | 统一资源标识符 | 建议 | 尽可能使用 HTTPS（`https://`），避免使用 HTTP（`http://`）和 FTP（`ftp://`） |
 | 源码包格式 | 建议 | 尽可能使用基于 XZ 压缩方案的压缩包（`.tar.xz`），其它格式也可接受，但尽量避免基于 BZip2 压缩方案的压缩包（`.tar.bz2`） |
-| 版本替换 | 要求 | 源码包地址中的所有软件包版本号必须替换为 `$VER` 变量。`$SRCTBL` 不应该有硬编码的版本号 |
+| 版本替换 | 要求 | 源码包地址中的所有软件包版本号必须替换为 `$VER` 变量。`$SRCS` 条目不应含有硬编码的版本号 |
 | 源码包版本号 | 要求 | 为了保证可持续性，源码包文件必须要有版本号 |
+| 平台自动生成的源码包 | 禁用 | 请勿使用各类托管平台（尤其是 GitHub 和 GitLab）自动生成的源码包，因为这些平台往往会重新生成源码包，导致校验值发生变化；请使用 `git::` 源码类型搭配 `commit=tags/...` 参数使用 |
 
-### CHKSUM
+### CHKSUMS=
 
-`$CHKSUM` 变量和 `$SRCTBL` 变量一起使用，以定义源码包应有的校验和，格式如下：
+`CHKSUMS=` 行（`$CHKSUMS` 变量）和 `$SRCS` 变量一起使用，以定义源码包应有的校验和，格式如下：
 
 ```
-CHKSUM="$ALGORITHM::$CHECKSUM"
+CHKSUMS="$ALGORITHM::$CHECKSUM $ALGORITHM::$CHECKSUM $ALGORITHM::$CHECKSUM $ALGORITHM::$CHECKSUM"
 ```
 
 其中...
@@ -112,26 +112,19 @@ CHKSUM="$ALGORITHM::$CHECKSUM"
 
 想要进一步了解哈希算法，请参阅 [Wikipedia 的相关页面](https://en.wikipedia.org/wiki/Cryptographic_hash_function#Cryptographic_hash_algorithms)。
 
-`$CHKSUM` 会在不久的将来变为必须填写的变量。
-
-### 版本控制系统变量
-
-对于使用版本控制系统的软件，如果不对各个版本提供单个压缩包，可以根据实际情况，使用下面这些变量组合中的任何一种。
-
-| 版本控制系统 | 需要的变量 | 备注 |
-|--------|-------------------------------|---------------------------|
-| Bazaar（BZR） | `$BZRSRC`（用于指定 Bazaar 仓库）以及 `$BZRCO`（用于指定版本） | |
-| Git | `$GITSRC`（用于指定 Git 仓库）以及 `$GITCO`（用于指定检出，如提交或标签）| 尽可能使用 HTTPS 协议（`https://`） |
-| Mercurial（HG） | `$HGSRC`（用于指定 Mercurial 仓库） | 尽可能避免选用 Mecurial 仓库作为软件包源码来源，因为我们还不支持检出到特定提交 |
-| Subversion（SVN） | `$SVNSRC`（用于指定 SVN 仓库）以及 `$SVNCO`（用于指定检出，如版本） | |
+该行一般使用 `acbs-build -gw $PKGNAME` 自动填写。
 
 ### DUMMYSRC=
 
 当一个软件包是虚包或元包，或者您希望自定义其源码来源时使用 `$DUMMYSRC` 变量。该变量接受一个布尔值。
 
+### CHKUPDATE=
+
+如有可能或适用，所有软件包均应标记 `CHKUPDATE=` 行（`$CHKUPDATE` 变量），具体写法请参阅 [AOSC Find Update 语法](https://github.com/AOSC-Dev/aosc-findupdate/blob/master/docs/config.zh-CN.md)一文。请尽可能使用 `anitya::` 检查类型。
+
 ### 其它变量
 
-您还可以定义其它上面没有提到的变量，这些变量通常用于辅佐 `$SRCDIR` 变量，可以参考 `extra-devel/netbeans` 的 `spec` 文件。
+您还可以定义其它上面没有提到的变量，这些变量通常用于辅佐 `$SRCDIR` 变量，可以参考 `app-devel/netbeans` 的 `spec` 文件。
 
 ```
 VER=8.2
@@ -147,15 +140,11 @@ SUBDIR=.
 
 ## 运行时依赖
 
-运行时依赖的选择不应只考虑软件能否运行，只要是软件链接到的包都应该写进去。例如填写 `extra-multimedia/ario` 的 `$PKGDEP` 除了填写：
+运行时依赖的选择不应只考虑软件能否运行，只要是软件链接到的包都应该写进去。例如填写 `app-multimedia/ario` 的 `$PKGDEP` 除了填写：
 
 `avahi, curl, dbus-glib, gnutls, hicolor-icon-theme, libglade, libmpdclient, libnotify, libsoup, libunique, taglib, xdg-utils`
 
-以通过显式和隐式依赖关系，允许系统环境满足运行 `/usr/bin/ario` 的条件。
-
-根据 [E432](@/developer/packaging/qa-issue-codes.md#class-4-dependencies) 的规定，所有 ELF 级别的直接依赖项都应该被写进 `$PKGDEP`，这意味着您还需要为 `$PKGDEP` 补上一个 `dbus`。
-
-截至 2019 年 3 月 16 日，位于稳定仓库 `amd64` 结构的软件包中 42.4%（1592/3705）有着依赖项不完整的问题。
+以通过显式和隐式依赖关系，允许系统环境满足运行 `/usr/bin/ario` 的条件。根据 [E432](@/developer/packaging/qa-issue-codes.md#class-4-dependencies) 的规定，所有 ELF 级别的直接依赖项都应该被写进 `$PKGDEP`，这意味着您还需要为 `$PKGDEP` 补上一个 `dbus`。
 
 ### 备注
 
@@ -165,8 +154,8 @@ SUBDIR=.
 
 构建时依赖的选择应该要保证软件包在 BuildKit 构建环境中正常编译、安装和打包。BuildKit 环境中已经包含的任何包都不需要再包含在 `$BUILDDEP` 中，例如：
 
-- 构建 `extra-devel/extra-cmake-modules` 需要 CMake（`CMake`）。但是，`cmake` 已经是 BuildKit 包含的一部分。因此，打包程序不需要在 `$BUILDDEP` 中包含 `cmake`。
-- 构建 `extra-scientific/tensorflow` 需要 Bazel（`bazel`）。因为 `bazel` 不被包含在 BuildKit 中，所以 `$BUILDDEP` 必须填写 `bazel`。
+- 构建 `app-devel/extra-cmake-modules` 需要 CMake（`CMake`）。但是，`cmake` 已经是 BuildKit 包含的一部分。因此，打包程序不需要在 `$BUILDDEP` 中包含 `cmake`。
+- 构建 `app-scientific/tensorflow` 需要 Bazel（`bazel`）。因为 `bazel` 不被包含在 BuildKit 中，所以 `$BUILDDEP` 必须填写 `bazel`。
 
 # 软件包功能
 
@@ -187,22 +176,23 @@ SUBDIR=.
 
 | 项目 | 级别 | 应当采取的措施 |
 |-------------|----------------------------------------|----------------------|
-| Autobuild3 构建模板（`ABTYPE`） | 要求 | 打包应尽可能使用 [Autobuild Types](https://github.com/AOSC-Dev/autobuild3/tree/master/build)，而不使用 `autobuild/build` 或 `ABTYPE=self` |
-| 异常处理 | 要求 | 异常应被及时捕获并处理。默认情况下，Autobuild3 可以自动处理异常并中止构建，但是由于 Autobuild3 的一处漏洞，这一机制并不支持 `autobuild/build` |
+| Autobuild 构建模板 | 要求 | 应尽可能使用 [Autobuild Types](https://github.com/AOSC-Dev/autobuild3/tree/master/build)，而不使用 `autobuild/build` 或 `ABTYPE=self` |
+| Autobuild 构建模板定义 | 要求 | 所有软件包均应显式标记所使用的 Autobuild 构建模板（`ABTYPE=`)  |
+| 异常处理 | 要求 | 异常应被及时捕获并处理。默认情况下，Autobuild 可以自动处理异常并中止构建，但是由于 Autobuild 的一处漏洞，这一机制并不支持 `autobuild/build` |
 | 进展报告 | 要求 | 应该通过适当地使用 `abinfo` 和 `abwarn` 来报告进度，这对于使用 `autobuild/build` 或 `ABTYPE=self` 的软件包是必需的 |
-| 引用与参考 | 要求 | 如果您的构建脚本从其他发行版改编而来，则需要提供一段注释表明构建脚本的来源 |
+| 详尽输出 | 要求 | 构建脚本应打开所有命令的详尽输出开关以便通过构建日志查错 |
+| 绝对路径 | 要求 | 构建脚本应为所有引用的源码内文件、路径和可执行文件增加构建根 (`$SRCDIR`)、打包根 (`$PKGDIR`) 或离树构建 (shadow build) 根 (`$BLDDIR`)；如果您在构建时已切换 (`cd`) 到某个路径中，则可忽略该项 |
+| 引用与参考来源 | 要求 | 如果您的构建脚本从其他发行版改编而来，则需要提供一段注释表明构建脚本的来源 |
 | 变量 | 要求 | 变量需要用引号括起来，例如 `"$SRCDIR"` 和 `"$PKGDIR"` |
-| 文件目录 | 要求 | 从源码树手动安装的所有文件都必须引用绝对路径，例如 `"$SRCDIR"/desktop/foo.desktop` |
-| 架构 | 建议 | 虽然编写适合于 `amd64` 的构建脚本很容易，但要注意的是 AOSC OS 要使用相同的脚本为五个以上的其他架构构建软件包 |
-| 注释 | 建议 | 好的脚本都会有好的注释，当然注释可以用进度报告语句代替，详见“进度报告” |
-
-<!--
-As many packagers tend to reference or copy build scripts from Arch Linux, please reference the [TODO: AOSC OS-Arch Rosetta Stone](#) for a comprehensive guide on translating PKGBUILD (Arch Linux) into Autobuild3 manifests (AOSC OS).
--->
+| 架构 | 要求 | 除非通过 `$FAIL_ARCH` 变量限制了某软件包的支持架构，构建脚本应在所有受支持架构上进行测试 |
+| FIXME 注释 | 要求 | 打包时遇到的所有问题和临时解决方法前必须使用 `# FIXME:` 注释说明原因；如有可能，请在注释后附加简略的出错日志 |
+| 其他注释 | 建议 | 好的脚本都会有好的注释，当然注释可以用进度报告语句代替，详见“进度报告” |
+| 内建宏 | 建议 | 请尽可能多地使用如 `ab_apply_patches` 和 `ab_match_arch` 等内建宏以便简化脚本 |
+| 行宽 | 建议 | 请尽可能将脚本单行宽度限制到 80 字符以内以便其他人阅读 |
 
 # 补丁命名
 
-在将补丁添加到 `autobuild/patches/` 之前，请为您的补丁按照一定的规则命名。
+在将补丁添加到 `autobuild/patches/` 之前，请为您的补丁按照统一且可排序的规则命名。
 
 ## 基于 Git 的源码仓库
 
@@ -275,12 +265,13 @@ Electron、Chromium 和基于它们的软件包应该按照下面的要求放置
 | 数据文件 | `/usr/share` |
 | 主程序 | `/usr/lib/$PKGNAME` |
 
-## Binpack
+## 二进制包
 
 二进制软件应该安装到 `/usr` 而不是 `/opt`。如果软件许可证禁止这样做或者在打包时发现无法做到，则应考虑拒绝此类软件包。
 
-# Git 提交信息
+打包二进制包时，应在 `defines` 文件中声明 `ABSTRIP=0` 以禁用 Stripping。
 
+# Git 提交信息
 
 在为 [AOSC OS ABBS Tree](https://github.com/AOSC-Dev/aosc-os-abbs/) 提交（或贡献）更改时，请按照下面的要求填写提交信息：
 

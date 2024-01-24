@@ -46,13 +46,14 @@ However, it is worth noting that package descriptions found with AOSC OS package
 
     "Library with common API for various MATE modules"
 		
-Or less descriptive, like...
+Not less descriptive, like...
 
     "MATE Desktop Library"
 
-Or too definitive, like...
+Nor excessively definitive and reproduce uncritically claims of the upstream projects, like...
 
     "Library with concise and convenient API for various MATE modules"
+
 # Package Specs
 
 In the current implementation of [ACBS](https://github.com/AOSC-Dev/acbs) (Autobuild CI Build Service), three categories of variables are defined in a file named `spec` - these variables will be discussed below.
@@ -77,29 +78,30 @@ The `VER=`, or `$VER` variable defines the main version of the resulting package
 
 ### REL=
 
-The `REL=`, or `$REL` variable defines the revision level of the resulting package. This variable should only hold a single positive integer as its value.
+The `REL=`, or `$REL` variable defines the revision level of the resulting package. This variable should only hold a single positive integer as its value, when a package is updated, the `REL=` line should be removed to indicate a revision level of 0.
 
 ## Source Variables
 
 Source variables define the package's source(s), and in the case of a VCS (version control system) based source, define in addition a specific source snapshot.
 
-### SRCTBL=
+### SRCS=
 
-The `SRCTBL=`, or `$SRCTBL` variable is used when a package's source is released in the form of a single compressed archive. Requirements and recommendations are presented in the table below.
+The `SRCS=`, or `$SRCS` variable is used to indicate a list of source file(s) used for a package. Requirements and recommendations are presented in the table below. For description on how to compose source entries, please refer to [ACBS - Specification Files](@/developer/packaging/acbs/spec-format.md).
 
-| Criteria | Required/Recommended | Appropriate Actions |
+| Criteria | Required/Recommended/Discouraged | Appropriate Actions |
 |-------------|----------------------------------------|---------------------------------|
 | URI schemes | Recommended | Use Hypertext Transfer Protocol Secure (HTTPS, https://) where possible. Avoid non-secure connections (http://) and plain FTP (File Transfer Protocol, ftp://). |
 | Source format | Recommended | Use XZ-compressed Tar-Archives (.tar.xz) where possible, other formats are considered appropriate. Avoid the inefficient BZip2-compressed Tar-Archives (.tar.bz2) where possible. |
-| Version substitutions | Required | Source links must replace all versions with substitutions from the `$VER` variable (see above). `SRCTBL=` must not be defined with hard-coded version(s). |
+| Version substitutions | Required | Source links must replace all versions with substitutions from the `$VER` variable (see above). `SRCS=` must not be defined with hard-coded version(s). |
 | Versioned tarballs | Required | Source archives (tarballs) must be versioned in order to ensure consistency. |
+| Platform-generated tarballs | Discouraged | You should not use generated tarballs from various platforms, especially those from GitHub and GitLab, which were known to be re-generated over time, altering checksums. Use `git::` sources with the `commit=tags/...` option instead. |
 
-### CHKSUM=
+### CHKSUMS=
 
-The `CHKSUM=`, or `$CHKSUM` variable is used in conjunction with `$SRCTBL`, to define the proper checksum for specific source archive(s). The format is as follows.
+The `CHKSUMS=`, or `$CHKSUMS` variable is used in conjunction with `$SRCS` to define the proper checksum for specific source archive(s). The format is as follows.
 
 ```
-CHKSUM="$ALGORITHM::$CHECKSUM"
+CHKSUMS="$ALGORITHM::$CHECKSUM $ALGORITHM::$CHECKSUM $ALGORITHM::$CHECKSUM"
 ```
 
 Where...
@@ -109,26 +111,21 @@ Where...
 
 For descriptions of different cryptographic hash algorithms, and for identification of insecure (and therefore unacceptable) algorithms, refer to this [Wikipedia chapter](https://en.wikipedia.org/wiki/Cryptographic_hash_function#Cryptographic_hash_algorithms) under "Cryptographic Hash Function".
 
-`$CHKSUM` will become a required value in the near future.
-
-### VCS Variables
-
-VCS (Version Control System) based sources may use any one of the each combinations.
-
-| VCS | Required Variables | Additional Notes |
-|--------|-------------------------------|---------------------------|
-| Bazaar (BZR) | `BZRSRC=`, or `$BZRSRC`, which defines the Bazaar repository; `BZRCO=`, or `$BZRCO`, which defines the specific Bazaar revision. | |
-| Git | `GITSRC=`, or `$GITSRC`, which defines the Git repository; `GITCO=`, or `$GITCO`, which defines the specific Git "checkout(s)" (a commit, or a tag) | Use Git over Hypertext Transfer Protocol Secure (HTTPS, https://) where possible. |
-| Mercurial (HG) | `HGSRC=`, or `$HGSRC`, which defines the Meruciral repository. | Avoid using Mecurial source(s) where possible, as support for checking out a specific revision is not yet implemented. |
-| Subversion (SVN) | `SVNSRC=`, or `$SVNSRC`, which defines the SVN repository; `SVNCO=`,  or `$SVNCO`, which defines the specific SVN checkout(s) (revision). | |
+This variable is usually automatically generated with `acbs-build -gw $PKGNAME`.
 
 ### DUMMYSRC=
 
 The `DUMMYSRC=`, or `$DUMMYSRC` variable is used when a package is empty (meta package), or uses custom-generated sources. This variable takes a bolean value.
 
+### CHKUPDATE=
+
+All packages, when possible or applicable, should be marked with the `CHKUPDATE=`, or `$CHKUPDATE` variable. Please refer to [AOSC Find Update Syntax](https://github.com/AOSC-Dev/aosc-findupdate/blob/master/docs/config.md) for syntax and available options.
+
+Whenever possible, it is encouraged to use the `anitya::` checker for your package.
+
 ### Other Variables
 
-Other variables may be used, so long as they are not any of the variables listed above. These variables are often used to aid with manipulating `$SRCDIR`, here's the `spec` file of `extra-devel/netbeans`, for instance.
+Other variables may be used, so long as they are not any of the variables listed above. These variables are often used to aid with manipulating `$SRCDIR`, here's the `spec` file of `app-devel/netbeans`, for instance.
 
 ```
 VER=8.2
@@ -144,15 +141,11 @@ In the context of AOSC OS packaging, dependencies are arranged in two categories
 
 ## Run-time Dependencies
 
-Run-time dependencies should be written in such a way that, not only does the package function (programs run, libraries link, etc.), all linkages to the package should also be included. In the case of `extra-multimedia/ario`, for instance, not only should `$PKGDEP` contain the following dependencies:
+Run-time dependencies should be written in such a way that, not only does the package function (programs run, libraries link, etc.), all linkages to the package should also be included. In the case of `app-multimedia/ario`, for instance, not only should `$PKGDEP` contain the following dependencies:
 
 `avahi, curl, dbus-glib, gnutls, hicolor-icon-theme, libglade, libmpdclient, libnotify, libsoup, libunique, taglib, xdg-utils`
 
-Which, through explicit and implicit dependencies, allows for a system environment that contains sufficient runtime for the program `/usr/bin/ario` to function.
-
-By the quality assurance standard, defined in code [E432](@/developer/packaging/qa-issue-codes.md#class-4-dependencies), all direct dependencies on the ELF level should also be included in `$PKGDEP`, and thus the addition of `dbus` to `$PKGDEP` is necessary.
-
-As of March 16th, 2019, 42.4% (1592/3705) of all packages provided in the Stable channel for `amd64` has the issue of insufficient ELF dependencies.
+Which, through explicit and implicit dependencies, allows for a system environment that contains sufficient runtime for the program `/usr/bin/ario` to function. By the quality assurance standard, defined in code [E432](@/developer/packaging/qa-issue-codes.md#class-4-dependencies), all direct dependencies on the ELF level should also be included in `$PKGDEP`, and thus the addition of `dbus` to `$PKGDEP` is necessary.
 
 ### Additional Notes
 
@@ -162,8 +155,8 @@ As of March 16th, 2019, 42.4% (1592/3705) of all packages provided in the Stable
 
 Build-time dependencies should written in such a way that the package will compile, install, and package successfully in the BuildKit build environment. Given this, any packages included in the BuildKit environment will not need to be included in `$BUILDDEP`. For example...
 
-- CMake (`cmake`) is required for building `extra-devel/extra-cmake-modules`, however, `cmake` is an integral part of BuildKit. Therefore, packagers are not required to include `cmake` in `$BUILDDEP`.
-- Bazel (`bazel`) is required fo building `extra-scientific/tensorflow`. In this case, `bazel` must be included in `$BUILDDEP`, as `bazel` is not installed in BuildKit as standard.
+- CMake (`cmake`) is required for building `app-devel/extra-cmake-modules`, however, `cmake` is an integral part of BuildKit. Therefore, packagers are not required to include `cmake` in `$BUILDDEP`.
+- Bazel (`bazel`) is required fo building `app-scientific/tensorflow`. In this case, `bazel` must be included in `$BUILDDEP`, as `bazel` is not installed in BuildKit as standard.
 
 # Package Features
 
@@ -185,20 +178,23 @@ A general rule of thumb is to write such scripts secure (quoted) variables, suff
 
 | Criteria | Required/Recommended | Explanations |
 |-------------|----------------------------------------|----------------------|
-| Autobuild3 Build Templates (`ABTYPE`) | Required | Packager should utilise [Autobuild Types](https://github.com/AOSC-Dev/autobuild3/tree/master/build) where possible, without using `autobuild/build` or `ABTYPE=self`. |
-| Error Handling | Required | Build errors should be captured and handled appropriately. By default, errors are handled automatically by Autobuild3 and will result in aborted build, however, `autobuild/build` is not yet covered due to a bug in Autobuild3. |
-| Progression report | Requried | Progress should be reported by appropriately employing `abinfo` and `abwarn` wrappers, this is required for packages utilising the `autobuild/build`, or `ABTYPE=self`. |
+| Autobuild Build Templates | Required | Packagers should utilise [Autobuild Types](https://github.com/AOSC-Dev/autobuild3/tree/master/build) where possible, without using `autobuild/build` or `ABTYPE=self`. |
+| Autobuild Build Template Definition | Required | Packagers should explicitly mark the `ABTYPE=`, or type of Autobuild build templates used by the package source. |
+| Error Handling | Required | Build errors should be captured and handled appropriately. |
+| Progression Reporting | Requried | Progress should be reported by appropriately employing `abinfo` and `abwarn` wrappers, this is required for packages utilising the `autobuild/build`, or `ABTYPE=self`. |
+| Verbosity | Required | Build scripts should enable command verbosity where possible to help generate fuller logs for debugging. |
+| Absolute Paths | Required | Build scripts should prefix all in-source files, paths, and executables referenced with the build root (`$SRCDIR`), packaging root (`$PKGDIR`), or the shadow build prefix (`$BLDDIR`) (i.e., using `"$SRCDIR"/configure` versus `./configure`); if you have cd'd into a directory, this rule does not apply for any files, paths, and executables referenced. |
 | Citations and References | Required | When adapting/copying build scripts from other distributions, packager must include a comment indicating the source(s) of the build script(s) |
 | Secure Variables | Required | Variables should be quoted, for example, all `"$SRCDIR"` and `"$PKGDIR"`. |
-| File Directories | Required | All files manually installed from the source tree must be referenced with absolute paths, for instance, `"$SRCDIR"/desktop/foo.desktop`. |
-| Architectural Considerations | Recommended | While it is convenient to write build scripts adapted to the `amd64` port, it is important to note that AOSC OS builds packages for more than five other architectures using the same scripts. |
-| Comments | Recommended | Good scripts tend to be well commented. However, comments can be replaced with progression report clauses, see "Progression report". |
-
-As many packagers tend to reference or copy build scripts from Arch Linux, please reference the [TODO: AOSC OS-Arch Rosetta Stone](#) for a comprehensive guide on translating PKGBUILD (Arch Linux) into Autobuild3 manifests (AOSC OS).
+| Architectural Considerations | Required | Unless marked to fail on specific architectures (`$FAIL_ARCH`), you should assume that all scripts are tested and will work on all supported architectures. |
+| FIXME Comments | Required | All known issues and workarounds must be marked with a `# FIXME:` comment indicating the reasoning. When possible, append an abbreviated build log for where the error occurred. |
+| Other Comments | Recommended | Good scripts tend to be well commented. However, comments can be replaced with progression report clauses, see "Progression report". |
+| Macros | Recommended | Please make use of built-in macros, i.e., `ab_apply_patches`, `ab_match_arch`, etc. where possible to save on scripting complexity. |
+| Line Widths | Recommended | Please limit script lines to no more than 80 characters wide to make it more readable for others. |
 
 # Patch Naming
 
-Patches should follow a (mostly) uniform file naming for clear arrangement and sorting, before they are included in `autobuild/patches/`.
+Patches should follow a uniform and ordered format, before they are included in `autobuild/patches/`. See below for specific rules.
 
 ## Git-based Sources
 
@@ -207,7 +203,6 @@ When dealing with Git-based sources, it is possible to create numbered patches f
 ```
 git format-patch -n $HASH
 ```
-
 
 Where `n` defines the amount of commits from the specific commit `$HASH`, including the specified commit. Alternatively, you can omit the `$HASH`...
 
@@ -274,7 +269,9 @@ Electron, Chromium, and other Chromium-based packages should be packaged with th
 
 ## Binary Packaging (Binpack)
 
-Binary packages should not be installed to `/opt`, unless the package's licence prohibits such file movement. With adjustments and other modifications, these packages should be installed to the `/usr` prefix - if packager find it impossible, they should consider rejecting such packages.
+Binary packages should not be installed to `/opt`, unless the package's licence prohibits such file movement. With adjustments and other modifications, these packages should be installed to the `/usr` prefix - should the packager find it impossible, they should consider rejecting such packages.
+
+Stripping must also be disabled for binary packages by appending `ABSTRIP=0` to `defines`.
 
 # Git Commit Messages
 
