@@ -184,6 +184,7 @@ A general rule of thumb is to write such scripts secure (quoted) variables, suff
 | Progression Reporting | Requried | Progress should be reported by appropriately employing `abinfo` and `abwarn` wrappers, this is required for packages utilising the `autobuild/build`, or `ABTYPE=self`. |
 | Verbosity | Required | Build scripts should enable command verbosity where possible to help generate fuller logs for debugging. |
 | Absolute Paths | Required | Build scripts should prefix all in-source files, paths, and executables referenced with the build root (`$SRCDIR`), packaging root (`$PKGDIR`), or the shadow build prefix (`$BLDDIR`) (i.e., using `"$SRCDIR"/configure` versus `./configure`); if you have cd'd into a directory, this rule does not apply for any files, paths, and executables referenced. |
+| Symlinks | Required | Use relative paths when symlinking files in the system root to avoid file pollution when accessed from an external system. |
 | Citations and References | Required | When adapting/copying build scripts from other distributions, packager must include a comment indicating the source(s) of the build script(s) |
 | Secure Variables | Required | Variables should be quoted, for example, all `"$SRCDIR"` and `"$PKGDIR"`. |
 | Architectural Considerations | Required | Unless marked to fail on specific architectures (`$FAIL_ARCH`), you should assume that all scripts are tested and will work on all supported architectures. |
