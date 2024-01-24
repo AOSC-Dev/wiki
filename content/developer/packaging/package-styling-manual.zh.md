@@ -87,7 +87,7 @@ Executed Packager <suffering@pakreq.work>
 
 ### SRCS=
 
-`SRCS=` 行（`$SRCS`）变量用于声明软件包要使用的各类文件，要求（或建议）遵守的规则如下。`SRCS=` 的写法请详见 [ACBS - Specification Files](@/developer/packaging/acbs/spec-format.md) 一文。
+`SRCS=` 行（`$SRCS`）变量用于声明软件包要使用的各类文件，要求（或建议）遵守的规则如下。`SRCS=` 的写法请详见 [ACBS - Specification Files](/developer/packaging/acbs/spec-format.md) 一文。
 
 | 项目 | 级别 | 应当采取的措施 |
 |-------------|----------------------------------------|---------------------------------|
