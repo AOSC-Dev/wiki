@@ -86,7 +86,7 @@ Source variables define the package's source(s), and in the case of a VCS (versi
 
 ### SRCS=
 
-The `SRCS=`, or `$SRCS` variable is used to indicate a list of source file(s) used for a package. Requirements and recommendations are presented in the table below. For description on how to compose source entries, please refer to [ACBS - Specification Files](@/developer/packaging/acbs/spec-format.md).
+The `SRCS=`, or `$SRCS` variable is used to indicate a list of source file(s) used for a package. Requirements and recommendations are presented in the table below. For description on how to compose source entries, please refer to [ACBS - Specification Files](https://wiki.aosc.io/developer/packaging/acbs/spec-format.md).
 
 | Criteria | Required/Recommended/Discouraged | Appropriate Actions |
 |-------------|----------------------------------------|---------------------------------|
