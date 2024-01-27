@@ -93,7 +93,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **Stomatopoda** | 27863 | 16 * LA464 cores @ 2.20GHz (Loongson 3C5000) | 32GiB | 1376s (with LLVM 16.0.4) | _Loongson Technology (Wuhan)_ | Direct access with `ssh -p2222 root@211.137.78.121` |
+| **Stomatopoda** | 27863 | 16 * LA464 cores @ 2.20GHz (Loongson 3C5000) | 128GiB | 1376s (with LLVM 16.0.4) | _Loongson Technology (Wuhan)_ | Direct access with `ssh -p2222 root@211.137.78.121` |
 | **VirtuaCambarus** | 27888 | 12 * LA464 cores @ 2.20GHz (KVM on Loongson 3C5000) | 64GiB | 2201s (with LLVM 17.0.6) | _Mingcong Bai_ | Performance may not be stable as KVM support is not yet mainlined |
 
 ## **Emulation Hosts** (28001-29000)
