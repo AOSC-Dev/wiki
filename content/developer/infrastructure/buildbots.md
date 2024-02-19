@@ -62,19 +62,19 @@ If you would like contribute your device to AOSC, please make sure your device h
 
 | Name | Port | CPU | Memory | Speed |Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **Ybsbny** | 23269 | Loongson-3A R4 (Loongson-3B4000) @ 1800MHz | 64GiB | 3712s | _Henry Chen_ | Community crowdsourced; repo mirror at `http://50.50.1.224/debs/` |
-| **Resonance** | 23541 | Loongson 3B-4000 (R4) @ 1.80GHz (LX-2510) | 32GiB | 3724s | _Kexy Biscuit_ | Community crowdsourced; direct access with `ssh -4p23541 root@home.biscuit.moe`; repo mirror at `http://localhost/debs/`, BuildKit mirror at `http://localhost/aosc-os/os-amd64/buildkit/` |
+| **Ybsbny** | 23269 | Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz | 64GiB | 3712s | _Henry Chen_ | Community crowdsourced; repo mirror at `http://50.50.1.224/debs/` |
+| **Resonance** | 23541 | Loongson 3B-4000 (R4) @ 1.8GHz (LX-2510) | 32GiB | 3724s | _Kexy Biscuit_ | Community crowdsourced; direct access with `ssh -4p23541 root@home.biscuit.moe`; repo mirror at `http://localhost/debs/`, BuildKit mirror at `http://localhost/aosc-os/os-amd64/buildkit/` |
 
 ## **ARM** (24001-25000)
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **Catfish** | 24114 | 64-Core Huawei Kunpeng 920 @ 2.60GHz (Huawei Taishan 2180) | 256GiB | 344s | _Undisclosed_ | Local repository mirror at `http://localhost/debs` |
+| **Catfish** | 24114 | 64-Core Huawei Kunpeng 920 @ 2.6GHz (Huawei Taishan 2180) | 256GiB | 344s | _Undisclosed_ | Local repository mirror at `http://localhost/debs` |
 | **Zinfandel** | 24222 | 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (Apple M1 chip) | 16GiB | 648s | _Mingcong Bai_ | |
 | **Mio** | 24242 | 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (Apple M1 chip) | 16GiB | 646s | _Cyan_ | Direct access with `ssh -6p4030 lemau.pod.cyano.uk`; Local mirror at `http://mirrors.priv.cyano.uk/anthon/debs` |
-| **kp920** | 24426 | 2 * 48-Core Huawei Kunpeng 920 @ 2.60GHz (Huawei Taishan 2280 v2; 94 cores allocated) | 192GiB (145GiB allocated) | 439s | _Undisclosed_ | Direct access with `ssh -4p2223 root@kp920.ip4.run` |
+| **kp920** | 24426 | 2 * 48-Core Huawei Kunpeng 920 @ 2.6GHz (Huawei Taishan 2280 v2; 94 cores allocated) | 192GiB (145GiB allocated) | 439s | _Undisclosed_ | Direct access with `ssh -4p2223 root@kp920.ip4.run` |
 | **Trionychidae** | 24514 | 64-Core Phytium FT-2000+/64 @ 2.2GHz | 128GiB | 2263s | _Undisclosed_ | Local repository mirror at `http://100.65.1.101/debs` |
-| **eleventh** | 24808 | 8-Core Huawei Kunpeng 920 @ 2.40GHz | 16GiB | 1582s | _Undisclosed_ | Direct access with `ssh -oProxyJump=aosc-build@hw-hk.innull.com:20022 root@192.168.1.11` |
+| **eleventh** | 24808 | 8-Core Huawei Kunpeng 920 @ 2.4GHz | 16GiB | 1582s | _Undisclosed_ | Direct access with `ssh -oProxyJump=aosc-build@hw-hk.innull.com:20022 root@192.168.1.11` |
 
 ## **PowerPC** (25001-26000)
 
@@ -86,6 +86,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
+| **ChubbyHydra** | 26128 | 128 * T-Head XuanTie C920 @ 2GHz | 256GiB | 1697s | _Undisclosed_ | |
 | **GreenGoo** | 26666 | 63 * T-Head XuanTie C920 @ 2GHz | 96GiB | 1376s | _Icenowy Zheng_ | Local repository mirror is at `http://dorothea.fodlan.icenowy.me/anthon/debs` |
 | **MagmaCube** | 26999 | 64 * T-Head XuanTie C920 @ 2GHz | 128GiB | 1582s | _Icenowy Zheng_ | Local repository mirror is at `http://dorothea.fodlan.icenowy.me/anthon/debs` |
 
@@ -93,15 +94,16 @@ If you would like contribute your device to AOSC, please make sure your device h
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **Stomatopoda** | 27863 | 16 * LA464 cores @ 2.20GHz (Loongson 3C5000) | 128GiB | 1376s (with LLVM 16.0.4) | _Loongson Technology (Wuhan)_ | Direct access with `ssh -p2222 root@211.137.78.121` |
-| **VirtuaCambarus** | 27888 | 12 * LA464 cores @ 2.20GHz (KVM on Loongson 3C5000) | 64GiB | 2201s (with LLVM 17.0.6) | _Mingcong Bai_ | Performance may not be stable as KVM support is not yet mainlined |
+| **dragonfly** | 27514 | 16 * LA464 cores @ 2.5GHz (Loongson 3C5000) | 128GiB | 1247s (with LLVM 17.0.6) | _Xinmudotmoe_ | |
+| **Stomatopoda** | 27863 | 16 * LA464 cores @ 2.2GHz (Loongson 3C5000) | 128GiB | 1376s (with LLVM 16.0.4) | _Loongson Technology (Wuhan)_ | Direct access with `ssh -p2222 root@211.137.78.121` |
+| **VirtuaCambarus** | 27888 | 12 * LA464 cores @ 2.2GHz (KVM on Loongson 3C5000) | 64GiB | 2201s (with LLVM 17.0.6) | _Mingcong Bai_ | Performance may not be stable as KVM support is not yet mainlined |
 
 ## **Emulation Hosts** (28001-29000)
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **Taple** | 28002 | AMD Ryzen R5 5500 @ 3.9 - 4.4GHz | 32GiB | 726s | _Lain Yang_ | Local mirror at http://localhost/debs |
-| **PorterAlePro** | 28003 | AMD Ryzen 9 3950X @ 3.50 - 4.70GHz | 64GiB | 313s | _Mingcong Bai_ | |
+| **PorterAlePro** | 28003 | AMD Ryzen 9 3950X @ 3.5 - 4.7GHz | 64GiB | 313s | _Mingcong Bai_ | |
 
 # List of archived buildbots
 
