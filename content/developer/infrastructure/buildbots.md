@@ -94,7 +94,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **loong13** | 27282 | 4 * LA464 cores @ 2.5GHz (Loongson 3A5000) | 16GiB | 3863s (with LLVM 17.0.6) | |
+| **loong13** | 27282 | 4 * LA464 cores @ 2.5GHz (Loongson 3A5000) | 16GiB | 3863s (with LLVM 17.0.6) | _Henry Chen_ | |
 | **dragonfly** | 27514 | 16 * LA464 cores @ 2.5GHz (Loongson 3C5000) | 128GiB | 1247s (with LLVM 17.0.6) | _Xinmudotmoe_ | |
 | **Stomatopoda** | 27863 | 16 * LA464 cores @ 2.2GHz (Loongson 3C5000) | 128GiB | 1376s (with LLVM 16.0.4) | _Loongson Technology (Wuhan)_ | Direct access with `ssh -p2222 root@211.137.78.121` |
 
