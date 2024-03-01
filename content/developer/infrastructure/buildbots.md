@@ -94,9 +94,9 @@ If you would like contribute your device to AOSC, please make sure your device h
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
+| **loong13** | 27282 | 4 * LA464 cores @ 2.5GHz (Loongson 3A5000) | 16GiB | 3863s (with LLVM 17.0.6) | |
 | **dragonfly** | 27514 | 16 * LA464 cores @ 2.5GHz (Loongson 3C5000) | 128GiB | 1247s (with LLVM 17.0.6) | _Xinmudotmoe_ | |
 | **Stomatopoda** | 27863 | 16 * LA464 cores @ 2.2GHz (Loongson 3C5000) | 128GiB | 1376s (with LLVM 16.0.4) | _Loongson Technology (Wuhan)_ | Direct access with `ssh -p2222 root@211.137.78.121` |
-| **VirtuaCambarus** | 27888 | 12 * LA464 cores @ 2.2GHz (KVM on Loongson 3C5000) | 64GiB | 2201s (with LLVM 17.0.6) | _Mingcong Bai_ | Performance may not be stable as KVM support is not yet mainlined |
 
 ## **Emulation Hosts** (28001-29000)
 
@@ -120,6 +120,7 @@ Please note that the following is not an exhaustive list.
 | **marianne** | ~~26055~~ | SiFive FU740 @ 988MHz (SiFive HiFive Unmatched) | 16GiB | 22515s | _Icenowy Zheng_ | Scratch needs to be mounted manually by nbd-mount.sh in /root (currently using the scratch disk from **lorenz**); behind GFW, a HTTP proxy is available at http://dedue:8118, device sponsored by the PLCT Lab |
 | **leonie** | ~~26056~~ | SiFive FU740 @ 988MHz (SiFive HiFive Unmatched) | 16GiB | 22612s | _Icenowy Zheng_ | Scratch is on NVMe disk ,maybe buggy, investigation needed; behind GFW, a HTTP proxy is available at http://dedue:8118, device sponsored by the PLCT Lab |
 | **Yukoaioi** | ~~27001~~ | Quad core @ 2.50GHz (Loongson 3A5000) | 16GiB | - | _Mag Mell_ | Direct access with `ssh -p9876 root@athome.miraclemilk.me` |
+| **VirtuaCambarus** | ~~27888~~ | 12 * LA464 cores @ 2.2GHz (KVM on Loongson 3C5000) | 64GiB | 2201s (with LLVM 17.0.6) | _Mingcong Bai_ | Performance may not be stable as KVM support is not yet mainlined |
 | **PorterAle** | ~~28001~~ | Intel i7-8700T @ 2.40 - 4.00GHz | 16GiB | 996s | _MingcongBai_ | |
 
 # Maintainer Notes
