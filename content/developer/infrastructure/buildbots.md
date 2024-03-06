@@ -56,7 +56,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|---------|-----------|
-| **towards-modern-distro** | 22126 | AMD EPYC 9654 @ 2.3 - 3.7GHz (KVM, 96 cores allocated) | 384GiB | 117s | Linux Club of Peking University | |
+| **towards-modern-distro** | 22162 | AMD EPYC 9654 @ 2.3 - 3.7GHz (KVM, 96 cores allocated) | 384GiB | 117s | Linux Club of Peking University | |
 | **Yerus** | 22333 | AMD EPYC 7H12 @ 2.6 - 3.3GHz | 1TiB | 173s | _Jiangjin Wang_ | |
 
 ## **MIPS** (23001-24000)
