@@ -56,6 +56,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|---------|-----------|
+| **towards-modern-distro** | 22126 | AMD EPYC 9654 @ 2.3 - 3.7GHz (KVM, 96 cores allocated | 384GiB | 117s | Linux Club of Peking University | |
 | **Yerus** | 22333 | AMD EPYC 7H12 @ 2.6 - 3.3GHz | 1TiB | 173s | _Jiangjin Wang_ | |
 
 ## **MIPS** (23001-24000)
@@ -72,7 +73,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 | **Catfish** | 24114 | 64-Core Huawei Kunpeng 920 @ 2.6GHz (Huawei Taishan 2180) | 256GiB | 344s | _Undisclosed_ | Local repository mirror at `http://localhost/debs` |
 | **Zinfandel** | 24222 | 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (Apple M1 chip) | 16GiB | 648s | _Mingcong Bai_ | |
 | **Mio** | 24242 | 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (Apple M1 chip) | 16GiB | 646s | _Cyan_ | Direct access with `ssh -6p4030 lemau.pod.cyano.uk`; Local mirror at `http://mirrors.priv.cyano.uk/anthon/debs` |
-| **kp920** | 24426 | 2 * 48-Core Huawei Kunpeng 920 @ 2.6GHz (Huawei Taishan 2280 v2; 94 cores allocated) | 192GiB (145GiB allocated) | 439s | _Undisclosed_ | Direct access with `ssh -4p2223 root@kp920.ip4.run` |
+| **kp920** | 24426 | 2 * 48-Core Huawei Kunpeng 920 @ 2.6GHz (Huawei Taishan 2280 v2; KVM, 94 cores allocated) | 192GiB (145GiB allocated) | 439s | _Undisclosed_ | Direct access with `ssh -4p2223 root@kp920.ip4.run` |
 | **Trionychidae** | 24514 | 64-Core Phytium FT-2000+/64 @ 2.2GHz | 128GiB | 2263s | _Undisclosed_ | Local repository mirror at `http://100.65.1.101/debs` |
 | **eleventh** | 24808 | 8-Core Huawei Kunpeng 920 @ 2.4GHz | 16GiB | 1582s | _Undisclosed_ | Direct access with `ssh -oProxyJump=aosc-build@hw-hk.innull.com:20022 root@192.168.1.11` |
 
@@ -80,7 +81,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **PowerNV** | 25202 | IBM POWER9 CPU (3 cores, 12 threads) | 36GiB | 1293s | _Mingcong Bai_ | |
+| **PowerNV** | 25202 | IBM POWER9 CPU (KVM, 12 cores allocated) | 36GiB | 1293s | _Mingcong Bai_ | |
 
 ## **RISC-V** (26001-27000)
 
