@@ -95,6 +95,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
+| **Yukoaioi** | 27001 | Loongson 3A5000-HV @ 2.50GHz (4 cores) | 16GiB | 3335s (with LLVM 17.0.6) | _Mag Mell_ |  |
 | **loong13** | 27282 | Loongson 3A5000-HV @ 2.5GHz (4 cores) | 16GiB | 3863s (with LLVM 17.0.6) | _Henry Chen_ | |
 | **dragonfly** | 27514 | Loongson 3C5000 @ 2.5GHz (16 cores, overclocked) | 128GiB | 1247s (with LLVM 17.0.6) | _Xinmudotmoe_ | |
 | **viperdesign** | 27688 | Loongson 3A6000-HV @ 2.5GHz (4 cores, 8 threads) | 32GiB | 2134s (with LLVM 17.0.6) | _Viperdesign_ | |
@@ -121,7 +122,6 @@ Please note that the following is not an exhaustive list.
 | **SiFarce** | ~~26002~~ | SiFive FU740 @ 1.4GHz (SiFive HiFive Unmatched) | 16GiB | - | _Mingcong Bai_ | |
 | **marianne** | ~~26055~~ | SiFive FU740 @ 988MHz (SiFive HiFive Unmatched) | 16GiB | 22515s | _Icenowy Zheng_ | Scratch needs to be mounted manually by nbd-mount.sh in /root (currently using the scratch disk from **lorenz**); behind GFW, a HTTP proxy is available at http://dedue:8118, device sponsored by the PLCT Lab |
 | **leonie** | ~~26056~~ | SiFive FU740 @ 988MHz (SiFive HiFive Unmatched) | 16GiB | 22612s | _Icenowy Zheng_ | Scratch is on NVMe disk ,maybe buggy, investigation needed; behind GFW, a HTTP proxy is available at http://dedue:8118, device sponsored by the PLCT Lab |
-| **Yukoaioi** | ~~27001~~ | Quad core @ 2.50GHz (Loongson 3A5000) | 16GiB | - | _Mag Mell_ | Direct access with `ssh -p9876 root@athome.miraclemilk.me` |
 | **VirtuaCambarus** | ~~27888~~ | 12 * LA464 cores @ 2.2GHz (KVM on Loongson 3C5000) | 64GiB | 2201s (with LLVM 17.0.6) | _Mingcong Bai_ | Performance may not be stable as KVM support is not yet mainlined |
 | **PorterAle** | ~~28001~~ | Intel i7-8700T @ 2.40 - 4.00GHz | 16GiB | 996s | _MingcongBai_ | |
 
