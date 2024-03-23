@@ -46,7 +46,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 
 {% card(type="info") %}
 - `port_number - 10000` is occupied by that machine. See information above.
-- The parameter "Speed" presents an approximation on the relative performance of each Buildbot. To benchmark, download and run the [buildbot-benchmark.bash](https://github.com/AOSC-Dev/scriptlets/tree/master/buildbot-benchmark) script.
+- The parameter "Speed" presents an approximation on the relative performance of each Buildbot. To benchmark, download and run the [buildbot-benchmark.bash](https://github.com/AOSC-Dev/buildbot-benchmark) script.
 - A **Port** with a strikethrough means that the buildbot is not online recently.
 {% end %}
 
@@ -56,57 +56,57 @@ If you would like contribute your device to AOSC, please make sure your device h
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|---------|-----------|
-| **towards-modern-distro** | 22162 | AMD EPYC 9654 @ 2.3 - 3.7GHz (KVM, 96 cores allocated) | 384GiB | 117s | Linux Club of Peking University | |
-| **Yerus** | 22333 | AMD EPYC 7H12 @ 2.6 - 3.3GHz | 1TiB | 173s | _Jiangjin Wang_ | |
+| **towards-modern-distro** | 22162 | AMD EPYC 9654 @ 2.3 - 3.7GHz (KVM, 96 cores allocated) | 384GiB | 124s | Linux Club of Peking University | |
+| **Yerus** | 22333 | AMD EPYC 7H12 @ 2.6 - 3.3GHz | 1TiB | 219s | _Jiangjin Wang_ | |
 
 ## **MIPS** (23001-24000)
 
 | Name | Port | CPU | Memory | Speed |Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **Ybsbny** | 23269 | Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz | 64GiB | 3712s | _Henry Chen_ | Community crowdsourced; repo mirror at `http://50.50.1.224/debs/` |
-| **Resonance** | 23541 | Loongson 3B-4000 (R4) @ 1.8GHz (LX-2510) | 32GiB | 3724s | _Kexy Biscuit_ | Community crowdsourced; direct access with `ssh -4p23541 root@home.biscuit.moe`; repo mirror at `http://localhost/debs/`, BuildKit mirror at `http://localhost/aosc-os/os-amd64/buildkit/` |
+| **Ybsbny** | 23269 | Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz | 64GiB | 4397s | _Henry Chen_ | Community crowdsourced; repo mirror at `http://50.50.1.224/debs/` |
+| **Resonance** | 23541 | Loongson 3B-4000 (R4) @ 1.8GHz (LX-2510) | 32GiB | 4392s | _Kexy Biscuit_ | Community crowdsourced; direct access with `ssh -4p23541 root@home.biscuit.moe`; repo mirror at `http://localhost/debs/`, BuildKit mirror at `http://localhost/aosc-os/os-amd64/buildkit/` |
 
 ## **ARM** (24001-25000)
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **Catfish** | 24114 | 64-Core Huawei Kunpeng 920 @ 2.6GHz (Huawei Taishan 2180) | 256GiB | 344s | _Undisclosed_ | Local repository mirror at `http://localhost/debs` |
-| **Zinfandel** | 24222 | 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (Apple M1 chip) | 16GiB | 648s | _Mingcong Bai_ | |
-| **Mio** | 24242 | 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (Apple M1 chip) | 16GiB | 646s | _Cyan_ | Direct access with `ssh -6p4030 lemau.pod.cyano.uk`; Local mirror at `http://mirrors.priv.cyano.uk/anthon/debs` |
-| **kp920** | 24426 | 2 * 48-Core Huawei Kunpeng 920 @ 2.6GHz (Huawei Taishan 2280 v2; KVM, 94 cores allocated) | 192GiB (145GiB allocated) | 439s | _Undisclosed_ | Direct access with `ssh -4p2223 root@kp920.ip4.run` |
-| **Trionychidae** | 24514 | 64-Core Phytium FT-2000+/64 @ 2.2GHz | 128GiB | 2263s | _Undisclosed_ | Local repository mirror at `http://100.65.1.101/debs` |
-| **eleventh** | 24808 | 8-Core Huawei Kunpeng 920 @ 2.4GHz | 16GiB | 1582s | _Undisclosed_ | Direct access with `ssh -oProxyJump=aosc-build@hw-hk.innull.com:20022 root@192.168.1.11` |
+| **Catfish** | 24114 | 64-Core Huawei Kunpeng 920 @ 2.6GHz (Huawei Taishan 2180) | 256GiB | 367s | _Undisclosed_ | Local repository mirror at `http://localhost/debs` |
+| **Zinfandel** | 24222 | 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (Apple M1 chip) | 16GiB | 782s | _Mingcong Bai_ | |
+| **Mio** | 24242 | 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (Apple M1 chip) | 16GiB | 777s | _Cyan_ | Direct access with `ssh -6p4030 lemau.pod.cyano.uk`; Local mirror at `http://mirrors.priv.cyano.uk/anthon/debs` |
+| **kp920** | 24426 | 2 * 48-Core Huawei Kunpeng 920 @ 2.6GHz (Huawei Taishan 2280 v2; KVM, 94 cores allocated) | 192GiB (145GiB allocated) | 496s | _Undisclosed_ | Direct access with `ssh -4p2223 root@kp920.ip4.run` |
+| **eleventh** | 24808 | 8-Core Huawei Kunpeng 920 @ 2.4GHz | 16GiB | 1832s | _Undisclosed_ | Direct access with `ssh -oProxyJump=aosc-build@hw-hk.innull.com:20022 root@192.168.1.11` |
 
 ## **PowerPC** (25001-26000)
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **PowerNV** | 25202 | IBM POWER9 CPU (KVM, 12 cores allocated) | 36GiB | 1293s | _Mingcong Bai_ | |
+| **PowerNV** | 25202 | IBM POWER9 (KVM, 12 cores allocated) | 36GiB | 1949s | _Mingcong Bai_ | |
+| **power8** | 25888 | IBM POWER8NVL @ 2.4 - 4.0GHz (32 cores, 128 threads) | 128GiB | 447s | _Undisclosed_ | |
 
 ## **RISC-V** (26001-27000)
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **ChubbyHydra** | 26128 | 128 * T-Head XuanTie C920 @ 2GHz | 256GiB | 1697s | _Undisclosed_ | |
-| **GreenGoo** | 26666 | 63 * T-Head XuanTie C920 @ 2GHz | 96GiB | 1376s | _Icenowy Zheng_ | Local repository mirror is at `http://dorothea.fodlan.icenowy.me/anthon/debs` |
-| **MagmaCube** | 26999 | 64 * T-Head XuanTie C920 @ 2GHz | 128GiB | 1582s | _Icenowy Zheng_ | Local repository mirror is at `http://dorothea.fodlan.icenowy.me/anthon/debs` |
+| **ChubbyHydra** | 26128 | 128 * T-Head XuanTie C920 @ 2GHz | 256GiB | 2041s | _Undisclosed_ | |
+| **GreenGoo** | 26666 | 63 * T-Head XuanTie C920 @ 2GHz | 96GiB | 1809s | _Icenowy Zheng_ | Local repository mirror is at `http://dorothea.fodlan.icenowy.me/anthon/debs` |
+| **MagmaCube** | 26999 | 64 * T-Head XuanTie C920 @ 2GHz | 128GiB | 1744s | _Icenowy Zheng_ | Local repository mirror is at `http://dorothea.fodlan.icenowy.me/anthon/debs` |
 
 ## **LoongArch** (27001-28000)
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **Yukoaioi** | 27001 | Loongson 3A5000-HV @ 2.50GHz (4 cores) | 16GiB | 3995s (with LLVM 17.0.6) | _Mag Mell_ |  |
-| **loong13** | 27282 | Loongson 3A5000-HV @ 2.5GHz (4 cores) | 16GiB | 3863s (with LLVM 17.0.6) | _Henry Chen_ | |
-| **dragonfly** | 27514 | Loongson 3C5000 @ 2.5GHz (16 cores, overclocked) | 128GiB | 1247s (with LLVM 17.0.6) | _Xinmudotmoe_ | |
-| **viperdesign** | 27688 | Loongson 3A6000-HV @ 2.5GHz (4 cores, 8 threads) | 32GiB | 2134s (with LLVM 17.0.6) | _Viperdesign_ | |
-| **Stomatopoda** | 27863 | Loongson 3C5000 @ 2.2GHz (16 cores) | 128GiB | 1376s (with LLVM 16.0.4) | _Loongson Technology (Wuhan)_ | Direct access with `ssh -p2222 root@211.137.78.121` |
+| **Yukoaioi** | 27001 | Loongson 3A5000-HV @ 2.50GHz (4 cores) | 16GiB | 4248s | _Mag Mell_ |  |
+| **loong13** | 27282 | Loongson 3A5000-HV @ 2.5GHz (4 cores) | 16GiB | 4105s | _Henry Chen_ | |
+| **dragonfly** | 27514 | Loongson 3C5000 @ 2.5GHz (16 cores, overclocked) | 128GiB | 1371s | _Xinmudotmoe_ | |
+| **viperdesign** | 27688 | Loongson 3A6000-HV @ 2.5GHz (4 cores, 8 threads) | 32GiB | 2286s | _Viperdesign_ | |
+| **Stomatopoda** | 27863 | Loongson 3C5000 @ 2.2GHz (16 cores) | 128GiB | 1495s | _Loongson Technology (Wuhan)_ | Direct access with `ssh -p2222 root@211.137.78.121` |
 
 ## **Emulation Hosts** (28001-29000)
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **Taple** | 28002 | AMD Ryzen R5 5500 @ 3.9 - 4.4GHz | 32GiB | 726s | _Lain Yang_ | Local mirror at http://localhost/debs |
-| **PorterAlePro** | 28003 | AMD Ryzen 9 3950X @ 3.5 - 4.7GHz | 64GiB | 313s | _Mingcong Bai_ | |
+| **Taple** | 28002 | AMD Ryzen R5 5500 @ 3.9 - 4.4GHz | 32GiB | 819s | _Lain Yang_ | Local mirror at http://localhost/debs |
+| **PorterAlePro** | 28003 | AMD Ryzen 9 3950X @ 3.5 - 4.7GHz | 64GiB | 338s | _Mingcong Bai_ | |
 
 # List of archived buildbots
 
@@ -118,6 +118,7 @@ Please note that the following is not an exhaustive list.
 | **Maple** | ~~24191~~ | Snapdragon 8cx Gen 3 (8) (4 * Cortex-X1 @ 3.00GHz + 4 * Cortex-A78 @ 2.40GHz) | 16GiB | 1098s | _Canarypwn_ | |
 | **JellyXavier** | ~~24444~~ | 4 x dual core NVIDIA Carmel CPU clusters @ 2.26GHz (NVIDIA Jetson AGX Xavier Developer Kit) | 16GiB | - |  _Mingcong Bai_ | |
 | **JellyPhy** | ~~24451~~ | 8-Core Phytium D2000 @ 2.30GHz | 32GiB | 2589s | _Mingcong Bai_ | |
+| **Trionychidae** | ~~24514~~ | 64-Core Phytium FT-2000+/64 @ 2.2GHz | 128GiB | 2263s | _Undisclosed_ | Local repository mirror at `http://100.65.1.101/debs` |
 | **Kirin** | ~~PENDING~~ | HUAWEI Kirin 9006C (8) (1 * Cortex-A77 @ 3.13GHz + 3 * Cortex-A77 @ 2.54GHz + 4x Cortex-A55@2.05GHz) | 8GiB | 1826s | _Rick Liu_ | Direct access with `ssh -p8038 root@nkg.rickliu.im` |
 | **SiFarce** | ~~26002~~ | SiFive FU740 @ 1.4GHz (SiFive HiFive Unmatched) | 16GiB | - | _Mingcong Bai_ | |
 | **marianne** | ~~26055~~ | SiFive FU740 @ 988MHz (SiFive HiFive Unmatched) | 16GiB | 22515s | _Icenowy Zheng_ | Scratch needs to be mounted manually by nbd-mount.sh in /root (currently using the scratch disk from **lorenz**); behind GFW, a HTTP proxy is available at http://dedue:8118, device sponsored by the PLCT Lab |
