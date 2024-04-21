@@ -32,7 +32,7 @@ AOSC buildbots are all connected to our central relay nodes (`relay.aosc.io` and
 
 Submit your public keys for authentication at the [dev-pubkeys](https://github.com/AOSC-Dev/dev-pubkeys) repository, then view [Buildbots](https://github.com/AOSC-Dev/Buildbots) on GitHub for connection infomation.
 
-For most buildbots, scratch disk is at `/buildroots`, create your own Ciel workspace there, and don't forget to clean it up after finishing your work, storage space isn't infinite unfortunately.
+For most buildbots, scratch disk is at `/buildroots`, create your own Ciel workspace there, and don't forget to clean it up after finishing your work.
 
 ## Contributing a Buildbot
 
@@ -57,39 +57,39 @@ If you would like contribute your device to AOSC, please make sure your device h
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|---------|-----------|
 | **towards-modern-distro** | 22162 | AMD EPYC 9654 @ 2.3 - 3.7GHz (KVM, 96 cores allocated) | 384GiB | 124s | Linux Club of Peking University | |
-| **Yerus** | 22333 | AMD EPYC 7H12 @ 2.6 - 3.3GHz | 1TiB | 219s | _Jiangjin Wang_ | |
+| **Yerus** | 22333 | AMD EPYC 7H12 @ 2.6 - 3.3GHz (64 cores, 128 threads) | 1TiB | 219s | _Jiangjin Wang_ | |
 
 ## **MIPS** (23001-24000)
 
 | Name | Port | CPU | Memory | Speed |Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **Ybsbny** | 23269 | Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz | 64GiB | 4397s | _Henry Chen_ | Community crowdsourced; repo mirror at `http://50.50.1.224/debs/` |
-| **Resonance** | 23541 | Loongson 3B-4000 (R4) @ 1.8GHz (LX-2510) | 32GiB | 4392s | _Kexy Biscuit_ | Community crowdsourced; direct access with `ssh -4p23541 root@home.biscuit.moe`; repo mirror at `http://localhost/debs/`, BuildKit mirror at `http://localhost/aosc-os/os-amd64/buildkit/` |
+| **Ybsbny** | 23269 | Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 64GiB | 4397s | _Henry Chen_ | Community crowdsourced; repo mirror at `http://50.50.1.224/debs/` |
+| **Resonance** | 23541 | Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 32GiB | 4392s | _Kexy Biscuit_ | Community crowdsourced; direct access with `ssh -4p23541 root@home.biscuit.moe`; repo mirror at `http://localhost/debs/`, BuildKit mirror at `http://localhost/aosc-os/os-amd64/buildkit/` |
 
 ## **ARM** (24001-25000)
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **Catfish** | 24114 | 64-Core Huawei Kunpeng 920 @ 2.6GHz (Huawei Taishan 2180) | 256GiB | 367s | _Undisclosed_ | Local repository mirror at `http://localhost/debs` |
-| **Zinfandel** | 24222 | 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (Apple M1 chip) | 16GiB | 782s | _Mingcong Bai_ | |
-| **Mio** | 24242 | 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (Apple M1 chip) | 16GiB | 777s | _Cyan_ | Direct access with `ssh -6p4030 lemau.pod.cyano.uk`; Local mirror at `http://mirrors.priv.cyano.uk/anthon/debs` |
-| **kp920** | 24426 | 2 * 48-Core Huawei Kunpeng 920 @ 2.6GHz (Huawei Taishan 2280 v2; KVM, 94 cores allocated) | 192GiB (145GiB allocated) | 496s | _Undisclosed_ | Direct access with `ssh -4p2223 root@kp920.ip4.run` |
-| **eleventh** | 24808 | 8-Core Huawei Kunpeng 920 @ 2.4GHz | 16GiB | 1832s | _Undisclosed_ | Direct access with `ssh -oProxyJump=aosc-build@hw-hk.innull.com:20022 root@192.168.1.11` |
+| **Catfish** | 24114 | Huawei Kunpeng 920 @ 2.6GHz (64 cores) | 256GiB | 367s | _Undisclosed_ | Local repository mirror at `http://localhost/debs` |
+| **Zinfandel** | 24222 | Apple M1, 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (8 cores) | 16GiB | 782s | _Mingcong Bai_ | |
+| **Mio** | 24242 | Apple M1, 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (8 cores) | 16GiB | 777s | _Cyan_ | Direct access with `ssh -6p4030 lemau.pod.cyano.uk`; Local mirror at `http://mirrors.priv.cyano.uk/anthon/debs` |
+| **kp920** | 24426 | Huawei Kunpeng 920 @ 2.6GHz (KVM, 94 cores allocated) | 192GiB (145GiB allocated) | 496s | _Undisclosed_ | Direct access with `ssh -4p2223 root@kp920.ip4.run` |
+| **eleventh** | 24808 | Huawei Kunpeng 920 @ 2.4GHz (8 cores) | 16GiB | 1832s | _Undisclosed_ | Direct access with `ssh -oProxyJump=aosc-build@hw-hk.innull.com:20022 root@192.168.1.11` |
 
 ## **PowerPC** (25001-26000)
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **PowerNV** | 25202 | IBM POWER9 (KVM, 12 cores allocated) | 36GiB | 1949s | _Mingcong Bai_ | |
+| **PowerNV** | 25202 | IBM POWER9 @ 3.2 - 3.8GHz (4 cores, 16 threads) | 128GiB | 1587s | _Jiangjin Wang_ | |
 | **power8** | 25888 | IBM POWER8NVL @ 2.4 - 4.0GHz (32 cores, 128 threads) | 128GiB | 447s | _Undisclosed_ | |
 
 ## **RISC-V** (26001-27000)
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **ChubbyHydra** | 26128 | 128 * T-Head XuanTie C920 @ 2GHz | 256GiB | 2041s | _Undisclosed_ | |
-| **GreenGoo** | 26666 | 63 * T-Head XuanTie C920 @ 2GHz | 96GiB | 1809s | _Icenowy Zheng_ | Local repository mirror is at `http://dorothea.fodlan.icenowy.me/anthon/debs` |
-| **MagmaCube** | 26999 | 64 * T-Head XuanTie C920 @ 2GHz | 128GiB | 1744s | _Icenowy Zheng_ | Local repository mirror is at `http://dorothea.fodlan.icenowy.me/anthon/debs` |
+| **ChubbyHydra** | 26128 | T-Head XuanTie C920 @ 2GHz (128 cores) | 256GiB | 2041s | _Undisclosed_ | |
+| **GreenGoo** | 26666 | T-Head XuanTie C920 @ 2GHz (63 cores) | 96GiB | 1809s | _Icenowy Zheng_ | Local repository mirror is at `http://dorothea.fodlan.icenowy.me/anthon/debs` |
+| **MagmaCube** | 26999 | T-Head XuanTie C920 @ 2GHz (64 cores) | 128GiB | 1744s | _Icenowy Zheng_ | Local repository mirror is at `http://dorothea.fodlan.icenowy.me/anthon/debs` |
 
 ## **LoongArch** (27001-28000)
 
@@ -100,14 +100,15 @@ If you would like contribute your device to AOSC, please make sure your device h
 | **dragonfly** | 27514 | Loongson 3C5000 @ 2.5GHz (16 cores, overclocked) | 128GiB | 1371s | _Xinmudotmoe_ | |
 | **viperdesign** | 27688 | Loongson 3A6000-HV @ 2.5GHz (4 cores, 8 threads) | 32GiB | 2286s | _Viperdesign_ | |
 | **Stomatopoda** | 27863 | Loongson 3C5000 @ 2.2GHz (16 cores) | 128GiB | 1495s | _Loongson Technology (Wuhan)_ | Direct access with `ssh -p2222 root@211.137.78.121` |
+| **VirtuaCambarus** | 27888 | Loongson 3C5000 @ 2.2GHz (16 cores) | 128GiB | 1365s | _Jiangjin Wang_ | |
 
 ## **Emulation Hosts** (28001-29000)
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **Taple** | 28002 | AMD Ryzen R5 5500 @ 3.9 - 4.4GHz | 32GiB | 819s | _Lain Yang_ | Local mirror at http://localhost/debs |
-| **PorterAlePro** | 28003 | AMD Ryzen 9 3950X @ 3.5 - 4.7GHz | 64GiB | 338s | _Mingcong Bai_ | |
-| **mieps** | 28004 | Intel Xeon W-1250P @ 4.1 - 4.8GHz | 32GiB | 793s | _Undisclosed_ | |
+| **Taple** | 28002 | AMD Ryzen R5 5500 @ 3.9 - 4.4GHz (6 cores, 12 threads) | 32GiB | 819s | _Lain Yang_ | Local mirror at http://localhost/debs |
+| **PorterAlePro** | 28003 | AMD Ryzen 9 3950X @ 3.5 - 4.7GHz (16 cores, 32 threads) | 64GiB | 338s | _Mingcong Bai_ | |
+| **mieps** | 28004 | Intel Xeon W-1250P @ 4.1 - 4.8GHz (6 cores, 12 threads) | 32GiB | 793s | _Undisclosed_ | |
 
 # List of archived buildbots
 
@@ -124,7 +125,6 @@ Please note that the following is not an exhaustive list.
 | **SiFarce** | ~~26002~~ | SiFive FU740 @ 1.4GHz (SiFive HiFive Unmatched) | 16GiB | - | _Mingcong Bai_ | |
 | **marianne** | ~~26055~~ | SiFive FU740 @ 988MHz (SiFive HiFive Unmatched) | 16GiB | 22515s | _Icenowy Zheng_ | Scratch needs to be mounted manually by nbd-mount.sh in /root (currently using the scratch disk from **lorenz**); behind GFW, a HTTP proxy is available at http://dedue:8118, device sponsored by the PLCT Lab |
 | **leonie** | ~~26056~~ | SiFive FU740 @ 988MHz (SiFive HiFive Unmatched) | 16GiB | 22612s | _Icenowy Zheng_ | Scratch is on NVMe disk ,maybe buggy, investigation needed; behind GFW, a HTTP proxy is available at http://dedue:8118, device sponsored by the PLCT Lab |
-| **VirtuaCambarus** | ~~27888~~ | 12 * LA464 cores @ 2.2GHz (KVM on Loongson 3C5000) | 64GiB | 2201s (with LLVM 17.0.6) | _Mingcong Bai_ | Performance may not be stable as KVM support is not yet mainlined |
 | **PorterAle** | ~~28001~~ | Intel i7-8700T @ 2.40 - 4.00GHz | 16GiB | 996s | _MingcongBai_ | |
 
 # Maintainer Notes
