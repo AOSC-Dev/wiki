@@ -100,7 +100,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 | **dragonfly** | 27514 | Loongson 3C5000 @ 2.5GHz (16 cores, overclocked) | 128GiB | 1371s | _Xinmudotmoe_ | |
 | **viperdesign** | 27688 | Loongson 3A6000-HV @ 2.5GHz (4 cores, 8 threads) | 32GiB | 2286s | _Viperdesign_ | |
 | **Stomatopoda** | 27863 | Loongson 3C5000 @ 2.2GHz (16 cores) | 128GiB | 1495s | _Loongson Technology (Wuhan)_ | Direct access with `ssh -p2222 root@211.137.78.121` |
-| **VirtuaCambarus** | 27888 | Loongson 3C5000 @ 2.2GHz (16 cores) | 128GiB | 1365s | _Jiangjin Wang_ | |
+| **Cambarus** | 27888 | Loongson 3C5000 @ 2.2GHz (16 cores) | 128GiB | 1365s | _Jiangjin Wang_ | |
 
 ## **Emulation Hosts** (28001-29000)
 
