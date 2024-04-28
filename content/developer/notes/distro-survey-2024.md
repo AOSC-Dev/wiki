@@ -1,7 +1,7 @@
 +++
 title = "Linux Distribution Review and Survey (2024)"
 description = "Know yourself and your unlikely partners."
-date = 2023-07-30
+date = 2024-04-27
 [taxonomies]
 tags = ["minutes"]
 +++
