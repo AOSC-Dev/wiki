@@ -44,6 +44,6 @@ distribution reviews, aggregated in tables in the following sections.
 |------|------------------------------------------------------------------------------------|
 | ✓    | Ships both `BOOTLOONGARCH.EFI` and `BOOTLOONGARCH64.EFI` to maximise firmware compatibility. |
 | ?    | Ships only old-world GRUB but offers old-world BPI support in the kernel (supports booting new-world kernels using old-world firmwares). |
-| ×    | Lacks AMD GPU firmware (`/usr/lib/firmware/*`) in default system installation - AMD graphics cards will appear to lock up during boot. |
+| ×    | Lacks AMD GPU firmware (`/usr/lib/firmware/amdgpu/*`) in the installed system - AMD graphics cards will appear to lock up during boot. |
 | ×    | `accounts-daemon.service` fails to launch due to "cannot make segment writable for relocation," causing GDM to also fail to launch (desktop does not start). |
 | ×    | No repository access.                                                             |
