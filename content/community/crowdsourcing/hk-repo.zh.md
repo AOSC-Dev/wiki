@@ -5,7 +5,7 @@ draft = false
 
 # 导言
 
-本众筹项目将通过在 [Apernet Internet Laboratory（光圈网络）](https://apernet.io/) 的香港机房部署新软件源服务器提高服务质量和性能；新的服务器：
+本众筹项目将通过在 [Aperture Internet Laboratory（光圈网络）](https://apernet.io/) 的香港机房部署新软件源服务器提高服务质量和性能；新的服务器：
 
 - 基于 AMD EPYC 7002 平台的 [华硕 RS700A-E9-RS12V2](https://servers.asus.com/products/Servers/Rack-Servers/RS700A-E9-RS12V2) 机架组装
 - 计算性能（AMD Zen2，相对于当前服务器的 Intel Skylake 微架构）和存储性能（NVMe 固态，相对于当前的 SATA 机械硬盘）均更高

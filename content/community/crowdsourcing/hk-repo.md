@@ -5,7 +5,7 @@ draft = false
 
 # Rationale
 
-To improve reliability and access performance for our repository server, we plan to deploy a new repository server at [Apernet Internet Laboratory](https://apernet.io/)'s Hong Kong location. The new server will:
+To improve reliability and access performance for our repository server, we plan to deploy a new repository server at [Aperture Internet Laboratory](https://apernet.io/)'s Hong Kong location. The new server will:
 
 - Be built upon an [ASUS RS700A-E9-RS12V2](https://servers.asus.com/products/Servers/Rack-Servers/RS700A-E9-RS12V2) based on AMD's EPYC 7002 platform.
 - Provide much higher computational (AMD Zen2 versus Skylake) and storage performance (NVMe SSDs versus SATA HDDs).
