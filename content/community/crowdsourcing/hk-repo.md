@@ -1,5 +1,5 @@
 +++
-title = "[CROWDSOURCING] New Repository Server in Hong Kong"
+title = "[COMPLETE] New Repository Server in Hong Kong"
 draft = false
 +++
 
