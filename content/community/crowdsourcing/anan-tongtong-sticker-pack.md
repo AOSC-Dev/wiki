@@ -1,5 +1,5 @@
 +++
-title = "[CROWDSOURCING] An-an & Tong-tong Stickers Pack"
+title = "[COMPLETE] An-an & Tong-tong Stickers Pack"
 draft = false
 +++
 
