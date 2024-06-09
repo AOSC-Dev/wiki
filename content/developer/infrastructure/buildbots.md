@@ -73,7 +73,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 | **Catfish** | 24114 | Huawei Kunpeng 920 @ 2.6GHz (64 cores) | 256GiB | 367s | _Undisclosed_ | Local repository mirror at `http://localhost/debs` |
 | **Zinfandel** | 24222 | Apple M1, 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (8 cores) | 16GiB | 782s | _Mingcong Bai_ | |
 | **Mio** | 24242 | Apple M1, 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (8 cores) | 16GiB | 777s | _Cyan_ | Direct access with `ssh -6p4030 lemau.pod.cyano.uk`; Local mirror at `http://mirrors.priv.cyano.uk/anthon/debs` |
-| **kp920** | 24426 | Huawei Kunpeng 920 @ 2.6GHz (KVM, 94 cores allocated) | 192GiB (145GiB allocated) | 496s | _Undisclosed_ | Direct access with `ssh -4p2223 root@kp920.ip4.run` |
+| **kp920** | 24426 | Huawei Kunpeng 920 @ 2.6GHz (KVM, 96 cores allocated) | 192GiB (145GiB allocated) | 410s | _Undisclosed_ | Direct access with `ssh -4p2223 root@kp920.ip4.run` |
 | **Ailuropoda** | 24612 | Huawei Kunpeng 920 @ 2.0GHz (KVM, 16 cores allocated) | 64GiB | 889s | _神楽坂早苗️_ | |
 | **eleventh** | 24808 | Huawei Kunpeng 920 @ 2.4GHz (8 cores) | 16GiB | 1832s | _Undisclosed_ | Direct access with `ssh -oProxyJump=aosc-build@hw-hk.innull.com:20022 root@192.168.1.11` |
 
