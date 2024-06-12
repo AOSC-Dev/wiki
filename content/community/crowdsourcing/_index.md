@@ -7,6 +7,7 @@ As outlined in our [Interpersonal Guidelines](@/community/guidelines.md), AOSC d
 
 # Further Points of Clarification
 + Donations of funds and materials must be directed to specific community projects (for instance, purchasing or upgrading a BuildBot for a specific port of AOSC OS).
++ Reimbursements via crowdsourcing is by principle prohibited. All crowdsourcing plans should be sufficiently discussed amongst the community contributors before purchases can be made.
 + Donors are to be acknowledged, though not considered a community contributor (who would enjoy certain benefits such as a personal home page at the community portal, Git write access, and an @aosc.io mailbox). However, donors...
   - May request access to purchased hardware and services.
   - Are to be notified with specific details on future usage, maintenance, and deprecation of devices.
