@@ -8,6 +8,12 @@ tags = ["infra"]
 page_hack = "big-min-table-cell-width"
 +++
 
+[zinfandel-crowdsourcing]: /community/crowdsourcing/mac-mini-m1/
+[four-new-amd64-buildbots-crowdsourcing]: /community/crowdsourcing/new-amd64-servers/
+[yerus-crowdsourcing]: /community/crowdsourcing/epyc-22333-upgrade-2023/
+[ybsbny-crowdsourcing]: /crowdsourcing/new-loongson3-3b4000-server/
+[resonance-crowdsourcing]: /community/crowdsourcing/loongson3-3b4000/
+
 # General Information
 
 This page contains information about AOSC Buildbots.
@@ -56,26 +62,26 @@ If you would like contribute your device to AOSC, please make sure your device h
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|---------|-----------|
-| **Hydaelyn** | 22040 | AMD Ryzen 7 5700X @ 3.4 - 4.6 GHz (8 cores, 16 threads) | 64 GiB | 595s | _Cyan_ | Community crowdsourced; repo mirror at `http://192.168.24.4/anthon/debs/` |
-| **Zodiark** | 22041 | AMD Ryzen 7 5700X @ 3.4 - 4.6 GHz (8 cores, 16 threads) | 64 GiB | 608s | _Cyan_ | Community crowdsourced; repo mirror at `http://192.168.24.4/anthon/debs/` |
+| **Hydaelyn** | 22040 | AMD Ryzen 7 5700X @ 3.4 - 4.6 GHz (8 cores, 16 threads) | 64 GiB | 595s | _Cyan_ | [Community crowdsourced][four-new-amd64-buildbots-crowdsourcing]; repo mirror at `http://192.168.24.4/anthon/debs/` |
+| **Zodiark** | 22041 | AMD Ryzen 7 5700X @ 3.4 - 4.6 GHz (8 cores, 16 threads) | 64 GiB | 608s | _Cyan_ | [Community crowdsourced][four-new-amd64-buildbots-crowdsourcing]; repo mirror at `http://192.168.24.4/anthon/debs/` |
 | **towards-modern-distro** | 22162 | AMD EPYC 9654 @ 2.3 - 3.7GHz (KVM, 96 cores allocated) | 384GiB | 124s | Linux Club of Peking University | |
 | **Ricks-Ryzen-Box** | 22238 | AMD Ryzen 9 5950X @ 3.4 - 5.2GHz (16 cores, 32 threads) | 128GiB | 352s | _Ruikai Liu_ | |
-| **Yerus** | 22333 | AMD EPYC 7H12 @ 2.6 - 3.3GHz (64 cores, 128 threads) | 1TiB | 219s | _Jiangjin Wang_ | Community crowdsourced |
+| **Yerus** | 22333 | AMD EPYC 7H12 @ 2.6 - 3.3GHz (64 cores, 128 threads) | 1TiB | 219s | _Jiangjin Wang_ | [Community crowdsourced][yerus-crowdsourcing] |
 
 ## **MIPS** (23001-24000)
 
 | Name | Port | CPU | Memory | Speed |Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **Ybsbny** | 23269 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 64GiB | 4397s | _Henry Chen_ | Community crowdsourced; repo mirror at `http://50.50.1.224/debs/` |
-| **Resonance** | 23541 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 32GiB | 4392s | _Kexy Biscuit_ | Community crowdsourced; direct access with `ssh -4p23541 root@home.biscuit.moe`; repo mirror at `http://localhost/debs/`, BuildKit mirror at `http://localhost/aosc-os/os-amd64/buildkit/` |
+| **Ybsbny** | 23269 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 64GiB | 4397s | _Henry Chen_ | [Community crowdsourced][ybsbny-crowdsourcing]; repo mirror at `http://50.50.1.224/debs/` |
+| **Resonance** | 23541 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 32GiB | 4392s | _Kexy Biscuit_ | [Community crowdsourced][resonance-crowdsourcing]; direct access with `ssh -4p23541 root@home.biscuit.moe`; repo mirror at `http://localhost/debs/`, BuildKit mirror at `http://localhost/aosc-os/os-amd64/buildkit/` |
 
 ## **ARM** (24001-25000)
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **Catfish** | 24114 | Huawei Kunpeng 920 @ 2.6GHz (64 cores) | 256GiB | 367s | _Undisclosed_ | Local repository mirror at `http://localhost/debs` |
-| **Zinfandel** | 24222 | Apple M1, 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (8 cores) | 16GiB | 782s | _Mingcong Bai_ | |
-| **Mio** | 24242 | Apple M1, 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (8 cores) | 16GiB | 777s | _Cyan_ | Direct access with `ssh -6p4030 lemau.pod.cyano.uk`; Local mirror at `http://mirrors.priv.cyano.uk/anthon/debs` |
+| **Zinfandel** | 24222 | Apple M1, 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (8 cores) | 16GiB | 782s | [Community crowdsourced][zinfandel-crowdsourcing]; _Mingcong Bai_ | |
+| **Mio** | 24242 | Apple M1, 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (8 cores) | 16GiB | 777s | _Cyan_ | Local mirror at `http://192.168.24.4/anthon/debs` |
 | **kp920** | 24426 | Huawei Kunpeng 920 @ 2.6GHz (KVM, 96 cores allocated) | 192GiB (145GiB allocated) | 410s | _Undisclosed_ | Direct access with `ssh -4p2223 root@kp920.ip4.run` |
 | **Ailuropoda** | 24612 | Huawei Kunpeng 920 @ 2.0GHz (KVM, 16 cores allocated) | 64GiB | 889s | _神楽坂早苗️_ | |
 | **eleventh** | 24808 | Huawei Kunpeng 920 @ 2.4GHz (8 cores) | 16GiB | 1832s | _Undisclosed_ | Direct access with `ssh -oProxyJump=aosc-build@hw-hk.innull.com:20022 root@192.168.1.11` |
