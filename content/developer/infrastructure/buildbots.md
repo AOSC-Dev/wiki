@@ -56,9 +56,11 @@ If you would like contribute your device to AOSC, please make sure your device h
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|---------|-----------|
+| **Hydaelyn** | 22040 | AMD Ryzen 7 5700X @ 3.4 - 4.6 GHz (8 cores, 16 threads) | 64 GiB | 595s | _Cyan_ | Community crowdsourced; repo mirror at `http://192.168.24.4/anthon/debs/` |
+| **Zodiark** | 22041 | AMD Ryzen 7 5700X @ 3.4 - 4.6 GHz (8 cores, 16 threads) | 64 GiB | 608s | _Cyan_ | Community crowdsourced; repo mirror at `http://192.168.24.4/anthon/debs/` |
 | **towards-modern-distro** | 22162 | AMD EPYC 9654 @ 2.3 - 3.7GHz (KVM, 96 cores allocated) | 384GiB | 124s | Linux Club of Peking University | |
 | **Ricks-Ryzen-Box** | 22238 | AMD Ryzen 9 5950X @ 3.4 - 5.2GHz (16 cores, 32 threads) | 128GiB | 352s | _Ruikai Liu_ | |
-| **Yerus** | 22333 | AMD EPYC 7H12 @ 2.6 - 3.3GHz (64 cores, 128 threads) | 1TiB | 219s | _Jiangjin Wang_ | |
+| **Yerus** | 22333 | AMD EPYC 7H12 @ 2.6 - 3.3GHz (64 cores, 128 threads) | 1TiB | 219s | _Jiangjin Wang_ | Community crowdsourced |
 
 ## **MIPS** (23001-24000)
 
