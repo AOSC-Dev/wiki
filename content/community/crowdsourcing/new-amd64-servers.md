@@ -1,5 +1,5 @@
 +++
-title = "[CROWDSOURCING] New (x86-64) Build Servers"
+title = "[COMPLETE] New (x86-64) Build Servers"
 draft = false
 +++
 
