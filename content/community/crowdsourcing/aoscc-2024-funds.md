@@ -1,5 +1,5 @@
 +++
-title = "[CROWDSOURCING] AOSCC 2024 Budgets (Wave 1)"
+title = "[COMPLETE] AOSCC 2024 Budgets (Wave 1)"
 draft = false
 +++
 
