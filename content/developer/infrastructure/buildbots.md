@@ -66,16 +66,19 @@ If you would like contribute your device to AOSC, please make sure your device h
 | **Zodiark** | 22041 | AMD Ryzen 7 5700X @ 3.4 - 4.6 GHz (8 cores, 16 threads) | 64 GiB | 608s | _Cyan_ | [Community crowdsourced][four-new-amd64-buildbots-crowdsourcing]; repo mirror at `http://192.168.24.4/anthon/debs/` |
 | **Coruscant** | 22042 | AMD Ryzen 7 5700X @ 3.4 - 4.6 GHz (8 cores, 16 threads) | 64 GiB | 601s | _Mingcong Bai_ | [Community crowdsourced][four-new-amd64-buildbots-crowdsourcing] |
 | **Tatooine** | 22043 | AMD Ryzen 7 5700X @ 3.4 - 4.6 GHz (8 cores, 16 threads) | 64 GiB | 597s | _Mingcong Bai_ | [Community crowdsourced][four-new-amd64-buildbots-crowdsourcing] |
+| **pika** | 22162 | AMD EPYC 9654 @ 2.3 - 3.7GHz (KVM, 96 cores allocated) | 384GiB | 128s | Linux Club of Peking University | |
 | **towards-modern-distro** | 22162 | AMD EPYC 9654 @ 2.3 - 3.7GHz (KVM, 96 cores allocated) | 384GiB | 124s | Linux Club of Peking University | |
 | **Ricks-Ryzen-Box** | 22238 | AMD Ryzen 9 5950X @ 3.4 - 5.2GHz (16 cores, 32 threads) | 128GiB | 352s | _Ruikai Liu_ | |
 | **Yerus** | 22333 | AMD EPYC 7H12 @ 2.6 - 3.3GHz (64 cores, 128 threads) | 1TiB | 219s | _Jiangjin Wang_ | [Community crowdsourced][yerus-crowdsourcing] |
 
 ## **MIPS** (23001-24000)
 
-| Name | Port | CPU | Memory | Speed |Maintainer | Comments |
+| Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **Ybsbny** | 23269 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 64GiB | 4397s | _Henry Chen_ | [Community crowdsourced][ybsbny-crowdsourcing]; repo mirror at `http://50.50.1.224/debs/` |
-| **Resonance** | 23541 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 32GiB | 4392s | _Kexy Biscuit_ | [Community crowdsourced][resonance-crowdsourcing]; direct access with `ssh -4p23541 root@home.biscuit.moe`; repo mirror at `http://localhost/debs/`, BuildKit mirror at `http://localhost/aosc-os/os-amd64/buildkit/` |
+| **Misaka23333** | 23333 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 32GiB | 4312s | _KatyushaScarlet_ | |
+| **Resonance** | 23541 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 32GiB | 4392s | _Kexy Biscuit_ | [Community crowdsourced][resonance-crowdsourcing]; direct access with `ssh -4p23541 root@home.biscuit.moe`; repo mirror at `http://localhost/debs/`, BuildKit mirror at `http://localhost/aosc-os/os-loongson3/buildkit/` |
+| **Macrobrachium** | 23999 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 32GiB | 4353s | _Mingcong Bai_ | Unstable, BuildIt! disabled. |
 
 ## **ARM** (24001-25000)
 
@@ -109,9 +112,9 @@ If you would like contribute your device to AOSC, please make sure your device h
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **Yukoaioi** | 27001 | Loongson 3A5000-HV @ 2.50GHz (4 cores) | 16GiB | 4248s | _Mag Mell_ |  |
 | **Apocalypse** | 27221 | Loongson 3C5000 @ 2.2GHz (16 cores) | 64GiB | 1401s | _Undisclosed_ | |
+| **Chrysalis** | 27224 | Loongson 3A6000-HV @ 2.5GHz (4 cores, 8 threads) | 16GiB | 2461s | _Mingcong Bai_ | |
 | **loong13** | 27282 | Loongson 3A5000-HV @ 2.5GHz (4 cores) | 16GiB | 4105s | _Henry Chen_ | |
 | **dragonfly** | 27514 | Loongson 3C5000 @ 2.5GHz (16 cores, overclocked) | 128GiB | 1371s | _Xinmudotmoe_ | |
-| **viperdesign** | 27688 | Loongson 3A6000-HV @ 2.5GHz (4 cores, 8 threads) | 32GiB | 2286s | _Viperdesign_ | |
 | **loongcraft** | 27777 | Loongson 3A6000-HV @ 2.5GHz (4 cores, 8 threads) | 32GiB | 2332s | _Mingcong Bai_ | |
 | **Stomatopoda** | 27863 | Loongson 3C5000 @ 2.2GHz (16 cores) | 128GiB | 1495s | _Loongson Technology (Wuhan)_ | Direct access with `ssh -p2222 root@211.137.78.121` |
 | **Cambarus** | 27888 | Loongson 3C5000 @ 2.2GHz (16 cores) | 128GiB | 1365s | _Jiangjin Wang_ | |
@@ -139,6 +142,7 @@ Please note that the following is not an exhaustive list.
 | **SiFarce** | ~~26002~~ | SiFive FU740 @ 1.4GHz (SiFive HiFive Unmatched) | 16GiB | - | _Mingcong Bai_ | |
 | **marianne** | ~~26055~~ | SiFive FU740 @ 988MHz (SiFive HiFive Unmatched) | 16GiB | 22515s | _Icenowy Zheng_ | Scratch needs to be mounted manually by nbd-mount.sh in /root (currently using the scratch disk from **lorenz**); behind GFW, a HTTP proxy is available at http://dedue:8118, device sponsored by the PLCT Lab |
 | **leonie** | ~~26056~~ | SiFive FU740 @ 988MHz (SiFive HiFive Unmatched) | 16GiB | 22612s | _Icenowy Zheng_ | Scratch is on NVMe disk ,maybe buggy, investigation needed; behind GFW, a HTTP proxy is available at http://dedue:8118, device sponsored by the PLCT Lab |
+| **viperdesign** | ~~27688~~ | Loongson 3A6000-HV @ 2.5GHz (4 cores, 8 threads) | 32GiB | 2286s | _Viperdesign_ | |
 | **PorterAle** | ~~28001~~ | Intel i7-8700T @ 2.40 - 4.00GHz | 16GiB | 996s | _MingcongBai_ | |
 
 # Maintainer Notes
