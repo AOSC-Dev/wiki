@@ -123,7 +123,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **Taple** | 28002 | AMD Ryzen R5 5500 @ 3.9 - 4.4GHz (6 cores, 12 threads) | 32GiB | 819s | _Lain Yang_ | Local mirror at http://localhost/debs |
+| **Taple** | 28002 | Intel Xeon E5-2698B v3 (16 cores, 32 threads) | 96GiB | 594s | _Lain Yang_ | |
 | **PorterAlePro** | 28003 | AMD Ryzen 9 3950X @ 3.5 - 4.7GHz (16 cores, 32 threads) | 64GiB | 338s | _Mingcong Bai_ | |
 | **mieps** | 28004 | Intel Xeon W-1250P @ 4.1 - 4.8GHz (6 cores, 12 threads) | 32GiB | 793s | _Undisclosed_ | |
 
