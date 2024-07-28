@@ -103,6 +103,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **ChubbyHydra** | 26128 | T-Head XuanTie C920 @ 2GHz (128 cores) | 256GiB | 2041s | _Undisclosed_ | |
+| **Estelle** | 26397 | T-Head XuanTie C920 @ 2GHz (64 cores) | 64GiB | 2068s | _Undisclosed_ | |
 | **GreenGoo** | 26666 | T-Head XuanTie C920 @ 2GHz (63 cores) | 96GiB | 1809s | _Icenowy Zheng_ | Local repository mirror is at `http://dorothea.fodlan.icenowy.me/anthon/debs` |
 | **MagmaCube** | 26999 | T-Head XuanTie C920 @ 2GHz (64 cores) | 128GiB | 1744s | _Icenowy Zheng_ | Local repository mirror is at `http://dorothea.fodlan.icenowy.me/anthon/debs` |
 
