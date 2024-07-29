@@ -126,7 +126,6 @@ If you would like contribute your device to AOSC, please make sure your device h
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **Taple** | 28002 | Intel Xeon E5-2698B v3 (16 cores, 32 threads) | 96GiB | 594s | _Lain Yang_ | |
 | **PorterAlePro** | 28003 | AMD Ryzen 9 3950X @ 3.5 - 4.7GHz (16 cores, 32 threads) | 64GiB | 338s | _Mingcong Bai_ | |
-| **mieps** | 28004 | Intel Xeon W-1250P @ 4.1 - 4.8GHz (6 cores, 12 threads) | 32GiB | 793s | _Undisclosed_ | |
 
 # List of archived buildbots
 
@@ -145,6 +144,7 @@ Please note that the following is not an exhaustive list.
 | **leonie** | ~~26056~~ | SiFive FU740 @ 988MHz (SiFive HiFive Unmatched) | 16GiB | 22612s | _Icenowy Zheng_ | Scratch is on NVMe disk ,maybe buggy, investigation needed; behind GFW, a HTTP proxy is available at http://dedue:8118, device sponsored by the PLCT Lab |
 | **viperdesign** | ~~27688~~ | Loongson 3A6000-HV @ 2.5GHz (4 cores, 8 threads) | 32GiB | 2286s | _Viperdesign_ | |
 | **PorterAle** | ~~28001~~ | Intel i7-8700T @ 2.40 - 4.00GHz | 16GiB | 996s | _MingcongBai_ | |
+| **mieps** | ~~28004~~ | Intel Xeon W-1250P @ 4.1 - 4.8GHz (6 cores, 12 threads) | 32GiB | 793s | _Undisclosed_ | |
 
 # Maintainer Notes
 
