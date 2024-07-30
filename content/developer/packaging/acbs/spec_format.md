@@ -89,11 +89,11 @@ Details about the `SRCS` format:
             the submodules are not fetched).
         -   `false`: Do not fetch submodules.
         -   `recursive`: \[Default\] Fetch submodules recursively.
-    -   `repo-copy`: Automatically copy the VCS repository to the build
+    -   `copy-repo`: Automatically copy VCS metadata to the build
         directory.
-        -   `true`: Copy the VCS repository prior to the building
+        -   `true`: Copy VCS metadata prior to the building
             process, replaces `acbs_copy_git`.
-        -   `false`: \[Default\] Do not copy the VCS repository. However
+        -   `false`: \[Default\] Do not copy VCS metadata. However
             you can still use `acbs_copy_git`.
 
 To specify multiple options, you can join the options with semicolons
