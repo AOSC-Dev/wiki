@@ -39,7 +39,7 @@ Executed Packager <suffering@pakreq.work>
 
 软件包说明（`PKGDES=` 或 `$PKGDES`）在格式上有以下的要求： 
 
-- 使用大小字母开头。
+- 使用大写字母开头。
 - 结尾没有句号或其它标点符号。
 
 
