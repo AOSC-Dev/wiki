@@ -97,8 +97,15 @@ Installing AOSC OS
 ==================
 
 After starting up LiveKit, you should be greeted with a command prompt with
-minimal direction shown on screen. To install AOSC OS, first connect to the
-Internet with NetworkManager. Simply run the `nmtui` command and you will be
+minimal direction shown on screen. 
+
+{% card(type="info") %}
+If you were not logged into the system automatically, please use the username `live` 
+and the password with the same word `live` to login.
+{% end %}
+
+To install AOSC OS, first connect to the Internet with NetworkManager.
+Simply run the `nmtui` command and you will be
 greeted with a simple configuration interface, follow the on-screen directions
 to configure your network connection.
 

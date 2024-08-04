@@ -83,7 +83,13 @@ LiveKit 不支持且不计划支持安全启动 (Secure Boot)。因此，在支�
 安装 AOSC OS
 ============
 
-在启动 LiveKit 后，LiveKit 会展示简短使用指南及命令提示符。在安装 AOSC OS 前，
+在启动 LiveKit 后，LiveKit 会展示简短使用指南及命令提示符。
+
+{% card(type="info") %}
+如果在启动后没有自动登入系统，请使用默认的用户名 `live` 和与用户名相同的密码 `live` 登入系统。
+{% end %}
+
+在安装 AOSC OS 前，
 您需要先使用 NetworkManager 配置互联网连接。NetworkManager 提供一款名为 `nmtui`
 的简易配置界面，请跟随屏幕指示配置网络连接。
 
