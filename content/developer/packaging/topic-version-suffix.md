@@ -36,14 +36,14 @@ The revision marker contains the following components:
 Building from Uncommitted (Dirty) Changes
 ---
 
-If the ABBS tree contains uncommitted changes (Git repository is now put in a "dirty" state), then we should fallback to the build timestamp with an additional `-dirty` suffix:
+If the ABBS tree contains uncommitted changes (Git repository is now put in a "dirty" state), then we should fallback to the build timestamp with an additional `~dirty` suffix:
 
 ```sh
 vim core-libs/glibc/build
 # ABBS Tree is now "dirty"
 ciel build -i main glibc # ACBS was launched on 2024-08-05 10:40:15 +0800
-# ACBS marks the package with version `2.40-0~pre20240805T024015Z-dirty`
-``` 
+# ACBS marks the package with version `2.40-0~pre20240805T024015Z~dirty`
+```
 
 Mechanics
 ---

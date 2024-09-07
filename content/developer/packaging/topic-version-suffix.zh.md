@@ -36,14 +36,14 @@ ${VER}-${REL}~pre${ISO_8601-1_2019_TIMESTAMP}
 基于未提交更改 (dirty) 打包
 ---
 
-如果在发起打包时 ABBS 树中存在没有提交的修改（Git 仓库处于 “drity” 状态），则上述时间戳为发起构建的时间戳，并加上 `-dirty` 后缀：
+如果在发起打包时 ABBS 树中存在没有提交的修改（Git 仓库处于 “drity” 状态），则上述时间戳为发起构建的时间戳，并加上 `~dirty` 后缀：
 
 ```sh
 vim core-libs/glibc/build
 # 此时 ABBS 树处于 dirty 状态
 ciel build -i main glibc # ACBS 于 2024-08-05 10:40:15 +0800 运行
-# ACBS 注入的版本号应为 `2.40-0~pre20240805T024015Z-dirty`
-``` 
+# ACBS 注入的版本号应为 `2.40-0~pre20240805T024015Z~dirty`
+```
 
 原理说明
 ---
