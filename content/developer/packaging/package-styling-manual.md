@@ -88,13 +88,14 @@ Source variables define the package's source(s), and in the case of a VCS (versi
 
 The `SRCS=`, or `$SRCS` variable is used to indicate a list of source file(s) used for a package. Requirements and recommendations are presented in the table below. For description on how to compose source entries, please refer to [ACBS - Specification Files](https://wiki.aosc.io/developer/packaging/acbs/spec-format/).
 
-| Criteria | Required/Recommended/Discouraged | Appropriate Actions |
+| Criteria | Required/Recommended/Disallowed | Appropriate Actions |
 |-------------|----------------------------------------|---------------------------------|
-| URI schemes | Recommended | Use Hypertext Transfer Protocol Secure (HTTPS, https://) where possible. Avoid non-secure connections (http://) and plain FTP (File Transfer Protocol, ftp://). |
-| Source format | Recommended | Use XZ-compressed Tar-Archives (.tar.xz) where possible, other formats are considered appropriate. Avoid the inefficient BZip2-compressed Tar-Archives (.tar.bz2) where possible. |
 | Version substitutions | Required | Source links must replace all versions with substitutions from the `$VER` variable (see above). `SRCS=` must not be defined with hard-coded version(s). |
 | Versioned tarballs | Required | Source archives (tarballs) must be versioned in order to ensure consistency. |
-| Platform-generated tarballs | Discouraged | You should not use generated tarballs from various platforms, especially those from GitHub and GitLab, which were known to be re-generated over time, altering checksums. Use `git::` sources with the `commit=tags/...` option instead. |
+| SourceForge releases | Required | Follow official guidelines and include the `/download` suffix in the URL, i.e. `tbl::https://sourceforge.net/projects/wqy/files/wqy-microhei/${UPSTREAM_VER}/wqy-microhei-${UPSTREAM_VER}.tar.gz/download"` |
+| URI schemes | Recommended | Use Hypertext Transfer Protocol Secure (HTTPS, https://) where possible. Avoid non-secure connections (http://) and plain FTP (File Transfer Protocol, ftp://). |
+| Source format | Recommended | Use XZ-compressed Tar-Archives (.tar.xz) where possible, other formats are considered appropriate. Avoid the inefficient BZip2-compressed Tar-Archives (.tar.bz2) where possible. |
+| Platform-generated tarballs | Disallowed | You should not use generated tarballs from various platforms, especially those from GitHub and GitLab, which were known to be re-generated over time, altering checksums. Use `git::` sources with the `commit=tags/...` option instead. |
 
 ### CHKSUMS=
 
