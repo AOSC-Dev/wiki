@@ -93,7 +93,8 @@ Executed Packager <suffering@pakreq.work>
 |-------------|----------------------------------------|---------------------------------|
 | 版本替换 | 要求 | 源码包地址中的所有软件包版本号必须替换为 `$VER` 变量。`$SRCS` 条目不应含有硬编码的版本号 |
 | 源码包版本号 | 要求 | 为了保证可持续性，源码包文件必须要有版本号 |
-| SourceForge 源码包 | 要求 | 遵从[官方指引](https://sourceforge.net/p/forge/documentation/Downloading%20files%20via%20the%20command%20line/)，在源码 URL 末尾保留 `/download`，如：`tbl::https://sourceforge.net/projects/wqy/files/wqy-microhei/${UPSTREAM_VER}/wqy-microhei-${UPSTREAM_VER}.tar.gz/download"`；在可能的情况下尽可能使用官方推荐的源站或自动重定向设施，避免使用特定镜像站 |
+| 源码包来源 | 要求 | 在可能的情况下尽可能使用官方推荐的源站或自动重定向设施，避免使用特定镜像站 |
+| SourceForge 源码包 | 要求 | 遵从[官方指引](https://sourceforge.net/p/forge/documentation/Downloading%20files%20via%20the%20command%20line/)，在源码 URL 末尾保留 `/download`，如：`tbl::https://sourceforge.net/projects/wqy/files/wqy-microhei/${UPSTREAM_VER}/wqy-microhei-${UPSTREAM_VER}.tar.gz/download"` |
 | 统一资源标识符 | 建议 | 尽可能使用 HTTPS（`https://`），避免使用 HTTP（`http://`）和 FTP（`ftp://`） |
 | 源码包格式 | 建议 | 尽可能使用基于 XZ 压缩方案的压缩包（`.tar.xz`），其它格式也可接受，但尽量避免基于 BZip2 压缩方案的压缩包（`.tar.bz2`） |
 | 平台自动生成的源码包 | 禁用 | 请勿使用各类托管平台（尤其是 GitHub 和 GitLab）自动生成的源码包，因为这些平台往往会重新生成源码包，导致校验值发生变化；请使用 `git::` 源码类型搭配 `commit=tags/...` 参数使用 |
