@@ -25,5 +25,5 @@ jobs:
         echo '${{ secrets.KNOWN_HOST_STRING }}' >> ~/.ssh/known_hosts
         echo '${{ secrets.KEY_CONTENT }}' > ~/.ssh/id_upload_key
         chmod 0600 ~/.ssh/id_upload_key
-        rsync -rlOvhze ssh --progress public/* 'aosc@${{ secrets.UPLOAD_HOST }}:/srv/aosc-wiki/'
+        rsync -rlOvhze ssh --progress -i ~/.ssh/id_upload_key public/* 'aosc@${{ secrets.UPLOAD_HOST }}:/srv/aosc-wiki/'
         echo "Visit your site at: https://wiki.aosc.io"
