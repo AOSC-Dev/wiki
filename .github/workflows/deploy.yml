@@ -19,7 +19,7 @@ jobs:
 
     - name: Deploy to website
       shell: bash
-      if: ${{ !github.base_ref && github.ref == "refs/heads/master" }}
+      if: ${{ github.event.push && github.ref == 'refs/heads/master' }}
       run: |
         mkdir -p ~/.ssh
         echo '${{ secrets.KNOWN_HOST_STRING }}' >> ~/.ssh/known_hosts
