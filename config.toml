@@ -1,4 +1,4 @@
-base_url = "/"
+base_url = "/wiki/"
 compile_sass = true
 build_search_index = true
 
