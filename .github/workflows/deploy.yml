@@ -1,0 +1,29 @@
+on:
+  push:
+    branches: ["*"]
+    tags: ["*"]
+  pull_request:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Install Zola
+      run: ./.ci/ci.sh
+    
+    - name: Build the pages
+      run: ./build.sh
+
+    - name: Deploy to website
+      shell: bash
+      if: ${{ !github.base_ref && github.ref == "refs/heads/master" }}
+      run: |
+        mkdir -p ~/.ssh
+        echo '${{ secrets.KNOWN_HOST_STRING }}' >> ~/.ssh/known_hosts
+        echo '${{ secrets.KEY_CONTENT }}' > ~/.ssh/id_upload_key
+        chmod 0600 ~/.ssh/id_upload_key
+        rsync -rlOvhze ssh --progress public/* 'upload@${{ secrets.UPLOAD_HOST }}:/srv/aosc-wiki/'
+        echo "Visit your site at: https://wiki.aosc.io"
