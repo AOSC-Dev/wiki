@@ -12,6 +12,7 @@ title = "打包"
 - [AOSC OS 软件包样式指南](@/developer/packaging/package-styling-manual.zh.md)
 - [使用自动化设施构建软件包](@/developer/packaging/buildit-bot.zh.md)
 - [测试源内软件包迭代版本规范](@/developer/packaging/topic-version-suffix.zh.md)
+- [AOSC OS 系统特性标记规范](@/developer/packaging/feature-marking-guidelines.zh.md)
 
 想要进一步了解我们在打包中常用的一些应用程序，可以阅读下面的文档：
 

@@ -12,6 +12,7 @@ In order to ensure the quality of our packages (and reduce wtf moments for other
 - [AOSC OS Package Styling Manual](@/developer/packaging/package-styling-manual.md)
 - [Making Use of the Automated Maintenance Infrastructure](@/developer/packaging/buildit-bot.md)
 - [Revision Marking Guidelines for Topic Packages](@/developer/packaging/topic-version-suffix.md)
+- [AOSC OS Feature Marking Guidelines](@/developer/packaging/feature-marking-guidelines.md)
 
 Also, you may want to read these documentations about the tools we use.
 - [Autobuild3 Manual](@/developer/packaging/autobuild3-manual.md)

@@ -1,5 +1,5 @@
 +++
-title = "安同 OS 系统特性标记规范"
+title = "AOSC OS OS 系统特性标记规范"
 description = "关键系统组件及特性的标记规范"
 date = 2024-10-17T12:12:56.606Z
 [taxonomies]
