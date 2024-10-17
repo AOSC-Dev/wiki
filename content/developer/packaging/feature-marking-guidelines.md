@@ -1,5 +1,10 @@
-AOSC OS Feature Marking Guidelines
-===
++++
+title = "AOSC OS Feature Marking Guidelines"
+description = "Guidelines for Marking Key AOSC OS Features and Components"
+date = 2024-10-17T12:12:56.606Z
+[taxonomies]
+tags = ["dev-sys"]
++++
 
 The Feature Marking Guidelines is designed to mark key system components that
 are not considered `Essential` per dpkg, but could be used as referenced for
