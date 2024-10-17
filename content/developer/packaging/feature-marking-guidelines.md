@@ -16,6 +16,15 @@ With this set of guidelines, users may be better informed about the differences
 between system components and applications. This set of guidelines, by
 principle, only applies to pre-installed software.
 
+Packaging
+---
+
+To mark a package as AOSC OS feature components, use `PKGFTR=` in `defines`:
+
+```
+PKGFTR=kde core ...
+```
+
 Metadata
 ---
 
@@ -38,16 +47,14 @@ X-AOSC-Features: kde-graphical-environment multimedia-playback
 
 ### Example: aosc-os-feature-data
 
-The `Functionality` field may be localised with the `-$LANG` suffix, those
-without a suffix will be used as the fallback (C/en_US) for systems set with
-languages without the necessary translations:
+The feature metadata is written in TOML, with support for localisation:
 
 ```
-Feature: kde-graphical-environment
-Functionality: KDE graphical environment
-Functionality-zh_CN: KDE 图形界面
+[kde-graphical-environment]
+zh_CN = "KDE 图形界面"
+en_US = "KDE graphical environment"
 
-Feature: multimedia-playback
-Functionality: Multimedia playback support
-Functionality-zh_CN: 多媒体播放
+[multimedia-playback]
+zh_CN = "多媒体播放"
+en_US = "Multimedia playback"
 ```
