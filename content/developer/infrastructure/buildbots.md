@@ -115,7 +115,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **Yukoaioi** | 27001 | Loongson 3A5000-HV @ 2.50GHz (4 cores) | 16GiB | 4248s | _Mag Mell_ |  |
+| **Yukoaioi** | 27001 | Loongson 3A6000-HV @ 2.50GHz (4 cores, 8 threads) | 16GiB | 2315s | _Mag Mell_ |  |
 | **Apocalypse** | 27221 | Loongson 3C5000 @ 2.2GHz (16 cores) | 64GiB | 1401s | _Undisclosed_ | |
 | **Chrysalis** | 27224 | Loongson 3A6000-HV @ 2.5GHz (4 cores, 8 threads) | 16GiB | 2461s | _Mingcong Bai_ | |
 | **loong13** | 27282 | Loongson 3A5000-HV @ 2.5GHz (4 cores) | 16GiB | 4105s | _Henry Chen_ | |
