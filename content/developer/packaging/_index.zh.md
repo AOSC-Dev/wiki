@@ -27,3 +27,4 @@ title = "打包"
 - [软件包质量测试错误代码注解](@/developer/packaging/qa-issue-codes.zh.md)
 - [稳定分支补丁级更新规则说明](@/developer/packaging/known-patch-release-rules.md)
 - [.NET 生命周期策略](@/developer/packaging/dotnet.zh.md)
+- [glibc HWCAPS 子架构构建指南](@/developer/packaging/hwcaps-packaging-guide.zh.md)
