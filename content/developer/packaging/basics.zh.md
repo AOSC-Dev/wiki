@@ -238,4 +238,4 @@ ciel build -i main light
 
 恭喜，您已掌握为 AOSC OS 引入、更新、构建和上传软件包的基础技能！
 
-但如您所见，本文只概述了软件包维护的基础知识点。在需要构建更复杂的软件包和批量更新软件包之前，您还需要学习一些进阶知识。请参阅[软件包维护入门：进阶教程](@/developer/packaging/advanced-techniques.md)。
+但如您所见，本文只概述了软件包维护的基础知识点。在需要构建更复杂的软件包和批量更新软件包之前，您还需要学习一些进阶知识。请参阅[软件包维护入门：进阶教程](@/developer/packaging/advanced-techniques.zh.md)。
