@@ -208,12 +208,6 @@ apt update
 and
 
 ```sh
-apt install linux+kernel+rpi64
-```
-
-Or you would prefer LTS branch:
-
-```sh
 apt install linux+kernel+rpi64+lts
 ```
 

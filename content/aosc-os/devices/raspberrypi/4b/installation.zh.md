@@ -200,12 +200,6 @@ genfstab -p -U / | sed -e '/swap/d' >> /etc/fstab
 可以直接执行
 
 ```sh
-apt install linux+kernel+rpi64
-```
-
-若更倾向使用 LTS 分支的内核：:
-
-```sh
 apt install linux+kernel+rpi64+lts
 ```
 
