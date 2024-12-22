@@ -33,7 +33,6 @@ AOSC OS 对树莓派的支持由社区进行维护，所以你可以轻松地为
 # 已知问题
 
 - ARM64上的视频硬解码不工作.参见[这里](https://github.com/raspberrypi/userland/blob/9f3f9054a692e53b60fca54221a402414e030335/CMakeLists.txt#L11)与[这里](https://www.raspberrypi.org/forums/viewtopic.php?t=232684&start=25)
-- 目前树莓派的单板支持包(BSP)仍未合并至主源,等待bugfix后合并ing...
 - AOSC主源中提供的raspi-config工具来自[cyanberry-config](https://github.com/AOSC-Archive/cyanberry-config),但是目前已归档,不再建议使用
 
 # 教程内容
@@ -192,12 +191,7 @@ genfstab -p -U / | sed -e '/swap/d' >> /etc/fstab
 
 安装树莓派 BSP（单板支持包）
 --------
-
-为了让树莓派运行安装的 OS，要在安装过程中安装一系列单板支持包。
-
-到目前为止，这些包不再需要手动配置，直接安装即可。
-
-可以直接执行
+为了让树莓派运行安装的 AOSC OS，要在安装过程中安装一系列单板支持包，例如内核及引导用固件。您可以执行如下命令安装所需要的支持包：
 
 ```sh
 apt install linux+kernel+rpi64+lts

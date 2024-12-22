@@ -33,7 +33,6 @@ Technically all Raspberry Pis equipped with an ARM64 CPU are compatible with mai
 # Known Problems
 
 - Hardware Decoding is not working on ARM64 architecture,see [here](https://github.com/raspberrypi/userland/blob/9f3f9054a692e53b60fca54221a402414e030335/CMakeLists.txt#L11) and [here](https://www.raspberrypi.org/forums/viewtopic.php?t=232684&start=25)
-- The raspberry-pi BSP is not in the main package source yet,waiting for bugfixes and merging ...
 - The raspi-config tool provided in the aosc package list was come from [cyanberry-config](https://github.com/AOSC-Archive/cyanberry-config),but now it is archived,and not suggested to use.
 
 # In this tutorial
