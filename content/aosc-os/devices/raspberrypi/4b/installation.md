@@ -28,7 +28,11 @@ Technically all Raspberry Pis equipped with an ARM64 CPU are compatible with mai
 - Raspberry Pi 3th gen boards (BCM2837A0/B0)
   - Raspberry Pi 3/3B/3B+
   - Compute Module 3
-- Some BCM2837 based Raspberry Pi 2 boards (2B Rev1.2)
+
+# Known Problems
+
+- Hardware decoding is not working on 64-bit systems, see [here](https://github.com/raspberrypi/userland/blob/9f3f9054a692e53b60fca54221a402414e030335/CMakeLists.txt#L11) and [here](https://www.raspberrypi.org/forums/viewtopic.php?t=232684&start=25)
+- The `raspi-config` tool previously available in the AOSC package repository came from [cyanberry-config](https://github.com/AOSC-Archive/cyanberry-config). This project is now archived and no longer recommended to use.
 
 # In this tutorial
 
@@ -193,29 +197,10 @@ BSP Installation
 --------
 
 To get your Pi running, a set of BSPs (Board Support Packages) must be installed upon the installation.
-
-For now no extra manual setup is needed, just install the BSPs directly.
-
-Add BSP repository:
+The BSP packages are now present in the main suite, so you don't have to add `bsp-rpi` suite to your `sources.list`. Simply run the following command to install the BSP packages:
 ```sh
-echo "deb https://repo.aosc.io/debs stable bsp-rpi" | tee /etc/apt/sources.list.d/10-bsp-rpi.list
 apt update
-```
-
-Install kernel (which brings up all necessary BSPs):
-
-```sh
-apt install linux+kernel+rpi64
-```
-
-Or you would prefer LTS branch:
-
-```
 apt install linux+kernel+rpi64+lts
-```
-
-Don't worry, we will take care about everything to get your Pi running, including generating `config.txt` and `cmdline.txt`.
-
 # Plugin and run!
 
 If all above are set, you can exit your chroot environment, unmount them, plug it in to your Pi and boot!
