@@ -32,7 +32,7 @@ AOSC OS 对树莓派的支持由社区进行维护，所以你可以轻松地为
 
 # 已知问题
 
-- ARM64上的视频硬解码不工作.参见[这里](https://github.com/raspberrypi/userland/blob/9f3f9054a692e53b60fca54221a402414e030335/CMakeLists.txt#L11)与[这里](https://www.raspberrypi.org/forums/viewtopic.php?t=232684&start=25)
+- 64 位系统没有硬件视频解码支持。参见[这里](https://github.com/raspberrypi/userland/blob/9f3f9054a692e53b60fca54221a402414e030335/CMakeLists.txt#L11)与[这里](https://www.raspberrypi.org/forums/viewtopic.php?t=232684&start=25)
 - AOSC主源中提供的raspi-config工具来自[cyanberry-config](https://github.com/AOSC-Archive/cyanberry-config),但是目前已归档,不再建议使用
 
 # 教程内容
