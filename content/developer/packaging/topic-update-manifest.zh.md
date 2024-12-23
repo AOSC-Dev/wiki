@@ -13,7 +13,7 @@ description = "安同 OS 更新元数据规范"
 
 更新主题元数据文件范例如下：
 
-```
+```toml
 name.default = "KDE Updates (Winter 2023)"
 name.zh_CN = "KDE 更新（2023 年冬季）"
 # Security update (true/false)?

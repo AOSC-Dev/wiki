@@ -16,7 +16,7 @@ Examples
 
 Below is an example for a conventional topic update manifest file:
 
-```
+```toml
 name.default = "KDE Updates (Winter 2023)"
 name.zh_CN = "KDE 更新（2023 年冬季）"
 # Security update (true/false)?
