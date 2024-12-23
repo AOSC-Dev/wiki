@@ -1,7 +1,7 @@
 
 +++
-title = "在树莓派上安装AOSC OS"
-description = "在树莓派上安装AOSC OS"
+title = "在树莓派上安装 AOSC OS"
+description = "在树莓派上安装 AOSC OS"
 date = 2020-11-14T12:37:11.499Z
 [taxonomies]
 tags = ["sys-installation"]
