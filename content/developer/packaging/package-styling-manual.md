@@ -303,8 +303,8 @@ When more than one of the actions were committed, and that the short message goe
 ```
 firefox: update to 64.0.2; #1536
     
-    - Enable PGO on AMD64, patches from Fedora and upstream.
-    - Clean up defines.
-    - Remove deprecated --enable-pie option.
-    - More vendor-specific preferences to further limit Pocket integration and telemetry.
+- Enable PGO on AMD64, patches from Fedora and upstream.
+- Clean up defines.
+- Remove deprecated --enable-pie option.
+- More vendor-specific preferences to further limit Pocket integration and telemetry.
 ```
