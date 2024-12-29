@@ -28,7 +28,12 @@ Technically all Raspberry Pis equipped with an ARM64 CPU are compatible with mai
 - Raspberry Pi 3th gen boards (BCM2837A0/B0)
   - Raspberry Pi 3/3B/3B+
   - Compute Module 3
-- Some BCM2837 based Raspberry Pi 2 boards (2B Rev1.2)
+- Some BCM2837 based Raspberry Pi 2 boards (2B Rev1.2,maybe slow)
+
+# Known Problems
+
+- Hardware decoding is not working on 64-bit systems,see [here](https://github.com/raspberrypi/userland/blob/9f3f9054a692e53b60fca54221a402414e030335/CMakeLists.txt#L11) and [here](https://www.raspberrypi.org/forums/viewtopic.php?t=232684&start=25)
+- The raspi-config tool provided in the aosc package list was come from [cyanberry-config](https://github.com/AOSC-Archive/cyanberry-config),but now it is archived,and not suggested to use.
 
 # In this tutorial
 
@@ -194,23 +199,14 @@ BSP Installation
 
 To get your Pi running, a set of BSPs (Board Support Packages) must be installed upon the installation.
 
-For now no extra manual setup is needed, just install the BSPs directly.
-
-Add BSP repository:
+Now the BSPs are in the main repo,you could just
 ```sh
-echo "deb https://repo.aosc.io/debs stable bsp-rpi" | tee /etc/apt/sources.list.d/10-bsp-rpi.list
 apt update
 ```
 
-Install kernel (which brings up all necessary BSPs):
+and
 
 ```sh
-apt install linux+kernel+rpi64
-```
-
-Or you would prefer LTS branch:
-
-```
 apt install linux+kernel+rpi64+lts
 ```
 

@@ -38,7 +38,7 @@ Check your `cmdline.txt` and remove the `quiet` option or you will not see the k
 
 Another possible reason is that the kernel is waiting for the root filesystem to show up. Make sure the root device is correct in your `cmdline.txt`.
 
-## Kernel paniked
+## Kernel panicked
 
 The reason behind this varys. Here are some possible symptoms:
 
