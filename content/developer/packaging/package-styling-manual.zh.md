@@ -301,8 +301,8 @@ Electron、Chromium 和基于它们的软件包应该按照下面的要求放置
 ```
 firefox: update to 64.0.2; #1536
     
-    - Enable PGO on AMD64, patches from Fedora and upstream.
-    - Clean up defines.
-    - Remove deprecated --enable-pie option.
-    - More vendor-specific preferences to further limit Pocket integration and telemetry.
+- Enable PGO on AMD64, patches from Fedora and upstream.
+- Clean up defines.
+- Remove deprecated --enable-pie option.
+- More vendor-specific preferences to further limit Pocket integration and telemetry.
 ```

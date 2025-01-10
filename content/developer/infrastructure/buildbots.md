@@ -78,10 +78,9 @@ If you would like contribute your device to AOSC, please make sure your device h
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **LoongUnion1** | 23172 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 64GiB | 4307s | _Loongson Technology (Wuhan)_ | |
 | **LoongUnion2** | 23173 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 64GiB | 4378s | _Loongson Technology (Wuhan)_ | |
-| **Ybsbny** | 23269 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 64GiB | 4397s | _Henry Chen_ | [Community crowdsourced][ybsbny-crowdsourcing]; repo mirror at `http://50.50.1.224/debs/` |
+| **ybsbny** | 23269 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 64GiB | 4397s | _Henry Chen_ | [Community crowdsourced][ybsbny-crowdsourcing]; repo mirror at `http://50.50.1.224/debs/` |
 | **Misaka23333** | 23333 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 32GiB | 4312s | _KatyushaScarlet_ | |
 | **Resonance** | 23541 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 32GiB | 4392s | _Kexy Biscuit_ | [Community crowdsourced][resonance-crowdsourcing]; direct access with `ssh -4p23541 root@home.biscuit.moe`; repo mirror at `http://localhost/debs/`, BuildKit mirror at `http://localhost/aosc-os/os-loongson3/buildkit/` |
-| **Macrobrachium** | 23999 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 32GiB | 4353s | _Mingcong Bai_ | Unstable, BuildIt! disabled. |
 
 ## **ARM** (24001-25000)
 
@@ -92,7 +91,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 | **Mio** | 24242 | Apple M1, 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (8 cores) | 16GiB | 777s | _Cyan_ | Local mirror at `http://192.168.24.4/anthon/debs` |
 | **Dapen** | 24410 | HUAWEI Kunpeng 920 3211K @ 2.6GHz (24 cores) | 16GiB | 701s | _Mingcong Bai_ | |
 | **kp920** | 24426 | HUAWEI Kunpeng 920 @ 2.6GHz (KVM, 96 cores allocated) | 192GiB (145GiB allocated) | 410s | _Undisclosed_ | Direct access with `ssh -4p2223 root@kp920.ip4.run` |
-| **Ailuropoda** | 24612 | HUAWEI Kunpeng 920 @ 2.0GHz (KVM, 16 cores allocated) | 64GiB | 889s | _神楽坂早苗️_ | |
+| **ailuropoda** | 24612 | HUAWEI Kunpeng 920 @ 2.0GHz (KVM, 16 cores allocated) | 64GiB | 889s | _神楽坂早苗️_ | |
 | **eleventh** | 24808 | HUAWEI Kunpeng 920 @ 2.4GHz (8 cores) | 16GiB | 1832s | _Undisclosed_ | Direct access with `ssh -oProxyJump=aosc-build@hw-hk.innull.com:20022 root@192.168.1.11` |
 
 ## **PowerPC** (25001-26000)
@@ -116,10 +115,10 @@ If you would like contribute your device to AOSC, please make sure your device h
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **Yukoaioi** | 27001 | Loongson 3A6000-HV @ 2.50GHz (4 cores, 8 threads) | 16GiB | 2315s | _Mag Mell_ |  |
+| **Panulirus** | 27118 | Loongson 3C5000 @ 2.2GHz (16 cores) | 128GiB | TBD | _Loongson Technology (Wuhan)_ | |
 | **Apocalypse** | 27221 | Loongson 3C5000 @ 2.2GHz (16 cores) | 64GiB | 1401s | _Undisclosed_ | |
-| **Yggdrasil** | 27234 | Loongson 3C6000 @ 2.2GHz (16 cores, 32 threads) | 96GiB | 912s | _darkyzhou_ | |
+| **Yggdrasil** | 27234 | Loongson 3C6000 @ 2.2GHz (16 cores, 32 threads) | 96GiB | 825s | _darkyzhou_ | |
 | **loong13** | 27282 | Loongson 3A5000-HV @ 2.5GHz (4 cores) | 16GiB | 4105s | _Henry Chen_ | |
-| **dragonfly** | 27514 | Loongson 3C5000 @ 2.5GHz (16 cores, overclocked) | 128GiB | 1371s | _Xinmudotmoe_ | |
 | **loongcraft** | 27777 | Loongson 3A6000-HV @ 2.5GHz (4 cores, 8 threads) | 32GiB | 2332s | _Mingcong Bai_ | |
 | **Stomatopoda** | 27863 | Loongson 3C5000 @ 2.2GHz (16 cores) | 128GiB | 1495s | _Loongson Technology (Wuhan)_ | Direct access with `ssh -p2222 root@211.137.78.121` |
 | **Cambarus** | 27888 | Loongson 3C5000 @ 2.2GHz (16 cores) | 128GiB | 1365s | _Jiangjin Wang_ | |
@@ -138,6 +137,7 @@ Please note that the following is not an exhaustive list.
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **JellyShrimp** | ~~23869~~ | Loongson 3A-4000 (R4) @ 1.80GHz (A1901) | 16GiB | 5604s | _Mingcong Bai_ | |
+| **Macrobrachium** | ~~23999~~ | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 32GiB | 4353s | _Mingcong Bai_ | Unstable, BuildIt! disabled. |
 | **Maple** | ~~24191~~ | Snapdragon 8cx Gen 3 (8) (4 * Cortex-X1 @ 3.00GHz + 4 * Cortex-A78 @ 2.40GHz) | 16GiB | 1098s | _Canarypwn_ | |
 | **JellyXavier** | ~~24444~~ | 4 x dual core NVIDIA Carmel CPU clusters @ 2.26GHz (NVIDIA Jetson AGX Xavier Developer Kit) | 16GiB | - |  _Mingcong Bai_ | |
 | **JellyPhy** | ~~24451~~ | 8-Core Phytium D2000 @ 2.30GHz | 32GiB | 2589s | _Mingcong Bai_ | |
@@ -147,6 +147,7 @@ Please note that the following is not an exhaustive list.
 | **marianne** | ~~26055~~ | SiFive FU740 @ 988MHz (SiFive HiFive Unmatched) | 16GiB | 22515s | _Icenowy Zheng_ | Scratch needs to be mounted manually by nbd-mount.sh in /root (currently using the scratch disk from **lorenz**); behind GFW, a HTTP proxy is available at http://dedue:8118, device sponsored by the PLCT Lab |
 | **leonie** | ~~26056~~ | SiFive FU740 @ 988MHz (SiFive HiFive Unmatched) | 16GiB | 22612s | _Icenowy Zheng_ | Scratch is on NVMe disk ,maybe buggy, investigation needed; behind GFW, a HTTP proxy is available at http://dedue:8118, device sponsored by the PLCT Lab |
 | **Chrysalis** | ~~27224~~ | Loongson 3A6000-HV @ 2.5GHz (4 cores, 8 threads) | 16GiB | 2461s | _Mingcong Bai_ | |
+| **dragonfly** | ~~27514~~ | Loongson 3C5000 @ 2.5GHz (16 cores, overclocked) | 128GiB | 1371s | _Xinmudotmoe_ | |
 | **viperdesign** | ~~27688~~ | Loongson 3A6000-HV @ 2.5GHz (4 cores, 8 threads) | 32GiB | 2286s | _Viperdesign_ | |
 | **PorterAle** | ~~28001~~ | Intel i7-8700T @ 2.40 - 4.00GHz | 16GiB | 996s | _MingcongBai_ | |
 | **mieps** | ~~28004~~ | Intel Xeon W-1250P @ 4.1 - 4.8GHz (6 cores, 12 threads) | 32GiB | 793s | _Undisclosed_ | |
