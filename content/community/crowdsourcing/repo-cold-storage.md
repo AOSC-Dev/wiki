@@ -6,7 +6,7 @@ This crowdsourcing project aims to fund the purchase of two hard disk drives to 
 
 # Rationale
 
-As AOSC OS's software package and system release updatesincrease in both frequency and volume, the demand for cold storage and backup capacity has grown significantly in more recent times. We are currently running out of space for cold storage (~8TiB) and is in urgent need for more storage capacity. The cold storage contains mostly backups for old system releases and packages can help us record changes in packages and systems for regression testing.
+As AOSC OS's software package and system release updates increase in both frequency and volume, the demand for cold storage and backup capacity has grown significantly in more recent times. We are currently running out of space for cold storage (~8TiB) and is in urgent need for more storage capacity. The cold storage contains mostly backups for old system releases and packages can help us record changes in packages and systems for regression testing.
 
 # Budget
 
