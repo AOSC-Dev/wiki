@@ -1,5 +1,5 @@
 +++
-title = "[CROWDSOURCING] Cold Storage HDD for Community Repository"
+title = "[COMPLETE] Cold Storage HDD for Community Repository"
 +++
 
 This crowdsourcing project aims to fund the purchase of two hard disk drives to expand the community repository's cold storage.

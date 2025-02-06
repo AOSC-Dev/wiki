@@ -1,5 +1,5 @@
 +++
-title = "[筹款成功] AOSCC 2024 会务款项（第一轮）"
+title = "[众筹成功] AOSCC 2024 会务款项（第一轮）"
 draft = false
 +++
 
