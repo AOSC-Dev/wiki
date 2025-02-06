@@ -1,6 +1,6 @@
 +++
 title = "Intro to Package Maintenance: Advanced Techniques"
-description = "This article is sponsered by Commit-O-Matic™"
+description = "This article is sponsored by Commit-O-Matic™"
 +++
 
 > So you want to make a package, you've got the urge to make a package, you've got the nerve to make a package, so go ahead, so go ahead, so go ahead and make a package we can use\!
