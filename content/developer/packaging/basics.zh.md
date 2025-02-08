@@ -11,7 +11,7 @@ date = 2020-08-04T02:13:57.919Z
 我们使用如下几个工具维护 AOSC OS 软件包：
 
   - [Ciel](https://github.com/AOSC-Dev/ciel-rs/)
-      - 用于管理 systemd-nspawn(1) 容器。
+      - 用于管理 systemd-nspawn 容器。
   - [ACBS](https://github.com/AOSC-Dev/acbs/)
       - 用于管理软件包树（如我们的主树，*<https://github.com/AOSC-Dev/aosc-os-abbs>*）及各类构建配置。
       - 运行时，调用 Autobuild3 读取软件包构建配置并执行构建脚本。
@@ -32,11 +32,13 @@ AOSC OS 是滚动发行版，这意味着 AOSC OS 整体发行时不使用版本
 
 # 配置环境
 
-配置环境的第一步是安装 Ciel，如果您在使用 AOSC OS，您可以直接使用 `apt install ciel` 安装 Ciel。
+配置环境的第一步是安装 Ciel，如果您在使用 AOSC OS，您可以直接使用 `oma install ciel` 安装 Ciel。
 
 Ciel 的主要功能为管理独立的 AOSC OS 构建环境（通称 BuildKit），因此 Ciel 不一定需要在 AOSC OS 上运行。如果您使用的是 Arch Linux，可以通过 AUR 安装 Ciel。
 
-接下来，我们可以开始配置 Ciel 工作区了。该教程使用 `~/ciel` 作为 Ciel 工作区路径进行演示。注意：Ciel 需要使用 `root` 运行，且不能在 Docker 容器中运行。请运行如下几个命令并跟随屏幕指示配置 Ciel 工作区；在向导问是否需要创建新实例时，请选择是，并创建一个名为 `main` 的实例。
+接下来，我们可以开始配置 Ciel 工作区了。该教程使用 `~/ciel` 作为 Ciel 工作区路径进行演示。注意：Ciel 需要使用 `root` 运行，且不能在 Docker 容器中运行；在创建工作区的过程中，需要从 GitHub 下载内容，请确保您的网络环境能够访问 Github。
+
+请运行如下几个命令并跟随屏幕指示配置 Ciel 工作区。前几个选项使用默认值即可，在向导问是否需要创建新实例时（Do you want to add a new instance now?），请选择是，并创建一个名为 `main` 的实例。
 
 ``` bash
 mkdir ~/ciel
@@ -53,7 +55,7 @@ ciel update-os
 
 # 初试打包
 
-一切准备就绪，我们来尝试构建一个已在树中的软件包。我们先挑个简单的 `extra-multimedia/flac` 来打。
+一切准备就绪，我们来尝试构建一个已在树中的软件包。我们先挑个简单的 `app-multimedia/flac` 来打。
 
 执行如下命令即可构建 `flac` 软件包。
 
@@ -68,9 +70,9 @@ ciel build -i main flac
 
 本章节介绍如何引入软件包，为此我们需要从头编写软件包配置。
 
-首先，切换至 `TREE` 目录，在这个目录中有许多用于分类整理的，以 `base-`，`core-` 或 `extra-` 开头的子目录。这些目录中就是各个软件包的配置文件夹了。
+首先，切换至 `TREE` 目录，在这个目录中有许多用于分类整理的，以 `core-`、`app-`、`desktop-` 等开头的子目录；子目录的分类标准详见 [aosc-os-abbs](https://github.com/AOSC-Dev/aosc-os-abbs)。这些目录中就是各个软件包的配置文件夹了。
 
-以 `i3` 为例，这个软件包位于 `extra-wm/i3`，在切换到这个目录后，我们会发现其内部文件结构如下：
+以 `i3` 为例，这个软件包位于 `desktop-wm/i3`，在切换到这个目录后，我们会发现其内部文件结构如下：
 
 ``` bash
     .
@@ -98,12 +100,12 @@ ciel build -i main flac
 `spec` 文件提供用于指示 ACBS 下载源码文件的配置，以及软件包版本和修订 (Revision) 级别。该文件内容大致如下：
 
 ``` bash
-VER=4.17.1  # 软件版本。
+VER=4.24  # 软件版本。
 # REL=0 软件修订级别。该变量默认赋值为 0。
 
 # 如使用源码压缩包 (tarball) 。
-SRCS="tbl::https://i3wm.org/downloads/i3-$VER.tar.bz2" # 源码包下载地址。
-CHKSUMS="sha256::1e8fe133a195c29a8e2aa3b1c56e5bc77e7f5534f2dd92e09faabe2ca2d85f45" # 源码包校验和。
+SRCS="tbl::https://i3wm.org/downloads/i3-$VER.tar.xz" # 源码包下载地址。
+CHKSUMS="sha256::5baefd0e5e78f1bafb7ac85deea42bcd3cbfe65f1279aa96f7e49661637ac981" # 源码包校验。
 
 # 如使用 Git 源码。
 SRCS="git::commit=$COMMIT_ID::https://some.git.hosting/somewhere"
@@ -136,7 +138,7 @@ CHKSUMS="SKIP sha256::some_checksum sha256::sume_checksum"
 
 上面列出的只是最常见的几个配置项。Autobuild3 还有许多其他配置参数，但如果软件包依赖信息和构建流程相对标准，一般不会需要使用其他参数。Autobuild3 会自动填入编译器参数、构建系统等其他构建参数。
 
-以 `extra-wm/i3` 为例：
+以 `desktop-wm/i3` 为例：
 
 ``` bash
 PKGNAME=i3
@@ -163,26 +165,26 @@ PKGCONFL="i3-gaps"
 
 该文件夹存放构建前要应用的补丁文件，将补丁文件放入该文件夹即可。
 
-# 实操案例：`light`
+# 实操案例：`Hello`
 
-接下来，我们来实战软件包配置编写。该章节介绍 [light](https://github.com/haikarainen/light) 这个简单软件包的构建配置编写方式。该软件提供一个用于控制笔记本背光的简单命令，而且因为实现原理只依赖文件 API，该软件只依赖 `glibc`。
+接下来，我们来实战软件包配置编写。该章节介绍 [hello](https://www.gnu.org/software/hello/) ，这是一个由 GNU 编写的简易问候程序，可在屏幕上打印一句“Hello, world!”。本软件没有依赖项，故而非常适合入门。
 
-首先切换到 `TREE` 目录，并确定我们目前处于正确的 Git 分支。如前面提到的主题制迭代流程所要求，您需要首先为这个包创建一个 Git 分支。由于要引入新软件包，根据 [AOSC OS 主题制维护指南 (AOSC OS Topic-Based Maintenance Guidelines)](@/developer/packaging/topic-based-maintenance-guideline.md)，分支名称应为 `$PKGNAME-$PKGVER-new`，即 `light-1.2.1-new`。
+首先切换到 `TREE` 目录，并确定我们目前处于正确的 Git 分支。如前面提到的主题制迭代流程所要求，您需要首先为这个包创建一个 Git 分支。由于要引入新软件包，根据 [AOSC OS 主题制维护指南 (AOSC OS Topic-Based Maintenance Guidelines)](@/developer/packaging/topic-based-maintenance-guideline.md)，分支名称应为 `$PKGNAME-$PKGVER-new`，即 `hello-2.12-new`。
 
-因为 `light` 属于实用工具，我们要在 `extra-utils` 下创建 `light` 目录。
+因为 `hello` 属于实用工具，我们要在 `app-utils` 下创建 `hello` 目录。
 
 ``` bash
-cd TREE/extra-utils
-mkdir light
-cd light
+cd TREE/app-utils
+mkdir hello
+cd hello
 ```
 
-接下来，编写 `spec` 文件。首先，查阅项目网站并辨认最新版本源码包的下载 URL。在计算 `sha256` 校验和后，我们即可将各项信息填入文件。
+接下来，编写 `spec` 文件。首先，查阅项目网站，并找到最新版本源码包的下载 URL；下载文件并确认无误后，需计算其 `SHA-256` 哈希值（可使用 `sha256sum` 命令），并将各项信息填入文件。
 
 ``` bash
-VER=1.2.1
-SRCS="tbl::https://github.com/haikarainen/light/archive/v$VER.tar.gz"
-CHKSUMS="sha256::53d1e74f38813de2068e26a28dc7054aab66d1adfedb8d9200f73a57c73e7293"
+VER=2.12.1
+SRCS="tbl::https://ftp.gnu.org/gnu/hello/hello-$VER.tar.gz"
+CHKSUMS="sha256::8d99142afd92576f30b0cd7cb42a8dc6809998bc5d607d88761f512e26c7db20"
 ```
 
 注意：我们在源码包 URL 中使用了 `$VER` 变量，这是个好习惯——因为这样一来，在更新软件包时就不需要再编辑 URL 了。
@@ -190,47 +192,57 @@ CHKSUMS="sha256::53d1e74f38813de2068e26a28dc7054aab66d1adfedb8d9200f73a57c73e729
 随后要创建的是 `autobuild` 文件夹和其中的 `defines` 文件。完成后的 `defines` 大致如下：
 
 ``` bash
-PKGNAME=light
+PKGNAME=hello
 PKGSEC=utils
-PKGDEP="glibc"
-PKGDES="Program to easily change brightness on backlight-controllers."
+PKGDES="The GNU Hello program produces a familiar, friendly greeting."
+REFONF=0
 ```
 
-一切就绪！现在即可运行如下命令构建 `light`：
+一切就绪！现在即可运行如下命令构建 `hello`：
 
 ``` bash
-ciel build -i main light
+ciel build -i main hello
 ```
 
 很简单，对吧？这是因为 Autobuild3 的自动探测功能判断出这个包需要使用 `autotools`（即 `./configure && make && make install`）流程进行构建。
 
 ## Git 操作规范
 
-软件包构建完成后，接下来要做的就是提交你的构建脚本了。AOSC OS 对 Git 提交说明有着相当严格的要求，下面介绍的是几个常用格式。我们在[软件包风格手册 (Package Styling Manual)](@/developer/packaging/package-styling-manual.md) 描述了全部打包风格规范，建议择时阅读。
+软件包构建完成后，接下来要做的就是提交你的构建脚本了。AOSC OS 对 Git 提交说明有着相当严格的要求，下面介绍的是几个常用格式。我们在[软件包风格手册 (Package Styling Manual)](@/developer/packaging/package-styling-manual.zh.md) 描述了全部打包风格规范，建议择时阅读。
 
-如需往树内增加软件包，Git 提交信息应为如下：
+如需往树内增加软件包，Git 提交信应遵循如下格式：
 
-    light: new, 1.2.1
-    $PKG_NAME: new, $VER
+```
+ $PKG_NAME: new, $VER
+    
+# 以hello为例
+hello: new, 2.12.1
+```
 
-如需更新现有软件包，提交信息应为如下：
+如需更新现有软件包，提交信息应遵循如下格式：
 
-    bash: update to 5.2
-    $PKG_NAME: update to $NEW_VER
+```
+$PKG_NAME: update to $NEW_VER
 
-另外，我们要求在提交信息中详细描述对软件包构建配置中的具体更改（如依赖变化、特性开关等），如下例：
+# 以bash为例
+bash: update to 5.2
+```
 
-    bash: update to 5.2
+另外，如果对软件包的构建配置进行了更改（如依赖变化、特性开关等），则需在提交信息中进行详细描述，如下例：
 
-    - Make a symbolic link from /bin/bash to /bin/sh for program compatibility.
-    - Install HTML documentations.
-    - Build with -O3 optimisation.
+```
+bash: update to 5.2
+
+- Make a symbolic link from /bin/bash to /bin/sh for program compatibility.
+- Install HTML documentations.
+- Build with -O3 optimisation.
+```
 
 ## 上传软件包
 
-在成功构建软件包后，您可以将本地 Git 分支（如 `light-1.2.1-new`）推送至您的 fork 中（如有提交权限，可推送至主树中）。随后，您需要创建 Pull Request 并按模板要求填入信息，最后即可将软件包推送至社区软件源的测试分支中供用户测试。
+在成功构建软件包后，您可以将本地 Git 分支（如 `hello-2.12.1-new`）推送至您的 fork 中（如有提交权限，可推送至主树中）。随后，您需要创建 Pull Request 并按模板要求填入信息，最后即可将软件包推送至社区软件源的测试分支中供用户测试。
 
-我们要求使用 [pushpkg](https://github.com/AOSC-Dev/scriptlets/tree/master/pushpkg) 推送成品软件包。如果您在使用 AOSC OS，可以直接安装 `pushpkg` 包（否则可以自行下载脚本，将其添加到可执行文件目录中，并确定脚本已设定可执行位）。一切就绪后，便可在切换到 `OUTPUT` 目录后执行 `pushpkg` 上传软件包。请注意，该脚本需要您指定自己的 LDAP 凭证和目标源分支（`light-1.2.1-new`）。
+我们要求使用 [pushpkg](https://github.com/AOSC-Dev/scriptlets/tree/master/pushpkg) 推送成品软件包。如果您在使用 AOSC OS，可以直接安装 `pushpkg` 包（否则可以自行下载脚本，将其添加到可执行文件目录中，并确定脚本已设定可执行位）。一切就绪后，便可在切换到 `OUTPUT` 目录后执行 `pushpkg` 上传软件包。请注意，该脚本需要您指定自己的 LDAP 凭证和目标源分支（`hello-2.12.1-new`）。
 
 接下来，请静候 Pull Request 审核和软件包测试。如果一切顺利，在您的 Pull Request 被合并后，请重构相关软件包并将其上传至 `stable` 源。
 
