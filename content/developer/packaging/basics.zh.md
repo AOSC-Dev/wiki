@@ -11,11 +11,11 @@ date = 2020-08-04T02:13:57.919Z
 我们使用如下几个工具维护 AOSC OS 软件包：
 
   - [Ciel](https://github.com/AOSC-Dev/ciel-rs/)
-      - 用于管理 systemd-nspawn 容器。
+      - 用于管理 systemd-nspawn(1) 容器。
   - [ACBS](https://github.com/AOSC-Dev/acbs/)
       - 用于管理软件包树（如我们的主树，*<https://github.com/AOSC-Dev/aosc-os-abbs>*）及各类构建配置。
-      - 运行时，调用 Autobuild3 读取软件包构建配置并执行构建脚本。
-  - [Autobuild3](https://github.com/AOSC-Dev/autobuild3/)
+      - 运行时，调用 Autobuild4 读取软件包构建配置并执行构建脚本。
+  - [Autobuild4](https://github.com/AOSC-Dev/autobuild4)
       - 用于读取软件包构建配置并执行构建脚本。
   - [pushpkg](https://github.com/AOSC-Dev/scriptlets/tree/master/pushpkg)
       - 用于将构建后的软件包推送至社区软件源。
@@ -165,7 +165,7 @@ PKGCONFL="i3-gaps"
 
 该文件夹存放构建前要应用的补丁文件，将补丁文件放入该文件夹即可。
 
-# 实操案例：`Hello`
+# 实操案例：GNU Hello
 
 接下来，我们来实战软件包配置编写。该章节介绍 [hello](https://www.gnu.org/software/hello/) ，这是一个由 GNU 编写的简易问候程序，可在屏幕上打印一句“Hello, world!”。本软件没有依赖项，故而非常适合入门。
 
@@ -179,7 +179,7 @@ mkdir hello
 cd hello
 ```
 
-接下来，编写 `spec` 文件。首先，查阅项目网站，并找到最新版本源码包的下载 URL；下载文件并确认无误后，需计算其 `SHA-256` 哈希值（可使用 `sha256sum` 命令），并将各项信息填入文件。
+接下来，编写 `spec` 文件。首先，查阅项目网站，并找到最新版本源码包的下载 URL；下载文件并确认无误后，需计算其哈希值（如 SHA-256、MD5 等），并将各项信息填入文件。本例中使用了 SHA-256，可以使用命令 `sha256sum hello-2.12.1.tar.gz` 来计算。
 
 ``` bash
 VER=2.12.1
@@ -189,13 +189,13 @@ CHKSUMS="sha256::8d99142afd92576f30b0cd7cb42a8dc6809998bc5d607d88761f512e26c7db2
 
 注意：我们在源码包 URL 中使用了 `$VER` 变量，这是个好习惯——因为这样一来，在更新软件包时就不需要再编辑 URL 了。
 
-随后要创建的是 `autobuild` 文件夹和其中的 `defines` 文件。完成后的 `defines` 大致如下：
+随后要创建的是 `autobuild` 文件夹和其中的 `defines` 文件。在本软件中，由于没有依赖项，故无需填写 `PKGDEP`；且为了避免编译时遇到版本冲突，需使用 `RECONF=0` 关闭重新生成 configure 脚本的功能。完成后的 `defines` 大致如下：
 
 ``` bash
 PKGNAME=hello
 PKGSEC=utils
-PKGDES="The GNU Hello program produces a familiar, friendly greeting."
-REFONF=0
+PKGDES="A hello world demo program"
+RECONF=0
 ```
 
 一切就绪！现在即可运行如下命令构建 `hello`：
@@ -213,9 +213,12 @@ ciel build -i main hello
 如需往树内增加软件包，Git 提交信应遵循如下格式：
 
 ```
- $PKG_NAME: new, $VER
+$PKG_NAME: new, $VER
+```
     
-# 以hello为例
+若以前文提到的 hello 为例，则提交信息为：
+
+```
 hello: new, 2.12.1
 ```
 
@@ -223,8 +226,11 @@ hello: new, 2.12.1
 
 ```
 $PKG_NAME: update to $NEW_VER
+```
 
-# 以bash为例
+
+现在以bash为例，若要将其版本升级至 5.2，则提交信息为：
+```
 bash: update to 5.2
 ```
 
@@ -242,7 +248,7 @@ bash: update to 5.2
 
 在成功构建软件包后，您可以将本地 Git 分支（如 `hello-2.12.1-new`）推送至您的 fork 中（如有提交权限，可推送至主树中）。随后，您需要创建 Pull Request 并按模板要求填入信息，最后即可将软件包推送至社区软件源的测试分支中供用户测试。
 
-我们要求使用 [pushpkg](https://github.com/AOSC-Dev/scriptlets/tree/master/pushpkg) 推送成品软件包。如果您在使用 AOSC OS，可以直接安装 `pushpkg` 包（否则可以自行下载脚本，将其添加到可执行文件目录中，并确定脚本已设定可执行位）。一切就绪后，便可在切换到 `OUTPUT` 目录后执行 `pushpkg` 上传软件包。请注意，该脚本需要您指定自己的 LDAP 凭证和目标源分支（`hello-2.12.1-new`）。
+目前，软件包的上传与推送工作由自动化设施完成，相关内容请见 [使用自动化设施构建软件包](@/developer/packaging/build-bot.zh.md) 。
 
 接下来，请静候 Pull Request 审核和软件包测试。如果一切顺利，在您的 Pull Request 被合并后，请重构相关软件包并将其上传至 `stable` 源。
 
