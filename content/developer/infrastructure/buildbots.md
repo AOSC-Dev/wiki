@@ -87,6 +87,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **Catfish** | 24114 | HUAWEI Kunpeng 920 @ 2.6GHz (64 cores) | 256GiB | 367s | _Undisclosed_ | Local repository mirror at `http://localhost/debs` |
+| **Asta** | 24151 | Apple M1, 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (8 cores) | 8GiB | TBC | _Mingcong Bai_ | |
 | **Zinfandel** | 24222 | Apple M1, 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (8 cores) | 16GiB | 782s | [Community crowdsourced][zinfandel-crowdsourcing]; _Mingcong Bai_ | |
 | **Mio** | 24242 | Apple M1, 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (8 cores) | 16GiB | 777s | _Cyan_ | Local mirror at `http://192.168.24.4/anthon/debs` |
 | **Dapen** | 24410 | HUAWEI Kunpeng 920 3211K @ 2.6GHz (24 cores) | 16GiB | 701s | _Mingcong Bai_ | |
