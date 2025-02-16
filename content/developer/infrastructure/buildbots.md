@@ -62,74 +62,74 @@ If you would like contribute your device to AOSC, please make sure your device h
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|---------|-----------|
-| **Hydaelyn** | 22040 | AMD Ryzen 7 5700X @ 3.4 - 4.6 GHz (8 cores, 16 threads) | 64GiB | 595s | _Cyan_ | [Community crowdsourced][four-new-amd64-buildbots-crowdsourcing]; repo mirror at `http://192.168.24.4/anthon/debs/` |
-| **Zodiark** | 22041 | AMD Ryzen 7 5700X @ 3.4 - 4.6 GHz (8 cores, 16 threads) | 64GiB | 608s | _Cyan_ | [Community crowdsourced][four-new-amd64-buildbots-crowdsourcing]; repo mirror at `http://192.168.24.4/anthon/debs/` |
-| **Coruscant** | 22042 | AMD Ryzen 7 5700X @ 3.4 - 4.6 GHz (8 cores, 16 threads) | 64GiB | 601s | _Mingcong Bai_ | [Community crowdsourced][four-new-amd64-buildbots-crowdsourcing] |
-| **Tatooine** | 22043 | AMD Ryzen 7 5700X @ 3.4 - 4.6 GHz (8 cores, 16 threads) | 64GiB | 597s | _Mingcong Bai_ | [Community crowdsourced][four-new-amd64-buildbots-crowdsourcing] |
-| **Sandman-BuildIt** | 22044 | Intel Core i7-12700 @ 1.6 - 4.9 GHz (8P+4E cores, 20 threads) | 128GiB | 524s | _Cyan_ | |
-| **pika** | 22076 | AMD EPYC 9654 @ 2.3 - 3.7GHz (KVM, 96 cores allocated) | 384GiB | 128s | Linux Club of Peking University | |
-| **towards-modern-distro** | 22162 | AMD EPYC 9654 @ 2.3 - 3.7GHz (KVM, 96 cores allocated) | 384GiB | 124s | Linux Club of Peking University | |
-| **Ricks-Ryzen-Box** | 22238 | ~~AMD Ryzen 9 5950X @ 3.4 - 5.2GHz (16 cores, 32 threads)~~<br>Intel Core i7-13700K @ 3.4 - 5.4GHz (16 cores, 24 threads) | 128GiB | ~~352s~~<br>390s | _Ruikai Liu_ | |
-| **Yerus** | 22333 | AMD EPYC 7H12 @ 2.6 - 3.3GHz (64 cores, 128 threads) | 1TiB | 219s | _Jiangjin Wang_ | [Community crowdsourced][yerus-crowdsourcing] |
+| **Hydaelyn** | 22040 | AMD Ryzen 7 5700X @ 3.4 - 4.6 GHz (8 cores, 16 threads) | 64GiB | 593s | _Cyan_ | [Community crowdsourced][four-new-amd64-buildbots-crowdsourcing]; repo mirror at `http://192.168.24.4/anthon/debs/` |
+| **Zodiark** | 22041 | AMD Ryzen 7 5700X @ 3.4 - 4.6 GHz (8 cores, 16 threads) | 64GiB | 755s | _Cyan_ | [Community crowdsourced][four-new-amd64-buildbots-crowdsourcing]; repo mirror at `http://192.168.24.4/anthon/debs/` |
+| **Coruscant** | 22042 | AMD Ryzen 7 5700X @ 3.4 - 4.6 GHz (8 cores, 16 threads) | 64GiB | 607s | _Mingcong Bai_ | [Community crowdsourced][four-new-amd64-buildbots-crowdsourcing] |
+| **Tatooine** | 22043 | AMD Ryzen 7 5700X @ 3.4 - 4.6 GHz (8 cores, 16 threads) | 64GiB | 734s | _Mingcong Bai_ | [Community crowdsourced][four-new-amd64-buildbots-crowdsourcing] |
+| **Sandman-BuildIt** | 22044 | Intel Core i7-12700 @ 1.6 - 4.9 GHz (8P+4E cores, 20 threads) | 128GiB | ~~524s~~ | _Cyan_ | |
+| **pika** | 22076 | AMD EPYC 9654 @ 2.3 - 3.7GHz (KVM, 96 cores allocated) | 384GiB | ~~128s~~ | Linux Club of Peking University | |
+| **towards-modern-distro** | 22162 | AMD EPYC 9654 @ 2.3 - 3.7GHz (KVM, 96 cores allocated) | 384GiB | ~~124s~~ | Linux Club of Peking University | |
+| **Ricks-Ryzen-Box** | 22238 | ~~AMD Ryzen 9 5950X @ 3.4 - 5.2GHz (16 cores, 32 threads)~~<br>Intel Core i7-13700K @ 3.4 - 5.4GHz (16 cores, 24 threads) | 128GiB | ~~352s~~<br>374s | _Ruikai Liu_ | |
+| **Yerus** | 22333 | AMD EPYC 7H12 @ 2.6 - 3.3GHz (64 cores, 128 threads) | ~~1TiB~~<br>896GiB | 220s | _Jiangjin Wang_ | [Community crowdsourced][yerus-crowdsourcing] |
 
 ## **MIPS** (23001-24000)
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **LoongUnion1** | 23172 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 64GiB | 4307s | _Loongson Technology (Wuhan)_ | |
-| **LoongUnion2** | 23173 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 64GiB | 4378s | _Loongson Technology (Wuhan)_ | |
-| **ybsbny** | 23269 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 64GiB | 4397s | _Henry Chen_ | [Community crowdsourced][ybsbny-crowdsourcing]; repo mirror at `http://50.50.1.224/debs/` |
-| **Misaka23333** | 23333 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 32GiB | 4312s | _KatyushaScarlet_ | |
-| **Resonance** | 23541 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 32GiB | 4392s | _Kexy Biscuit_ | [Community crowdsourced][resonance-crowdsourcing]; direct access with `ssh -4p23541 root@home.biscuit.moe`; repo mirror at `http://localhost/debs/`, BuildKit mirror at `http://localhost/aosc-os/os-loongson3/buildkit/` |
+| **LoongUnion1** | 23172 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 64GiB | ~~4307s~~ | _Loongson Technology (Wuhan)_ | |
+| **LoongUnion2** | 23173 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 64GiB | 4944s | _Loongson Technology (Wuhan)_ | |
+| **ybsbny** | 23269 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 64GiB | ~~4397s~~ | _Henry Chen_ | [Community crowdsourced][ybsbny-crowdsourcing]; repo mirror at `http://50.50.1.224/debs/` |
+| **Misaka23333** | 23333 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 32GiB | 4858s | _KatyushaScarlet_ | |
+| **Resonance** | 23541 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 32GiB | 5026s | _Kexy Biscuit_ | [Community crowdsourced][resonance-crowdsourcing]; direct access with `ssh -4p23541 root@home.biscuit.moe`; repo mirror at `http://localhost/debs/`, BuildKit mirror at `http://localhost/aosc-os/os-loongson3/buildkit/` |
 
 ## **ARM** (24001-25000)
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **Catfish** | 24114 | HUAWEI Kunpeng 920 @ 2.6GHz (64 cores) | 256GiB | 367s | _Undisclosed_ | Local repository mirror at `http://localhost/debs` |
-| **Asta** | 24151 | Apple M1, 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (8 cores) | 8GiB | TBC | _Mingcong Bai_ | |
-| **Zinfandel** | 24222 | Apple M1, 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (8 cores) | 16GiB | 782s | [Community crowdsourced][zinfandel-crowdsourcing]; _Mingcong Bai_ | |
-| **Mio** | 24242 | Apple M1, 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (8 cores) | 16GiB | 777s | _Cyan_ | Local mirror at `http://192.168.24.4/anthon/debs` |
-| **Dapen** | 24410 | HUAWEI Kunpeng 920 3211K @ 2.6GHz (24 cores) | 16GiB | 701s | _Mingcong Bai_ | |
-| **kp920** | 24426 | HUAWEI Kunpeng 920 @ 2.6GHz (KVM, 96 cores allocated) | 192GiB (145GiB allocated) | 410s | _Undisclosed_ | Direct access with `ssh -4p2223 root@kp920.ip4.run` |
-| **ailuropoda** | 24612 | HUAWEI Kunpeng 920 @ 2.0GHz (KVM, 16 cores allocated) | 64GiB | 889s | _神楽坂早苗️_ | |
-| **eleventh** | 24808 | HUAWEI Kunpeng 920 @ 2.4GHz (8 cores) | 16GiB | 1832s | _Undisclosed_ | Direct access with `ssh -oProxyJump=aosc-build@hw-hk.innull.com:20022 root@192.168.1.11` |
+| **Catfish** | 24114 | HUAWEI Kunpeng 920 @ 2.6GHz (64 cores) | 256GiB | 366s | _Undisclosed_ | Local repository mirror at `http://localhost/debs` |
+| **Asta** | 24151 | Apple M1, 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (8 cores) | 8GiB | 820s | _Mingcong Bai_ | |
+| **Zinfandel** | 24222 | Apple M1, 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (8 cores) | 16GiB | 816s | [Community crowdsourced][zinfandel-crowdsourcing]; _Mingcong Bai_ | |
+| **Mio** | 24242 | Apple M1, 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (8 cores) | 16GiB | 815s | _Cyan_ | Local mirror at `http://192.168.24.4/anthon/debs` |
+| **Dapen** | 24410 | HUAWEI Kunpeng 920 3211K @ 2.6GHz (24 cores) | 16GiB | 722s | _Mingcong Bai_ | |
+| **kp920** | 24426 | HUAWEI Kunpeng 920 @ 2.6GHz (KVM, 96 cores allocated) | 192GiB (160GiB allocated) | 419s | _Undisclosed_ | Direct access with `ssh -4p2223 root@kp920.ip4.run` |
+| **ailuropoda** | 24612 | HUAWEI Kunpeng 920 @ 2.0GHz (KVM, 16 cores allocated) | 64GiB | 949s | _神楽坂早苗️_ | |
+| **eleventh** | 24808 | HUAWEI Kunpeng 920 @ 2.4GHz (12 cores) | 24GiB | 1113s | _Undisclosed_ | Direct access with `ssh -oProxyJump=aosc-build@hw-hk.innull.com:20022 root@192.168.1.11` |
 
 ## **PowerPC** (25001-26000)
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **PowerNV** | 25202 | IBM POWER9 @ 3.2 - 3.8GHz (4 cores, 16 threads) | 128GiB | 1587s | _Jiangjin Wang_ | |
-| **power8** | 25888 | IBM POWER8NVL @ 2.4 - 4.0GHz (32 cores, 128 threads) | 128GiB | 447s | _Undisclosed_ | |
+| **PowerNV** | 25202 | IBM POWER9 @ 3.2 - 3.8GHz (4 cores, 16 threads) | 128GiB | 1511s | _Jiangjin Wang_ | |
+| **power8** | 25888 | IBM POWER8NVL @ 2.4 - 4.0GHz (32 cores, 128 threads) | 128GiB | 476s | _Undisclosed_ | |
 
 ## **RISC-V** (26001-27000)
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **ChubbyHydra** | 26128 | T-Head XuanTie C920 @ 2GHz (128 cores) | 256GiB | 2041s | _Undisclosed_ | |
-| **Estelle** | 26397 | T-Head XuanTie C920 @ 2GHz (64 cores) | 64GiB | 2068s | _Undisclosed_ | |
-| **GreenGoo** | 26666 | T-Head XuanTie C920 @ 2GHz (63 cores) | 96GiB | 1809s | _Icenowy Zheng_ | Local repository mirror is at `http://dorothea.fodlan.icenowy.me/anthon/debs` |
-| **MagmaCube** | 26999 | T-Head XuanTie C920 @ 2GHz (64 cores) | 128GiB | 1744s | _Icenowy Zheng_ | Local repository mirror is at `http://dorothea.fodlan.icenowy.me/anthon/debs` |
+| **ChubbyHydra** | 26128 | T-Head XuanTie C920 @ 2GHz (128 cores) | 256GiB | 2076s | _Undisclosed_ | |
+| **Estelle** | 26397 | T-Head XuanTie C920 @ 2GHz (64 cores) | 64GiB | 2349s | _Undisclosed_ | |
+| **GreenGoo** | 26666 | T-Head XuanTie C920 @ 2GHz (63 cores) | 96GiB | 1993s | _Icenowy Zheng_ | Local repository mirror is at `http://dorothea.fodlan.icenowy.me/anthon/debs` |
+| **MagmaCube** | 26999 | T-Head XuanTie C920 @ 2GHz (64 cores) | 128GiB | 1956s | _Icenowy Zheng_ | Local repository mirror is at `http://dorothea.fodlan.icenowy.me/anthon/debs` |
 
 ## **LoongArch** (27001-28000)
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **Yukoaioi** | 27001 | Loongson 3A6000-HV @ 2.50GHz (4 cores, 8 threads) | 16GiB | 2315s | _Mag Mell_ |  |
-| **Panulirus** | 27118 | Loongson 3C5000 @ 2.2GHz (16 cores) | 128GiB | TBD | _Loongson Technology (Wuhan)_ | |
-| **Apocalypse** | 27221 | Loongson 3C5000 @ 2.2GHz (16 cores) | 64GiB | 1401s | _Undisclosed_ | |
-| **Yggdrasil** | 27234 | Loongson 3C6000 @ 2.2GHz (16 cores, 32 threads) | 96GiB | 825s | _darkyzhou_ | |
-| **loong13** | 27282 | Loongson 3A5000-HV @ 2.5GHz (4 cores) | 16GiB | 4105s | _Henry Chen_ | |
-| **loongcraft** | 27777 | Loongson 3A6000-HV @ 2.5GHz (4 cores, 8 threads) | 32GiB | 2332s | _Mingcong Bai_ | |
-| **Stomatopoda** | 27863 | Loongson 3C5000 @ 2.2GHz (16 cores) | 128GiB | 1495s | _Loongson Technology (Wuhan)_ | Direct access with `ssh -p2222 root@211.137.78.121` |
-| **Cambarus** | 27888 | Loongson 3C5000 @ 2.2GHz (16 cores) | 128GiB | 1365s | _Jiangjin Wang_ | |
+| **Yukoaioi** | 27001 | Loongson 3C6000/S @ 2.50GHz (16 cores, 32 threads) | 128GiB | 770s | _Lain Yang_ |  |
+| **Panulirus** | 27118 | Loongson 3C5000 @ 2.2GHz (16 cores) | 128GiB | 1497s | _Loongson Technology (Wuhan)_ | |
+| **Apocalypse** | 27221 | Loongson 3C5000 @ 2.2GHz (16 cores) | 64GiB | 1339s | _Undisclosed_ | |
+| **Yggdrasil** | 27234 | Loongson 3C6000 @ 2.2GHz (16 cores, 32 threads) | 96GiB | ~~825s~~ | _darkyzhou_ | |
+| **loong13** | 27282 | Loongson 3A5000-HV @ 2.5GHz (4 cores) | 16GiB | 3977s | _Henry Chen_ | |
+| **loongcraft** | 27777 | Loongson 3A6000-HV @ 2.5GHz (4 cores, 8 threads) | 32GiB | 2316s | _Mingcong Bai_ | |
+| **Stomatopoda** | 27863 | Loongson 3C5000 @ 2.2GHz (16 cores) | 128GiB | 1342s | _Loongson Technology (Wuhan)_ | Direct access with `ssh -p2222 root@211.137.78.121` |
+| **Cambarus** | 27888 | Loongson 3C5000 @ 2.2GHz (16 cores) | 128GiB | 1418s | _Jiangjin Wang_ | |
 
 ## **Emulation Hosts** (28001-29000)
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **Taple** | 28002 | Intel Xeon E5-2698B v3 (16 cores, 32 threads) | 96GiB | 594s | _Lain Yang_ | |
-| **PorterAlePro** | 28003 | AMD Ryzen 9 3950X @ 3.5 - 4.7GHz (16 cores, 32 threads) | 64GiB | 338s | _Mingcong Bai_ | |
+| **Taple** | 28002 | Intel Xeon E5-2698B v3 (16 cores, 32 threads) | 96GiB | ~~594s~~ | _Lain Yang_ | |
+| **PorterAlePro** | 28003 | AMD Ryzen 9 3950X @ 3.5 - 4.7GHz (16 cores, 32 threads) | 64GiB | ~~338s~~ | _Mingcong Bai_ | |
 
 # List of archived buildbots
 
@@ -157,6 +157,6 @@ Please note that the following is not an exhaustive list.
 
 ## Popub
 
-Between the relay and the buildbots, [Popub](https://github.com/m13253/popub) is used to forward your SSH port to our relay server. For usage of Popub, please read their README.
+Between the relay and the buildbots, [Popub](https://github.com/Jamesits/popub) is used to forward your SSH port to our relay server. For usage of Popub, please read their README.
 
 Each buildbot is allocated 2 ports; the smaller one is for connection between your machine and the relay, and the larger one is for outside connections to the relay. For example, the AMD64 buildbot _Yerus_ is using 12333 and 22333, where _Yerus_ forwards its SSH port using `popub-local` to 12333 on the relay, and the relay exposes this port to the outside on port 22333.
