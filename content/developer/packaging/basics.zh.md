@@ -64,7 +64,7 @@ ciel update-os
 ciel build -i main flac
 ```
 
-如果构建过程成功完成并显示 `Build Summary` 提示，恭喜，您的处女包打出来啦！您刚刚打出来的包已由 Autobuild3 存放于 `OUTPUT-stable/debs`。
+如果构建过程成功完成并显示 `Build Summary` 提示，恭喜，您的处女包打出来啦！您刚刚打出来的包已由 Autobuild4 存放于 `OUTPUT-stable/debs`。
 
 # 引入新包
 
@@ -122,7 +122,7 @@ CHKSUMS="SKIP sha256::some_checksum sha256::sume_checksum"
 
 ## `autobuild/`
 
-该文件夹存放 Autobuild3 定义及脚本文件。Autobuild3 可以通过解析这些文件（使用什么构建系统？使用什么构建参数？等）来组织构建流程。
+该文件夹存放 Autobuild4 定义及脚本文件。Autobuild4 可以通过解析这些文件（使用什么构建系统？使用什么构建参数？等）来组织构建流程。
 
 ## `autobuild/defines`
 
@@ -136,7 +136,7 @@ CHKSUMS="SKIP sha256::some_checksum sha256::sume_checksum"
   - `BUILDDEP` : 构建依赖（仅在构建时需要的软件包）。
   - `PKGRECOM` : 推荐依赖，在安装软件包时会自动安装，但可根据用户需要卸载。
 
-上面列出的只是最常见的几个配置项。Autobuild3 还有许多其他配置参数，但如果软件包依赖信息和构建流程相对标准，一般不会需要使用其他参数。Autobuild3 会自动填入编译器参数、构建系统等其他构建参数。
+上面列出的只是最常见的几个配置项。Autobuild4 还有许多其他配置参数，但如果软件包依赖信息和构建流程相对标准，一般不会需要使用其他参数。Autobuild3 会自动填入编译器参数、构建系统等其他构建参数。
 
 以 `desktop-wm/i3` 为例：
 
@@ -169,7 +169,7 @@ PKGCONFL="i3-gaps"
 
 接下来，我们来实战软件包配置编写。该章节介绍 [hello](https://www.gnu.org/software/hello/) ，这是一个由 GNU 编写的简易问候程序，可在屏幕上打印一句“Hello, world!”。本软件没有依赖项，故而非常适合入门。
 
-首先切换到 `TREE` 目录，并确定我们目前处于正确的 Git 分支。如前面提到的主题制迭代流程所要求，您需要首先为这个包创建一个 Git 分支。由于要引入新软件包，根据 [AOSC OS 主题制维护指南 (AOSC OS Topic-Based Maintenance Guidelines)](@/developer/packaging/topic-based-maintenance-guideline.md)，分支名称应为 `$PKGNAME-$PKGVER-new`，即 `hello-2.12-new`。
+首先切换到 `TREE` 目录，并确定我们目前处于正确的 Git 分支。如前面提到的主题制迭代流程所要求，您需要首先为这个包创建一个 Git 分支。由于要引入新软件包，根据 [AOSC OS 主题制维护指南 (AOSC OS Topic-Based Maintenance Guidelines)](@/developer/packaging/topic-based-maintenance-guideline.md)，分支名称应为 `$PKGNAME-$PKGVER-new`，即 `hello-2.12.1-new`。
 
 因为 `hello` 属于实用工具，我们要在 `app-utils` 下创建 `hello` 目录。
 
@@ -204,7 +204,7 @@ RECONF=0
 ciel build -i main hello
 ```
 
-很简单，对吧？这是因为 Autobuild3 的自动探测功能判断出这个包需要使用 `autotools`（即 `./configure && make && make install`）流程进行构建。
+很简单，对吧？这是因为 Autobuild4 的自动探测功能判断出这个包需要使用 `autotools`（即 `./configure && make && make install`）流程进行构建。
 
 ## Git 操作规范
 
@@ -228,7 +228,6 @@ hello: new, 2.12.1
 $PKG_NAME: update to $NEW_VER
 ```
 
-
 现在以bash为例，若要将其版本升级至 5.2，则提交信息为：
 ```
 bash: update to 5.2
@@ -248,7 +247,7 @@ bash: update to 5.2
 
 在成功构建软件包后，您可以将本地 Git 分支（如 `hello-2.12.1-new`）推送至您的 fork 中（如有提交权限，可推送至主树中）。随后，您需要创建拉取请求（Pull Request, PR）并按模板要求填入信息，最后即可将软件包推送至社区软件源的测试分支中供用户测试。
 
-目前，软件包的上传与推送工作由自动化设施完成，相关内容请见[使用自动化设施构建软件包](@/developer/packaging/buildbots.md)。
+目前，软件包的上传与推送工作由自动化设施完成，相关内容请见[使用自动化设施构建软件包](@/developer/packaging/build-bot.zh.md)。
 
 接下来，请静候 PR 审核和软件包测试。如果一切顺利，在您的 PR 被合并后，请重构相关软件包并将其上传至 `stable` 源。
 
