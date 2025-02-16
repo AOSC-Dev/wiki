@@ -247,7 +247,7 @@ bash: update to 5.2
 
 After a successful build, you can push your local branch (`hello-2.12.1-new` in this example) to your fork or directly to the main repository. Then, you can create a Pull Request and fill in the information. Finally, you should push your finished product to our main repository to be tested by other users.
 
-Nowadays, the work of uploading and pushing is done by automated tools. For more information, please visit [Making Use of the Automated Maintenance Infrastructure](@/developer/packaging/build-bot.md).
+Nowadays, the work of uploading and pushing is done by automated tools. For more information, please visit [Making Use of the Automated Maintenance Infrastructure](@/developer/packaging/buildit-bot.md).
 
 Then you can patiently wait until someone reviews your Pull Request and tests your package. If everything looks good, your pull request will be merged and you should rebuild it and push the new package to the `stable` repository.
 
