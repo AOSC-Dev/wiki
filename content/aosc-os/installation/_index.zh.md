@@ -35,10 +35,10 @@ Windows Subsystem for Linux
 手动安装
 ========
 
-您可以从我们的[手动安装指南](/aosc-os/installation/manual/)列表查阅针对各式
+您可以从我们的[手动安装指南](/zh/aosc-os/installation/manual/)列表查阅针对各式
 特殊或高级配置及不支持 LiveKit 的设备的安装指南。
 
 系统需求
 ========
 
-欲知 AOSC OS 及 AOSC OS/Retro 各版本的系统需求，请查阅我们的[系统需求](/aosc-os/installation/sysreq/)列表。
+欲知 AOSC OS 及 AOSC OS/Retro 各版本的系统需求，请查阅我们的[系统需求](/zh/aosc-os/installation/sysreq/)列表。
