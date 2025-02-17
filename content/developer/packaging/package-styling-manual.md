@@ -74,7 +74,9 @@ The `VER=`, or `$VER` variable defines the main version of the resulting package
 | Versions with underscore(s) ("\_") | Replace the underscore(s) with dot(s) ("."). |  Icarus Verilog 10_2 -> `VER=10.2` |
 | Versions with release stage notation(s) ("alpha", "beta", "rc", etc.) | Lower-case all notations, "Beta" to "beta", etc. Prepend a tilde ("~"). | Golden Dict 1.5.0-RC2 -> `VER=1.5.0~rc2` |
 | Versions with formatted date(s) | Replace dash(es) ("-") with dots ("."). | QuickJS 2020-09-06 -> `VER=2020.09.06` |
-| Git or other VCS snapshots | Write last tagged version (e.g. "3.2.1") or "0" if never tagged, then append "+", VCS name (e.g. "git") and date of commit. | Shadowsocks 5ff694b2c2978b432918dea6ac104706b25cbf48 -> `VER=0+git20181219` |
+| Git or other VCS snapshots | Write last tagged version (e.g. "3.2.1") or "0" if never tagged, then append "+", VCS name (e.g. "git"), date of commit, and revision number (and optionally, where available, a short reference hash). Schema: `${VER}+${VCS_NAME}.r${REV_COUNT}[.${SHORT_HASH}]` [^1] | Nano 7f4c2c6a2556ecab6a8c2018a5f44b7fbdfc092d -> `VER=7.2+git20230602.r10185.7f4c2c6a` |
+
+[^1] For Git, you may append the information after `+` automatically by running this command from within a local source repository (please take note to replace the `[commit_hash]` with your specified commit): `echo git$(date --date="@$(git show -s --format=%ct [commit_hash])" "+%Y%m%d").r$(git rev-list --count [commit_hash]).$(git rev-parse --short [commit_hash])`.
 
 ### REL=
 
