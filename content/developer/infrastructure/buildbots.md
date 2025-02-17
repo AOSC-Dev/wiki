@@ -78,7 +78,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **LoongUnion1** | 23172 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 64GiB | ~~4307s~~ | _Loongson Technology (Wuhan)_ | |
 | **LoongUnion2** | 23173 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 64GiB | 4944s | _Loongson Technology (Wuhan)_ | |
-| **ybsbny** | 23269 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 64GiB | ~~4397s~~ | _Henry Chen_ | [Community crowdsourced][ybsbny-crowdsourcing]; repo mirror at `http://50.50.1.224/debs/` |
+| **ybsbny** | 23269 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 64GiB | 4939s | _Henry Chen_ | [Community crowdsourced][ybsbny-crowdsourcing]; repo mirror at `http://50.50.1.224/debs/` |
 | **Misaka23333** | 23333 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 32GiB | 4858s | _KatyushaScarlet_ | |
 | **Resonance** | 23541 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 32GiB | 5026s | _Kexy Biscuit_ | [Community crowdsourced][resonance-crowdsourcing]; direct access with `ssh -4p23541 root@home.biscuit.moe`; repo mirror at `http://localhost/debs/`, BuildKit mirror at `http://localhost/aosc-os/os-loongson3/buildkit/` |
 
