@@ -66,7 +66,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 | **Zodiark** | 22041 | AMD Ryzen 7 5700X @ 3.4 - 4.6 GHz (8 cores, 16 threads) | 64GiB | 755s | _Cyan_ | [Community crowdsourced][four-new-amd64-buildbots-crowdsourcing]; repo mirror at `http://192.168.24.4/anthon/debs/` |
 | **Coruscant** | 22042 | AMD Ryzen 7 5700X @ 3.4 - 4.6 GHz (8 cores, 16 threads) | 64GiB | 607s | _Mingcong Bai_ | [Community crowdsourced][four-new-amd64-buildbots-crowdsourcing] |
 | **Tatooine** | 22043 | AMD Ryzen 7 5700X @ 3.4 - 4.6 GHz (8 cores, 16 threads) | 64GiB | 734s | _Mingcong Bai_ | [Community crowdsourced][four-new-amd64-buildbots-crowdsourcing] |
-| **Sandman-BuildIt** | 22044 | Intel Core i7-12700 @ 1.6 - 4.9 GHz (8P+4E cores, 20 threads) | 128GiB | ~~524s~~ | _Cyan_ | |
+| **Sandman-BuildIt** | 22044 | Intel Core i7-12700 @ 1.6 - 4.9 GHz (8P+4E cores, 20 threads) | 128GiB | 493s | _Cyan_ | |
 | **pika** | 22076 | AMD EPYC 9654 @ 2.3 - 3.7GHz (KVM, 96 cores allocated) | 384GiB | ~~128s~~ | Linux Club of Peking University | |
 | **towards-modern-distro** | 22162 | AMD EPYC 9654 @ 2.3 - 3.7GHz (KVM, 96 cores allocated) | 384GiB | ~~124s~~ | Linux Club of Peking University | |
 | **Ricks-Ryzen-Box** | 22238 | ~~AMD Ryzen 9 5950X @ 3.4 - 5.2GHz (16 cores, 32 threads)~~<br>Intel Core i7-13700K @ 3.4 - 5.4GHz (16 cores, 24 threads) | 128GiB | ~~352s~~<br>374s | _Ruikai Liu_ | |
