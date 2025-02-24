@@ -131,6 +131,7 @@ Here lists variables that serves as options during build-time that may alter bui
 
 **ABSPLITDBG** expects a binary value (0/1) which controls whether Autobuild should detach debug symbols and related sections from ELF files into separate debug symbol files packed together as a package `${PKGNAME}-dbg`. This option defaults to 0 for packages marked with `noarch` and 1 for all others. A rule of thumb on whether you should override the default behavior:
 
+* For packages solely consisting of python programs, you may need to mark packages with `noarch` instead of turning OFF `ABSPLITDBG`.
 * For `optenv32` packages, you may want to turn ON `ABSPLITDBG` even the packages themselves are marked as `noarch`.
 * For packages solely consisting of rust or go programs, you may want to turn OFF `ABSPLITDBG` as these two languages are _next fscking level_ (sic.) in terms of debugging or building. Regular symbol files are not sufficient to reasonably debug these programs as they require their own specific procedures.
 * For other packages, it is usually safe for Autobuild to decide for itself.
