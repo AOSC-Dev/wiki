@@ -128,8 +128,9 @@ If you would like contribute your device to AOSC, please make sure your device h
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **Taple** | 28002 | Intel Xeon E5-2698B v3 (16 cores, 32 threads) | 96GiB | ~~594s~~ | _Lain Yang_ | |
-| **PorterAlePro** | 28003 | AMD Ryzen 9 3950X @ 3.5 - 4.7GHz (16 cores, 32 threads) | 64GiB | ~~338s~~ | _Mingcong Bai_ | |
+| **Taple** | 28002 | Intel Xeon E5-2698B v3 (16 cores, 32 threads) | 96GiB | ~~594s~~ | _Lain Yang_ | AMD64 |
+| **PorterAlePro** | 28003 | AMD Ryzen 9 3950X @ 3.5 - 4.7GHz (16 cores, 32 threads) | 64GiB | ~~338s~~ | _Mingcong Bai_ | AMD64 |
+| **AmpereA110Raptor1** | 28180 | Ampere eMAG 8180 @ 2.8 - 3.3GHz (32 cores) | 128GiB | 1083s | _Kexy Biscuit_ | Armv8-A AArch64, implementation supporting AArch32, repo mirror at `http://10.55.0.146/debs/` |
 
 # List of archived buildbots
 
