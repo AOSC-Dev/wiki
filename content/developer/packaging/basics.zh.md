@@ -11,14 +11,12 @@ date = 2020-08-04T02:13:57.919Z
 我们使用如下几个工具维护 AOSC OS 软件包：
 
   - [Ciel](https://github.com/AOSC-Dev/ciel-rs/)
-      - 用于管理 systemd-nspawn(1) 容器。
+      - 用于管理 systemd-nspawn(1) 容器。打包软件包是在 Ciel 的容器中进行的。
   - [ACBS](https://github.com/AOSC-Dev/acbs/)
       - 用于管理软件包树（如我们的主树，*<https://github.com/AOSC-Dev/aosc-os-abbs>*）及各类构建配置。
       - 运行时，调用 Autobuild4 读取软件包构建配置并执行构建脚本。
   - [Autobuild4](https://github.com/AOSC-Dev/autobuild4)
       - 用于读取软件包构建配置并执行构建脚本。
-  - [pushpkg](https://github.com/AOSC-Dev/scriptlets/tree/master/pushpkg)
-      - 用于将构建后的软件包推送至社区软件源。
       
 接下来几个章节中，我们会一一介绍这些工具的使用方式。
 
@@ -26,7 +24,7 @@ date = 2020-08-04T02:13:57.919Z
 
 AOSC OS 是滚动发行版，这意味着 AOSC OS 整体发行时不使用版本号（类似于其他滚动更新的发行版，如 openSUSE Tumbleweed 和 Arch Linux）。但与其他滚动发行版不同，[aosc-os-abbs](https://github.com/AOSC-Dev/aosc-os-abbs) 树中有一组特殊的，包含核心运行时 (GNU C 库等）和工具链（GCC 等）的软件包，我们将它们统称为 [AOSC OS Core](https://github.com/AOSC-Dev/aosc-os-abbs/blob/stable/README.CORE.md)。AOSC OS Core 整体以版本号表示组件更新（Core 7.0.1, 7.0.2, 7.1.1 等）。
 
-作为滚动发行版，我们只有一个面向用户的分支：`stable`。在更新或引入新软件包时，开发者们在软件包树（前面提到的 aosc-os-abbs）中创建专用分支，基于分支更改创建 Pull Request，并将测试用软件包上传到独立的软件源分支中。用户可以通过使用 [AOSC OS APT Topic Manager](https://github.com/AOSC-Dev/atm)（简称 ATM）提前测试更新或新包。软件包测试通过后，开发者将商议合并 Pull Request 并基于 `stable` 环境重构软件包，并推送至 `stable` 软件源。
+作为滚动发行版，我们只有一个面向用户的分支：`stable`。在更新或引入新软件包时，开发者们在软件包树（前面提到的 aosc-os-abbs）中创建专用分支，基于分支更改创建 Pull Request，构建测试用软件包并上传。用户可以使用 `oma topics` 来提前测试更新或新包。软件包测试通过后，开发者将商议合并 Pull Request，基于 `stable` 环境重构软件包并推送至 `stable` 软件源。
 
 我们称该工作流程为“主题制迭代模型（Topic-Base Iteration Model)”。该迭代模型的设计初衷是降低开发者的工作压力并保障软件包质量。您可以阅读[主题制维护指南 (Topic-Based Maintenance Guidelines)](@/developer/packaging/topic-based-maintenance-guideline.md) 了解详情。
 
@@ -36,9 +34,9 @@ AOSC OS 是滚动发行版，这意味着 AOSC OS 整体发行时不使用版本
 
 Ciel 的主要功能为管理独立的 AOSC OS 构建环境（通称 BuildKit），因此 Ciel 不一定需要在 AOSC OS 上运行。如果您使用的是 Arch Linux，可以通过 AUR 安装 Ciel。
 
-接下来，我们可以开始配置 Ciel 工作区了。该教程使用 `~/ciel` 作为 Ciel 工作区路径进行演示。注意：Ciel 需要使用 `root` 运行，且不能在 Docker 容器中运行；在创建工作区的过程中，需要从 GitHub 下载内容，请确保您的网络环境能够访问 GitHub。
+接下来，我们可以开始配置 Ciel 工作区了。该教程使用 `~/ciel` 作为 Ciel 工作区路径进行演示。注意：Ciel 需要使用 `root` 运行，且不能在 Docker 容器中运行；在创建工作区的过程中，需要从 GitHub 下载内容，请确保您的网络环境能够顺畅地访问 GitHub。
 
-请运行如下几个命令并跟随屏幕指示配置 Ciel 工作区。前几个选项使用默认值即可，在向导问是否需要创建新实例时（Do you want to add a new instance now?），请选择是，并创建一个名为 `main` 的实例。
+请运行如下几个命令并跟随屏幕指示配置 Ciel 工作区。在向导询问目标架构时（Target Architecture），选择当前这台设备的处理器架构；询问维护者信息时（Maintainer Information）时，参照示例填写自己的信息；其余选项使用默认值即可；询问是否需要创建新实例时（Do you want to add a new instance now?），请选择是，并创建一个名为 `main` 的实例。
 
 ``` bash
 mkdir ~/ciel
@@ -46,7 +44,7 @@ cd ~/ciel
 ciel new
 ```
 
-工作区配置完成后，我们建议更新 BuildKit 环境（AOSC OS 打包者必须保证 BuildKit 环境为最新）。
+工作区配置完成后，我们建议更新 BuildKit 环境。并且，在今后的
 
 ``` bash
 # 如果这一步耗时很长，您可以考虑通过 "ciel config" 设置 APT 源配置 (sources.list)。
@@ -93,7 +91,7 @@ ciel build -i main flac
     └── spec
 ```
 
-接下来，我们来了解下每个文件和文件夹的作用。
+接下来，我们来简要了解一下每个文件和文件夹的作用。未尽细节可在 [软件包样式指南 (Package Styling Manual)](@/developer/packaging/package-styling-manual.zh.md) 等文章查阅。
 
 ## `spec`
 
@@ -130,13 +128,14 @@ CHKSUMS="SKIP sha256::some_checksum sha256::sume_checksum"
 
   - `PKGNAME` : 软件包名。
   - `PKGDES` : 软件包简介。
-  - `PKGSEC` : 软件包所在板块（类别）。
+  - `PKGSEC` : 软件包所在板块（类别）。注意，板块（类别）名并不一定与软件包在软件包树的子目录名称的一部分相同，例如 `i3` 处于软件包树的 `desktop-wm` 子目录，但它的所在板块是 `x11`。AOSC OS所接受的软件包所在板块（类别）可查阅 [Autobuild4 的相关文件](https://github.com/AOSC-Dev/autobuild4/blob/master/sets/section)。
   - `PKGDEP` : 软件包依赖。
   - `PKGCONFL` : 软件包冲突信息。
   - `BUILDDEP` : 构建依赖（仅在构建时需要的软件包）。
   - `PKGRECOM` : 推荐依赖，在安装软件包时会自动安装，但可根据用户需要卸载。
+  - `ABHOST` : (WIP)
 
-上面列出的只是最常见的几个配置项。Autobuild4 还有许多其他配置参数，但如果软件包依赖信息和构建流程相对标准，一般不会需要使用其他参数。Autobuild3 会自动填入编译器参数、构建系统等其他构建参数。
+上面列出的只是最常见的几个配置项。Autobuild4 还有许多其他配置参数，但如果软件包依赖信息和构建流程相对标准，一般不会需要使用其他参数。Autobuild4 会自动填入编译器参数、构建系统等其他构建参数。
 
 以 `desktop-wm/i3` 为例：
 
@@ -155,7 +154,7 @@ PKGCONFL="i3-gaps"
 
 此外，`defines` 也支持 Bash 逻辑判断式，便于定义针对特定平台的配置或依赖等，但是这一用法现在已**不推荐使用**，以后也会禁止这种用法。如需定义特定平台的各项配置信息，请使用 `$VAR__$ARCH`（如 `AUTOTOOLS_AFTER__AMD64`）变量。
 
-如需了解其他 Autobuild3 参数，请参阅 [Autobuild3 用户及开发者手册 (Autobuild3 User and Developer Manual)](@/developer/packaging/autobuild3-manual.md)
+如需了解其他 Autobuild4 参数，请参阅 [Autobuild3 用户及开发者手册 (Autobuild3 User and Developer Manual)](@/developer/packaging/autobuild3-manual.md)
 
 ## `autobuild/prepare`
 
@@ -167,9 +166,9 @@ PKGCONFL="i3-gaps"
 
 # 实操案例：GNU Hello
 
-接下来，我们来实战软件包配置编写。该章节介绍 [hello](https://www.gnu.org/software/hello/) ，这是一个由 GNU 编写的简易问候程序，可在屏幕上打印一句“Hello, world!”。本软件没有依赖项，故而非常适合入门。
+接下来，我们来实战软件包配置编写。在该章节，我们来尝试打包 [hello](https://www.gnu.org/software/hello/) ，这是一个由 GNU 编写的简易问候程序，可在屏幕上打印一句“Hello, world!”。本软件没有依赖项，故而非常适合入门。
 
-首先切换到 `TREE` 目录，并确定我们目前处于正确的 Git 分支。如前面提到的主题制迭代流程所要求，您需要首先为这个包创建一个 Git 分支。由于要引入新软件包，根据 [AOSC OS 主题制维护指南 (AOSC OS Topic-Based Maintenance Guidelines)](@/developer/packaging/topic-based-maintenance-guideline.md)，分支名称应为 `$PKGNAME-$PKGVER-new`，即 `hello-2.12.1-new`。
+首先切换到 `TREE` 目录，并确定我们目前处于 `stable` 这个 Git 分支，然后给软件包创建一个新的Git分支，并切换到这个分支上。由于要引入新软件包，根据 [AOSC OS 主题制维护指南 (AOSC OS Topic-Based Maintenance Guidelines)](@/developer/packaging/topic-based-maintenance-guideline.md)，分支名称应为 `$PKGNAME-$PKGVER-new`，即 `hello-2.12.1-new`。
 
 因为 `hello` 属于实用工具，我们要在 `app-utils` 下创建 `hello` 目录。
 
@@ -187,7 +186,7 @@ SRCS="tbl::https://ftp.gnu.org/gnu/hello/hello-$VER.tar.gz"
 CHKSUMS="sha256::8d99142afd92576f30b0cd7cb42a8dc6809998bc5d607d88761f512e26c7db20"
 ```
 
-注意：我们在源码包 URL 中使用了 `$VER` 变量，这是个好习惯——因为这样一来，在更新软件包时就不需要再编辑 URL 了。
+注意：我们在源码包 URL 中使用了 `$VER` 变量。为了保证可持续性，在 `spec` 文件中，源码包文件必须要有版本号。
 
 随后要创建的是 `autobuild` 文件夹和其中的 `defines` 文件。在本软件中，由于没有依赖项，故无需填写 `PKGDEP`；且为了避免编译时遇到版本冲突，需使用 `RECONF=0` 关闭重新生成 configure 脚本的功能。完成后的 `defines` 大致如下：
 
@@ -208,9 +207,9 @@ ciel build -i main hello
 
 ## Git 操作规范
 
-软件包构建完成后，接下来要做的就是提交你的构建脚本了。AOSC OS 对 Git 提交说明有着相当严格的要求，下面介绍的是几个常用格式。我们在[软件包风格手册 (Package Styling Manual)](@/developer/packaging/package-styling-manual.zh.md) 描述了全部打包风格规范，建议择时阅读。
+软件包构建完成后，接下来要做的就是提交你的构建脚本了。AOSC OS 对 Git 提交说明有着相当严格的要求，下面介绍的是几个常用格式。我们在[软件包样式指南 (Package Styling Manual)](@/developer/packaging/package-styling-manual.zh.md) 描述了全部打包风格规范，建议择时阅读。
 
-如需往树内增加软件包，Git 提交信应遵循如下格式：
+如需往树内增加软件包，Git 提交信息应遵循如下格式：
 
 ```
 $PKG_NAME: new, $VER
@@ -245,11 +244,11 @@ bash: update to 5.2
 
 ## 上传软件包
 
-在成功构建软件包后，您可以将本地 Git 分支（如 `hello-2.12.1-new`）推送至您的 fork 中（如有提交权限，可推送至主树中）。随后，您需要创建拉取请求（Pull Request, PR）并按模板要求填入信息，最后即可将软件包推送至社区软件源的测试分支中供用户测试。
+在成功构建软件包后，您就可以开始上传软件包了。您可以将本地 Git 分支（如 `hello-2.12.1-new`）推送至您的 fork，随后在主树创建拉取请求（Pull Request, PR），按模板要求填入信息。
 
-目前，软件包的上传与推送工作由自动化设施完成，相关内容请见[使用自动化设施构建软件包](@/developer/packaging/buildit-bot.zh.md)。
+接下来，请静候 PR 审核。社区的贡献者会审阅并提出修改意见（如有），在修改和测试通过后，社区的贡献者会通过您的 PR 并合入 stable 分支。最后，您就可以使用自动化设施构建软件包，将新的软件包或软件包更新推送给所有用户。目前，软件包的上传与推送工作由自动化设施完成，相关内容请见[使用自动化设施构建软件包](@/developer/packaging/buildit-bot.zh.md)。
 
-接下来，请静候 PR 审核和软件包测试。如果一切顺利，在您的 PR 被合并后，请重构相关软件包并将其上传至 `stable` 源。
+（是否提及“一次提交即可成为贡献者”？）在成为贡献者后，您可以将本地 Git 分支直接推送到主树，之后使用自动化设施创建 PR、测试构建软件包、自行安装并测试、生成审计报告（/dickens），等待其他贡献者审阅与通过 PR后，将软件包合入 stable 分支并**再次**构建软件包。
 
 # 结语
 
