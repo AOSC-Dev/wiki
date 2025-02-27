@@ -36,9 +36,9 @@ AOSC OS 是滚动发行版，这意味着 AOSC OS 整体发行时不使用版本
 
 Ciel 的主要功能为管理独立的 AOSC OS 构建环境（通称 BuildKit），因此 Ciel 不一定需要在 AOSC OS 上运行。如果您使用的是 Arch Linux，可以通过 AUR 安装 Ciel。
 
-接下来，我们可以开始配置 Ciel 工作区了。该教程使用 `~/ciel` 作为 Ciel 工作区路径进行演示。**注意：Ciel 需要使用 `root` 身份运行；在创建工作区的过程中，需要从 GitHub 下载内容，请确保您的网络环境能够访问 GitHub。**
+接下来，我们可以开始配置 Ciel 工作区了。该教程使用 `~/ciel` 作为 Ciel 工作区路径进行演示。**注意：Ciel 需要使用 `root` 身份运行（您可以使用 `sudo -i` 命令提权）；在创建工作区的过程中，需要从 GitHub 下载内容，请确保您的网络环境能够访问 GitHub。**
 
-请运行如下几个命令并跟随屏幕指示配置 Ciel 工作区。前几个选项使用默认值即可，在向导问是否需要创建新实例时（Do you want to add a new instance now?），请选择是，并创建一个名为 `main` 的实例。
+请运行如下几个命令并跟随屏幕指示配置 Ciel 工作区。**请注意输入恰当的维护者信息 (Maintainer Information)，直接使用默认值将导致打包时质量管控系统 (QA) 报错。**在向导问是否需要创建新实例时（Do you want to add a new instance now?），请选择是，并创建一个名为 `main` 的实例。
 
 ``` bash
 mkdir ~/ciel

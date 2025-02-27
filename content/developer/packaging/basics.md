@@ -38,7 +38,7 @@ Since Ciel manages standardised AOSC OS build environment (or the BuildKit), the
 
 Next, we will initialise and configure a Ciel workspace. `~/ciel` is used as a sample path for demonstration. **Note: Ciel needs to be run as `root` (you may use `sudo -i` to gain elevated permission).**
 
-Execute the following commands and follow the on-screen instructions, when asked if you would like to create an instance, please create one - we will call it `main` here.
+Execute the following commands and follow the on-screen instructions, **making sure to enter appropriate maintainer information (the default will not work as it will trip a QA error while you attempt to package)**, when asked if you would like to create an instance, please create one - we will call it `main` here.
 
 ``` bash
 mkdir ~/ciel
