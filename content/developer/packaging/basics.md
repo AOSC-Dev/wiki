@@ -36,7 +36,7 @@ The first thing is to install Ciel on the computer. On AOSC OS, just execute the
 
 Since Ciel manages standardised AOSC OS build environment (or the BuildKit), the build process does not have to happen on an AOSC OS machine. If you are using Arch Linux, you can install Ciel from AUR.
 
-Next, we will initialise and configure a Ciel workspace. `~/ciel` is used as a sample path for demonstration. Notice that Ciel will need to be run as `root` and Ciel cannot be used in a Docker instance. 
+Next, we will initialise and configure a Ciel workspace. `~/ciel` is used as a sample path for demonstration. **Note: Ciel needs to be run as `root` (you may use `sudo -i` to gain elevated permission).**
 
 Execute the following commands and follow the on-screen instructions, when asked if you would like to create an instance, please create one - we will call it `main` here.
 
