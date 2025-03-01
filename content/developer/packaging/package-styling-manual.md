@@ -78,7 +78,7 @@ The `VER=`, or `$VER` variable defines the main version of the resulting package
 
 ### REL=
 
-The `REL=`, or `$REL` variable defines the revision level of the resulting package. This variable should only hold a single positive integer as its value, when a package is updated, the `REL=` line should be removed to indicate a revision level of 0.
+The `REL=`, or `$REL` variable defines the revision level of the resulting package. This variable should only hold a single positive integer as its value and should only increment of 1 on each revision. When a package is updated, the `REL=` line should be removed to indicate a revision level of 0 (we typicall remove the `REL=` declaration in `spec` when doing so).
 
 ## Source Variables
 
