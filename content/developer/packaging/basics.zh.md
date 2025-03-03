@@ -35,6 +35,7 @@ AOSC OS 是滚动发行版，这意味着 AOSC OS 整体发行时不使用版本
 Ciel 的主要功能为管理独立的 AOSC OS 构建环境（通称 BuildKit），因此 Ciel 不一定需要在 AOSC OS 上运行。如果您使用的是 Arch Linux，可以通过 AUR 安装 Ciel。
 
 接下来，我们可以开始配置 Ciel 工作区了。**注意：Ciel 需要使用 `root` 身份运行。**可以使用 `sudo -i` 命令以提权（此时会进入root shell，`~`会指向`/root`），也可在每条命令前添加`sudo `（此时`~`的对应目录不会改变）。
+
 **在创建工作区的过程中，需要从 GitHub 下载内容，请确保您的网络环境能够顺畅访问 GitHub。**
 
 请先在合适的地方新建一个文件夹（文件夹所在的分区建议留出 10 GB 或以上的可用空间）并切换到这个文件夹，然后运行以下命令，开始配置 Ciel 工作区。在向导询问目标架构时（Target Architecture），一般是选择当前这台设备的处理器架构；询问维护者信息时（Maintainer Information）时，请参照示例填写自己的信息；其余选项使用默认值即可；询问是否需要创建新实例时（Do you want to add a new instance now?），请选择是，并创建一个名为 `main` 的实例。
@@ -43,7 +44,7 @@ Ciel 的主要功能为管理独立的 AOSC OS 构建环境（通称 BuildKit）
 ciel new
 ```
 
-工作区配置完成后，我们建议使用以下命令更新 BuildKit 环境。我们建议定期或不定期更新 BuildKit 环境，以减少构建前的准备耗时。
+工作区配置完成后，我们建议使用以下命令更新 BuildKit 环境。BuildKit 指的是 AOSC OS 构建环境，一般运行在 Ciel 的容器中。我们建议定期或不定期更新 BuildKit 环境，以减少构建前的准备耗时。
 
 ``` bash
 # 如果这一步耗时很长，您可以考虑通过 "ciel config" 设置 APT 源配置 (sources.list)。
@@ -88,7 +89,7 @@ ciel build -i main flac
     └── spec
 ```
 
-接下来，我们来简要了解一下每个文件和文件夹的作用。未尽细节可在 [软件包样式指南 (Package Styling Manual)](@/developer/packaging/package-styling-manual.zh.md) 等文章查阅。
+接下来，我们来简要了解一下每个文件和文件夹的作用。未尽细节可在《软件包样式指南 (Package Styling Manual)](@/developer/packaging/package-styling-manual.zh.md) 》等文章查阅。
 
 ## `spec`
 
@@ -213,7 +214,9 @@ ciel build -i main hello
 
 用户打包一个软件包，并不等于一定要上传到 AOSC OS 主树。但我们建议，只要软件是允许 AOSC OS 维护者打包与重分发的，并且软件包在主树不存在或不是最新，那么欢迎把软件包信息提交到主树，一起建设 AOSC OS 的软件仓库。但相对地，个别软件并不允许 AOSC OS 维护者打包与重分发（例如个别专有软件和“免费商用”但不允许重分发的字体），或者不适合继续提供给用户（例如已有后续项目，原项目不再更新，前后具有继承关系），或者官方对重分发并不友好（例如某专有软件特意限制自动拉取软件包，需要动态密钥和时间戳才能下载），此时如您想用软件包形式来管理它们（这是个好习惯），您也可以只为自己打包。
 
-软件包构建完成并测试可用，确认软件是可以被打包与重分发之后，就可以着手开始提交您的构建脚本了。为了让引入/更新可被有效追溯，AOSC OS 主树对 Git 提交信息提出了较为严格的要求，详见 软件包样式指南 (Package Styling Manual)](@/developer/packaging/package-styling-manual.zh.md) ，以下节选一部分常见格式。
+软件包构建完成并测试可用，确认软件是可以被打包与重分发之后，就可以着手开始提交您的构建脚本了。在提交之前，您可使用 [pakfixer](https://github.com/AOSC-Dev/pfu) 检查您编写的构建脚本，并做适当修改。
+
+为了让引入/更新可被有效追溯，AOSC OS 主树对 Git 提交信息提出了较为严格的要求，详见《软件包样式指南 (Package Styling Manual)](@/developer/packaging/package-styling-manual.zh.md) 》，以下节选一部分常见格式。
 
 ```
 $PKG_NAME: new, $VER  # 引入新软件包
@@ -226,7 +229,7 @@ $PKG_NAME: update to $NEW_VER  # 更新现有软件包
 bash: update to 5.2  # 以bash为例，若要将其版本升级至 5.2
 ```
 
-如果在更新现有软件包时，对软件包的构建配置进行了更改（如依赖变化、特性开关、补丁增减等），则需在提交信息中进行详细描述，如下例：
+如果在更新现有软件包时对软件包的构建配置进行了更改（如依赖变化、特性开关或补丁增减等），则需在提交信息中进行详细描述，如下例：
 
 ```
 bash: update to 5.2
@@ -242,7 +245,7 @@ bash: update to 5.2
 
 接下来，请静候 PR 审核。社区的贡献者会审阅并提出修改意见（如有），在修改和测试通过后，社区的贡献者会通过您的 PR 并合入 stable 分支。最后，您就可以使用自动化设施构建软件包，将新的软件包或软件包更新推送给所有用户。目前，软件包的上传与推送工作由自动化设施完成，相关内容请见[使用自动化设施构建软件包](@/developer/packaging/buildit-bot.zh.md)。
 
-对 AOSC OS 主树等 AOSC OS 项目贡献一次提交后，即可成为贡献者。在成为贡献者后，您可以将本地 Git 分支直接推送到主树，之后使用自动化设施创建 PR 、测试构建软件包，自行安装并测试、生成审计报告（/dickens），等待其他贡献者审阅与通过 PR 后，将软件包合入 stable 分支并**再次**构建软件包。
+对 AOSC OS 主树等 AOSC OS 项目贡献一次提交后，即可成为贡献者。在成为贡献者后，您可以将本地 Git 分支直接推送到主树，之后使用自动化设施创建 PR 、测试构建软件包，自行安装并测试、生成审计报告（`/dickens`），等待其他贡献者审阅与通过 PR 后，将软件包合入 stable 分支并**再次**构建软件包。
 
 # 结语
 
