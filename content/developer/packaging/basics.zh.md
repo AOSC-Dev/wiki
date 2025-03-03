@@ -34,7 +34,8 @@ AOSC OS 是滚动发行版，这意味着 AOSC OS 整体发行时不使用版本
 
 Ciel 的主要功能为管理独立的 AOSC OS 构建环境（通称 BuildKit），因此 Ciel 不一定需要在 AOSC OS 上运行。如果您使用的是 Arch Linux，可以通过 AUR 安装 Ciel。
 
-接下来，我们可以开始配置 Ciel 工作区了。**注意：Ciel 需要使用 `root` 身份运行（您可以使用 `sudo -i` 命令以提权（此时会进入root shell，`~`会指向`/root`），也可在每条命令前添加`sudo `（此时`~`的对应目录不会改变））；在创建工作区的过程中，需要从 GitHub 下载内容，请确保您的网络环境能够顺畅地访问 GitHub。**
+接下来，我们可以开始配置 Ciel 工作区了。**注意：Ciel 需要使用 `root` 身份运行。**可以使用 `sudo -i` 命令以提权（此时会进入root shell，`~`会指向`/root`），也可在每条命令前添加`sudo `（此时`~`的对应目录不会改变）。
+**在创建工作区的过程中，需要从 GitHub 下载内容，请确保您的网络环境能够顺畅访问 GitHub。**
 
 请先在合适的地方新建一个文件夹（文件夹所在的分区建议留出 10 GB 或以上的可用空间）并切换到这个文件夹，然后运行以下命令，开始配置 Ciel 工作区。在向导询问目标架构时（Target Architecture），一般是选择当前这台设备的处理器架构；询问维护者信息时（Maintainer Information）时，请参照示例填写自己的信息；其余选项使用默认值即可；询问是否需要创建新实例时（Do you want to add a new instance now?），请选择是，并创建一个名为 `main` 的实例。
 
@@ -124,7 +125,7 @@ CHKSUMS="SKIP sha256::some_checksum sha256::sume_checksum"
 
   - `PKGNAME` : 软件包名。
   - `PKGDES` : 软件包简介。
-  - `PKGSEC` : 软件包所在板块（类别）。注意，板块（类别）名并不一定与软件包在软件包树的子目录名称的一部分相同，例如 `i3` 处于软件包树的 `desktop-wm` 子目录，但它的所在板块是 `x11`。AOSC OS所接受的软件包所在板块（类别）可查阅 [Autobuild4 的相关文件](https://github.com/AOSC-Dev/autobuild4/blob/master/sets/section)。
+  - `PKGSEC` : 软件包所在板块（类别）。需要注意的是，板块（类别）名并不一定与软件包在软件包树的子目录名称的一部分相同，例如 `i3` 处于软件包树的 `desktop-wm` 子目录，但它的所在板块是 `x11`。AOSC OS 所接受的软件包所在板块（类别）可查阅 [Autobuild4 的相关文件](https://github.com/AOSC-Dev/autobuild4/blob/master/sets/section)。
   - `PKGDEP` : 软件包依赖。
   - `PKGCONFL` : 软件包冲突信息。
   - `BUILDDEP` : 构建依赖（仅在构建时需要的软件包）。
@@ -166,12 +167,12 @@ ABTYPE=meson
 
 接下来，我们来实战软件包配置编写。在该章节，我们来尝试打包 [hello](https://www.gnu.org/software/hello/) ，这是一个由 GNU 编写的简易问候程序，可在屏幕上打印一句“Hello, world!”。本软件没有依赖项，故而非常适合入门。
 
-首先切换到 `TREE` 目录，并确定我们目前处于 `stable` 这个 Git 分支，然后给软件包创建一个新的 Git 分支，并切换到这个分支上。由于要引入新软件包，根据 [AOSC OS 主题制维护指南 (AOSC OS Topic-Based Maintenance Guidelines)](@/developer/packaging/topic-based-maintenance-guideline.md)，分支名称应为 `$PKGNAME-$PKGVER-new`，即 `hello-2.12.1-new`。
+先切换到 `TREE` 目录并确定目前处于 `stable` 分支，然后执行 `git pull` 确保与上游同步，然后给软件包创建一个新的 Git 分支，分支名称应按 [AOSC OS 主题制维护指南 (AOSC OS Topic-Based Maintenance Guidelines)](@/developer/packaging/topic-based-maintenance-guideline.md) 编写。我们现在是要引入新软件包，所以分支名称格式应为 `$PKGNAME-$PKGVER-new`，即 `hello-2.12.1-new`。
 
-因为 `hello` 属于实用工具，我们要在 `app-utils` 下创建 `hello` 目录。
+创建分支后，就可以切换到这个分支上。因为 `hello` 属于实用工具，我们要在 `app-utils` 下创建 `hello` 目录。
 
 ``` bash
-cd TREE/app-utils
+cd app-utils
 mkdir hello
 cd hello
 ```
@@ -204,7 +205,7 @@ ciel build -i main hello
 
 很简单，对吧？这是因为 Autobuild4 的自动探测功能判断出这个包需要使用 `autotools`（即 `./configure && make && make install`）流程进行构建。
 
-然后，在 Ciel 的工作区目录下，你就能在相关的 OUTPUT 文件夹内看到构建出来的 `.deb` 软件包。此时，你可以在 AOSC OS 双击安装 / 使用 oma 安装 / 使用 dpkg 安装 之后测试这个软件包是否可以正常工作。例如，要测试 `hello` 是否正常，我们应在终端运行 `hello`，在 `LANG` 设置为 `zh_CN-UTF8` 时会输出“世界你好！”。
+然后，在 Ciel 的工作区目录下，你就能在相关的 OUTPUT 文件夹内看到构建出来的 `.deb` 软件包。此时，你可以在 AOSC OS 双击安装 / 使用 oma 安装 / 使用 dpkg 安装 之后测试这个软件包是否可以正常工作。例如，要测试 `hello` 是否正常，我们应在终端运行 `hello`，在 `LANG` 设置为 `zh_CN.UTF-8` 时会输出“世界你好！”。
 
 ## Git 提交
 
@@ -241,7 +242,7 @@ bash: update to 5.2
 
 接下来，请静候 PR 审核。社区的贡献者会审阅并提出修改意见（如有），在修改和测试通过后，社区的贡献者会通过您的 PR 并合入 stable 分支。最后，您就可以使用自动化设施构建软件包，将新的软件包或软件包更新推送给所有用户。目前，软件包的上传与推送工作由自动化设施完成，相关内容请见[使用自动化设施构建软件包](@/developer/packaging/buildit-bot.zh.md)。
 
-对 AOSC OS 主树等 AOSC OS 项目贡献一次提交后，即可成为贡献者。在成为贡献者后，您可以将本地 Git 分支直接推送到主树，之后使用自动化设施创建 PR、测试构建软件包，自行安装并测试、生成审计报告（/dickens），等待其他贡献者审阅与通过 PR后，将软件包合入 stable 分支并**再次**构建软件包。
+对 AOSC OS 主树等 AOSC OS 项目贡献一次提交后，即可成为贡献者。在成为贡献者后，您可以将本地 Git 分支直接推送到主树，之后使用自动化设施创建 PR 、测试构建软件包，自行安装并测试、生成审计报告（/dickens），等待其他贡献者审阅与通过 PR 后，将软件包合入 stable 分支并**再次**构建软件包。
 
 # 结语
 
