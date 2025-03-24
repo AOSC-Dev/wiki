@@ -17,16 +17,20 @@ Examples
 Below is an example for a conventional topic update manifest file:
 
 ```toml
-name.default = "KDE Updates (Winter 2023)"
-name.zh_CN = "KDE 更新（2023 年冬季）"
 # Security update (true/false)?
 security = true
+
+[name]
+default = "KDE Updates (Winter 2023)"
+zh_CN = "KDE 更新（2023 年冬季）"
+
 # OPTIONAL: PSA message for users.
-caution.default = """
+[caution]
+default = """
 This topic may use significantly more memory after reboot. Our testing finds
 that the new KDE version may use up to 16GiB of RAM.
 """
-caution.zh_CN = """
+zh_CN = """
 本次更新重启后可能会需要更多内存。据我社维护者测试，新版 KDE 可能需要接近 16GiB 内存。"""
 
 [packages]
@@ -39,8 +43,9 @@ pykde = false
 Below is a "cumulative" topic update manifest file:
 
 ```toml
-name.default = "Winter 2023 Cumulative Update for amd64 AOSC OS systems"
-name.zh_MS = "适用于 amd64 AOSC OS 版本的 23 冬季累计更新"
+[name]
+default = "Winter 2023 Cumulative Update for amd64 AOSC OS systems"
+zh_MS = "适用于 amd64 AOSC OS 版本的 23 冬季累计更新"
 
 # Must not exist alongside [packages].
 topics = [
