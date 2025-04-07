@@ -19,6 +19,10 @@ Below is an example for a conventional topic update manifest file:
 ```toml
 # Security update (true/false)?
 security = true
+# Should we require all package and version listed below to be installed in order to match this topic update manifest (true/false, defaults to true)?
+#
+# This property is not allowed in cumulative manifests.
+must_match_all = true
 
 [name]
 default = "KDE Updates (Winter 2023)"

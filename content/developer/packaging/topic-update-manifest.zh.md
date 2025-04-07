@@ -16,6 +16,10 @@ description = "安同 OS 更新元数据规范"
 ```toml
 # 是否为安全更新 (true/false)？
 security = true
+# 是否要求下列软件包的特定版本均已安装，方才匹配该主题数据（true/false，如不指定则为 true）？
+#
+# 不允许在“累积更新”元数据中使用
+must_match_all = true
 
 [name]
 default = "KDE Updates (Winter 2023)"
