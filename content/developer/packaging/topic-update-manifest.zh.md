@@ -26,6 +26,7 @@ default = "KDE Updates (Winter 2023)"
 zh_CN = "KDE 更新（2023 年冬季）"
 
 # 可选：用户公告
+# 用户公告可以包含换行符，但我们目前不推荐使用对格式会产生有影响的字符。
 [caution]
 default = """
 This topic may use significantly more memory after reboot. Our testing finds

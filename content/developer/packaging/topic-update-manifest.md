@@ -29,6 +29,7 @@ default = "KDE Updates (Winter 2023)"
 zh_CN = "KDE 更新（2023 年冬季）"
 
 # OPTIONAL: PSA message for users.
+# New lines and other special formatting characters are allowed, but not recommended.
 [caution]
 default = """
 This topic may use significantly more memory after reboot. Our testing finds
