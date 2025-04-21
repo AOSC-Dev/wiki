@@ -119,7 +119,6 @@ If you would like contribute your device to AOSC, please make sure your device h
 | **Panulirus** | 27118 | Loongson 3C5000 @ 2.2GHz (16 cores) | 128GiB | 1518s | _Loongson Technology (Wuhan)_ | |
 | **Apocalypse** | 27221 | Loongson 3C5000 @ 2.2GHz (16 cores) | 64GiB | 1339s | _Undisclosed_ | |
 | **Yggdrasil** | 27234 | Loongson 3C6000 @ 2.2GHz (16 cores, 32 threads) | 96GiB | 828s | _darkyzhou_ | |
-| **loong13** | 27282 | Loongson 3A5000-HV @ 2.5GHz (4 cores) | 16GiB | 3977s | _Henry Chen_ | |
 | **loongcraft** | 27777 | Loongson 3A6000-HV @ 2.5GHz (4 cores, 8 threads) | 32GiB | 2316s | _Mingcong Bai_ | |
 | **Stomatopoda** | 27863 | Loongson 3C5000 @ 2.2GHz (16 cores) | 128GiB | 1365s | _Loongson Technology (Wuhan)_ | Direct access with `ssh -p2222 root@211.137.78.121` |
 | **Cambarus** | 27888 | Loongson 3C5000 @ 2.2GHz (16 cores) | 128GiB | 1442s | _Jiangjin Wang_ | |
@@ -149,6 +148,7 @@ Please note that the following is not an exhaustive list.
 | **marianne** | ~~26055~~ | SiFive FU740 @ 988MHz (SiFive HiFive Unmatched) | 16GiB | 22515s | _Icenowy Zheng_ | Scratch needs to be mounted manually by nbd-mount.sh in /root (currently using the scratch disk from **lorenz**); behind GFW, a HTTP proxy is available at http://dedue:8118, device sponsored by the PLCT Lab |
 | **leonie** | ~~26056~~ | SiFive FU740 @ 988MHz (SiFive HiFive Unmatched) | 16GiB | 22612s | _Icenowy Zheng_ | Scratch is on NVMe disk ,maybe buggy, investigation needed; behind GFW, a HTTP proxy is available at http://dedue:8118, device sponsored by the PLCT Lab |
 | **Chrysalis** | ~~27224~~ | Loongson 3A6000-HV @ 2.5GHz (4 cores, 8 threads) | 16GiB | 2461s | _Mingcong Bai_ | |
+| **loong13** | ~~27282~~ | Loongson 3A5000-HV @ 2.5GHz (4 cores) | 16GiB | 3977s | _Henry Chen_ | |
 | **dragonfly** | ~~27514~~ | Loongson 3C5000 @ 2.5GHz (16 cores, overclocked) | 128GiB | 1371s | _Xinmudotmoe_ | |
 | **viperdesign** | ~~27688~~ | Loongson 3A6000-HV @ 2.5GHz (4 cores, 8 threads) | 32GiB | 2286s | _Viperdesign_ | |
 | **PorterAle** | ~~28001~~ | Intel i7-8700T @ 2.40 - 4.00GHz | 16GiB | 996s | _MingcongBai_ | |
