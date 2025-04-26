@@ -1,7 +1,7 @@
 +++
 title = "AOSC OS and AOSC OS/Retro Architecture Support Matrix"
 description = "See What Runs AOSC OS and AOSC OS/Retro"
-date = 2020-05-04T03:36:47.545Z
+date = 2025-04-26
 [taxonomies]
 tags = ["sys-info"]
 +++
@@ -24,18 +24,19 @@ at each class and the architectures listed within in detail.
 
 ## Primary Architectures
 
-AOSC OS currently lists two architectural port as "Primary Architectures," which
-comes with a full-featured repository in which ships all packages, unless a
-certain piece of software is explicitly incompatible (for instance, VirtualBox
-only supports x86_64).
+AOSC OS currently lists three architectural port as "Primary Architectures,"
+which comes with a full-featured repository in which ships all packages, unless
+a certain piece of software is explicitly incompatible (for instance, 
+VirtualBox only supports x86_64).
 
 Here's a brief table describing the AOSC OS Primary Architectures, as well as
 key feature support.
 
-| Architecture | DPKG Architecture | Compiler Tuplet        | Bits |Instruction Set Extension Requirements | Rust Language Support | Go Language Support | Java Support | Mozilla (Firefox, Thunderbird)  |
-|--------------|-------------------|------------------------|------|---------------------------------------|-----------------------|---------------------|--------------|---------------------------------|
-| AArch64      | `arm64`           | aarch64-aosc-linux-gnu | 64   | NEON                                  | Yes                   | Yes                 | Yes          | Yes                             |
-| x86-64       | `amd64`           | x86_64-aosc-linux-gnu  | 64   | SSE, SSE2                             | Yes                   | Yes                 | Yes          | Yes                             |
+| Architecture | DPKG Architecture | Compiler Tuplet            | Bits | Instruction Set Extension Requirements | Rust Language Support | Go Language Support | Java Support | Mozilla (Firefox, Thunderbird) |
+| ------------ | ----------------- | -------------------------- | ---- | -------------------------------------- | --------------------- | ------------------- | ------------ | ------------------------------ |
+| AArch64      | `arm64`           | aarch64-aosc-linux-gnu     | 64   | NEON                                   | Yes                   | Yes                 | Yes          | Yes                            |
+| LoongArch64  | `loongarch64`     | loongarch64-aosc-linux-gnu | 64   | LSX                                    | Yes                   | Yes                 | Yes          | Yes                            |
+| x86-64       | `amd64`           | x86_64-aosc-linux-gnu      | 64   | SSE, SSE2                              | Yes                   | Yes                 | Yes          | Yes                            |
 
 ## Secondary Architectures
 
@@ -46,11 +47,11 @@ commitment - that is, if it takes too long or developers decide that it would
 take too long to resolve a certain build-time or run-time issue, they might
 defer certain updates for one of these architectures.
 
-| Architecture            | DPKG Architecture | Compiler Tuplet              | Bits | Instruction Set Extension Requirements  | Rust Language Support | Go Language Support | Java Support                                   | Mozilla (Firefox, Thunderbird) |
-|-------------------------|-------------------|------------------------------|------|-----------------------------------------|-----------------------|---------------------|------------------------------------------------|--------------------------------|
-| Loongson 3A/B 1000-4000 | `loongson3`       | mips64el-aosc-linux-gnuabi64 | 64   | LoongEXT, LoongEXT2, LoongMMI           | Yes, Buggy            | Yes                 | Yes (HotSpot JIT for JDK 8 only), Non-Mainline | Yes                            |
-| POWER8+ (Little Endian) | `ppc64el`         | powerpc64le-aosc-linux-gnu   | 64   | AltiVec/VMX, VSX-2                      | Yes                   | Yes                 | Yes                                            | Yes (No IonMonkey JIT)         |
-| RISC-V (rv64gc)         | `riscv64`         | riscv64-aosc-linux-gnu       | 64   | RV64GC                                  | Yes                   | Yes                 | Yes (No HotSpot JIT)                           | Yes (No IonMonkey JIT)          |
+| Architecture            | DPKG Architecture | Compiler Tuplet              | Bits | Instruction Set Extension Requirements | Rust Language Support | Go Language Support | Java Support                                   | Mozilla (Firefox, Thunderbird) |
+| ----------------------- | ----------------- | ---------------------------- | ---- | -------------------------------------- | --------------------- | ------------------- | ---------------------------------------------- | ------------------------------ |
+| Loongson 3A/B 1000-4000 | `loongson3`       | mips64el-aosc-linux-gnuabi64 | 64   | LoongEXT, LoongEXT2, LoongMMI          | Yes, Buggy            | Yes                 | Yes (HotSpot JIT for JDK 8 only), Non-Mainline | Yes                            |
+| POWER8+ (Little Endian) | `ppc64el`         | powerpc64le-aosc-linux-gnu   | 64   | AltiVec/VMX, VSX-2                     | Yes                   | Yes                 | Yes                                            | Yes (No IonMonkey JIT)         |
+| RISC-V (rv64gc)         | `riscv64`         | riscv64-aosc-linux-gnu       | 64   | RV64GC                                 | Yes                   | Yes                 | Yes (No HotSpot JIT)                           | Yes (No IonMonkey JIT)         |
 
 ## Experimental Architectures
 
@@ -59,9 +60,8 @@ experiments, meaning that system releases may not be generated, features may
 be disabled, and security updates may not be released in a timely fashion.
 More importantly, these ports *may terminate* at the maintainers discretion.
 
-| Architecture    | DPKG Architecture | Compiler Tuplet            | Bits | Instruction Set Extension Requirements | Rust Language Support | Go Language Support | Java Support         | Mozilla (Firefox, Thunderbird)  |
-|-----------------|-------------------|----------------------------|------|----------------------------------------|-----------------------|---------------------|----------------------|---------------------------------|
-| LoongArch64     | `loongarch64`     | loongarch64-aosc-linux-gnu | 64   | ???                                    | No                    | No                  | No                   | No (?)                          |
+| Architecture | DPKG Architecture | Compiler Tuplet | Bits | Instruction Set Extension Requirements | Rust Language Support | Go Language Support | Java Support | Mozilla (Firefox, Thunderbird) |
+| ------------ | ----------------- | --------------- | ---- | -------------------------------------- | --------------------- | ------------------- | ------------ | ------------------------------ |
 
 # AOSC OS/Retro
 
@@ -69,12 +69,22 @@ Unlike the AOSC OS mainline ports, AOSC OS/Retro ports are considered equal,
 with the same target feature set. The table below describes the specifications
 and key feature support for each AOSC OS/Retro port.
 
-| Architecture       | DPKG Architecture | Compiler Tuplet              | Bits | Instruction Set Extension Requirements | Rust Language Support | Mozilla (Pale Moon) | Trinity Desktop Environment |
-|--------------------|-------------------|------------------------------|------|----------------------------------------|-----------------------|---------------------|-----------------------------|
-| ARMv4              | `armv4`           | arm-aosc-linux-gnueabi       | 32   | N/A                                    | No                    | No                  | No                          |
-| ARMv6 (Hard Float) | `armv6hf`         | arm-aosc-linux-gnueabihf     | 32   | Thumb, Thumb-2                         | Yes                   | Yes                 | Yes                         |
-| ARMv7 (Hard Float) | `armv7hf`         | arm-aosc-linux-gnueabihf     | 32   | NEON, Thumb, Thumb-2                   | Yes                   | Yes                 | Yes                         |
-| i486 (80486)       | `i486`            | i486-aosc-linux-gnu          | 32   | N/A                                    | Yes                   | Yes (SSE Required)  | Yes                         |
-| Loongson 2F        | `loongson2f`      | mips64el-aosc-linux-gnuabi64 | 64   | Loongson-MMI                           | Yes, Buggy            | Yes                 | Yes                         |
-| PowerPC G3/G4      | `powerpc`         | powerpc-aosc-linux-gnu       | 32   | N/A                                    | Yes                   | Yes                 | Yes                         |
-| PowerPC G5+        | `ppc64`           | powerpc64-aosc-linux-gnu     | 64   | AltiVec/VMX                            | Yes                   | Yes                 | Yes                         |
+## Primary Architectures
+
+| Architecture  | DPKG Architecture | Compiler Tuplet              | Bits | Instruction Set Extension Requirements | Rust Language Support | Mozilla (Pale Moon) | Trinity Desktop Environment |
+| ------------- | ----------------- | ---------------------------- | ---- | -------------------------------------- | --------------------- | ------------------- | --------------------------- |
+| i486 (80486)  | `i486`            | i486-aosc-linux-gnu          | 32   | N/A                                    | Yes                   | Yes (SSE Required)  | Yes                         |
+| Loongson 2F   | `loongson2f`      | mips64el-aosc-linux-gnuabi64 | 64   | Loongson-MMI                           | Yes, Buggy            | Yes                 | Yes                         |
+| PowerPC G3/G4 | `powerpc`         | powerpc-aosc-linux-gnu       | 32   | N/A                                    | Yes                   | Yes                 | Yes                         |
+
+## Secondary Architectures
+
+| Architecture                     | DPKG Architecture | Compiler Tuplet          | Bits | Instruction Set Extension Requirements | Rust Language Support | Mozilla (Pale Moon) | Trinity Desktop Environment |
+| -------------------------------- | ----------------- | ------------------------ | ---- | -------------------------------------- | --------------------- | ------------------- | --------------------------- |
+| Alpha                            | `alpha`           | alpha-aosc-linux-gnu     | 64   | N/A                                    |                       |                     |                             |
+| ARMv4                            | `armv4`           | arm-aosc-linux-gnueabi   | 32   | N/A                                    | No                    | No                  | No                          |
+| ARMv6 (Hard Float)               | `armv6hf`         | arm-aosc-linux-gnueabihf | 32   | Thumb, Thumb-2                         | Yes                   | Yes                 | Yes                         |
+| ARMv7 (Hard Float)               | `armv7hf`         | arm-aosc-linux-gnueabihf | 32   | NEON, Thumb, Thumb-2                   | Yes                   | Yes                 | Yes                         |
+| Motorola 68000 (68020 and newer) | `m68k`            | m68k-aosc-linux-gnu      | 32   | N/A                                    |                       |                     |                             |
+| PowerPC G5+                      | `ppc64`           | powerpc64-aosc-linux-gnu | 64   | AltiVec/VMX                            | Yes                   | Yes                 | Yes                         |
+| SPARC (64Bit)                    | `sparc64`         | sparc64-aosc-linux-gnu   | 64   | SPARC V9, VIS 1.0                      |                       |                     |                             |
