@@ -25,7 +25,7 @@ This section describes a simple BuildIt! routine.
 
 ## Commencing topic routine
 
-Referencing [AOSC OS Topic-Based Maintenance Guidelines](@/developer/packaging/topic-based-maintenance-guideline.md) 和 [AOSC OS Package Styling Manual](@/developer/packaging/package-styling-manual.md), open the branch, make and commit changes.
+Referencing [AOSC OS Topic-Based Maintenance Guidelines](@/developer/packaging/topic-based-maintenance-guideline.md) and [AOSC OS Package Styling Manual](@/developer/packaging/package-styling-manual.md), open the branch, make and commit changes.
 
 Upon completion, you will complete the rest of the maintenance routine using @aosc_buildit_bot on Telegram.
 
