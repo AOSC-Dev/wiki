@@ -94,6 +94,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 | **kp920** | 24426 | HUAWEI Kunpeng 920 @ 2.6GHz (KVM, 96 cores allocated) | 192GiB (160GiB allocated) | 484s | _Undisclosed_ | Direct access with `ssh -4p2223 root@kp920.ip4.run` |
 | **ailuropoda** | 24612 | HUAWEI Kunpeng 920 @ 2.0GHz (KVM, 16 cores allocated) | 64GiB | 908s | _神楽坂早苗️_ | |
 | **eleventh** | 24808 | HUAWEI Kunpeng 920 @ 2.4GHz (12 cores) | 24GiB | 1123s | _Undisclosed_ | Direct access with `ssh -oProxyJump=aosc-build@hw-hk.innull.com:20022 root@192.168.1.11` |
+| **ries** | 24691 | ARM Neoverse N2 @ 3.0GHz (128 cores) | 64GiB | 316s | _Undisclosed_ |
 
 ## **PowerPC** (25001-26000)
 
