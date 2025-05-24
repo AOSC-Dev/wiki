@@ -118,9 +118,9 @@ If you would like contribute your device to AOSC, please make sure your device h
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **Yukoaioi** | 27001 | Loongson 3C6000/S @ 2.50GHz (16 cores, 32 threads) | 128GiB | 770s | _Lain Yang_ |  |
 | **Panulirus** | 27118 | Loongson 3C5000 @ 2.2GHz (16 cores) | 128GiB | 1518s | _Loongson Technology (Wuhan)_ | |
-| **Apocalypse** | 27221 | Loongson 3C5000 @ 2.2GHz (16 cores) | 64GiB | 1339s | _Undisclosed_ | |
+| **Apocalypse** | 27221 | Loongson 3C5000 @ 2.2GHz (16 cores) | 64GiB | 1339s | _Loongson Technology (Wuhan)_ | |
 | **Yggdrasil** | 27234 | Loongson 3C6000 @ 2.2GHz (16 cores, 32 threads) | 96GiB | 828s | _darkyzhou_ | |
-| **loongcraft** | 27777 | Loongson 3A6000-HV @ 2.5GHz (4 cores, 8 threads) | 32GiB | 2316s | _Mingcong Bai_ | |
+| **loongcraft** | 27777 | Loongson 3C6000 @ 2.2GHz (16 cores, 32 threads) | 128GiB | 764s | _Loongson Technology (Wuhan)_ | |
 | **Stomatopoda** | 27863 | Loongson 3C5000 @ 2.2GHz (16 cores) | 128GiB | 1365s | _Loongson Technology (Wuhan)_ | Direct access with `ssh -p2222 root@211.137.78.121` |
 | **Cambarus** | 27888 | Loongson 3C5000 @ 2.2GHz (16 cores) | 128GiB | 1442s | _Jiangjin Wang_ | |
 
