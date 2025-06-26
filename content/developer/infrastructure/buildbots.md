@@ -122,6 +122,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 | **loongcraft** | 27777 | Loongson 3C6000 @ 2.2GHz (16 cores, 32 threads) | 128GiB | 764s | _Loongson Technology (Wuhan)_ | |
 | **Stomatopoda** | 27863 | Loongson 3C5000 @ 2.2GHz (16 cores) | 128GiB | 1365s | _Loongson Technology (Wuhan)_ | Direct access with `ssh -p2222 root@211.137.78.121` |
 | **Cambarus** | 27888 | Loongson 3C5000 @ 2.2GHz (16 cores) | 128GiB | 1442s | _Jiangjin Wang_ | |
+| **YuanBao** | 27999 | 2x Loongson 3C6000/D @ 2.1GHz (64 cores) | 512GiB | 358s | _Loongson Technology (Wuhan)_ | |
 
 ## **Emulation Hosts** (28001-29000)
 
