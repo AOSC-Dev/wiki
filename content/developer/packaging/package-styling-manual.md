@@ -175,6 +175,7 @@ When packaging for AOSC OS, please work in accordance to our [distribution featu
 | Splitting packages | Packages are to be remained intact, unless package comes in multiple flavours, or otherwise agreed upon by the developer majority. |
 | Telemetry | All telemetry functionalities must be stripped or disabled by default (opt-in), packages that do not function without such feature should only be accepted on a case-by-case basis (rejected by default). |
 | Update checking | All update checking (notification, downloading, etc.) functionalities must be stripped, packages that do not function without such feature should only be accepted on a case-by-case basis (rejected by default). |
+| API and development documentation | Unless needed by an application's integrated feature (e.g., Qt Creator), gtk-doc, API (HTML, PDF, etc.), and Doxygen documentation should not be installed. |
 
 # Scripting
 
