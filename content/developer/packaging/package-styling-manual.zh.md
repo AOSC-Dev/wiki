@@ -117,7 +117,7 @@ CHKSUMS="$ALGORITHM::$CHECKSUM $ALGORITHM::$CHECKSUM $ALGORITHM::$CHECKSUM $ALGO
 
 想要进一步了解哈希算法，请参阅 [Wikipedia 的相关页面](https://en.wikipedia.org/wiki/Cryptographic_hash_function#Cryptographic_hash_algorithms)。
 
-该行一般使用 `acbs-build -gw $PKGNAME` 自动填写。
+该行一般使用 `abbs-update-checksum $PKGNAME` 自动填写。
 
 ### DUMMYSRC=
 
