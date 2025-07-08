@@ -116,7 +116,7 @@ Where...
 
 For descriptions of different cryptographic hash algorithms, and for identification of insecure (and therefore unacceptable) algorithms, refer to this [Wikipedia chapter](https://en.wikipedia.org/wiki/Cryptographic_hash_function#Cryptographic_hash_algorithms) under "Cryptographic Hash Function".
 
-This variable is usually automatically generated with `acbs-build -gw $PKGNAME`.
+This variable is usually automatically generated with `abbs-update-checksum $PKGNAME`.
 
 ### DUMMYSRC=
 
