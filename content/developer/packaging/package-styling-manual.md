@@ -45,7 +45,7 @@ Package descriptions (`PKGDES=`, or `$PKGDES`) are to be composed with the follo
 However, it is worth noting that package descriptions found with AOSC OS packages should be descriptive, but not definitive. For example, an acceptable package description should look something like...
 
     "Library with common API for various MATE modules"
-		
+
 Not less descriptive, like...
 
     "MATE Desktop Library"
@@ -60,7 +60,7 @@ In the current implementation of [ACBS](https://github.com/AOSC-Dev/acbs) (Autob
 
 ## Versioning Variables
 
-Versioning variable define the package's version and revision levels. 
+Versioning variable define the package's version and revision levels.
 
 ### VER=
 
@@ -95,7 +95,6 @@ The `SRCS=`, or `$SRCS` variable is used to indicate a list of source file(s) us
 | Criteria | Required/Recommended/Disallowed | Appropriate Actions |
 |-------------|----------------------------------------|---------------------------------|
 | Version substitutions | Required | Source links must replace all versions with substitutions from the `$VER` variable (see above). `SRCS=` must not be defined with hard-coded version(s). |
-| Versioned tarballs | Required | Source archives (tarballs) must be versioned in order to ensure consistency. |
 | Tarball origins | Required | Use the upstream-supplied mirroring/automatic redirection URLs whenever possible and avoid using any one of the mirrors. |
 | SourceForge releases | Required | Follow [official guidelines](https://sourceforge.net/p/forge/documentation/Downloading%20files%20via%20the%20command%20line/) and include the `/download` suffix in the URL, i.e. `tbl::https://sourceforge.net/projects/wqy/files/wqy-microhei/${UPSTREAM_VER}/wqy-microhei-${UPSTREAM_VER}.tar.gz/download"` |
 | URI schemes | Recommended | Use Hypertext Transfer Protocol Secure (HTTPS, https://) where possible. Avoid non-secure connections (http://) and plain FTP (File Transfer Protocol, ftp://). |
@@ -171,7 +170,7 @@ When packaging for AOSC OS, please work in accordance to our [distribution featu
 | Considerations | Appropriate Actions |
 |-------------------------|---------------------------------|
 | Features | Enable all features, unless a feature is unmaintained, or violates any of the other considerations in this table. |
-| Language packs (dictionaries, locale data, etc.) | Language packs must be included in the same package as the main executables, etc. | 
+| Language packs (dictionaries, locale data, etc.) | Language packs must be included in the same package as the main executables, etc. |
 | Splitting packages | Packages are to be remained intact, unless package comes in multiple flavours, or otherwise agreed upon by the developer majority. |
 | Telemetry | All telemetry functionalities must be stripped or disabled by default (opt-in), packages that do not function without such feature should only be accepted on a case-by-case basis (rejected by default). |
 | Update checking | All update checking (notification, downloading, etc.) functionalities must be stripped, packages that do not function without such feature should only be accepted on a case-by-case basis (rejected by default). |
@@ -240,7 +239,7 @@ NNNN-$CATEGORY-$CONTENT.patch
 
 Where:
 
-- `NNNN`, like the sample patch file names, is a "serial" number for sorting patches. 
+- `NNNN`, like the sample patch file names, is a "serial" number for sorting patches.
 - `$CATEGORY` defines the category of a patch, for instance, `bugfix`, `feature`, etc.
 - `$CONTENT` defines "what is to be done" when a patch is applied, for instance, `fix-build-with-openssl-1.1`.
 
@@ -307,7 +306,7 @@ When more than one of the actions were committed, and that the short message goe
 
 ```
 firefox: update to 64.0.2; #1536
-    
+
 - Enable PGO on AMD64, patches from Fedora and upstream.
 - Clean up defines.
 - Remove deprecated --enable-pie option.
