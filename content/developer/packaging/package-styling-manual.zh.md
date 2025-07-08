@@ -15,7 +15,7 @@ tags = ["dev-sys"]
 - 构建脚本缺少注释，晦涩难懂。
 - 软件包描述（`$PKGDES`）不清晰。
 - 软件包分类（`$PKGSEC`）不正确。
-- ... 
+- ...
 
 如果没有一个全面的指导方针在未来的打包工作，问题只会继续增加，这也是本文诞生的目的。
 
@@ -37,16 +37,16 @@ Executed Packager <suffering@pakreq.work>
 
 ## 软件包说明
 
-软件包说明（`PKGDES=` 或 `$PKGDES`）在格式上有以下的要求： 
+软件包说明（`PKGDES=` 或 `$PKGDES`）在格式上有以下的要求：
 
 - 使用大写字母开头。
 - 结尾没有句号或其它标点符号。
 
 
-值得注意的是，AOSC OS 软件包的包描述应该是描述性的，而不是定义性的。可接受的包描述应该类似于： 
+值得注意的是，AOSC OS 软件包的包描述应该是描述性的，而不是定义性的。可接受的包描述应该类似于：
 
     "Library with common API for various MATE modules"
-		
+
 而不应过于简略：
 
     "MATE Desktop Library"
@@ -54,10 +54,10 @@ Executed Packager <suffering@pakreq.work>
 亦不应过于详尽或复述来自上游项目的宣传性口吻：
 
     "Library with concise and convenient API for various MATE modules"
-    
+
 # Spec 文件
 
-在使用 [ACBS](https://github.com/AOSC-Dev/acbs)（Autobuild CI Build Service）时，会在名为 `spec` 的文件中定义多种变量，下面我们将讨论这些变量。 
+在使用 [ACBS](https://github.com/AOSC-Dev/acbs)（Autobuild CI Build Service）时，会在名为 `spec` 的文件中定义多种变量，下面我们将讨论这些变量。
 
 ## 软件包版本
 
@@ -96,7 +96,6 @@ ACBS 在构建非 `stable` 分支软件包时也会在 `REL=` 追加 `~pre${ISO_
 | 项目 | 级别 | 应当采取的措施 |
 |-------------|----------------------------------------|---------------------------------|
 | 版本替换 | 要求 | 源码包地址中的所有软件包版本号必须替换为 `$VER` 变量。`$SRCS` 条目不应含有硬编码的版本号 |
-| 源码包版本号 | 要求 | 为了保证可持续性，源码包文件必须要有版本号 |
 | 源码包来源 | 要求 | 在可能的情况下尽可能使用官方推荐的源站或自动重定向设施，避免使用特定镜像站 |
 | SourceForge 源码包 | 要求 | 遵从[官方指引](https://sourceforge.net/p/forge/documentation/Downloading%20files%20via%20the%20command%20line/)，在源码 URL 末尾保留 `/download`，如：`tbl::https://sourceforge.net/projects/wqy/files/wqy-microhei/${UPSTREAM_VER}/wqy-microhei-${UPSTREAM_VER}.tar.gz/download"` |
 | 统一资源标识符 | 建议 | 尽可能使用 HTTPS（`https://`），避免使用 HTTP（`http://`）和 FTP（`ftp://`） |
@@ -165,12 +164,12 @@ SUBDIR=.
 
 # 软件包功能
 
-在为 AOSC OS 打包时，请遵循我们的 [发行版特性清单](@/aosc-os/is-aosc-os-right-for-me.md)。下表列出了打包者需要注意的一些事项。 
+在为 AOSC OS 打包时，请遵循我们的 [发行版特性清单](@/aosc-os/is-aosc-os-right-for-me.md)。下表列出了打包者需要注意的一些事项。
 
 | 项目 | 应当采取的措施 |
 |-------------------------|---------------------------------|
 | 功能与特性 | 启用所有功能，除非某个功能未被维护，或违反了此表中的任何其他注意事项 |
-| 语言包 | 语言包必须与主要的可执行文件放置在同一个软件包中 | 
+| 语言包 | 语言包必须与主要的可执行文件放置在同一个软件包中 |
 | 分包 | 除非某个软件有多个派生，或者得到大多数开发者的同意，否则不能拆分软件包 |
 | 遥测 | 默认情况下，必须删除或禁用所有遥测功能，非特殊情况不接受无法删除或禁用遥测功能的软件包 |
 | API 及开发者文档 | 除有具体软件内置功能需要（如 Qt Creator），原则上不默认安装 gtk-doc、API（HTML, PDF 等）、Doxygen 文档 |
@@ -305,7 +304,7 @@ Electron、Chromium 和基于它们的软件包应该按照下面的要求放置
 
 ```
 firefox: update to 64.0.2; #1536
-    
+
 - Enable PGO on AMD64, patches from Fedora and upstream.
 - Clean up defines.
 - Remove deprecated --enable-pie option.
