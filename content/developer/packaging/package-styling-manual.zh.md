@@ -176,13 +176,13 @@ SUBDIR=.
 
 # 脚本编写
 
-大多数软件包可以使用 [Autobuild 内置的类型](https://github.com/AOSC-Dev/autobuild3/tree/master/build)（`$ABTYPES`）进行构建，通常补丁也只需要放在 `autobuild/patches` 目录就能被自动添加（还可以通过定义 `series` 指定打补丁的顺序），但是有些程序包依然需要手工的准备、打补丁和构建。本节专门介绍 `autobuild/` 目录下的 `prepare`、`patch`、`build` 和 `beyond`。
+大多数软件包可以使用 [Autobuild 内置的类型](https://github.com/AOSC-Dev/autobuild4/tree/master/templates)（`$ABTYPES`）进行构建，通常补丁也只需要放在 `autobuild/patches` 目录就能被自动添加（还可以通过定义 `series` 指定打补丁的顺序），但是有些程序包依然需要手工的准备、打补丁和构建。本节专门介绍 `autobuild/` 目录下的 `prepare`、`patch`、`build` 和 `beyond`。
 
 编写这样的脚本的最佳实践通常包括给变量加引号、在合适的地方加注释、有周全的异常处理、考虑各个架构的差异、提供进展报告等等。编写既易于阅读又可靠的构建脚本并不容易，下表旨在帮助您写出这样的脚本。
 
 | 项目 | 级别 | 应当采取的措施 |
 |-------------|----------------------------------------|----------------------|
-| Autobuild 构建模板 | 要求 | 应尽可能使用 [Autobuild Types](https://github.com/AOSC-Dev/autobuild3/tree/master/build)，而不使用 `autobuild/build` 或 `ABTYPE=self` |
+| Autobuild 构建模板 | 要求 | 应尽可能使用 [Autobuild Types](https://github.com/AOSC-Dev/autobuild4/tree/master/templates)，而不使用 `autobuild/build` 或 `ABTYPE=self` |
 | Autobuild 构建模板定义 | 要求 | 所有软件包均应显式标记所使用的 Autobuild 构建模板（`ABTYPE=`)  |
 | 异常处理 | 要求 | 异常应被及时捕获并处理。默认情况下，Autobuild 可以自动处理异常并中止构建，但是由于 Autobuild 的一处漏洞，这一机制并不支持 `autobuild/build` |
 | 进展报告 | 要求 | 应该通过适当地使用 `abinfo` 和 `abwarn` 来报告进度，这对于使用 `autobuild/build` 或 `ABTYPE=self` 的软件包是必需的 |
