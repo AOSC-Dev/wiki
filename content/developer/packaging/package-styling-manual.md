@@ -178,13 +178,13 @@ When packaging for AOSC OS, please work in accordance to our [distribution featu
 
 # Scripting
 
-While most packages could be built with one of the pre-defined [Autobuild Types](https://github.com/AOSC-Dev/autobuild3/tree/master/build) (`$ABTYPES`), and that patches could be applied automatically from the `autobuild/patches` directory (or via a pre-defined `series` file to specify patch order), some packages require manual preparation, patching, and build. This section is dedicated to `prepare`, `patch`, `build`, and `beyond` under the `autobuild/` directory.
+While most packages could be built with one of the pre-defined [Autobuild Types](https://github.com/AOSC-Dev/autobuild4/tree/master/templates) (`$ABTYPES`), and that patches could be applied automatically from the `autobuild/patches` directory (or via a pre-defined `series` file to specify patch order), some packages require manual preparation, patching, and build. This section is dedicated to `prepare`, `patch`, `build`, and `beyond` under the `autobuild/` directory.
 
 A general rule of thumb is to write such scripts secure (quoted) variables, sufficient comments, error control, architectural considerations, progression report, ... Writing easy-to-read and reliable build scripts is not easy, and the table below aims to aid you with making good scripting decisions.
 
 | Criteria | Required/Recommended | Explanations |
 |-------------|----------------------------------------|----------------------|
-| Autobuild Build Templates | Required | Packagers should utilise [Autobuild Types](https://github.com/AOSC-Dev/autobuild3/tree/master/build) where possible, without using `autobuild/build` or `ABTYPE=self`. |
+| Autobuild Build Templates | Required | Packagers should utilise [Autobuild Types](https://github.com/AOSC-Dev/autobuild4/tree/master/templates) where possible, without using `autobuild/build` or `ABTYPE=self`. |
 | Autobuild Build Template Definition | Required | Packagers should explicitly mark the `ABTYPE=`, or type of Autobuild build templates used by the package source. |
 | Error Handling | Required | Build errors should be captured and handled appropriately. |
 | Progression Reporting | Requried | Progress should be reported by appropriately employing `abinfo` and `abwarn` wrappers, this is required for packages utilising the `autobuild/build`, or `ABTYPE=self`. |
