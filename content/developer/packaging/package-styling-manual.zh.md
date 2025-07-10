@@ -297,6 +297,9 @@ Electron、Chromium 和基于它们的软件包应该按照下面的要求放置
 | QA 问题 | `$PKGNAME: ... ($ISSUECODE)` | `psiconv: rebuild for imagemagick (E431)`，请阅读 [这个清单](@/developer/packaging/qa-issue-codes.md) 了解各个 `$ISSUECODE` 对应的含义 |
 | 软件包改动（针对某个架构） | `$PKGNAME: ... ($ARCH)` | `google-chrome: new, 100.0.9999.999 (amd64)` |
 | 软件包改动（不针对任何架构） | `$PKGNAME: ... (noarch)` | `mate-common: update to 1.22.0 (noarch)` |
+| 软件包退休（不再维护） | `$PKGNAME: drop, orphaned` | `nano: drop, orphaned`[^1] |
+
+[^1]: 这个包曾因疏忽惨遭[退休](https://github.com/AOSC-Dev/aosc-os-abbs/pull/4412)，后由 [f2060c05da3264c24f0b4e93f6eaa8d1b570d6dd](https://github.com/AOSC-Dev/aosc-os-abbs/commit/f2060c05da3264c24f0b4e93f6eaa8d1b570d6dd) 将其复原。
 
 ## 长消息
 
