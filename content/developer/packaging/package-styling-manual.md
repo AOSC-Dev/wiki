@@ -299,6 +299,9 @@ When committing (or contributing, if you like) to the [AOSC OS ABBS Tree](https:
 | Working with a QA issue | `$PKGNAME: ... ($ISSUECODE)` | `psiconv: rebuild for imagemagick (E431)`, for a list of QA issue codes, refer to this [list](@/developer/packaging/qa-issue-codes.md) |
 | Working with an architecturally-exclusive package | `$PKGNAME: ... ($ARCH)` | `google-chrome: new, 100.0.9999.999 (amd64)` |
 | Working with an architecturally-independent package | `$PKGNAME: ... (noarch)` | `mate-common: update to 1.22.0 (noarch)` |
+| Retiring an orphaned package | `$PKGNAME: drop, orphaned` | `nano: drop, orphaned`[^1] |
+
+[^1]: It was mistakenly retired [here](https://github.com/AOSC-Dev/aosc-os-abbs/pull/4412), and was soon reverted in [f2060c05da3264c24f0b4e93f6eaa8d1b570d6dd](https://github.com/AOSC-Dev/aosc-os-abbs/commit/f2060c05da3264c24f0b4e93f6eaa8d1b570d6dd).
 
 ## Long Messages
 
