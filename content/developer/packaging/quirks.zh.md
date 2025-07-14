@@ -20,3 +20,13 @@ Rust 使用 `LLVM` 作为后端。因此，在将其链接到使用 `gcc` 编译
 ```bash
 USECLANG=1
 ```
+
+# `ld.lld` 汇报有关 `R_MIPS_64` 的错误
+
+虽然 `USECLANG=1` 可以修复 Rust 程序的 `ld` 错误，但是在 `loongson3` 上它会带来另一种报错：`ld.lld: error: relocation R_MIPS_64 cannot be used against local symbol`。此时需要单独为此架构禁用 `USECLANG` 和 LTO。
+
+```bash
+# FIXME: ld.lld: error: relocation R_MIPS_64 cannot be used against local symbol
+USECLANG__LOONGSON3=0
+NOLTO__LOONGSON3=1
+```
