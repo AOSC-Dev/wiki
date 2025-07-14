@@ -27,3 +27,13 @@ Rust uses `LLVM` as its backend. So it may encounter some issue when linking to 
 ```bash
 USECLANG=1
 ```
+
+# `ld.lld` errors mentioning `R_MIPS_64`
+
+While `USECLANG=1` can fix ld errors when building Rust software, the fix doesn't work on `loongson3`, and will cause `ld.lld: error: relocation R_MIPS_64 cannot be used against local symbol` instead. To solve this, disable `USECLANG` and enable `NOLTO` for this architecture only.
+
+```bash
+# FIXME: ld.lld: error: relocation R_MIPS_64 cannot be used against local symbol
+USECLANG__LOONGSON3=0
+NOLTO__LOONGSON3=1
+```
