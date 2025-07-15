@@ -1,6 +1,12 @@
 +++
-title = "Crowdsourcing [RFC]"
+title = "Crowdsourcing"
 +++
+
+{% card(type="info") %}
+This section has been moved to the community portal.
+
+For current crowdsourcing guidelines, projects, and their details, please see our [crowdsourcing page](https://aosc.io/events#aoscc).
+{% end %}
 
 # Rationale
 As outlined in our [Interpersonal Guidelines](@/community/guidelines.md), AOSC does not accept monetary donations as cumulative funds for the community and specific projects. However, as a hobbyist community with no operational funds, we often require financial and material support in the case of significant purchases, especially in terms of computing devices that are crucial for our community projects. Therefore, we accept donations in the form of monetary funds or physical materials (computer cases, power supplies, hard drives, etc.).

@@ -1,6 +1,12 @@
 +++
-title = "社区众筹 [RFC]"
+title = "社区众筹"
 +++
+
+{% card(type="info") %}
+本分区内容已被移动至社区门户。
+
+欲知社区众筹项目规则、列表与详情，请见[社区众筹页面](https://aosc.io/crowdsourcing)。
+{% end %}
 
 # 导言
 
