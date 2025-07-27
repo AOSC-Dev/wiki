@@ -30,3 +30,20 @@ USECLANG=1
 USECLANG__LOONGSON3=0
 NOLTO__LOONGSON3=1
 ```
+
+# 在 LoongArch 上无法使用 Ciel 进行跨架构打包
+
+虽然 Ciel 支持使用 QEMU 为其他架构打包。但由于内核页大小的问题，在默认配置的 LoongArch 上
+无法实现这种操作。 通常是类似于这样的报错：
+
+```bash
+> ciel update-os
+...
+info: update-bf9c05ca-c080f2a: waiting for container to start...
+error: nspawn exited too early! (Status: exit status: 127)
+...
+```
+
+此问题不局限于 LoongArch， 具体来说，只要是 `宿主页大小` 大于 `目标页大小`。都会出现这种问题。
+
+这问题目前没有好的解决方案，建议更换宿主架构进行打包。

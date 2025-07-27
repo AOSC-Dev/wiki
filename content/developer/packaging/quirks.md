@@ -37,3 +37,19 @@ While `USECLANG=1` can fix ld errors when building Rust software, the fix doesn'
 USECLANG__LOONGSON3=0
 NOLTO__LOONGSON3=1
 ```
+
+# Cross-architecture Packaging Unavailable on LoongArch with Ciel
+
+While Ciel supports cross-architecture packaging using QEMU, this operation is unavailable on LoongArch systems with default configurations due to kernel page size limitations. Typical errors resemble:
+
+```bash
+> ciel update-os
+...
+info: update-bf9c05ca-c080f2a: waiting for container to start...
+error: nspawn exited too early! (Status: exit code 127)
+...
+```
+
+This is not exclusive to LoongArch. It occurs whenever the `host system's page size` exceeds the `target architecture's page` size.
+
+There is no simple solution for this limitation at present. We recommend using a different host architecture for cross-architecture packaging.
