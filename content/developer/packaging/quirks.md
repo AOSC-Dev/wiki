@@ -50,6 +50,6 @@ error: nspawn exited too early! (Status: exit code 127)
 ...
 ```
 
-This is not exclusive to LoongArch. It occurs whenever the `host system's page size` exceeds the `target architecture's page` size.
+This is not exclusive to LoongArch. It occurs whenever the `host system's page size` exceeds the `target architecture's page size`.
 
 There is no simple solution for this limitation at present. We recommend using a different host architecture for cross-architecture packaging.
