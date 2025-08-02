@@ -4,9 +4,7 @@ title = "项目"
 list_section = false
 +++
 
-本页面用来展示一系列项目。
-
-一个项目可以是：
+本页列出了社区维护的部分项目。社区内的项目主要分为：
 
 - 开发某个软件
 - 维护一系列软件包
@@ -16,9 +14,9 @@ list_section = false
 
 - 维护者： liushuyu
 - 仓库： [AOSC-Dev/ciel-rs](https://github.com/AOSC-Dev/ciel-rs)
-- 状态：正常
+- 状态：维护中
 
-一个用于管理 AOSC OS 打包环境的工具，基于多层文件系统和容器技术实现。
+用于管理 AOSC OS 打包环境的工具，基于多层文件系统和容器技术实现。
 
 # Ciel-Layman
 
@@ -32,7 +30,7 @@ list_section = false
 
 - 维护者： Kaiyang Wu (OriginCode)
 - 仓库： [AOSC-Dev/systemd-boot-friend-rs](https://github.com/AOSC-Dev/systemd-boot-friend-rs)
-- 状态：正常
+- 状态：维护中
 
 # Wallpapers
 
@@ -41,7 +39,7 @@ list_section = false
   - [AOSC-Dev/community-wallpapers](https://github.com/AOSC-Dev/community-wallpapers)
   - [AOSC-Dev/WallColle](https://github.com/AOSC-Dev/WallColle)
   - [AOSC-Dev/WallColle-make](https://github.com/AOSC-Dev/WallColle-make)
-- 状态：正常
+- 状态：维护中
 
 一系列用于管理 AOSC OS 壁纸的数据和程序仓库。
 
