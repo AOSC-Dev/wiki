@@ -73,7 +73,7 @@ In August 2025, we introduced the `[packages-v2]` section to help marking versio
 [packages-v2]
 firefox = "<= 142"
 thunderbird = ">= 108 && < 142"
-seamonkey = "141 || 142 || 143"
+seamonkey = "=141 || =142 || =143"
 ```
 
 Files

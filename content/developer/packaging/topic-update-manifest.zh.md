@@ -69,7 +69,7 @@ topics = [
 [packages-v2]
 firefox = "<= 142"
 thunderbird = ">= 108 && < 142"
-seamonkey = "141 || 142 || 143"
+seamonkey = "=141 || =142 || =143"
 ```
 
 文件存放
