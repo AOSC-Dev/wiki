@@ -59,6 +59,23 @@ topics = [
 ]
 ```
 
+Amendment: packages-v2
+---
+
+{% card(type="success") %}
+This amendment has not been deployed yet - we will update the main text to reflect its replacement for `packages` following its deployment.
+此规范更新目前尚未实装；实装后将并入规范正文。
+{% end %}
+
+In August 2025, we introduced the `[packages-v2]` section to help marking version ranges for important (and especially security) updates. The version range compares with the package version *before* the update, resolving an issue where, if the user happens to have missed the exact version defined in the metadata, they would never be prompted about the updates (in oma and potentially other package management frontends).
+
+```toml
+[packages-v2]
+firefox = "<= 142"
+thunderbird = ">= 108 && < 142"
+seamonkey = "141 || 142 || 143"
+```
+
 Files
 ===
 
