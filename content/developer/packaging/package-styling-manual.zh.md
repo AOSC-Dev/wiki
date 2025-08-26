@@ -285,13 +285,11 @@ Electron、Chromium 和基于它们的软件包应该按照下面的要求放置
 | 情形 | 格式要求 | 举例 |
 |-----------|-----------------------------------|-----------------------------------------|
 | 引入新的软件包 | `$PKGNAME: new, $PKGVER` | `windowsnt-kernel: new, 5.1.2600` |
-| 版本更新（安全更新） | `$PKGNAME: update to $PKGVER; #NNN` | `bash: update to 5.2; #114514`，其中 `#114514` 指向对应的 GitHub issue |
-| 非版本更新（安全更新，使用发行版补丁） | `$PKGNAME: ($DISTNAME patch[es], $CHANNEL) #NNN` | `gnome-shell: (Ubuntu patches, 18.10) #2333`，其中 `#2333` 指向对应的 GitHub issue  |
-| 非版本更新（安全更新，使用上游补丁） | `$PKGNAME: (upstream patch[es]) #NNN` | `audacious: (upstream patches) #1919`，其中 `#1919` 指向对应的 GitHub issue |
+| 版本更新（安全更新） | `$PKGNAME: security update to $PKGVER` | `firefox: security update to 142.0`，并在该提交所属 GitHub PR 的 Development 侧边栏中勾选对应的安全更新工单（GitHub Issue） |
+| 非版本更新（安全更新，使用补丁） | `$PKGNAME: fix $CVEID` | `samba: fix CVE-2025-0620`，并在该提交所属 GitHub PR 的 Development 侧边栏中勾选对应的安全更新工单（GitHub Issue） |
 | 版本更新 | `$PKGNAME: update to $PKGVER` | `mate-desktop: update to 1.22.0` |
 | 软件构建失败 | `$PKGNAME: ... (FTBFS)` | `chromeos-desktop: update to 99.0.9999 (FTBFS)`，FTBFS 是 Failed To Build From Source 的简写 |
 | 软件包改动（单处） | `$PKGNAME: ...` | `kde-workspace: add qt-5 dependency`，使用一般现在时即可 |
-| 软件包改动（多处） | `$PKGNAME: ...; ...` | `gnome-shell: add at-spi2-core dependency; update to 3.32.0` |
 | 软件包改动（使用发行版补丁） | `$PKGNAME: ($DISTNAME patch[es], $CHANNEL) ...` | `qt-4: (Arch Linux patches) rebuild for openssl` |
 | 软件包改动（使用上游补丁） | `$PKGNAME: (upstream patch[es]) ...` | `kodi: (upstream patch) fix lock-up on start-up` |
 | QA 问题 | `$PKGNAME: ... ($ISSUECODE)` | `psiconv: rebuild for imagemagick (E431)`，请阅读 [这个清单](@/developer/packaging/qa-issue-codes.md) 了解各个 `$ISSUECODE` 对应的含义 |
@@ -303,13 +301,10 @@ Electron、Chromium 和基于它们的软件包应该按照下面的要求放置
 
 ## 长消息
 
-如果您的提交信息超过 50 个字符（包括空格和标点符号），则应该使用下面的格式撰写长消息：
+如果您的提交信息超过 50 个字符（包括空格和标点符号），或者在一个提交中进行了多处改动，则应该使用下面的格式撰写长消息：
 
 ```
-firefox: update to 64.0.2; #1536
+syncthing: update to 2.0.3
 
-- Enable PGO on AMD64, patches from Fedora and upstream.
-- Clean up defines.
-- Remove deprecated --enable-pie option.
-- More vendor-specific preferences to further limit Pocket integration and telemetry.
+- Use gomod template to build.
 ```

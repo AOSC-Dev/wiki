@@ -287,13 +287,11 @@ When committing (or contributing, if you like) to the [AOSC OS ABBS Tree](https:
 | Action | Message Formatting | Sample Commit Message |
 |-----------|-----------------------------------|-----------------------------------------|
 | Introducing a new package | `$PKGNAME: new, $PKGVER` | `windowsnt-kernel: new, 5.1.2600` |
-| Security fixes with version update | `$PKGNAME: update to $PKGVER; #NNN` | `bash: update to 5.2; #114514`, where `#114514` is a reference to the original security report (GitHub issue) |
-| Security fixes without version update, utilising distribution patch(es) | `$PKGNAME: ($DISTNAME patch[es], $CHANNEL) #NNN` | `gnome-shell: (Ubuntu patches, 18.10) #2333`, where `#2333` is a reference to the original security report (GitHub issue) |
-| Security fixes without version update, utilising upstream patch(es) | `$PKGNAME: (upstream patch[es]) #NNN` | `audacious: (upstream patches) #1919`, where `#1919` is a reference to the original security report (GitHub issue) |
+| Security fixes with version update | `$PKGNAME: security update to $PKGVER` | `firefox: security update to 142.0`, and link the original security report (GitHub issue) to the associated GitHub PR in the Development sidemenu |
+| Security fixes without version update, utilising patch(es) | `$PKGNAME: fix $CVEID` | `samba: fix CVE-2025-0620`, and link the original security report (GitHub issue) to the associated GitHub PR in the Development sidemenu |
 | Updating a package | `$PKGNAME: update to $PKGVER` | `mate-desktop: update to 1.22.0` |
 | Work-in-progress with a fail-to-build package | `$PKGNAME: ... (FTBFS)` | `chromeos-desktop: update to 99.0.9999 (FTBFS)`, note that "FTBFS" stands for "Failed To Build From Source", this term is used loosely |
 | Working with a package | `$PKGNAME: ...` | `kde-workspace: add qt-5 dependency`, just say what you did in present tense |
-| Working with a package, multiple actions | `$PKGNAME: ...; ...` | `gnome-shell: add at-spi2-core dependency; update to 3.32.0` |
 | Working with a package, utilising distribution patch(es) | `$PKGNAME: ($DISTNAME patch[es], $CHANNEL) ...` | `qt-4: (Arch Linux patches) rebuild for openssl` |
 | Working with a package, utilising upstream patch(es) | `$PKGNAME: (upstream patch[es]) ...` | `kodi: (upstream patch) fix lock-up on start-up` |
 | Working with a QA issue | `$PKGNAME: ... ($ISSUECODE)` | `psiconv: rebuild for imagemagick (E431)`, for a list of QA issue codes, refer to this [list](@/developer/packaging/qa-issue-codes.md) |
@@ -305,13 +303,10 @@ When committing (or contributing, if you like) to the [AOSC OS ABBS Tree](https:
 
 ## Long Messages
 
-When more than one of the actions were committed, and that the short message goes beyond 50 characters (including space and punctuation marks), you should utilise a "long Git commit message", for example:
+When more than one of the actions were committed, or that the short message goes beyond 50 characters (including space and punctuation marks), you should utilise a "long Git commit message", for example:
 
 ```
-firefox: update to 64.0.2; #1536
+syncthing: update to 2.0.3
 
-- Enable PGO on AMD64, patches from Fedora and upstream.
-- Clean up defines.
-- Remove deprecated --enable-pie option.
-- More vendor-specific preferences to further limit Pocket integration and telemetry.
+- Use gomod template to build.
 ```
