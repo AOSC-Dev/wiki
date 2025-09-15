@@ -78,11 +78,15 @@ The `VER=`, or `$VER` variable defines the main version of the resulting package
 
 ### REL=
 
-The `REL=`, or `$REL` variable defines the revision level of the resulting package. This variable defaults to 0 and, when a a revision is made to a package without any change to the main version (`VER=`), you should increment this value by 1. One exception is when handling Linux kernel packages in the RC (release candidate) stage, we customarily use 0.1, 0.2, 0.3, ..., etc. to indicate RC numbers (`REL=0.2` corresponds to `-rc2` in kernel version, for instance) and use a, b, c, ..., etc. to indicate revisions on the same RC version. Any further exception should be discussed before hand before they become rule.
+The `REL=`, or `$REL` variable defines the revision level of the resulting package. This variable defaults to 0 and, when a revision is made to a package without any change to the main version (`VER=`), you should increment this value by 1. One exception is when handling Linux kernel packages in the RC (release candidate) stage, we customarily use 0.1, 0.2, 0.3, ..., etc. to indicate RC numbers (`REL=0.2` corresponds to `-rc2` in kernel version, for instance) and use a, b, c, ..., etc. to indicate revisions on the same RC version. Any further exception should be discussed before hand before they become rule.
 
 ACBS may automatically append a `~pre${ISO_8601-1_2019_TIMESTAMP}` suffix to `REL=` when packaging from a non-stable branch, see [Revision Marking Guidelines for Topic Packages](@/developer/packaging/topic-version-suffix.md).
 
 When a package is updated, the `REL=` line should be removed to indicate a revision level of 0 (we typicall remove the `REL=` declaration in `spec` when doing so).
+
+### EPOCH=
+
+The `EPOCH=`, or `$EPOCH` variable defines the most significant field of a package's version string. This variable defaults to 0 and, when a downgrade is made to the main version (e.g., downgrading `VER=` from `32.0` to `25.2`), you should increment this value by 1. This variable allows the downgraded package to have a greater version string in spite of having a smaller `VER=` value (e.g., `1:25.2` vs `32.0`).
 
 ## Source Variables
 
