@@ -35,11 +35,14 @@ that the new KDE version may use up to 16GiB of RAM.
 zh_CN = """
 本次更新重启后可能会需要更多内存。据我社维护者测试，新版 KDE 可能需要接近 16GiB 内存。"""
 
-[packages]
-konsole = "23.04.1-1"
-dolphin = "23.04.1"
-# Package removed as part of the topic.
-pykde = false
+# 2025 年 10 月起，[packages] 已被 [packages-v2] 字段替代，该字段使用版本
+# 范围描述安全漏洞的实际影响范围。
+```toml
+[packages-v2]
+firefox = "<= 142"
+thunderbird = ">= 108 && < 142"
+seamonkey = "=141 || =142 || =143"
+
 ```
 
 亦可按需编写“累积更新”元数据，如下：
@@ -49,27 +52,11 @@ pykde = false
 default = "Winter 2023 Cumulative Update for amd64 AOSC OS systems"
 zh_MS = "适用于 amd64 AOSC OS 版本的 23 冬季累计更新"
 
-# 不能与 [packages] 字段共存
+# 不能与 [packages-v2] 字段共存
 topics = [
     "kde-survey-20231201",
     "core-12.1.0"
 ]
-```
-
-规范更新：packages-v2
----
-
-{% card(type="success") %}
-此规范更新目前尚未实装；实装后将并入规范正文。
-{% end %}
-
-2025 年 8 月，我们引入了 `[packages-v2]` 字段，以便定义重要更新（尤其是安全更新）波及的软件包范围，并以更新前的软件包作为对比基准，解决用户因错过特定版本软件包更新而在 oma 等包管理前端中收不到更新公告的问题。该字段的写入样例如下：
-
-```toml
-[packages-v2]
-firefox = "<= 142"
-thunderbird = ">= 108 && < 142"
-seamonkey = "=141 || =142 || =143"
 ```
 
 文件存放
