@@ -41,7 +41,6 @@ zh_CN = """
 # In October 2025, [packages] has been replaced with [packages-v2], which
 # uses a version range, representing the version range(s) which the
 # security vulnerability(ies) affects.
-```toml
 [packages-v2]
 firefox = "<= 142"
 thunderbird = ">= 108 && < 142"

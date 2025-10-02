@@ -37,12 +37,10 @@ zh_CN = """
 
 # 2025 年 10 月起，[packages] 已被 [packages-v2] 字段替代，该字段使用版本
 # 范围描述安全漏洞的实际影响范围。
-```toml
 [packages-v2]
 firefox = "<= 142"
 thunderbird = ">= 108 && < 142"
 seamonkey = "=141 || =142 || =143"
-
 ```
 
 亦可按需编写“累积更新”元数据，如下：
