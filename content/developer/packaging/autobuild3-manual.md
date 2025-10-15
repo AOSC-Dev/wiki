@@ -63,7 +63,7 @@ Here lists the variables that describes general information of the package.
 
 **PKGVER=** expects a string value that defines the version of the package to be built (an underscore must not be used as part of the version string). \*
 
-**PKGREL=** expects an integer value that defines the revisionn of the package to be built. \*
+**PKGREL=** expects an integer value that defines the revision of the package to be built. \*
 
 **PKGSEC=** expects a string value that defines the category/section that the package belongs in, all canonical section names are defined in `"$AB"/sets/section`. A QA (quality assurance) warning will be emitted by Autobuild3 when a non-canonical section is used as the value provided here. \*
 
@@ -89,7 +89,7 @@ Here lists the variables that defines several different dependency relationships
 
 ### Build-time environment
 
-Here lists variables that serves as options during build-time that may alter build results. Some times they are used to workaround FTBFS (fail to build from source, essential vocabulary, Cadet) situations. Workaround-oriented usage of some of the variables listed below will the discussed in the [Tips and Tricks](https://github.com/AOSC-Dev/aosc-os-abbs/wiki/Autobuild3-Tips-and-Tricks) section.
+Here lists variables that serves as options during build-time that may alter build results. Some times they are used to workaround FTBFS (fail to build from source, essential vocabulary, Cadet) situations. Workaround-oriented usage of some of the variables listed below will be discussed in the [Tips and Tricks](https://github.com/AOSC-Dev/aosc-os-abbs/wiki/Autobuild3-Tips-and-Tricks) section.
 
 #### Common/GCC configurations
 
