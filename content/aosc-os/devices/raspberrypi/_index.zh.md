@@ -13,18 +13,15 @@ list_section = false
 
 # 受支持的设备
 
-以下是社区受支持的设备。点击设备名可以查看针对该设备的指南。
+目前， AOSC OS 支持树莓派 3 及以后的设备。
 
-| 设备名称 | 设备类型 | 设备平台 | 维护情况 | 维护者 |
-| --- | --- | --- | --- | --- |
-| [树莓派 4B](@/aosc-os/devices/raspberrypi/4b/_index.zh.md) | 单板计算机 | 博通 BCM2711 | 受支持 | Cinhi Young |
+# 板级支持包 (BSP)
 
+树莓派的板级支持包 (BSP) 适用于所有支持的树莓派硬件。这些软件包应该在安装 AOSC OS 时安装，详情参见[在树莓派上安装 AOSC OS](@/aosc-os/devices/raspberrypi/installation.zh.md)。
 
-# 单板支持包（BSP）仓库
+# 指南
 
-树莓派的 BSP 仓库可能适用于所有树莓派硬件。执行如下命令以将该仓库添加至 APT 软件源：
+- [安装指南](@/aosc-os/devices/raspberrypi/installation.zh.md)
+- [配置指南](@/aosc-os/devices/raspberrypi/configuration.zh.md)
+- [故障排除指南](@/aosc-os/devices/raspberrypi/troubleshooting.zh.md)
 
-```
-echo "deb https://repo.aosc.io/debs stable bsp-rpi" | sudo tee /etc/apt/sources.list.d/bsp-rpi.list
-sudo apt update
-```

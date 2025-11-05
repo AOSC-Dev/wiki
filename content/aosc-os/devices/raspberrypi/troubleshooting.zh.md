@@ -1,5 +1,5 @@
 +++
-title = "树莓派 4B 故障排除指南"
+title = "树莓派通用故障排除指南"
 description = "FAQs and troubleshooting guides for Raspberry Pi 4B"
 date = 2021-04-14T04:37:11.499Z
 [taxonomies]

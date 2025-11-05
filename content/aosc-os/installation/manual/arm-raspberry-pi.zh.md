@@ -8,4 +8,4 @@ tags = ["sys-installation"]
 +++
 
 
-现在有[新的文章](https://wiki.aosc.io/aosc-os/devices/raspberrypi/4b/installation/)可供参考。本文不再提供。
+本文已过时，请参阅[新的文章](https://wiki.aosc.io/aosc-os/devices/raspberrypi/installation/)。

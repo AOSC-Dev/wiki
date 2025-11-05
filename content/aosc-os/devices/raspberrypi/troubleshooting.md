@@ -1,6 +1,6 @@
 +++
-title = "Raspberry Pi 4B Troubleshooting"
-description = "FAQs and troubleshooting guides for Raspberry Pi 4B"
+title = "Raspberry Pi General Troubleshooting"
+description = "FAQs and troubleshooting guides for Raspberry Pis"
 date = 2021-04-14T04:37:11.499Z
 [taxonomies]
 tags = ["sys-installation"]
