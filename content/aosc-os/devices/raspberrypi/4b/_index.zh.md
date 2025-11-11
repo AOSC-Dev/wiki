@@ -9,9 +9,9 @@ list_section = false
 
 # 指南
 
-- [安装指南](@/aosc-os/devices/raspberrypi/4b/installation.zh.md)
-- [配置指南](@/aosc-os/devices/raspberrypi/4b/configuration.zh.md)
-- [故障排除指南](@/aosc-os/devices/raspberrypi/4b/troubleshooting.zh.md)
+- [安装指南](@/aosc-os/devices/raspberrypi/installation.zh.md)
+- [配置指南](@/aosc-os/devices/raspberrypi/configuration.zh.md)
+- [故障排除指南](@/aosc-os/devices/raspberrypi/troubleshooting.zh.md)
 
 # 信息
 

@@ -1,5 +1,5 @@
 +++
-title = "树莓派 4B 安装指南"
+title = "树莓派安装指南"
 description = "Install AOSC OS on ARM64 Raspberry Pi boards"
 date = 2021-11-16
 [taxonomies]
@@ -7,7 +7,7 @@ tags = ["sys-installation"]
 +++
 
 [general-postinst]: /zh/aosc-os/installation/manual/amd64/#yong-hu-zi-ding-yi-she-zhi
-[troubleshooting]: @/aosc-os/devices/raspberrypi/4b/troubleshooting.zh.md
+[troubleshooting]: @/aosc-os/devices/raspberrypi/troubleshooting.zh.md
 
 AOSC OS 对树莓派的支持由社区进行维护，所以你可以轻松地为树莓派安装 AOSC OS。
 
@@ -21,6 +21,11 @@ AOSC OS 对树莓派的支持由社区进行维护，所以你可以轻松地为
 
 理论上任何装备了支持 ARM64 架构 CPU 的树莓派都可以运行主线版本的 AOSC OS，包括：
 
+- 第五代树莓派系列 (BCM2712)
+  - 树莓派 5
+  - 树莓派 500
+  - 树莓派 500+
+  - 树莓派计算模块 5
 - 第四代树莓派系列 (BCM2711)
   - 树莓派 4B（所有版本）
   - 树莓派 400

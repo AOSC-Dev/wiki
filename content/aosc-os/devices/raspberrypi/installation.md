@@ -1,5 +1,5 @@
 +++
-title = "Raspberry Pi 4B Installation guide"
+title = "Raspberry Pi Installation guide"
 description = "Install AOSC OS on ARM64 Raspberry Pi boards"
 date = 2021-11-16
 [taxonomies]
@@ -8,7 +8,7 @@ tags = ["sys-installation"]
 +++
 
 [general-postinst]: /aosc-os/installation/manual/amd64#user-and-post-installation-configuration
-[troubleshooting]: /aosc-os/devices/raspberrypi/4b/troubleshooting
+[troubleshooting]: /aosc-os/devices/raspberrypi/troubleshooting
 
 With community support you can enjoy AOSC OS in your Raspberry Pi with ease.  
 There are many way to boot Linux on a Raspberry Pi, e.g. UEFI, U-Boot, etc. This tutorial is meant for plain boot method.
@@ -21,6 +21,11 @@ If you have any questions, please checkout [our Raspberry Pi FAQ and troubleshoo
 
 Technically all Raspberry Pis equipped with an ARM64 CPU are compatible with mainline AOSC OS, including:
 
+- Raspberry Pi 5th gen boards (BCM2712)
+  - Raspberry Pi 5
+  - Raspberry Pi 500
+  - Raspberry Pi 500+
+  - Compute Module 5
 - Raspberry Pi 4th gen boards (BCM2711)
   - Raspberry Pi 4B (all variants)
   - Raspberry Pi 400

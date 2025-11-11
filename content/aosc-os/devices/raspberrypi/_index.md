@@ -13,17 +13,14 @@ Raspberry Pi is a series of Single Board Computers developed by Raspberry Pi Fou
 
 # Supported Hardware
 
-Here is a list of community supported devices. Click the name to checkout the documentation for a device.
+For now, AOSC OS supports Raspberry Pi 3 and above.
 
-| Name | Type | Platform | Maintenance Status | Maintainer |
-| --- | --- | --- | --- | --- |
-| [Raspberry Pi 4B](@/aosc-os/devices/raspberrypi/4b/_index.md) | Single Board Computer | Broadcom BCM2711 | Supported | Cinhi Young |
+# Board Support Packages
 
-# Board Support Packages repository
+BSP packages is available for all supported Raspberry Pi devices. It should be installed when you install AOSC OS on raspberry pi,see [installing AOSC OS on raspberry pi](@/aosc-os/devices/raspberrypi/installation.md).
 
-BSP packages repository is available for all Raspberry Pi devices. Execute following command to add it to your APT source:
+# Guides
 
-```
-echo "deb https://repo.aosc.io/debs stable bsp-rpi" | sudo tee /etc/apt/sources.list.d/bsp-rpi.list
-sudo apt update
-```
+- [Installation Guide](@/aosc-os/devices/raspberrypi/installation.md)
+- [Configuration Guide](@/aosc-os/devices/raspberrypi/configuration.md)
+- [Troubleshooting Guide](@/aosc-os/devices/raspberrypi/troubleshooting.md)

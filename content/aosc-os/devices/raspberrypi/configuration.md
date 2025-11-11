@@ -1,5 +1,5 @@
 +++
-title = "Raspberry Pi 4B Configuration"
+title = "Raspberry Pi Configuration"
 description = "Configurate your Raspberry Pi boards"
 date = 2021-11-18
 [taxonomies]

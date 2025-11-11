@@ -1,5 +1,5 @@
 +++
-title = "树莓派 4B 配置指南"
+title = "树莓派配置指南"
 description = "Configurate your Raspberry Pi boards"
 date = 2021-11-18
 [taxonomies]
