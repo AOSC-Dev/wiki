@@ -9,9 +9,9 @@ Raspberry Pi 4B is a decent SBC from Raspberry Pi Foundation. Like its predecess
 
 # Guides
 
-- [Installation Guide](@/aosc-os/devices/raspberrypi/4b/installation.md)
-- [Configuration Guide](@/aosc-os/devices/raspberrypi/4b/configuration.md)
-- [Troubleshooting Guide](@/aosc-os/devices/raspberrypi/4b/troubleshooting.md)
+- [Installation Guide](@/aosc-os/devices/raspberrypi/installation.md)
+- [Configuration Guide](@/aosc-os/devices/raspberrypi/configuration.md)
+- [Troubleshooting Guide](@/aosc-os/devices/raspberrypi/troubleshooting.md)
 
 # General Information
 
