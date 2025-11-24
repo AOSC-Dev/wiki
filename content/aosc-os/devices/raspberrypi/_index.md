@@ -17,7 +17,7 @@ For now, AOSC OS supports Raspberry Pi 3 and above.
 
 # Board Support Packages
 
-BSP packages is available for all supported Raspberry Pi devices. It should be installed when you install AOSC OS on raspberry pi,see [installing AOSC OS on raspberry pi](@/aosc-os/devices/raspberrypi/installation.md).
+BSP packages is available for all supported Raspberry Pi devices. It should be installed when you install AOSC OS on raspberry pi,see [installing AOSC OS on Raspberry Pi](@/aosc-os/devices/raspberrypi/installation.md).
 
 # Guides
 
