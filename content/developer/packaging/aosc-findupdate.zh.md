@@ -52,6 +52,7 @@ CHKUPDATE="anitya::id=1832"
 - URL: https://github.com/
 
 **环境变量：**
+
 | 名称 | 必填？ | 描述 |
 |------|-----------|-------------|
 |GITHUB_TOKEN|**必填**|你的 GitHub 访问令牌。设置此环境变量才能访问 GitHub API。 [点击此处访问令牌管理页面](https://github.com/settings/tokens)。|
