@@ -52,6 +52,7 @@ CHKUPDATE="anitya::id=1832"
 - URL: https://github.com/
 
 **Environment Variables:**
+
 | Name | Required? | Description |
 |------|-----------|-------------|
 |GITHUB_TOKEN|**REQUIRED**|Your GitHub access token. Use it to authenticate with GitHub API. [Click here to access them or create one](https://github.com/settings/tokens).|
