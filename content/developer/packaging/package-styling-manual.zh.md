@@ -188,7 +188,7 @@ SUBDIR=.
 |-------------|----------------------------------------|----------------------|
 | Autobuild 构建模板 | 要求 | 应尽可能使用 [Autobuild Types](https://github.com/AOSC-Dev/autobuild4/tree/master/templates)，而不使用 `autobuild/build` 或 `ABTYPE=self` |
 | Autobuild 构建模板定义 | 要求 | 所有软件包均应显式标记所使用的 Autobuild 构建模板（`ABTYPE=`)  |
-| 异常处理 | 要求 | 异常应被及时捕获并处理。默认情况下，Autobuild 可以自动处理异常并中止构建，但是由于 Autobuild 的一处漏洞，这一机制并不支持 `autobuild/build` |
+| 异常处理 | 要求 | 异常应被及时捕获并处理。 |
 | 进展报告 | 要求 | 应该通过适当地使用 `abinfo` 和 `abwarn` 来报告进度，这对于使用 `autobuild/build` 或 `ABTYPE=self` 的软件包是必需的 |
 | 详尽输出 | 要求 | 构建脚本应打开所有命令的详尽输出开关以便通过构建日志查错 |
 | 绝对路径 | 要求 | 构建脚本应为所有引用的源码内文件、路径和可执行文件增加构建根 (`$SRCDIR`)、打包根 (`$PKGDIR`) 或离树构建 (shadow build) 根 (`$BLDDIR`)；如果您在构建时已切换 (`cd`) 到某个路径中，则可忽略该项 |
