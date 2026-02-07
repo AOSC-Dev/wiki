@@ -155,7 +155,7 @@ ciel build -i $INSTANCE groups/gnome-changes
 
 ## 自动提交更改
 
-如果所有包都成功构建，我们就可以提交更改了。我们的 [commit-o-matic](https://github.com/AOSC-Dev/scriptlets/tree/master/commit-o-matic) 将实现这一点。只需下载脚本，将其放入您的 `PATH`，然后调用脚本就行了。
+如果所有包都成功构建，我们就可以提交更改了。我们的 [commit-o-matic](https://github.com/AOSC-Dev/pakit/tree/master/commit-o-matic) 将实现这一点。只需下载脚本，将其放入您的 `PATH`，然后调用脚本就行了。
 
 请注意，您必须在 git 日志中记录任何额外的修改。也就是说，在调用 `commit-o-matic` 之前，您应该首先从临时组中删除修改后的包，然后手动提交。
 
