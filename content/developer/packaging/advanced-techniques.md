@@ -157,7 +157,7 @@ ciel build -i $INSTANCE groups/gnome-changes
 
 ## Commit Changes, Automatically
 
-If all packages are built successfully, we can go ahead and commit our changes. Our [commit-o-matic](https://github.com/AOSC-Dev/scriptlets/tree/master/commit-o-matic) will accomplish just that. Simply download the script, put it into your `PATH`, invoke the script, and bob's your uncle.
+If all packages are built successfully, we can go ahead and commit our changes. Our [commit-o-matic](https://github.com/AOSC-Dev/pakit/tree/master/commit-o-matic) will accomplish just that. Simply download the script, put it into your `PATH`, invoke the script, and bob's your uncle.
 
 Note that if any extra modification was needed, you must note the said modifications in the git log. That said, before invoking `commit-o-matic`, you should first remove the modified package from the temporary group, and commit it manually.
 
