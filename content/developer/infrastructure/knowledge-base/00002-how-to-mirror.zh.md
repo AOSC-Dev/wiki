@@ -10,11 +10,11 @@ tags = ["infra-kb"]
 
 安同开源社区成立已有一段时间，如果没有众人的支持，安同开源社区将永远无法成形，在此我们感谢所有希望帮助我们的人和曾经帮助我们的人。
 
-到目前为止，我们的软件仓库有着很多镜像（主要位于中国），我们确实需要在其它地区建立更多的镜像（尤其是美国）。如果您兴趣帮助我们，请阅读以下信息。
+到目前为止，我们的软件仓库已拥有数十个下游镜像（主要位于中国以及东亚地区），我们正寻求在其他的区域新增下游镜像覆盖（尤其是美国和 EMEA 区域）。如果您兴趣帮助我们，请阅读以下信息。
 
 # 仓库内容
 
-仓库包括哪些内容？一般来说，关于安同开源社区的一切，大多数都和安同 OS 相关（例如软件包和系统映像）。一些文档，如《大陆简中自由软件本地化工作指南》，也保存在仓库中。
+仓库包括哪些内容？一般来说，关于安同开源社区的一切都包含在内，大多数都和安同 OS 相关（例如软件包、系统映像、提供给其他发行版的oma仓库等）。
 
 # 仓库大小
 
@@ -28,17 +28,19 @@ tags = ["infra-kb"]
 
 - `/anthon`：完整的仓库，包含了软件包和系统映像。
 - `/anthonos`：和 `/anthon` 完全一样。
+- `/anthon-nodbg`: 排除了调试符号包的 `/anthon`
 - `/packages`：只包含安同 OS 软件包仓库。
+- `/packages-nodbg`: 排除了调试符号包的 `/packages`
 - `/releases`: 只包含安同 OS 系统映像（内容和 [releases.aosc.io](https://releases.aosc.io/) 相同）。
 
-我们推荐您从 `/anthon` 或 `/anthonos` 同步镜像。如果您没有足够的空间，也可同步 `/packages`。
+我们推荐您从 `/anthon` 或 `/anthonos` 同步镜像。如果您没有足够的空间，也可视情况只从 `/packages`、`/anthon-nodbg`、`/packages-nodbg` 同步。
 
 # 如何镜像
 
-如果您有足够的储存空间，您可以直接从 `rsync://repo.aosc.io/anthon/` 同步。请不要通过手动解析的 IP 地址同步，如果您需要指定 IP 版本，您可以使用 `v4.repo.aosc.io` 或 `v6.repo.aosc.io` 分别选择 IPv4 和 IPv6 连接。
+我们的主仓库服务器域名为 `repo.aosc.io` 。但由于主服务器带宽限制，推荐从我们的 sync-proxy 服务器同步： `rsync://repo-us.aosc.io`
 
 {% card(type="warning") %}
-我们目前使用的源服务器位于中国香港。因此，您可能会在同步时遇到速度较慢的情况。如您有 IPv6 的因特网访问条件，您可以使用 IPv6 连接同步您的镜像。
+我们目前使用的主仓库服务器位于中国香港，sync-proxy 服务器则位于美国洛杉矶。因此，您可能会在同步时遇到速度较慢的情况。如您有 IPv6 的因特网访问条件，您可以使用 IPv6 连接同步您的镜像。
 {% end %}
 
 您可以选择从 [USTCLUG](https://mirrors.ustc.edu.cn/) 或者 [Tuna](https://mirrors.tuna.tsinghua.edu.cn/) 初始化您的镜像站点以节约时间。
@@ -49,7 +51,9 @@ tags = ["infra-kb"]
 
 # 赞助者
 
-目前安同 OS 的主仓库由[光圈网络 (Apernet)](https://apernet.io/) 提供托管支持；[xTom](https://xtom.com/) 和 [OSSPlanet](https://ossplanet.net/) 为软件源仓库设施的历史赞助方。
+目前安同 OS 的主仓库由 [Nearoute](https://nearoute.io/) 提供托管支持， [爱范儿](https://www.ifanr.com) 赞助了 sync-proxy 服务器。
+
+[光圈网络 (Apernet)](https://apernet.io/)，[xTom](https://xtom.com/) 和 [OSSPlanet](https://ossplanet.net/) 为软件源仓库设施的历史赞助方。
 
 请移步到[社区赞助方一览](https://aosc.io/sponsors) 查看完整的赞助者名单。
 
