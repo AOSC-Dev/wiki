@@ -98,9 +98,10 @@ surveying, discussion, packaging, testing, notification, and shipping.
    (e.g., `nano-5.4`). Repository branch naming follows topic name (e.g.,
    `nano-5.4`).
     - Non-update topics should be named by purpose, in the format of
-      `$PKGNAME-$PKGVER-$PURPOSE` (e.g. `gnome-shell-3.38.1-build-fix`,
-      `gnome-shell-3.38.1-ppc64el-adaptation`; in case a packge is being
-      introduced, use `gnome-shell-ng-4.0-new`).
+      `$PKGNAME-$PKGVER-$PURPOSE`, and `$PKGVER` can be omitted when
+      introducing a new package (e.g. `gnome-shell-3.38.1-build-fix`,
+      `gnome-shell-3.38.1-ppc64el-adaptation`; in case a package is being
+      introduced, omit the version number and use `gnome-shell-ng-new`).
     - In case of multi-package topics, topics takes name from the "main player"
       along with its general version, e.g. `gnome-3.38`, `boost-1.73`.
     - In multi-package, multi-version topics, use main package name, followed by
@@ -141,12 +142,12 @@ A topic-based iteration cycle follows these general steps:
     - Upload built packages their respective topic repositories.
 - Review: Maintainers must create Pull Requests for other maintainers to review
   their build scripts.
-    - Once their script-level changes are approved, another maintainer may add
-      the `lgtm` label to the pull request, indicating that the build
-      scripts comply with the [Package Styling Manual](https://wiki.aosc.io/developer/packaging/package-styling-manual/).
-- Testing: Maintainers and users alike may use the [AOSC OS Topic Manager](https://github.com/AOSC-Dev/atm/)
-  to enroll in testing topics.
-    - Once ser/maintainer feedback indicates that the update(s) work as
+    - If this PR has contents that conflict with
+      [Package Styling Manual](https://wiki.aosc.io/developer/packaging/package-styling-manual/),
+      the reviewer should highlight these conflicts on GitHub and request changes.
+- Testing: Maintainers and users alike may use the `topics` subcommand of
+  [OMA](https://github.com/AOSC-Dev/oma/) to enroll in testing topics.
+    - Once user/maintainer feedback indicates that the update(s) work as
       expected and find its quality satisfactory, another maintainer may
       now review this pull request and mark it as Approved.
     - After which, the maintainer will build affected package(s) and upload
