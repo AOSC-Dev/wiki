@@ -14,8 +14,11 @@ taxonomies = [
     {name = "tags", lang = "zh"},
 ]
 
-[markdown]
-highlight_code = true
+[markdown.highlighting]
+error_on_missing_language = false
+style = "inline"
+light_theme = "min-light"
+dark_theme = "material-theme-darker"
 
 [extra]
 logo = "/img/aosc.png"
