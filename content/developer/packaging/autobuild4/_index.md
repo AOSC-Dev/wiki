@@ -1,7 +1,5 @@
 +++
 title = "Autobuild4"
-[taxonomies]
-tags = ["dev-sys"]
 +++
 
 Autobuild4 is a successor to the [previous generation of Autobuild](https://github.com/AOSC-Dev/autobuild).

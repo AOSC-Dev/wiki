@@ -1,10 +1,7 @@
 +++
 title = "AOSC OS Security Advisories (AOSA)"
 description = "Tracking of security vulnerabilities found in AOSC OS"
-date = 2020-05-04T03:35:01.002Z
 insert_anchor_links = "right"
-[taxonomies]
-tags = ["aosa"]
 +++
 
 # AOSA?
