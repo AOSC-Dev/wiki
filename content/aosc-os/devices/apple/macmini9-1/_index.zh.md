@@ -1,9 +1,6 @@
 +++
 title = "Mac Mini（2020 年末）"
 description = "用于 Mac Mini Late 2020 的支持文档"
-date = 2021-06-02
-[taxonomies]
-tags = ["sys-installation"]
 +++
 
 
