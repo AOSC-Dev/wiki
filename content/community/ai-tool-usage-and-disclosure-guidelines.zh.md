@@ -72,6 +72,12 @@ tags = ["community", "guidelines"]
 - 如果您自行托管了 LLM/大语言模型工具使用的模型，请注明 `Self hosted`
 - 如果您自行训练了 AI 辅助工具使用的模型，请注明 `Self trained, based on <model name>`
 
+## `Assisted-by:` 标签
+
+- 实践中，部分代理型 AI 平台会自动使用 `Co-authored-by:` 标签标注自己的身份；然而出于导言所述的原因，我们不认同其在您代码中的“作者”身份；您应当自行配置您的代理平台，或使用 `git commit --amend` 等方式将该标签替换为 `Assisted-by:`。
+- 在 [AOSC-Tracking](https://github.com/AOSC-Tracking) 组织下，若一个仓库的上游对 `Assisted-by:`、`Co-authored-by:` 或其他类似标签使用有规定，则优先以上游规定为准，以方便更改的上游化。
+  - 例如，[Linux Kernel](https://docs.kernel.org/process/coding-assistants.html) 同样采用了这一标签标注参与辅助的 AI 工具，但标注格式有所不同；因此，在 [AOSC-Tracking/linux](https://github.com/AOSC-Tracking/linux) 中，应当使用 Kernel 风格的标注格式。
+
 # 特殊场合下的声明内容
 
 ## 通过 BuildIt! 发起的拉取请求
