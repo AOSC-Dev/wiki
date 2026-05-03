@@ -71,6 +71,7 @@ tags = ["community", "guidelines"]
 - 如果您使用了由 LLM/大语言模型驱动的智能补全功能，请声明智能补全所属的提供商（如，GitHub Copilot）
 - 如果您自行托管了 LLM/大语言模型工具使用的模型，请注明 `Self hosted`
 - 如果您自行训练了 AI 辅助工具使用的模型，请注明 `Self trained, based on <model name>`
+- 如果您没有使用代理型 AI 平台，可在对应的字段标注 `none`。
 
 ## `Assisted-by:` 标签
 
@@ -106,6 +107,22 @@ tags = ["community", "guidelines"]
 在提交正文后注明（请注意，提交正文一般限制在 72-75 字符，请根据项目要求调整行宽），格式如下：
 
 ```
+This commit is authored with assistance from AI/LLM:
+
+- Model: Model Name
+- Platform: Platform Name (URL)
+- Agent platform: Platform Name (URL)
+- Prompt:
+  multiline prompt here
+
+# Uncomment and modify the following line accordingly if the model/agent
+# used has a public Git identity:
+# Assisted-by: Name <Email>
+```
+
+下面是可供参考的案例：
+
+```
 chore: add Vim mode
 
 This patch adds Vim style operations to Nano. No more confusion when you
@@ -132,21 +149,33 @@ This commit is authored with assistance from AI/LLM:
   - Basic commands (find, substitution, yank/paste, navigation)
   - Action prefixes (count, ranges and registers)
 
-# Uncomment and modify the following line accordingly if the model used has
-# a public Git identity:
 Assisted-by: Claude <noreply@anthropic.com>
 ```
 
 ## 拉取请求及工单正文
 
-您需要在相关正文后附加 AI 工具使用情况说明文本，内容范例如下：
+您需要在相关正文后附加 AI 工具使用情况说明文本，格式如下：
+
+````markdown
+# AI Assistance Usage Declaration
+
+- Model: Model Name
+- Platform: Platform Name (URL)
+- Agent platform: Platform Name (URL)
+- Prompt:
+```
+multiline prompt here
+```
+````
+
+下面是可供参考的案例：
 
 ````markdown
 [...]
 
 ==================================
 
-# AI assistance usage declaration
+# AI Assistance Usage Declaration
 
 This issue/PR is authored with assistance from AI/LLM:
 
