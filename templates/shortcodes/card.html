@@ -13,7 +13,13 @@
 <div class="card {{ type }}">
   <div class="header">
     <div class="symbol">{{ icon | safe }}</div>
-    <span>{{ trans(key=type) }}</span>
+    <span>
+      {% if title %}
+        {{ title }}
+      {% else %}
+        {{ trans(key=type, lang=lang) }}
+      {% endif %}
+    </span>
   </div>
   <div class="content">
     {{ body | markdown(inline=true) | safe }}
