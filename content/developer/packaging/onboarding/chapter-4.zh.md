@@ -177,7 +177,7 @@ sudo ciel shell -i main
 - cgit 或 gitweb：克隆仓库的链接会显示在仓库的主页（Summary）上。
 - 有些软件有自己的官网，但其源码则托管在代码平台上。一般官网会给出源码的下载链接，但有些下载链接也会将您引导到代码托管平台的 Releasses 页面。
 
-![image](https://hackmd.io/_uploads/Bk7b0TMaC.png)
+![image](/img/onboarding/cgit.webp)
 <p style="text-align: center; font-style: italic">
     cgit 的使用场景之一就是 Linux 内核的 Git 网页前端
 </p>
@@ -186,7 +186,7 @@ sudo ciel shell -i main
 
 绝大多数软件均会以压缩包（俗称 “tarball”，源码一般会以 tar 格式打包后压缩）的形式发布。Tarball 的获取途径一般是软件官网的下载页面。软件官网一般会将最新版本的发布说明或源码下载链接放置在首页或 “Downloads （下载）” 页面中。例如，qBittorrent 的官网 https://www.qbittorrent.org/ 就有提供源码包下载（如图所示）：
 
-![image](https://hackmd.io/_uploads/Sy1bK_GaA.png)
+![image](/img/onboaring/qb-homepage.webp)
 
 <p style="text-align: center; font-style: italic">
     qBittorrent 的官网主页，可见并没有源码链接的身影
@@ -194,7 +194,7 @@ sudo ciel shell -i main
 
 由上图可见，qBittorrent 并未在首页放置下载链接，因此您需要点击 “Downloads” 前往下载页面，找到有关源码的一节：
 
-![image](https://hackmd.io/_uploads/ByRwcufpC.png)
+![image](/img/onboarding/qb-download.webp)
 
 <p style="text-align: center; font-style: italic">
     qBittorrent 下载页面中 “Source Tarball” 一节
@@ -202,13 +202,13 @@ sudo ciel shell -i main
 
 由上例可见，在官网发布 tarball 的软件不仅提供源码链接，同时还提供源码包的校验信息（SHA-256、MD5 等算法的校验值）。源码包的校验信息尤为重要，成功比对校验值就意味着下载的源码包没有损坏，且没有被中途修改。
 
-> [!Important]
-> 所有的源码包下载链接均为直链形式，也就是说，链接尾部必须为文件名，且链接中不能有问号、`&` 符号等 URL 参数。
-> 如，下面的例子就是符合要求的链接：
->
-> - `https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/snapshot/linux-6.10.10.tar.gz`
-> - `https://github.com/htop-dev/htop/releases/download/3.3.0/htop-3.3.0.tar.xz`
-> - `https://ftp.gnu.org/gnu/gcc/gcc-14.2.0/gcc-14.2.0.tar.xz`
+{% card(type="info", title="注意下载链接格式") %}
+所有的源码包下载链接均为直链形式，也就是说，链接尾部必须为文件名，且链接中不能有问号、`&` 符号等 URL 参数。如，下面的例子就是符合要求的链接：
+
+- `https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/snapshot/linux-6.10.10.tar.gz`
+- `https://github.com/htop-dev/htop/releases/download/3.3.0/htop-3.3.0.tar.xz`
+- `https://ftp.gnu.org/gnu/gcc/gcc-14.2.0/gcc-14.2.0.tar.xz`
+{% end %}
 
 {% card(type="tips") %}
 有些软件会发行由多种压缩算法压缩的 tar 包：
@@ -250,7 +250,7 @@ sudo ciel shell -i main
 
 如果仓库的版本发行页面为空，则说明该项目不发行源码包。否则，找到页面中标记为最新的版本：
 
-| ![image](https://hackmd.io/_uploads/SJgGomzbkl.png) | ![image](https://hackmd.io/_uploads/HJLZF7GWyx.png) |
+| ![image](/img/onboarding/github-releases.webp) | ![image](/img/onboarding/gitlab-releases.webp) |
 |:---------------------:|:---------------------------------------------------:|
 | GitHub 的版本发布页面 |                GitLab 的版本发布页面                |
 
@@ -258,7 +258,7 @@ sudo ciel shell -i main
 
 不过，有些 tarball 是由维护者自行上传的（如下图由绿色框出的链接就指向的是维护者自行上传到 Releases 页面的 tarball），此时您应该使用这类链接下载 tarball；红色框出的链接就是您不应该使用的自动生成 tarball 的链接：
 
-![image](https://hackmd.io/_uploads/B1xFuRf6C.png)
+![image](/img/onboarding/github-release-tarball.webp)
 
 <p style="text-align: center; font-style: italic">
     绿色框的部分就是开发者自行打包上传的 Tarball，红色为代码平台自动生成的链接；可见自行上传的文件不仅有文件名，还有大小，可利用此特征区分
@@ -266,22 +266,17 @@ sudo ciel shell -i main
 
 如果您拿不准，请直接前往下一节，使用项目的代码仓库。
 
-> [!Note]
-> 复制到源码包的链接后，请记下源码包的获取链接，以便后续在 ABBS 中添加。
+{% card(type="info", title="不使用代码平台生成 tarball 链接的原因") %}
+通常情况下，代码托管平台自动生成的 tarball 可能无法复现——这意味着每隔一段时间，由同一版源码生成的 tarball 会得出不同的校验值。
 
-> [!Important]
->
-> #### 不使用代码平台生成 tarball 链接的原因
->
-> 通常情况下，代码托管平台自动生成的 tarball 可能无法复现——这意味着每隔一段时间，由同一版源码生成的 tarball 会得出不同的校验值。
->
-> 这种情况会令自动打包系统失效，因为自动打包系统同样需要确保源码包的完整性 (Integrity)，因此打包前必须记录每一个源码（包）文件的校验值。一旦上游的链接指向的源码（包）发生变动，校验值就会改变。
->
-> 造成这种情况的原因较为复杂，但其中最明显的一个原因是每次代码平台生成 tarball 时会记录文件的时间戳信息，而文件的创建时间、修改时间及访问时间等信息可能会随着生成的时间而改变。
->
-> 因此，如果项目在 GitHub、GitLab、SourceForge 等平台托管了代码，并且没有在 Releases 页面自行发布 tarball，强烈建议您利用版本控制系统获取源码。
+这种情况会令自动打包系统失效，因为自动打包系统同样需要确保源码包的完整性 (Integrity)，因此打包前必须记录每一个源码（包）文件的校验值。一旦上游的链接指向的源码（包）发生变动，校验值就会改变。
+
+造成这种情况的原因较为复杂，但其中最明显的一个原因是每次代码平台生成 tarball 时会记录文件的时间戳信息，而文件的创建时间、修改时间及访问时间等信息可能会随着生成的时间而改变。
+
+因此，如果项目在 GitHub、GitLab、SourceForge 等平台托管了代码，并且没有在 Releases 页面自行发布 tarball，强烈建议您利用版本控制系统获取源码。
 
 如果托管在代码平台中的项目的确没有提供自己打包的 tarball，您就需要通过 VCS 获取其源码。
+{% end %}
 
 ## 通过版本控制系统 (VCS) 获取项目源码
 
@@ -315,9 +310,10 @@ sudo ciel shell -i main
 | Codeberg、自建 Forgejo 及 Gitea 实例 | `https://codeberg.org/用户或组织名/项目名` | https://codeberg.org/forgejo/forgejo | 在页面上半部分找到 “HTTPS”，复制其旁边的链接 |
 | SourceHut | `https://VCS名称.sr.ht/~用户名/项目名` | https://git.sr.ht/~sbinet/sako | 复制右侧 “clone” 版块中 “read-only” 下面的链接 |
 
-> [!Note]
-> 您访问托管平台的项目仓库主页时，地址栏应仅包含上述格式的链接。如果地址栏中包含任何其他内容（如多一级斜杠 “/”、存在问号及参数等），请将其删除。
-> - GitLab 的链接可能在用户/组织名及项目名之间存在多级的子分类，访问 GitLab 项目时尤其需要注意。
+{% card(type="tips") %}
+您访问托管平台的项目仓库主页时，地址栏应仅包含上述格式的链接。如果地址栏中包含任何其他内容（如多一级斜杠 “/”、存在问号及参数等），请将其删除。
+- GitLab 的链接可能在用户/组织名及项目名之间存在多级的子分类，访问 GitLab 项目时尤其需要注意。
+{% end %}
 
 找到项目在代码托管平台上的仓库、并获取到仓库 URL 后，您就可以在终端中使用对应的 VCS 克隆了：
 
@@ -328,14 +324,13 @@ $ svn co svn://svn.code.sf.net/p/sdcc/code/tags/sdcc-4.3.6
 $ hg clone https://hg.sr.ht/~scoopta/wofi
 ```
 
-> [!Note]
-> 由于 Mercurial、Subversion、CVS 等版本控制工具的用途并不广泛，本指南只介绍 Git 的使用方法。
+由于 Mercurial、Subversion、CVS 等版本控制工具的用途并不广泛，本指南只介绍 Git 的使用方法。
 
 克隆到本地后，您需要将源码检出 (Checkout) 到特定版本。您不能使用克隆下来的主分支！您可以前往托管平台的项目主页，点击 “Tags（标签）” 链接获得最新发布的版本。您需要记下最新版的 tag 名称（不能省略其中的 “v” 等前缀）。
 
 如，截至编写之日 systemd 最新发布的版本是 `v256.7`。您就可以将源码检出到该标签上，获得该版本的源码：
 
-```shell
+```console
 $ cd systemd
 $ git checkout v256.7
 Note: switching to 'v256.7'.
@@ -349,7 +344,9 @@ HEAD is now at 7635d01869 meson: bump version to 256.7
 
 了解软件源码获取的途径后，您就可以在 ABBS 树内合适的位置开始编写打包信息了。
 
-请确保您已经按照 4.3 节的步骤在正确的位置上克隆了 ABBS 树。
+## 准备分支
+
+
 
 ## 新建文件夹 (2)
 
@@ -357,8 +354,9 @@ HEAD is now at 7635d01869 meson: bump version to 256.7
 
 在对应的子分类文件夹下新建名称为包名的文件夹后，您就可以开始编写软件包源代码信息了。
 
-> [!Note]
-> 包名不应该叫做 “新建文件夹 (2) ”。
+{% card(type="tips") %}
+包名和其所在文件夹的名称不应叫做 “新建文件夹 (2) ”。
+{% end %}
 
 ## 编写软件包源码信息文件 `spec`
 
