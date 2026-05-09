@@ -17,7 +17,7 @@ taxonomies = [
 [markdown.highlighting]
 error_on_missing_language = false
 style = "inline"
-light_theme = "min-light"
+light_theme = "one-light"
 dark_theme = "material-theme-darker"
 
 [extra]
