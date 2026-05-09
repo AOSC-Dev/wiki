@@ -90,14 +90,15 @@ oma install ciel
 ![ciel new 修改软件源](/img/onboarding-guide/ciel-new-edit-sources.webp)
 
 {% card(type="tips") %}
-- 如果您不能正常连接安同 OS 官方软件源，您必须在这里切换其他软件源。
-- 编辑镜像源时需要注意，您应从下列**实时从官方源同步**的镜像源中选择一个，以保证手动打包时能获取到最新版本的依赖：
-  - 安同 OS 官方源 `https://repo.aosc.io/debs`
-  - 清华大学 TUNA 镜像站 `https://mirrors.tuna.tsinghua.edu.cn/anthon/debs`
-  - 吉林大学开源镜像站 `https://mirrors.jlu.edu.cn/anthon/debs`
-  - 兰州大学开源镜像站 `https://mirrors.lzu.edu.cn/anthon/debs`
-  - 南阳理工学院开源镜像站 `https://mirror.nyist.edu.cn/anthon/debs`
-  - 南京大学开源镜像站 `https://mirror.nju.edu.cn/anthon/debs`
+如果您不能正常连接安同 OS 官方软件源，您必须在这里切换其他软件源。
+
+编辑镜像源时需要注意，您应从下列**实时从官方源同步**的镜像源中选择一个，以保证手动打包时能获取到最新版本的依赖：
+- 安同 OS 官方源 `https://repo-hk.aosc.io/debs`
+- 清华大学 TUNA 镜像站 `https://mirrors.tuna.tsinghua.edu.cn/anthon/debs`
+- 吉林大学开源镜像站 `https://mirrors.jlu.edu.cn/anthon/debs`
+- 兰州大学开源镜像站 `https://mirrors.lzu.edu.cn/anthon/debs`
+- 南阳理工学院开源镜像站 `https://mirror.nyist.edu.cn/anthon/debs`
+- 南京大学开源镜像站 `https://mirror.nju.edu.cn/anthon/debs`
 {% end %}
 
 依次按下 <kbd>Ctrl</kbd>+<kbd>O</kbd>、回车及<kbd>Ctrl</kbd> + <kbd>X</kbd>，保存退出。
@@ -174,13 +175,9 @@ Ciel 允许您更新容器的底层系统，以保证底层系统的软件包处
 ~/ciel/amd64 $ sudo ciel update-os
 ```
 
-![更新 Kiel 容器](/img/onboarding-guide/ciel-update-os.webp)
+![更新 Ciel 工作区的基本系统](/img/onboarding-guide/ciel-update-os.webp)
 
-更新容器底层系统
-
-![更新 Ciel 容器](/img/onboarding-guide/ciel-update-os-finish.webp)
-
-底层系统更新完毕
+![Ciel 工作区的基本系统更新完毕](/img/onboarding-guide/ciel-update-os-finish.webp)
 
 {% card(type="tips", title="别忘了") %}
 记得常回来看看，定期更新容器的系统！
