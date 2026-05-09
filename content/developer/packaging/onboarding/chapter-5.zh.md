@@ -1,669 +1,424 @@
 +++
-title = "第五章：编写打包脚本"
-weight = 5
+title = "第四章：为 ABBS 添砖加瓦"
+weight =5
 [taxonomies]
 tags = ["onboarding"]
 +++
 
-笼统地讲，为发行版 “打包” 就是按照 `/usr` 或发行版规定的系统前缀及分类路径、以发行版要求的依赖及打包标准构建软件包，然后将其安装至临时目录；再以临时目录为起点，将安装目录的内容压缩成一个压缩包，同时带上软件信息。打出的软件包随后会通过软件仓库等方式分发给最终用户，通过包管理器安装到用户的系统中。
+[aosc-os-abbs]: https://github.com/AOSC-Dev/aosc-os-abbs
 
-本章内容将教您如何直接在源码目录中使用 Autobuild 构建软件包。
+每个发行版都需要管理并合理组织自己的打包信息和脚本。安同 OS 管理打包信息的机制主要分为两部分，一端是由 Git 管理的软件包信息树 ABBS，一端是负责下载源码并发起构建的 ACBS。在安同 OS 的构建流程中，Ciel 只用于负责启动构建容器并运行 `acbs-build`。
 
-# Autobuild 介绍
+# 什么是 ABBS？
 
-Autobuild 是安同 OS 的打包工具，负责读取软件包信息，自动运行构建三连，构建源码并打出 `deb` 软件包。因此，Autobuild 属于安同 OS 打包工具链中最底层的一环。十几年来，Autobuild 经过四个大版本，逐渐成为完善的自动构建系统，支持主流语言的包管理器，以及主流的构建系统。
+ABBS 是安同 OS 管理和组织打包脚本的 Git 仓库，利用 Git 来处理和记录安同 OS 中所有打包脚本的变动。由于 ABBS 采用树状的组织方式，因此经常称其为 “ABBS 树”。
 
-Autobuild 的主要逻辑均采用 Bash 编写，给开发者及维护者提供了极大便利。少数需要用到的函数等 Shell 中难以处理的功能被移至 C++ 实现中，以换取稳定度及可维护性。
+![image](https://hackmd.io/_uploads/HynGhE42A.png)
 
-Autobuild 在全局范围定义了发行版中规定的标准，以及默认启用或禁用的编译参数：
+<p style="text-align: center">
+    <i>ABBS 树的 GitHub 页面</i>
+</p>
 
-1. 默认系统前缀及各类文件的安装路径
-    - `--prefix=/usr` 系统前缀
-    - `--bindir=/usr/bin`、`--sbindir=/usr/bin`、`--libdir=/usr/lib` 等各类文件的默认安装路径
-2. 默认启用或禁用的编译器参数，如优化、LTO、加固等；这些参数可以通过软件包定义的变量再次启用或禁用
-    - `-flto`: 默认启用链接时优化 (LTO)
-    - `-O2`: 默认启用编译期优化
-3. 默认的编译器参数（架构基线指令集）
-    - `-march=`: 基线指令集（或扩展），任何不支持该指令集的处理器均无法运行程序
-    - `-mtune=`: 针对优化指令集（或扩展），程序在支持该指令集（扩展）的处理器上性能最佳
-4. 默认的链接器参数（共享库搜索路径 RPATH 等）
+您可以前往 [ABBS 树的 GitHub 页面][aosc-os-abbs]浏览 ABBS 树的内容。您也可以把 ABBS 树克隆到您的电脑上：
 
-因此，您无需在定制参数中重复指定上述选项。不过，除系统标准路径外，每个软件都可以在软件包定义中修改或重新定义上述内容。
-
-## 构建流程
-
-Autobuild 简单来说就是构建三连的包装，使得开发者可以用更小的脚本完成打包工作。在此同时，开发者也能够在构建三连前后运行脚本，灵活控制构建过程。Autobuild 的运行流程如下：
-
-1. 读取 `autobuild` 目录中的软件包定义，获得基本信息
-2. 运行构建前的 QA 检查（确保必需定义都存在）
-3. 根据软件包定义设置编译器参数及链接器参数
-4. 如果有，按顺序应用源码补丁
-5. 如果有，运行 `prepare` 脚本（构建三连前的自定义脚本）
-6. 根据构件模板的探测情况运行对应的构建模板（或自定义构建脚本 `build`）
-7. 如果有，运行 `beyond` 脚本（构建三连后的自定义脚本）
-8. 运行构建后的 QA 检查（检查路径等）
-9. 运行后处理步骤（分离调试符号、压缩手册页等）
-10. 调用 `dpkg-deb` 工具打包
-11. 尝试安装新打出的软件包
-
-同时，Autobuild 也支持自定义用户安装软件包时执行的操作。这些操作是由包管理器运行的：
-
-- `prerm`、`postrm`: 包管理器卸载软件包前后执行的操作
-- `preinst`、`postinst`: 包管理器解压软件包内容前后执行的操作
-
-Autobuild 的整个构建流程可以用下图表示：
-
-![image](https://hackmd.io/_uploads/BJVjZQcjA.png)
-
-## 目录结构
-
-Autobuild 以源码目录为工作区，读取软件包定义，执行构建三连打包。除全局配置文件外，Autobuild 所需的文件全部存放于源码目录中的 `autobuild` 文件夹下。Autobuild 不支持将 `autobuild` 目录置于其他位置，请知悉。以 Htop 为例，Autobuild 所需的主要文件如下：
-
-- `/etc/autobuild/ab4cfg.sh`: 全局 Autobuild 配置文件，记录贡献者信息及第二阶段自举模式等。
-- `htop-3.3.0/`: Htop 3.3.0 版本的源码目录。
-  - `autobuild/`: Autobuild 构建定义文件所在目录。
-    - `defines`: 软件包描述信息。Autobuild 目录下必须存在该文件。
-    - `prepare`: 构建三连前执行的脚本，用于（选择性地）设置编译器参数（`CFLAGS` 等）。
-    - `beyond`: 构建三连后执行的脚本，用于安装额外的文件、设置软链接等。
-    - `build`: 自定义构建脚本。只有在构建模板无法满足需求、或者没有合适的构建模板时使用。
-    - `patches/`: 用于存放以 `.patch` 结尾的源码补丁文件。
-
-在构建中，Autobuild 会以源码目录 `htop-3.3.0` 为起点自动创建及处理源码目录和安装目标目录：
-
-- `abbuild`: 启用独立编译时创建的构建目录。
-- `abdist`: 安装目标路径所在目录。
-
-安同 OS 和 Autobuild 没有 fakeroot 支持，因此在打包时会直接使用 `root` 权限。
-
-## 语言规范
-
-安同 OS 开发中，用于记录软件包元信息的语言叫做 APML（ACBS 软件包元数据语言，ACBS Package Metadata Language）。APML 是安同 OS 开发工具链所使用的语言，是 Bash 的子集，因此 Autobuild 可以直接读取文件。除了 `prepare`、`build` 及 `beyond` 等构建脚本外，所有软件包定义文件均受 APML 的约束。
-
-APML 规定了软件包定义中 Bash 语言的使用范围：
-
-- 只允许存在变量定义。
-- 可以使用注释。
-- 变量的值可以是字符串，可以是数组。
-- 定义变量时可以引用参数，可以使用参数变换 (Parameter expansion)。
-- 允许在字符串中使用行接续符（`\` 加上换行符）将字符串分成多行。
-- 不允许 Here Documents。
-- 不允许分支条件及循环控制。
-- 不允许执行命令。
-- 不允许使用管道。
-
-## 一般工作流程
-
-一般情况下，用 Autobuild 打包软件项目的流程分为如下步骤：
-
-1. 调查阶段：收集软件包信息
-   1.1 确定软件包名、版本、分类及描述
-   1.1 调查软件项目使用的构建系统
-   1.2 调查可以接受的定制参数（参考 2.2.5 节中的描述）
-   1.3 结合系统情况选择要启用的特性或扩展
-   1.4 收集需要指定的定制参数（`--prefix` 等路径相关的参数除外）
-2. 定义阶段：编写软件包定义及构建脚本（如果有需要）
-    2.1 编写软件包定义 `autobuild/defines`
-    2.2 如果没有使用构建系统或构建系统不受 Autobuild 支持，则需要编写自定义脚本 `autobuild/build`
-3. 构建测试阶段：确保编译通过
-    3.1 在源码目录中运行 Autobuild
-    3.2 如果出错，则需要调整定制参数或编译器参数，或者需要在构建前后运行处理脚本 (`autobuild/prepare`、`autobuild/beyond`)
-
-# Autobuild 的构建模板
-
-构建模板是运行构建系统的逻辑或脚本。构建模板从构建过程中隐藏了构建三连命令本身，因此打包者无需再手动编写构建脚本，只需要在软件包定义中指定项目的定制参数即可。
-
-Autobuild 支持多种构建系统，每种构建系统都有自己的构建模板（这些构建系统的使用方法不尽相同），构建模板中包含如下定义及逻辑：
-
-- 系统路径范围的定制选项（系统前缀、各类文件安装的位置等）
-- 针对构建系统编写的构建三连
-- 控制构建模板行为的变量（如对于 Autotools 是否重新生成 `configure` 脚本）
-
-Autobuild 中存在如下构建模板：
-
-- `autotools`: 处理使用 Autotools 构建系统的项目。
-- `cmakeninja`: 处理使用 CMake 构建系统的项目，并让 CMake 生成 Ninja 构建系统执行器的构建序列文件。
-- `cmake`: 处理使用 CMake 构建系统的项目，生成供 GNU Make 执行的 Makefile。
-- `meson`: 处理使用 Meson 构建系统的项目。
-- `waf`: 处理使用 WAF 构建系统的项目。
-- `dune`: 负责处理 OCaml 软件包。Dune 是 OCaml 程序的构建系统。
-- `perl`: 负责处理 Perl 软件包。
-- `python`: 负责处理使用 Setuptools (`setup.py`) 的 Python 项目。
-- `rust`: 负责调用 Rust 的包管理器兼构建系统 Cargo。
-- `pep517`: 负责处理使用 PEP 517 构建系统的项目，并调用`build` 模块和 `install` 模块。
-- `qtproj`: 负责处理使用 QMake 构建系统的项目（源码目录包含任何 `.pro` 结尾的文件）。
-
-然而有时 Autobuild 提供的模板可能不够灵活，或者暂时还没有某个构建系统的模板支持，抑或是项目只需要执行 `make` 即可编译。在这种情况下，您可以使用自定义脚本，绕过 Auotbuild 的构建模板。
-
-# 热身
-
-在您动手使用 Autobuild 之前，请先确保您已经搭建好了安同 OS 的开发环境。由于在系统中直接运行 Auotbuild 会影响系统本身，因此在接触 Ciel 之前，我们强烈建议您使用虚拟机。您可以利用下面的检查表来确认：
-
-- [ ] 独立的系统环境（开发机或虚拟机）
-- [ ] 安装了 `devel-base`
-- [ ] 安装了 `autobuild4` 和 `acbs`
-- [ ] 确定要使用的用户名和邮箱
-- [ ] 能够下载或克隆源码
-
-在着手操作 Autobuild 之前，您需要先真正地编译一次软件。本节我们以著名的进程管理器 htop 为例，带您手动构建，然后转移至 Autobuild。
-
-## 构建热身
-
-[htop][htop] 是一个酷炫实用的进程（任务）管理器，可以查看处理器、内存和 I/O 的使用情况，可以按照某种指标排序，可以管理进程。本节先带您动手执行 Autotools 构建系统的构建三连：
-
-1. 找个位置，或创建一个文件夹，作为工作目录：
-
-    ```shell
-    /tmp $ cd ~
-    ~ $ mkdir aosc-build
-    ~ $ cd aosc-build
-    ```
-
-2. 从网站或 GitHub 上下载其源码发行 (tarball) 并解压：
-
-    ```shell
-    ~/aosc-build $ wget https://github.com/htop-dev/htop/releases/download/3.3.0/htop-3.3.0.tar.xz
-    ~/aosc-build $ tar xf htop-3.3.0.tar.xz
-    ~/aosc-build $ cd htop-3.3.0/
-    ```
-
-3. 进入源码目录后，查找 Htop 选用的构建系统，确定可以指定的定制选项。
-
-     源码目录中存在 `configure.ac` 文件，因此 Htop 是一个 Autotools 项目。同时，源码目录中有生成好的 `configure` 脚本，因此我们不需要重新生成。先看看 `configure` 脚本提供哪些参数：
-
-    ```shell
-    htop-3.3.0 $ ./configure --help
-    ```
-
-    浏览脚本的输出，可以找到一些有关定制 Htop 的功能的信息：
-
-    - `--enable-pcp`: 启用 [PCP][pcp]（一款系统性能数据分析工具）支持
-    - `--enable-unicode`: 启用 Unicode 支持
-    - `--enable-affinity`: 启用进程相关性支持（绑定进程到某个 CPU 核心）
-    - `--enable-capabilities`: 启用进程权限 (Capabilities) 支持
-    - `--enable-sensors`: 启用传感器支持（用于显示处理器温度）
-
-4. 决定要启用哪些定制选项。
-    这里我们只启用能够显示处理器温度的选项 `--enable-sensors` 及 Unicode 支持。
-
-5. 调查当前配置下所需要的依赖组件。
-
-    Htop 的 README 非常清晰，列出了 Htop 需要的必要依赖组件，以及启用功能时额外所依赖的组件。我们需要记录所有必要依赖，并且根据上面的定制情况记录其他依赖：
-    - 基本依赖有：编译器、Autotools 套件、NCurses 终端库
-    - 启用传感器支持后引入的额外依赖：`libsensors`
-
-    > [!Note]
-    > `libsensors` 中以 `lib` 开头。按照业界的软件包命名规律，libsensors 属于共享库 (Library)。调查依赖期间遇到共享库时，您可能需要了解该共享库是否属于项目的一部分。
-    > `libsensors` 是 [lm-sensors](https://hwmon.wiki.kernel.org/lm_sensors) 的一部分。lm-sensors 提供了查看传感器状态的工具，以及供其他程序实现温度监控的传感器库。
-
-    在安同 OS 中，这些组件对应的包名分别为 `gcc`、`autoconf`、`automake`、`ncurses` 及 `lm-sensors`。而安同 OS 提供更简便的安装常用构建工具链的方式：您可以直接安装 `devel-base`，编译器及常见的构建系统会同时引入。
-
-6. 安装依赖组件。
-
-    将依赖组件与安同 OS 的软件包一一对应之后，用包管理器安装即可：
-    ```shell
-    htop-3.3.0 $ oma install devel-base ncurses lm-sensors
-    ```
-
-7. 按照选用的参数运行构建三连。
-
-    > [!Note]
-    > 本次热身仅作构建说明之用，您无需也不应该将安装前缀指定到 `/usr`。同时，您也无需指定 `DESTDIR`。
-    > 在本次编译中，我们将系统前缀设置为家目录下的 `aosc-build` 文件夹，避免在构建阶段使用 `sudo`。
-
-    万事俱备，现在就可以运行构建三连了！
-
-    ```shell
-    htop-3.3.0 $ mkdir build
-    htop-3.3.0 $ cd build
-    build $ ../configure --prefix=$HOME/aosc-build/apps \
-                              --enable-sensors
-    build $ make -j$(nproc)
-    build $ make install
-    build $ cd ..
-    ```
-
-8. 安装完毕后运行程序：
-
-    由于安装的位置不属于标准路径，因此您无法直接使用 `htop` 命令运行刚才构建出的 Htop。您需要指定安装后的 Htop 的完整路径：
-
-    ```shell
-    htop-3.3.0 $ ~/aosc-build/apps/bin/htop
-    ```
-
-以上介绍了自行构建期间大致需要的步骤。您为安同 OS 打包时也需要采取类似的步骤，具体的细节会在后面讲到。
-
-## 配置 Autobuild
-
-都准备好了吗？那么我们就继续吧！您需要先告诉 Autobuild 您的维护者身份。以 root 身份编辑 `/etc/autobuild/ab4cfg.sh`，将您的信息填写至此：
-
-```shell
-MTER="Some Packager <some@packager.com>"
+```sh
+# 使用 HTTP 协议
+git clone https://github.com/AOSC-Dev/aosc-os-abbs.git
+# 或使用 SSH 协议
+git clone git@github.com:AOSC-Dev/aosc-os-abbs.git
 ```
 
-我们将继续以 Htop 为例讲述如何用 Autobuild 软件包。您现在可以删除之前安装的 Htop 及构建目录了：
+{% card(type="tips") %}
+可前往附录 B 参考关于 ABBS 相关的 Git 使用技巧。
+{% end %}
 
-```shell
-htop-3.3.0 $ make -C build uninstall # 进入构建目录，卸载安装到 ~/aosc-build 的 Htop
-htop-3.3.0 $ rm -r build # 移除构建目录
-htop-3.3.0 $ rm -r ~/aosc-build/apps
+## 组织方式
+
+ABBS 树内的软件包分两层组织：最上层为软件包类型及应用场景，接下来是软件包本身。其中，软件类型包括：
+
+- `app`: 以应用程序为主的软件。
+- `core`: 安同 OS 的核心组件（GCC 编译器、GNU glibc 运行库及其依赖）
+- `runtime`: 以运行时的共享库为主的软件。
+- `lang`: 编程语言相关的软件（编译器、包管理器等）
+- `desktop`: 桌面环境相关的应用程序、运行库等。
+- `meta`: 元包（Metapackages，只记录了依赖信息、没有实际内容的软件包）
+
+除了一些顾名思义的分类外，ABBS 针对 `app` 和 `runtime` 细分了一些软件分类：
+
+- `admin`: 系统管理工具
+- `a11y` (Accessibility): 辅助性工具（针对视障、听障等人士使用电脑的软件，又叫可访问性工具）
+- `benchmarks`: 评测工具
+- `cryptography`: 加密相关的程序
+- `database`: 数据库服务端
+- `doc`: 文档生成工具
+- `devel`: 开发工具（编译器、链接器等）
+- `editors`: 文本编辑器
+- `emulation`: 各类设备（游戏主机、其他硬件设备等）的模拟器
+- `i18n` (Internationalization): 国际化相关的软件（翻译软件等）
+- `productivity`: 生产力工具（办公套件等）
+- `scientific`: 科学计算工具
+- `utils`: 实用工具（文件管理工具、压缩解压缩工具等）
+
+## 仓库的目录结构
+
+所有软件包的打包脚本按照分类分别存放。下面将详细介绍软件包的组织方式。
+
+```
++ aosc-os-abbs/ # 仓库根目录
+  + 软件类型-软件分类/` # 一级分类文件夹，如 `app-admin`
+    + 软件包名称/       # 存放软件包源码信息及 `autobuild` 文件夹，如 `shadow`
+      - spec            # 软件包版本及源码信息
+      + autobuild/      # 打包脚本所在文件夹
+        - beyond
+        - defines
+        - prepare
 ```
 
-现在，请您创建 `autobuild` 文件夹，准备动手编写 Autobuild 文件。
+大多数软件包只包含一套打包信息。但有时软件包文件夹下会存在不止一套 Autobuild 打包信息：这说明该软件项目被拆分为多个子软件包。
 
-# 编写软件包定义
+## 拆包时的目录结构
 
-软件包定义记录在 `autobuild/defines` 文件中。`defines` 文件遵循 APML 的约束，因此该文件的内容只包含变量定义，即 `变量名=值`。
+有些软件包既有日常使用期间一定会依赖到的运行库，也包含日常用不到的部分。即便安同 OS 奉行 “不拆包” 的概念，但此类软件包不拆包是不现实的。以 GCC 为例，GCC 包含平时一定会依赖的编译器运行时，但用户日常使用期间没有必要安装完整的 GCC 编译器套件。
 
-> [!Important]
-> 等号左右不允许有空格，否则会被认定为命令。下面的例子都是不正确的：
+在这种情况下，必须拆分 GCC，将其拆分为运行时和编译器两部分。被拆包的软件的目录结构一般如下：
+
+```
++ aosc-os-abbs/         # 仓库根目录
+  + core-devel/         # GCC 所属分类（核心组件—开发工具）
+    + gcc/              # GCC 的打包信息所在文件夹
+      - spec            # GCC 的源码及版本信息
+      + 01-runtime/     # 拆分的第一个软件包的 `autobuild` 文件夹（GCC 运行时库）
+        - beyond
+        - build
+        - defines
+        - prepare
+      + 02-compiler/    # 拆分的第二个软件包的 `autobuild` 文件夹（GCC 编译器本体）
+        - build
+        - defines
+        - prepare
+```
+
+{% card(type="warning", title="注意细节") %}
+GCC 身为编译器，在用户的日常使用场景中不会用到。但 GCC 的运行时库（`libgcc`、 `libstdc++` 等）却是几乎所有 C 和 C++ 语言编写的程序的依赖。
+
+其他 C 和 C++ 语言的编译器也是如此，如 Clang 有一套自己的 C++ 运行时 `libc++`，但在大多数默认使用 GCC 的 Linux 发行版中，Clang 编译 C++ 程序时依旧会链接 `libstdc++`。
+{% end %}
+
+## ABBS 的提交准则
+
+安同 OS 采用基于测试源维护机制，因此安同 OS 的开发极度依靠 Git 的分支管理机制。所有改动最终都会合并到 `stable` 分支，又称为 “稳定源” 及 “主线”。`stable` 分支记录着最终分发给广大用户的软件包的构建信息。
+
+ABBS 不允许直接将软件包改动推送至 `stable` 分支。您必须先基于当前最新的 `stable` 分支派生出新的分支（测试源），并在测试源中提交相应改动。经过一系列测试及审阅后，测试源的修改才能进入 `stable` 分支。
+
+ABBS 始终保持线性的提交历史，因此仓库中不允许使用 `git merge` 等会创建 Merge Commit 的形式合并分支。所有的测试源最终都会变基 (Rebase) 到 `stable` 分支，然后将 `stable` 分支快进，完成合并，同时保留分支内的提交历史。
+
+不过，出于种种原因，测试源分支内的杂乱提交可能需要整理，此时您可以随意变基分支。变基分支会产生本地和远端仓库之间的分歧，因此所有的测试源分支均允许强制推送 (Force push)。
+
+# ACBS 介绍
+
+ACBS 全称 Autobuild CI Build System，是安同 OS 打包环节中的第二环，负责根据 ABBS 树记录的信息发起构建，即调用 Autobuild。具体地讲，ACBS 主要负责以下内容：
+
+- 读取软件包的源码信息和依赖
+- 根据依赖信息决定构建序列
+- 下载并解压缩源码包
+- 复制对应包的构建脚本目录 (`autobuild`) 到源码目录中
+- 进入源码目录，调用 Autobuild4
+- 等待 Autobuild4 执行完毕，将软件包复制到输出文件夹
+
+# 使用 ACBS 发起构建
+
+## 启动并进入 Ciel 容器环境
+
+进入 Ciel 工作区目录，运行 `ciel shell` 命令进入容器实例的 Shell 环境：
+
+```sh
+cd ~/ciel/amd64
+sudo ciel shell -i main
+```
+
+## 发起构建
+
+```shell
+# acbs-build 软件包名称
+```
+
+![acbs-build 构建完成](/img/onboarding/acbs-build-finish.webp)
+
+<p style="text-align: center; font-style: italic">
+    <code>acbs-build bash</code> 的执行结果
+</p>
+
+由上图可见，ACBS 会自动将产出的 `deb` 包复制到容器内的 `/debs` 文件夹中，也就是容器外的 `OUTPUT-<分支名称>` 文件夹。
+
+# 添加软件包
+
+安同 OS 的所有软件包打包脚本均位于 ABBS 树中。您需要在 ABBS 树中的合适位置添加软件包的定义。添加新软件包一般需要经过以下步骤：
+
+1. 调查软件项目，获得软件的最新版本；
+2. 调查软件项目，获得稳定的源码包下载链接及源码包校验信息；
+3. 在 ABBS 中的合适位置新建文件夹；
+4. 编写软件包源码信息 `spec`；
+5. 编写 Autobuild 定义文件及打包脚本；
+6. 打包测试，根据情况调整打包定义。
+
+本节中仅介绍如何在 ABBS 树内新建文件夹及编写源码信息。
+
+## 调查软件的源码获取途径
+
+在您着手打新软件包前，您需要先了解获取软件源码的途径。一般情况下，您可以通过如下方式找到源码：
+
+大部分知名软件都有自己的项目主页，且有自己的下载页面，发行的源代码通常也可以在站内直接下载到：
+- 有些软件有自己的域名。如 86Box 注册了 86box.net
+- 有些软件属于某个项目的一部分，因此可能没有自己的域名。如 GNU Emacs 是 GNU 项目的一部分，因此 Emacs 和其他 GNU 项目一样都在 gnu.org 下
+
+托管项目代码的托管平台所对应的仓库页面。一些项目可能没有官网，取而代之的是项目在各大代码托管平台的仓库，可以直接使用对应的版本控制软件克隆到本地：
+- GitHub：定位项目的链接一般遵循 `https://github.com/用户或组织/项目名称` 的格式。
+- GitLab：定位项目的链接一般遵循 `https://gitlab.com/用户或组织/项目名称`、`gitlab.com/用户或组织/子项目/项目名称` 的格式。GitLab 允许在用户或组织的名下继续分类。
+- cgit 或 gitweb：克隆仓库的链接会显示在仓库的主页（Summary）上。
+- 有些软件有自己的官网，但其源码则托管在代码平台上。一般官网会给出源码的下载链接，但有些下载链接也会将您引导到代码托管平台的 Releasses 页面。
+
+![image](/img/onboarding/cgit.webp)
+<p style="text-align: center; font-style: italic">
+    cgit 的使用场景之一就是 Linux 内核的 Git 网页前端
+</p>
+
+## 通过官网获得源码压缩包
+
+绝大多数软件均会以压缩包（俗称 “tarball”，源码一般会以 tar 格式打包后压缩）的形式发布。Tarball 的获取途径一般是软件官网的下载页面。软件官网一般会将最新版本的发布说明或源码下载链接放置在首页或 “Downloads （下载）” 页面中。例如，qBittorrent 的官网 https://www.qbittorrent.org/ 就有提供源码包下载（如图所示）：
+
+![image](/img/onboaring/qb-homepage.webp)
+
+<p style="text-align: center; font-style: italic">
+    qBittorrent 的官网主页，可见并没有源码链接的身影
+</p>
+
+由上图可见，qBittorrent 并未在首页放置下载链接，因此您需要点击 “Downloads” 前往下载页面，找到有关源码的一节：
+
+![image](/img/onboarding/qb-download.webp)
+
+<p style="text-align: center; font-style: italic">
+    qBittorrent 下载页面中 “Source Tarball” 一节
+</p>
+
+由上例可见，在官网发布 tarball 的软件不仅提供源码链接，同时还提供源码包的校验信息（SHA-256、MD5 等算法的校验值）。源码包的校验信息尤为重要，成功比对校验值就意味着下载的源码包没有损坏，且没有被中途修改。
+
+{% card(type="info", title="注意下载链接格式") %}
+所有的源码包下载链接均为直链形式，也就是说，链接尾部必须为文件名，且链接中不能有问号、`&` 符号等 URL 参数。如，下面的例子就是符合要求的链接：
+
+- `https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/snapshot/linux-6.10.10.tar.gz`
+- `https://github.com/htop-dev/htop/releases/download/3.3.0/htop-3.3.0.tar.xz`
+- `https://ftp.gnu.org/gnu/gcc/gcc-14.2.0/gcc-14.2.0.tar.xz`
+{% end %}
+
+{% card(type="tips") %}
+有些软件会发行由多种压缩算法压缩的 tar 包：
+- `.tar.gz`: Gzip
+- `.tar.xz`: LZMA (xz)
+- `.tar.bz2`: Bzip2
+
+有时您可能也会见到 `.zip` 格式打包的源码。如果软件有发行多种格式的源码包，请采取如下顺序优先选择：
+1. `.tar.xz`
+2. `.tar.gz`
+3. `.tar.bz2`
+4. `.zip`
+
+复制到源码包的链接后，请记下源码包的获取链接，以便后续在 ABBS 中添加。
+{% end %}
+
+## 通过代码托管平台获得源码包
+
+<!-- 有些软件即便有官网，也可能不直接提供 tarball，而是指引开发者克隆软件的版本追踪系统仓库（Git、Mercurial、Subversion 等），然后检出期望的版本。直接在代码托管平台上安家的项目也采取这种获取源代码的形式。 -->
+
+有些软件有自己的官网，但开发工作和代码托管却在代码托管平台上进行。也有软件在托管平台上安家，这类软件没有自己的官网，所有的开发工作、Bug 追踪工作都在代码托管平台上进行。
+
+一般情况下，获取这些项目的源码最直接的方式是使用 Git 等版本控制软件克隆源码仓库。不过，为了方便发行版开发者，软件项目通常也会提供 tarball。有一部分此类项目会自行在代码托管平台的 Releases 页面上自行发布 tarball，有些则完全依赖代码托管平台生成 tarball。
+
+对于 GitHub 和 GitLab，您可以直接前往项目主页（列出项目文件和 README 的页面），此时页面的链接一般就是仓库的 URL：
+
+- 对于 GitHub，仓库 URL 的形式为 `https://github.com/用户名或组织名/项目名`，如
+    - `https://github.com/nginx/nginx`
+    - `https://github.com/felixonmars/fcitx5-pinyin-zhwiki`
+
+- 对于 GitLab，大多数 URL 与 GitHub 保持一致，但有时仓库名与用户名之间会有子分类，如：
+    - `https://gitlab.com/qemu-project/qemu` （没有子分类）
+    - `https://gitlab.freedesktop.org/xorg/driver/xf86-input-libinput` （有 `driver` 子分类）
+
+然后前往仓库的版本发行 (Release) 页面：
+
+- GitHub 的版本发行页面入口在项目主页右侧。
+- GitLab 的版本发行页面需要点击页面左侧 “部署 (Deploy)” ，然后点击 “发布 (Releases)”。
+
+如果仓库的版本发行页面为空，则说明该项目不发行源码包。否则，找到页面中标记为最新的版本：
+
+| ![image](/img/onboarding/github-releases.webp) | ![image](/img/onboarding/gitlab-releases.webp) |
+|:---------------------:|:---------------------------------------------------:|
+| GitHub 的版本发布页面 |                GitLab 的版本发布页面                |
+
+上文提到代码平台会自动生成对应版本的 tarball，这些 tarball 一般会与项目自行打包的  tarball 一起在代码托管平台的 Release 页面提供，**您应该避免利用这些链接**：一般链接标记为 “Source Code” 的 tarball 均为代码托管平台自动生成。上面的例图中的链接均为自动生成的 tarball 的链接。
+
+不过，有些 tarball 是由维护者自行上传的（如下图由绿色框出的链接就指向的是维护者自行上传到 Releases 页面的 tarball），此时您应该使用这类链接下载 tarball；红色框出的链接就是您不应该使用的自动生成 tarball 的链接：
+
+![image](/img/onboarding/github-release-tarball.webp)
+
+<p style="text-align: center; font-style: italic">
+    绿色框的部分就是开发者自行打包上传的 Tarball，红色为代码平台自动生成的链接；可见自行上传的文件不仅有文件名，还有大小，可利用此特征区分
+</p>
+
+如果您拿不准，请直接前往下一节，使用项目的代码仓库。
+
+{% card(type="info", title="不使用代码平台生成 tarball 链接的原因") %}
+通常情况下，代码托管平台自动生成的 tarball 可能无法复现——这意味着每隔一段时间，由同一版源码生成的 tarball 会得出不同的校验值。
+
+这种情况会令自动打包系统失效，因为自动打包系统同样需要确保源码包的完整性 (Integrity)，因此打包前必须记录每一个源码（包）文件的校验值。一旦上游的链接指向的源码（包）发生变动，校验值就会改变。
+
+造成这种情况的原因较为复杂，但其中最明显的一个原因是每次代码平台生成 tarball 时会记录文件的时间戳信息，而文件的创建时间、修改时间及访问时间等信息可能会随着生成的时间而改变。
+
+因此，如果项目在 GitHub、GitLab、SourceForge 等平台托管了代码，并且没有在 Releases 页面自行发布 tarball，强烈建议您利用版本控制系统获取源码。
+
+如果托管在代码平台中的项目的确没有提供自己打包的 tarball，您就需要通过 VCS 获取其源码。
+{% end %}
+
+## 通过版本控制系统 (VCS) 获取项目源码
+
+如果项目的官网、项目使用的代码托管平台上均没有能够利用的 tarball，您就需要找打项目托管在代码平台上的代码仓库，将其克隆到本地。克隆仓库一般需要找到仓库的 URL，然后前往终端使用对应的 VCS 软件克隆。下面将讲述如何获得仓库的 URL。
+
+以下是几个常见的托管平台及其主要使用的版本控制系统：
+
+| 代码托管平台 | 网址 | 使用的版本控制系统 |
+| :---: | :---: | :---: |
+| GitHub | https://github.com/ | Git |
+| GitLab* | https://gitlab.com/ | Git |
+| GNU Savannah | https://savannah.gnu.org/ | Git, Mercurial (hg), Subversion(SVN), CVS |
+| Gitee （码云） | https://gitee.com/ | Git |
+| Codeberg (Gitea, Forgejo)* | https://codeberg.org/ | Git |
+| SourceForge** | https://sourceforge.net/ | Git, Mercurial (hg), Subversion (SVN) |
+| BitBucket | https://bitbucket.org | Git |
+| SourceHut | https://sr.ht/ | Git, Mecurial |
+
+\*: 这些平台使用的服务端开源，因此会有许多开发者自行运行的实例。
+\*\*: ABBS 树中鲜有直接克隆 SourceForge 源代码仓库的用例。您应该参考上节内容使用 SourceForge 打包的 tarball。
+
+您应该可以直接透过搜索引擎或项目官网找到项目仓库所在地址，部分代码托管平台的项目 URL 的格式及其对应的仓库克隆 URL 使用方法如下：
+
+| 代码托管平台 | URL 格式 | URL 示例 | 如何找到克隆用 URL |
+| :----: | :-----: | :-----: | :----- |
+| GitHub | `https://github.com/用户或组织名/项目名称` | https://github.com/systemd/systemd | 点击 “Code” 按钮，在弹框中选择 “HTTPS”，复制下面的链接 |
+| GitLab 及其自建实例 | `https://gitlab.com/用户或组织名/项目名称` | https://gitlab.com/qemu-project/qemu | 点击 “Code（代码）” 按钮，复制 “Clone with HTTPS（使用 HTTPS 克隆）” 下的链接 |
+| GitLab 及其自建实例* | `https://gitlab.com/用户或组织名/子分类/项目名称` | https://invent.kde.org/graphics/krita | 点击 “Code（代码）” 按钮，复制 “Clone with HTTPS（使用 HTTPS 克隆）” 下的链接 |
+| Gitee | `https://gitee.com/用户或组织名/项目名称` | https://gitee.com/rtthread/rt-thread | 点击 “克隆/下载”，复制 “HTTPS” 下的第一个链接（切勿复制带 git clone 的链接） |
+| GNU Savannah | `https://savannah.gnu.org/projects/项目名/` | https://savannah.gnu.org/projects/bash/ | 在页面下方点击 “Browse Git Repository” 后，复制新页面中的 HTTPS 链接 |
+| Codeberg、自建 Forgejo 及 Gitea 实例 | `https://codeberg.org/用户或组织名/项目名` | https://codeberg.org/forgejo/forgejo | 在页面上半部分找到 “HTTPS”，复制其旁边的链接 |
+| SourceHut | `https://VCS名称.sr.ht/~用户名/项目名` | https://git.sr.ht/~sbinet/sako | 复制右侧 “clone” 版块中 “read-only” 下面的链接 |
+
+{% card(type="tips") %}
+您访问托管平台的项目仓库主页时，地址栏应仅包含上述格式的链接。如果地址栏中包含任何其他内容（如多一级斜杠 “/”、存在问号及参数等），请将其删除。
+- GitLab 的链接可能在用户/组织名及项目名之间存在多级的子分类，访问 GitLab 项目时尤其需要注意。
+{% end %}
+
+找到项目在代码托管平台上的仓库、并获取到仓库 URL 后，您就可以在终端中使用对应的 VCS 克隆了：
+
+```shell
+$ cd ~/clones
+$ git clone https://github.com/systemd/systemd.git
+$ svn co svn://svn.code.sf.net/p/sdcc/code/tags/sdcc-4.3.6
+$ hg clone https://hg.sr.ht/~scoopta/wofi
+```
+
+由于 Mercurial、Subversion、CVS 等版本控制工具的用途并不广泛，本指南只介绍 Git 的使用方法。
+
+克隆到本地后，您需要将源码检出 (Checkout) 到特定版本。您不能使用克隆下来的主分支！您可以前往托管平台的项目主页，点击 “Tags（标签）” 链接获得最新发布的版本。您需要记下最新版的 tag 名称（不能省略其中的 “v” 等前缀）。
+
+如，截至编写之日 systemd 最新发布的版本是 `v256.7`。您就可以将源码检出到该标签上，获得该版本的源码：
+
+```console
+$ cd systemd
+$ git checkout v256.7
+Note: switching to 'v256.7'.
+
+HEAD is now at 7635d01869 meson: bump version to 256.7
+```
+
+现在请记下该项目的仓库 URL、项目的最新版本及对应的 Tag 名称，以便后续添加至 ABBS 中。
+
+# 将新的软件添加至 ABBS 中
+
+了解软件源码获取的途径后，您就可以在 ABBS 树内合适的位置开始编写打包信息了。
+
+## 准备分支
+
+
+
+## 新建文件夹 (2)
+
+按照 ABBS 的软件分类规则，您要打包的软件需要归类为应用程序 (`app-`) 或运行时库 (`runtime-`)，然后按照软件的用途寻找对应的子分类。以 htop 为例，htop 属于进程管理工具，因此需要落在 `app-admin` 下。
+
+在对应的子分类文件夹下新建名称为包名的文件夹后，您就可以开始编写软件包源代码信息了。
+
+{% card(type="tips") %}
+包名和其所在文件夹的名称不应叫做 “新建文件夹 (2) ”。
+{% end %}
+
+## 编写软件包源码信息文件 `spec`
+
+`spec` 文件位于 ABBS 树中软件包文件夹下，记录着软件包的源代码获取途径、版本及校验值。和 Autobuild 的 `defines` 文件一样，`spec` 同样遵循 APML 的约束。
+
+`spec` 文件中必须存在的变量如下表所示。
+
+| 变量名 | 描述 |
+| :----: | :----: |
+| `UPSTREAM_VER` | 上游项目发布的版本号，不能有变动 |
+| `VER` | 符合 AOSC 版本号规范的版本号 |
+| `SRCS` | 源码的下载途径 |
+| `CHKSUMS` | 源码（包）的校验值 |
+| `CHKUPDATE` | 用于检查更新的链接 |
+
+### `UPSTREAM_VER`
+
+`UPSTREAM_VER` 记录着上游发布版本的版本号，不能修改。您可以去掉版本前缀（如 `v1.2.3` 中需要去掉前缀 `v`）。该变量用于检查上游版本的更新。
+
+### `VER`
+
+`VER` 记录着经修改后符合 AOSC 版本规范的版本号。您需要将 `UPSTREAM_VER` 按如下规则修改后得到的字符串写入 `VER` 变量中。
+
+| 情形 | 修改规则 | 版本号示例 | 修改后示例 |
+| :----: | :----: | :----: | :----: |
+| 版本号中只存在半角句点，如常见的 `x.y.z` 版本号 | 不做修改，保持原样 | oma `1.12.6` | `VER=1.12.6` |
+| 版本号中存在字母 | 将字母改为小写，并删除字母周围的符号 | BIND `9.12.3-P4` | `VER=9.12.3p4` |
+| 版本号中存在短横线 “`-`” | 将短横线替换为加号 “`+`” | ImageMagick `6.9.10-23` | `VER=6.9.10+23` |\
+| 版本号中存在下划线 “\_” | 将下划线改为半角句点 “.” | Icarus Verilog `10_2` | `VER=10.2` |
+| 版本号中存在发布阶段标记（“alpha”、“rc” 等） | 将字母改为小写并用半角波浪线 “~” 连接主版本和发布阶段标记 | GoldenDict `1.5.0-RC2` | `VER=1.5.0~rc2` |
+| 版本号为未分隔开的日期 | 按照 `YYYYMMDD` 格式填入 | ACBS `20241103` | `VER=20241103` |
+| 版本号为格式化后的日期 | 将分隔符改为半角句点，即 `yyyy.mm.dd` | QuickJS `2020-09-06` | `VER=2020.09.06` |
+| 版本号基于版本控制系统的某提交的哈希值 | 取 VCS 简写、距离该提交最近的 Tag（如果没则为 `0`）、精简过的哈希值、对应的 Revision 号码及提交日期 | shadowsocks-libev `05e70d43176ae239ba54ffb1a0f80df5b8f3d4f1` | `VER=3.3.5+git20220626.r2372.05e70d4` |
+
+> [!Note]
+> 对于最后一种版本号，应填入的版本格式为：
 > ```bash
-> PKGNAME = bash
-> # Bash 会认为 PKGNAME 是一个命令，“=” 和 “bash” 是 PKGNAME 命令的参数
-> PKGNAME =bash
-> # Bash 会认为 PKGNAME 是一个命令，“=bash” 是 PKGNAME 命令的参数
-> PKGNAME= bash
-> # Bash 会设置一个值为空的环境变量 PKGNAME，然后执行命令 “bash”
+> VER=${TAG}+${VCSNAME}.r${REVISION}.${SHORTHASH}
+> ```
+> 其中：
+> - `TAG`: 距离采取的 commit 最近的 Tag（只能比当前 commit 旧，不能向后选择）
+> - `VCSNAME`: 简写的版本控制系统名称，如 `git`、`hg`、`svn`。
+> - `REVISION`: 顺序的修补版本号，通常为由第一个 commit 起到目前为止的计数。
+> - `SHORTHASH`: 经过版本控制软件截短后的 commit 的哈希值。如果版本控制系统没有用哈希值，可以连带左边的句点一起不写，如 Subversion。
+> 其中对于修补版本号，Git 可以通过以下方式获取：
+> ```bash
+> git rev-list -n COMMIT_HASH
+> ```
+> Mercurial 则可以通过如下方式获取：
+> ```bash
+> hg id -n -r REF
 > ```
 
-Autobuild 的软件包定义中包含了除源码信息外的所有内容：
-
-- 软件包信息：包名、软件版本等
-- 构建系统参数：使用的构建模板、构建系统的定制参数等
-- 编译器特性：LTO、优化、切换到 Clang 编译器等
-
-## 软件包基本信息
-
-`defines` 文件中必须存在如下定义，否则该包视为无效：
-
-|  变量名   |  类型  |                         约束                         | 作用                                                                          |
-|:---------:|:------:|:----------------------------------------------------:| ----------------------------------------------------------------------------- |
-| `PKGVER`  | 字符串 | 只允许出现小写字母、数字和符号；不允许出现短横 (`-`) | 记录软件包的版本。版本号遵循安同 OS 的版本记录规范，在本节中先忽略。          |
-| `PKGNAME` | 字符串 |     一般只包含小写字母、数字、短横、加号及下划线     | 记录软件包的名称。                                                            |
-| `PKGSEC`  | 字符串 |                        特定值                        | dpkg 包管理器规定的软件包分类。参考 `/usr/lib/autobuild4/sets/section` 文件。 |
-| `PKGDES`  | 字符串 |                大小写字母、空格和数字                | 一句简短的、对软件包功能的英文描述。不允许出现偏向广告或宣传的形容词。        |
+> [!Important]
+> 除非真的有必要，否则您不应该直接选用 `master` 等主分支上的版本。
 
 > [!Important]
-> 由于软件包描述目前没有任何明确的规范，您需要与其他贡献者一起讨论如何编写软件包描述，如修缮模糊的描述、移除广告说辞等。
+> 除非真的必要，否则您不应该选用非发行版本的源码。
 
-> [!Warning]
-> 由于 ACBS 负责下载源码，因此 `PKGVER` 是由 ACBS 自动注入的。但是我们还未接触 ACBS，因此 `PKGVER` 需要手动定义。引入 ACBS 后，您就不能指定 `PKGVER` 了。
+### `SRCS`
 
-## 软件包依赖信息
+`SRCS` 记录着源码的获取途径。
 
-除此之外，软件包定义文件中还需要记录构建相关的信息，如依赖关系、构建参数及编译器功能开关等。以下列举一些常用的依赖关系定义：
 
-| 变量名 | 类型 | 约束 | 作用 |
-| :--: | :--: | :--: | :--:|
-| `PKGDEP` | 字符串 | 空格隔开的包名 | 软件包的运行时依赖列表 |
-| `BUILDDEP` | 字符串 | 空格隔开的包名 | 软件包的构建时依赖列表 |
-| `PKGPROV` | 字符串 | 空格隔开的包名及其约束 | 软件包提供的别名列表 |
-| `PKGREP` | 字符串 | 空格隔开的包名及其约束 | 软件包取代的包名列表 |
-| `PKGRECOM` | 字符串 | 空格隔开的包名 | 软件包推荐的包名列表 |
-| `PKGBREAK` | 字符串 | 空格隔开的包名及其约束 | 软件包冲突的包名列表 |
 
-> [!Important]
-> - 这些字符串均允许使用行接续符，以避免字符串将一行撑得太长。
-> - 软件包的约束使用 dpkg 接受的格式，也就是 “包名 + 约束符 + 版本”。这些约束指定软件包会提供、取代或冲突满足特定条件的包，如取代大于某个版本的包、与大于某个版本的包冲突等，如 `llvm<=17.0.2`。
-
-## 软件包构建参数
-
-对于构建参数，Autobuild 的定义如下：
-
-|      变量名       |     类型     |     适用的构建系统      |                               作用                                |
-|:-----------------:|:------------:|:-----------------------:|:-----------------------------------------------------------------:|
-|     `ABTYPE`      |    字符串    |            -            |            跳过自动检测步骤，手动指定要使用的构建系统             |
-| `AUTOTOOLS_AFTER` | 数组 |      GNU Autotools      | 指定额外的 Autotools 参数（`--with`、`--enable`、`--disable` 等） |
-|   `CMAKE_AFTER`   | 数组 |          CMake          |             指定额外的 CMake 定义（`-DSOMETHING=ON`）             |
-|   `MESON_AFTER`   | 数组 |          Meson          |                       指定额外的 Meson 定义                       |
-|  `QTPROJ_AFTER`   | 数组 |          QMake          |                       指定额外的 QMake 参数                       |
-|      `ABMK`       |    字符串    | Autotools、CMake、Meson |                  指定执行 make 阶段时的构建目标                   |
-
-> [!Warning]
-> 尽管 Autobuild 能够自动探测构建系统，我们依旧建议您手动指定，尤其是源码中出现多个构建系统的定义文件的情况。
-
-> [!Important]
-> 建议您使用数组定义这些变量，以避免空格、引号等引发的歧义。
-
-## 编译器特性开关
-
-定义文件中还允许您自定义构建时启用的编译器特性，如禁用 LTO、使用 Clang 作为编译器等。除非特殊说明，这些开关只接受布尔值，即 `yes` 或 `no` 和 `1` 或 `0`。一些常用的编译器特性开关如下：
-
-|       变量名       |                 默认值                  |                              描述                               |
-|:------------------:|:---------------------------------------:|:---------------------------------------------------------------:|
-|      `NOLTO`       |                  `no`                   |                            禁用 LTO                             |
-|      `RECONF`      |                  `yes`                  |                是否自动重新生成 `configure` 脚本                |
-|     `USECLANG`     |                  `no`                   |          将 Clang、Clang++ 作为 C 和 C++ 语言的编译器           |
-|     `ABSHADOW`     |                  `yes`                  |                        是否启用独立构建                         |
-|     `NOSTATIC`     |                  `yes`                  |                是否保留编译的静态库（`.a` 文件）                |
-| `AUTOTOOLS_STRICT` |                  `yes`                  | 是否启用 Autotools 的构建选项检查功能（遇到不认识的选项会报错） |
-|     `ABSPRIAL`     |                  `yes`                  |     是否生成 Debian 兼容包名（Sprial 泛 Debian 兼容性支持）     |
-|    `NOPARALLEL`    |                  `no`                   |                        是否启用并行编译                         |
-|    `ABTHREADS`     | `$((nproc + 1))` （处理器核心数量 + 1） |                   发起的并行作业数量（整数）                    |
-|   `AB_FLAGS_O3`    |                  `no`                   |             是否启用激进的编译器优化（`-O3` 参数）              |
-
-## 编写定义
-
-继续使用前面的 Htop 例子。根据之前的例子，我们得知：
-
-- 软件包名是 `htop`，版本是 `3.3.0`
-- 构建系统是 Autotools
-- 需要为 Htop 启用传感器及 Unicode 支持，因此：
-- Htop 运行时除了必要的依赖 `ncurses` 之外还有 `sensors` 软件包
-- 启用上述支持的参数分别为 `--enable-unicode` 和 `--enable-sensors`
-
-我们还需访问 [Htop 官网][htop]，了解官网中对 Htop 的描述：
-
-> An Interactive Process Viewer
->
-> _—— Htop 官网_
-
-官网的描述有些模糊。由于 htop 的界面与经典 Unix 任务管理器 `top` 的界面类似，我们可以修缮官网的描述，使其符合规范：
-
-> An top-like interactive process viewer
->
-> _—— 修缮后的描述_
-
-至此，我们已经拥有了全部的软件包定义。确保您当前处于 Htop 的源码目录后，您就可以新建 `autobuild` 文件夹，启动编辑器编写定义了。编辑 `autobuild/defines`，填入以下内容：
-
-```bash
-# 软件包基本信息
-PKGNAME=htop
-PKGSEC=admin
-PKGDES="A top-like interactive process viewer"
-PKGVER=3.3.0
-
-# 依赖信息
-PKGDEP="ncurses lm-sensors"
-
-# 构建参数
-ABTYPE=autotools
-AUTOTOOLS_AFTER=(
-    --enable-sensors
-    --enable-unicode
-)
-```
-
-以上就是本例的 Autobuild 软件包定义文件。
-
-# 使用构建模板打包
-
-在构建模板支持的情况下，编写软件包定义后可以立即开始打包。如果指定的定制参数正确，打包过程一般会非常顺利。您只需要在源码目录中以 root 身份执行 `autobuild`，坐等 Autobuild 出包即可:
-
-![image](https://hackmd.io/_uploads/Byx5DDhsA.png)
-
-<p style="text-align: center">
-    <i>Autobuild 自动编译 htop 进行时</i>
-</p>
-
-![image](https://hackmd.io/_uploads/SykxOD3oC.png)
-
-<p style="text-align: center">
-    <i>Autobuild 打包成功</i>
-</p>
-
-如果构建出错，Autobuild 会提前退出，并且给出错误点。如下图，软件包定义中指定了额外的定制参数，但没有安装对应的依赖。于是，`configure` 脚本就会因为找不到依赖报错退出，`autobuild` 因此无法继续，并报告运行 `configure` 脚本出错（退出状态码不是 0 即代表运行出错）：
-
-![image](https://hackmd.io/_uploads/H1AxKP3i0.png)
-
-<p style="text-align: center">
-    <i>构建失败时 Autobuild 的提示</i>
-</p>
-
-要解决此类错误，只需要在软件包的依赖列表中加入需要的依赖即可：
-
-```diff
-- PKGDEP="ncurses lm-sensors"
-+ PKGDEP="ncurses lm-sensors pcp"
-```
-
-# 自定义构建脚本
-
-有时 Autobuild 的构建模板无法完全满足构建软件包的需求，如需要额外增减编译器参数 （`CFLAGS`、`CXXFLAGS` 等），或者需要额外安装文件。Autobuild 允许在构建三连前后运行脚本，方便开发者或打包者处理上述情况。
-
-当然，Autobuild 的构建模板虽然多，但总有不支持的构建系统，或者有些项目不使用构建系统，直接使用 `Makefile` 编译。此时您需要手动编写构建脚本，代替 Autobuild 的构建模板完成构建三连。
-
-![image](https://hackmd.io/_uploads/BJVu0P3j0.png)
-
-<p style="text-align: center">
-    <i>Autobuild 的自定义脚本及流程</i>
-</p>
-
-> [!Important]
-> 除非有必要，否则不建议使用 `patch` 脚本——用 `sed` 修改源码的方法并不稳定。
-> 强烈建议修改源码后导出补丁，然后复制到 `autobuild/patches` 文件夹中。
->
-> 导出为补丁有助于在更新期间发现补丁中的问题，因为 `sed` 等行编辑工具无法识别错误。同时用补丁可以清晰地描述补丁的目的。
-
-## Autobuild 提供的实用函数
-
-Autobuild 提供了一些方便开发者的实用函数，可以在自定义脚本里使用：
-
-|     函数名      |    参数    |                                        描述                                        |
-|:---------------:|:----------:|:----------------------------------------------------------------------------------:|
-|    `abinfo`     | 任意字符串 |                                    输出提示信息                                    |
-|    `abwarn`     | 任意字符串 |                                    输出警告信息                                    |
-|     `aberr`     | 任意字符串 |                                    输出错误信息                                    |
-|     `abdie`     | 任意字符串 |                            输出错误信息并以出错状态退出                            |
-| `ab_match_arch` |  架构名称  | 判断当前系统的架构是否为指定架构，用作逻辑判断条件：如 `ab_match_arch loongarch64` |
-| `ab_apply_patch` | 文件路径 | 手动应用指定的补丁文件 |
-
-## prepare
-
-prepare 脚本在构建三连之前运行。prepare 脚本主要的应用场景如下：
-
-- 添加额外的编译器参数（`CFLAGS`、`CXXFLAGS` 等）
-- 移除特定会导致编译错误的编译器参数
-- 调整源码中的文件位置
-- 移除部分不应出现的文件
-
-以下是几个例子：
-
-- `grub/autobuild/prepare`: 在构建之前需要将下载的翻译文件复制到构建系统期望的位置，并生成语言列表。这些步骤执行后方可使用构建模板执行构建三连：
-```bash=
-abinfo "Copying translation files ..."
-find "$SRCDIR" -maxdepth 1 -type f -o -type l -name '*.po' -exec install -vt "$SRCDIR"/grub-2.12/po {} \;
-abinfo "Generating LINGUAS file ..."
-# See linguas.sh inside GRUB source tree.
-autogenerated="en@quot en@hebrew de@hebrew en@cyrillic en@greek en@arabic en@piglatin de_CH"
-for x in $autogenerated; do
-    rm -f "po/$x.po";
-done
-(
-    (
-        cd "$SRCDIR"/grub-2.12/po && ls *.po | tee | cut -d. -f1
-        for x in $autogenerated; do
-            echo "$x";
-        done
-    ) | sort | uniq | xargs
-) > "$SRCDIR"/grub-${__GRUBVER}/po/LINGUAS
-```
-
-- `qemu/autobuild/prepare`: 在构建之前需要针对特定架构关闭编译器特性，并设置时区，以使 Sphinx 正常运行：
-
-```bash=
-abwarn "FIXME: Hardening breaks build ..."
-export CFLAGS="${CFLAGS} -fPIC"
-export LDFLAGS="${LDFLAGS} -fPIC"
-
-abinfo "tree vectorize is broken on ppc64"
-if [[ "${CROSS:-$ARCH}" = "ppc64" ]]; then
-    export CFLAGS="${CFLAGS/-ftree-vectorize/}"
-fi
-
-abinfo "Sphinx really want TZ to be set..."
-export TZ=Etc/UTC
-```
-
-## build
-
-build 脚本用于代替构建模板手动运行构建三连。一般情况下，绝大多数采用 Autobuild 支持的构建系统的项目，您无需对其自行编写构建脚本。但是遇到以下情况时，您必须自行编写构建脚本：
-
-1. 项目所使用的构建系统不受 Autobuild 支持（如部分软件使用了 SConstruct，以及火狐浏览器有自己的构建系统）的
-2. Autobuild 提供的模板无法完全满足需求，但可以复用模板中定义的过程的
-3. 项目即便使用了支持的构建系统，但构建流程非常复杂，完全无法复用模板的（如 `glibc`、`gcc` 的自举阶段构建脚本）
-4. 项目无需配置，直接调用 `make` 执行 Makefile 构建的——Autobuild 曾经提供 `plainmake` 模板，但由于大家的 Makefile 接受的参数及行为各不相同，因此该模板被弃用
-5. 项目根本没有构建系统，需要手动逐个编译、手动链接的
-6. 软件本身是二进制，只需在解压后以安同 OS 的路径标准及依赖包名重新打包的（如 NVIDIA 驱动、Discord 等各类私有软件）
-
-上述情况中除第五条外，在安同 OS 中都可以找到例子，下面将详细解释这些情况。
-
-**项目的构建系统不受 Autobuild 支持**：Autobuild 尚未提供对应构建系统的模板，因此需要将构建三连编写成脚本。例如，火狐浏览器及 Thunderbird 邮件客户端使用 `mozbuild` ，且构建流程较为复杂；Sunpinyin（拼音输入法引擎）等软件使用了一款较为小众的构建系统 SConstruct；Haskell 编写的软件（如 Pandoc，文档生成引擎）的构建流程也尚未总结成模板。下面是 Pandoc 的构建脚本：
-
-```bash=
-abinfo "Building pandoc ..."
-cabal update
-cabal v2-build pandoc-cli -j -v
-
-abinfo "Installing pandoc ..."
-cabal v2-install pandoc-cli \
-        -j -v \
-        --install-method=copy \
-        --installdir="$PKGDIR"/usr/bin
-```
-
-**Autobuild 提供的模板无法完全满足需求**：项目使用构建系统有对应的构建模板，但基于实际应用情况需要额外执行一些步骤，总体上又可以复用构建模板里定义的过程。例如，libxcrypt 需要针对新旧 API 分别构建两次，但同时也无需写两遍构建三连的命令，转而直接调用构建模板中包装的函数，因此将这种情况归类为 “不完全满足需求且可以复用模板” 。qbittorrent 也属于此类情况，因为需要分别编译带图形界面前端和不带图形界面前端 (`qbittorrent-nox`) 的程序。以下是 libxcrypt 的构建脚本：
-
-```bash=
-# FIXME: MAKE_AFTER must be set if reusing the routines from autobuild4
-export MAKE_AFTER=""
-
-abinfo "Configuring libxcrypt (new API) ..."
-build_autotools_configure
-
-abinfo "Building libxcrypt (new API) ..."
-build_autotools_build
-
-abinfo "Installing libxcrypt (new API) ..."
-build_autotools_install
-
-abinfo "Resetting source tree ..."
-rm -rv "$BLDDIR"
-
-abinfo "Configuring libxcrypt (old API) ..."
-export AUTOTOOLS_AFTER=(${AUTOTOOLS_AFTER__COMPAT[@]})
-build_autotools_configure
-
-abinfo "Building libxcrypt (old API) ..."
-build_autotools_build
-
-abinfo "Installing libxcrypt (old API) ..."
-# Save PKGDIR first
-export SAVED_PKGDIR="$PKGDIR"
-export PKGDIR="$SRCDIR"/compat
-build_autotools_install
-
-export PKGDIR="$SAVED_PKGDIR"
-install -Dvm755 "$SRCDIR"/compat/usr/lib/libcrypt.so.1.1.0 \
-    -t "$PKGDIR"/usr/lib/
-
-abinfo "Creating a symlink libxcrypt.so.1 => libxcrypt.so.1 ..."
-ln -sv libcrypt.so.1.1.0 \
-    "$PKGDIR"/usr/lib/libcrypt.so.1
-```
-
-**项目即使用了支持的构建系统，但构建流程非常复杂无法复用构建模板**：项目即便采用了支持的构建系统，但项目的配置、构建及安装阶段间需要更为复杂的步骤，无法一次性执行某个步骤，因此无法复用模板中定义的过程。用于构建安同 OS i686 兼容环境的编译器就需要复杂的自举步骤：GCC 需要分别在 32 位 glibc 构建前后构建一次，因为 glibc 不存在时无法构建 GCC 运行时。
-
-**项目无需配置，直接调用 Makefile 构建**：项目结构较为简单，因此没有采用构建系统，取而代之的是一系列自行编写的 Makefile。编译这类项目时，通常只需要执行 `make`。大部分 Makefile 均遵循一部分的 GNU Makefile 约定，即：
-
-- 拥有 `all`（构建整个项目）及 `install`（用于安装文件）两个构建目标，并且没有指定目标时默认为 `all`
-- 支持指定系统前缀 `PREFIX` 及安装目标路径 `DESTDIR` 变量
-
-此类项目可能还接受其他参数，以启用或禁用项目特性。具体请参考项目的文档。ZStandard 就属于此类项目:
-
-```bash=
-abinfo "Building zstd ..."
-make
-
-abinfo "Installing zstd ..."
-make install \
-    DESTDIR="$PKGDIR" \
-    PREFIX=/usr
-
-abinfo "Building pzstd ..."
-make -C "$SRCDIR"/contrib/pzstd
-
-abinfo "Installing pzstd ..."
-make install -C contrib/pzstd \
-    DESTDIR="$PKGDIR" \
-    PREFIX=/usr
-```
-
-**软件本身就是二进制，只需要重打包**：所有私有软件（不开放源代码的）只发行预编译的二进制。安同 OS 的软件仓库中有一些允许重分发 (Redistribution) 的私有软件，但这些包因为种种原因无法直接进入安同 OS 的软件仓库，因此需要将依赖信息转换成安同 OS 中对应的软件包，并适当修改其他信息，按照安同 OS 的路径标准重新打包。
-
-安同 OS 中有许多这样的软件，其中包括 NVIDIA 显卡驱动、各类商业软件、Google Chrome 浏览器、Discord 语音聊天软件等。与此同时，安同 OS 也会重打包维护难度较高的开源软件的二进制，如 .NET 运行时。下面是 Google Chrome 的 “构建脚本”，可见其中只有解压和复制粘贴：
-
-```bash=
-abinfo "Extracting archive file ..."
-dpkg -x "$SRCDIR"/google-chrome-stable_current_amd64.deb \
-    "$SRCDIR"/chrome/
-
-abinfo "Deploying files ..."
-mkdir -pv "$PKGDIR"/usr/{lib/google-chrome,share/pixmaps}
-cp -arv "$SRCDIR"/chrome/opt/google/chrome/* \
-    "$PKGDIR"/usr/lib/google-chrome/
-cp -rv "$SRCDIR"/chrome/usr \
-    "$PKGDIR"/
-
-abinfo "Setting executable bits on shared objects ..."
-chmod -v +x "$PKGDIR"/usr/lib/google-chrome/*.so*
-
-abinfo "Installing icons ..."
-ln -sfv ../../lib/google-chrome/product_logo_256.png \
-       "$PKGDIR"/usr/share/pixmaps/google-chrome.png
-
-abinfo "Installing symlink to google-chrome ..."
-ln -sfv ../lib/google-chrome/google-chrome \
-       "$PKGDIR"/usr/bin/google-chrome-stable
-
-abinfo "Removing cron job for APT updates ..."
-rm -fv /etc/cron.daily/google-chrome
-```
-
-## beyond
-
-beyond 脚本是在构建三连后执行的。beyond 脚本常见的用途有：
-
-- 追加没有被构建系统安装的文件
-- 修正文件的权限
-- 调整部分文件的位置
-- 生成或修改 pkg-config 配置文件
-- 生成手册页和文档
-- 生成 Shell 的命令补全
-
-通常 beyond 文件所做的操作都属于小修小补，偶尔也有追加编译的情况。下面举几个例子。
-
-1. btrfsprogs 默认不安装 Shell 命令补全文件，需要在 beyond 脚本中手动安装：
-
-```bash=
-abinfo "Installing bash completions ..."
-install -Dvm644 "$SRCDIR"/btrfs-completion \
-    "$PKGDIR"/usr/share/bash-completion/completions/btrfs
-```
-
-2. Linux 的用户管理和鉴权套件 Shadow 需要在安装后修正 `su` 程序的权限，并且需要将 `/sbin` 里的可执行文件移动到 `/bin`（安同 OS 不使用 `/usr/sbin`）：
-
-```bash=
-abinfo "Installing groupmems PAM configuration ..."
-install -Dvm644 "$SRCDIR"/etc/pam.d/groupmems \
-    "$PKGDIR"/etc/pam.d/groupmems
-
-abinfo "Dropping logoutd ..."
-rm -v "$PKGDIR"/usr/sbin/logoutd
-
-abinfo "Setting SUID for /usr/bin/su ..."
-chmod u+s "$PKGDIR"/usr/bin/su
-
-abinfo "Move everything else to /usr/bin, because this isn't handled by ./configure..."
-mv "$PKGDIR"/usr/sbin/* "$PKGDIR"/usr/bin
-rm -rv "$PKGDIR"/usr/sbin
-```
-
-# 总结
-
-- Autobuild 是安同 OS 打包过程中直接接触软件源码、构建打包的一环。
-- 供 Autobuild 读取使用的打包信息存储在源码目录中的 `autobuild` 文件夹下。
-- 每个软件包必须有 `autobuild/defines` 文件，即软件包定义。
-- Autobuild 能够处理很多种常见的构建系统，自动根据系统规定和打包者指定的参数执行构建三连。
-- Autobuild 也允许打包者在构建三连前后运行自定义脚本（`prepare` 和 `beyond`），灵活定制构建过程。
-- 在 Autobuild 不能自动处理构建过程的时候，开发者可以自行编写构建脚本（`build`）以代替构件模板执行构建。
-- 自行编写构建脚本时需要尽可能复用模板中包装的函数和过程。
