@@ -76,10 +76,10 @@ If you would like contribute your device to AOSC, please make sure your device h
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **LoongUnion1** | 23172 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 64GiB | 3705s  | _Loongson Technology (Wuhan)_ | |
 | **LoongUnion2** | 23173 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 64GiB | 3657s | _Loongson Technology (Wuhan)_ | |
-| **ybsbny** | 23269 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 64GiB | TBD | _Henry Chen_ | [Community crowdsourced][ybsbny-crowdsourcing]; repo mirror at `http://50.50.1.224/debs/` |
-| **Misaka23333** | 23333 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 32GiB | TBD | _KatyushaScarlet_ | |
-| **Anomalocaris** | 23464 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 32GiB | TBD | | |
-| **Resonance** | 23541 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 32GiB | TBD | _Kexy Biscuit_ | [Community crowdsourced][resonance-crowdsourcing]; direct access with `ssh -p23541 root@home.biscuit.moe`; local mirror refer to `/etc/repository-data/mirrors.toml` |
+| **ybsbny** | 23269 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 64GiB | 3695s | _Henry Chen_ | [Community crowdsourced][ybsbny-crowdsourcing]; repo mirror at `http://50.50.1.224/debs/` |
+| **Misaka23333** | 23333 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 32GiB | 3553s | _KatyushaScarlet_ | |
+| **Anomalocaris** | 23464 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 32GiB | 3379s | | |
+| **Resonance** | 23541 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 32GiB | 3696s | _Kexy Biscuit_ | [Community crowdsourced][resonance-crowdsourcing]; direct access with `ssh -p23541 root@home.biscuit.moe`; local mirror refer to `/etc/repository-data/mirrors.toml` |
 
 ## **ARM** (24001-25000)
 
@@ -130,8 +130,8 @@ If you would like contribute your device to AOSC, please make sure your device h
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **Taple** | 28002 | Intel Xeon E5-2698B v3 (16 cores, 32 threads) | 96GiB | ~~594s~~ | _Lain Yang_ | AMD64 |
 | **PorterAlePro** | 28003 | AMD Ryzen 9 3950X @ 3.5 - 4.7GHz (16 cores, 32 threads) | 64GiB | ~~338s~~ | _Mingcong Bai_ | AMD64 |
-| **AmpereA110Raptor1** | 28180 | Ampere eMAG 8180 @ 2.8 - 3.3GHz (32 cores) | 128GiB | s | _Kexy Biscuit_ | Armv8-A AArch64, implementation supporting AArch32, local mirror refer to `/etc/repository-data/mirrors.toml` |
-| **Hiccup** | 28180 | Broadcom BCM2712, Arm Cortex-A76 @ 2.4 GHz (4 cores) | 8GiB | s | _Kexy Biscuit_ | Local mirror refer to `/etc/repository-data/mirrors.toml`, currently only used for UART access to ReyDau |
+| **AmpereA110Raptor1** | 28180 | Ampere eMAG 8180 @ 2.8 - 3.3GHz (32 cores) | 128GiB | 1200s | _Kexy Biscuit_ | Armv8-A AArch64, implementation supporting AArch32, local mirror refer to `/etc/repository-data/mirrors.toml` |
+| **Hiccup** | 28180 | Broadcom BCM2712, Arm Cortex-A76 @ 2.4 GHz (4 cores) | 8GiB | 3149s | _Kexy Biscuit_ | Local mirror refer to `/etc/repository-data/mirrors.toml`, currently only used for UART access to ReyDau |
 
 # List of archived buildbots
 
