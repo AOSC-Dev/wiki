@@ -109,7 +109,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 | **Estelle** | 26397 | T-Head XuanTie C920 @ 2GHz (64 cores) | 128 GiB | 1728s | _Undisclosed_ | |
 | **Klose** | 26503 | T-Head XuanTie C920 @ 2GHz (64 cores) | 64GiB | 1716s | _Undisclosed_ | |
 | **GreenGoo** | 26666 | T-Head XuanTie C920 @ 2GHz (63 cores) | 96GiB | TBD | _Icenowy Zheng_ | Local repository mirror is at `http://dorothea.fodlan.icenowy.me/anthon/debs` |
-| **ReyDau** | 26699 | T-Head XuanTie C920 @ 2GHz (64 cores) | 128GiB | 1630s | _Kexy Biscuit_ | Local mirror refer to `/etc/repository-data/mirrors.toml`; SCP, SG2042 and MCU UART available on **Hiccup** `/dev/ttyAMA{0,1,4}` |
+| **ReyDau** | 26699 | T-Head XuanTie C920 @ 2GHz (64 cores) | 128GiB | 1630s | _Kexy Biscuit_ | Direct access with `ssh -p26699 root@home.biscuit.moe`; local mirror refer to `/etc/repository-data/mirrors.toml`; SCP, SG2042 and MCU UART available on **Hiccup** `/dev/ttyAMA{0,1,4}` |
 
 ## **LoongArch** (27001-28000)
 
@@ -119,6 +119,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 | **Apocalypse** | 27221 | Loongson 3C5000 @ 2.2GHz (16 cores) | 64GiB | 1159s | _Loongson Technology (Wuhan)_ | |
 | **Yggdrasil** | 27234 | Loongson 3C6000 @ 2.2GHz (KVM, 32 cores allocated) | 64GiB | 671s | _darkyzhou_ | |
 | **loong13** | 27282 | Loongson 3A5000-HV @ 2.5GHz (4 cores) | 16GiB | 3458s | _Undisclosed_ | |
+| **XA612A0** | 27612 | Loongson 3A6000 @ 2.5GHz (4 cores, 8 threads) | 16GiB | 1838s | _Kexy Biscuit_ | Direct access with `ssh -p27612 root@home.biscuit.moe`; local mirror refer to `/etc/repository-data/mirrors.toml` |
 | **loongcraft** | 27777 | Loongson 3C6000 @ 2.2GHz (16 cores, 32 threads) | 128GiB | 641s | _Loongson Technology (Wuhan)_ | |
 | **Stomatopoda** | 27863 | Loongson 3C5000 @ 2.2GHz (16 cores) | 128GiB | 1142s | _Loongson Technology (Wuhan)_ | Direct access with `ssh -p2222 root@211.137.78.121` |
 | **Cambarus** | 27888 | Loongson 3C5000 @ 2.2GHz (16 cores) | 128GiB | 1191s | _Jiangjin Wang_ | |
@@ -131,7 +132,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 | **Taple** | 28002 | Intel Xeon E5-2698B v3 (16 cores, 32 threads) | 96GiB | ~~594s~~ | _Lain Yang_ | AMD64 |
 | **PorterAlePro** | 28003 | AMD Ryzen 9 3950X @ 3.5 - 4.7GHz (16 cores, 32 threads) | 64GiB | ~~338s~~ | _Mingcong Bai_ | AMD64 |
 | **AmpereA110Raptor1** | 28180 | Ampere eMAG 8180 @ 2.8 - 3.3GHz (32 cores) | 128GiB | 1200s | _Kexy Biscuit_ | Armv8-A AArch64, implementation supporting AArch32, local mirror refer to `/etc/repository-data/mirrors.toml` |
-| **Hiccup** | 28180 | Broadcom BCM2712, Arm Cortex-A76 @ 2.4 GHz (4 cores) | 8GiB | 3149s | _Kexy Biscuit_ | Local mirror refer to `/etc/repository-data/mirrors.toml`, currently only used for UART access to ReyDau |
+| **Hiccup** | 28180 | Broadcom BCM2712, Arm Cortex-A76 @ 2.4 GHz (4 cores) | 8GiB | 3149s | _Kexy Biscuit_ | Direct access with `ssh -p28180 root@home.biscuit.moe`; local mirror refer to `/etc/repository-data/mirrors.toml`, currently only used for UART access to ReyDau |
 
 # List of archived buildbots
 
