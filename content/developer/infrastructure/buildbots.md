@@ -131,8 +131,8 @@ If you would like contribute your device to AOSC, please make sure your device h
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **Taple** | 28002 | Intel Xeon E5-2698B v3 (16 cores, 32 threads) | 96GiB | ~~594s~~ | _Lain Yang_ | AMD64 |
 | **PorterAlePro** | 28003 | AMD Ryzen 9 3950X @ 3.5 - 4.7GHz (16 cores, 32 threads) | 64GiB | ~~338s~~ | _Mingcong Bai_ | AMD64 |
+| **Hiccup** | 28129 | Broadcom BCM2712, Arm Cortex-A76 @ 2.4 GHz (4 cores) | 8GiB | 3149s | _Kexy Biscuit_ | Direct access with `ssh -p28180 root@home.biscuit.moe`; local mirror refer to `/etc/repository-data/mirrors.toml`, currently only used for UART access to ReyDau |
 | **AmpereA110Raptor1** | 28180 | Ampere eMAG 8180 @ 2.8 - 3.3GHz (32 cores) | 128GiB | 1200s | _Kexy Biscuit_ | Armv8-A AArch64, implementation supporting AArch32, local mirror refer to `/etc/repository-data/mirrors.toml` |
-| **Hiccup** | 28180 | Broadcom BCM2712, Arm Cortex-A76 @ 2.4 GHz (4 cores) | 8GiB | 3149s | _Kexy Biscuit_ | Direct access with `ssh -p28180 root@home.biscuit.moe`; local mirror refer to `/etc/repository-data/mirrors.toml`, currently only used for UART access to ReyDau |
 
 # List of archived buildbots
 
