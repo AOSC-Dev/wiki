@@ -68,7 +68,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 | **Tatooine** | 22043 | AMD Ryzen 7 5700X @ 3.4 - 4.6 GHz (8 cores, 16 threads) | 64GiB | 524s | _Mingcong Bai_ | [Community crowdsourced][four-new-amd64-buildbots-crowdsourcing] |
 | **Ricks-Ryzen-Box** | 22238 | ~~AMD Ryzen 9 5950X @ 3.4 - 5.2GHz (16 cores, 32 threads)~~<br>Intel Core i7-13700K @ 3.4 - 5.4GHz (16 cores, 24 threads) | 128GiB | ~~352s~~<br>337s | _Ruikai Liu_ | |
 | **Yerus** | 22333 | AMD EPYC 7H12 @ 2.6 - 3.3GHz (64 cores, 128 threads) | 1TiB | 196s | _Jiangjin Wang_ | [Community crowdsourced][yerus-crowdsourcing] |
-| **Kashyyyk** | 22341 | Intel Xeon Platinum 8341C (24 cores, 48 threads) @ 3.60 GHz | 995GiB | 301s | | |
+| **Kashyyyk** | 22341 | Intel Xeon Platinum 8341C (24 cores, 48 threads) @ 3.60 GHz | 995GiB | 301s | _Mingcong Bai_ | |
 
 ## **MIPS** (23001-24000)
 
@@ -78,7 +78,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 | **LoongUnion2** | 23173 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 64GiB | 3657s | _Loongson Technology (Wuhan)_ | |
 | **ybsbny** | 23269 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 64GiB | 3695s | _Henry Chen_ | [Community crowdsourced][ybsbny-crowdsourcing]; repo mirror at `http://50.50.1.224/debs/` |
 | **Misaka23333** | 23333 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 32GiB | 3553s | _KatyushaScarlet_ | |
-| **Anomalocaris** | 23464 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 32GiB | 3379s | | |
+| **Anomalocaris** | 23464 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 32GiB | 3379s | _Mingcong Bai_ | |
 | **Resonance** | 23541 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 32GiB | 3696s | _Kexy Biscuit_ | [Community crowdsourced][resonance-crowdsourcing]; direct access with `ssh -p23541 root@home.biscuit.moe`; local mirror refer to `/etc/repository-data/mirrors.toml` |
 
 ## **ARM** (24001-25000)
@@ -89,7 +89,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 | **Zinfandel** | 24222 | Apple M1, 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (8 cores) | 16GiB | TBD | [Community crowdsourced][zinfandel-crowdsourcing]; _Mingcong Bai_ | |
 | **Mio** | 24242 | Apple M1, 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (8 cores) | 16GiB | 694s | _Cyan_ | Local mirror at `http://192.168.24.4/anthon/debs` |
 | **Dapen** | 24410 | HUAWEI Kunpeng 920 3211K @ 2.6GHz (24 cores) | 64GiB | 591s | _Mingcong Bai_ | |
-| **benderblog-macmini** | 24430 | Apple M2, 4 * Avalanche @ 3.5GHz + 4 * Blizzard @ 2.42GHz (8 cores) | 16GiB | 577s | | |
+| **benderblog-macmini** | 24430 | Apple M2, 4 * Avalanche @ 3.5GHz + 4 * Blizzard @ 2.42GHz (8 cores) | 16GiB | 577s | _Mingcong Bai_ | |
 | **ailuropoda** | 24612 | HUAWEI Kunpeng 920 @ 2.0GHz (KVM, 16 cores allocated) | 64GiB | 787s | _神楽坂早苗️_ | |
 | **ries** | 24691 | ARM Neoverse N2 @ 3.0GHz (128 cores) | 128GiB | 211s | _Undisclosed_ |
 | **eleventh** | 24808 | HUAWEI Kunpeng 920 @ 2.4GHz (12 cores) | 24GiB | 939s | _Undisclosed_ | Direct access with `ssh -oProxyJump=aosc-build@hw-hk.innull.com:20022 root@192.168.1.11` |
@@ -107,7 +107,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **ChubbyHydra** | 26128 | T-Head XuanTie C920 @ 2GHz (128 cores) | 256GiB | TBD | _Undisclosed_ | |
 | **Estelle** | 26397 | T-Head XuanTie C920 @ 2GHz (64 cores) | 128 GiB | 1728s | _Undisclosed_ | |
-| **Klose** | 26503 | T-Head XuanTie C920 @ 2GHz (64 cores) | 64GiB | 1716s | | |
+| **Klose** | 26503 | T-Head XuanTie C920 @ 2GHz (64 cores) | 64GiB | 1716s | _Undisclosed_ | |
 | **GreenGoo** | 26666 | T-Head XuanTie C920 @ 2GHz (63 cores) | 96GiB | TBD | _Icenowy Zheng_ | Local repository mirror is at `http://dorothea.fodlan.icenowy.me/anthon/debs` |
 | **ReyDau** | 26699 | T-Head XuanTie C920 @ 2GHz (64 cores) | 128GiB | 1630s | _Kexy Biscuit_ | Local mirror refer to `/etc/repository-data/mirrors.toml`; SCP, SG2042 and MCU UART available on **Hiccup** `/dev/ttyAMA{0,1,4}` |
 
@@ -118,7 +118,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 | **Panulirus** | 27118 | Loongson 3C5000 @ 2.2GHz (16 cores) | 128GiB | 1226s | _Loongson Technology (Wuhan)_ | |
 | **Apocalypse** | 27221 | Loongson 3C5000 @ 2.2GHz (16 cores) | 64GiB | 1159s | _Loongson Technology (Wuhan)_ | |
 | **Yggdrasil** | 27234 | Loongson 3C6000 @ 2.2GHz (KVM, 32 cores allocated) | 64GiB | 671s | _darkyzhou_ | |
-| **loong13** | 27282 | Loongson 3A5000-HV @ 2.5GHz (4 cores) | 16GiB | 3458s | TBC | |
+| **loong13** | 27282 | Loongson 3A5000-HV @ 2.5GHz (4 cores) | 16GiB | 3458s | _Undisclosed_ | |
 | **loongcraft** | 27777 | Loongson 3C6000 @ 2.2GHz (16 cores, 32 threads) | 128GiB | 641s | _Loongson Technology (Wuhan)_ | |
 | **Stomatopoda** | 27863 | Loongson 3C5000 @ 2.2GHz (16 cores) | 128GiB | 1142s | _Loongson Technology (Wuhan)_ | Direct access with `ssh -p2222 root@211.137.78.121` |
 | **Cambarus** | 27888 | Loongson 3C5000 @ 2.2GHz (16 cores) | 128GiB | 1191s | _Jiangjin Wang_ | |
