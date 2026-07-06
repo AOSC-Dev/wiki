@@ -129,7 +129,6 @@ If you would like contribute your device to AOSC, please make sure your device h
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **Taple** | 28002 | Intel Xeon E5-2698B v3 (16 cores, 32 threads) | 96GiB | ~~594s~~ | _Lain Yang_ | AMD64 |
 | **PorterAlePro** | 28003 | AMD Ryzen 9 3950X @ 3.5 - 4.7GHz (16 cores, 32 threads) | 64GiB | ~~338s~~ | _Mingcong Bai_ | AMD64 |
 | **Hiccup** | 28129 | Broadcom BCM2712, Arm Cortex-A76 @ 2.4 GHz (4 cores) | 8GiB | 3149s | _Kexy Biscuit_ | Direct access with `ssh -p28180 root@home.biscuit.moe`; local mirror refer to `/etc/repository-data/mirrors.toml`, currently only used for UART access to ReyDau |
 | **AmpereA110Raptor1** | 28180 | Ampere eMAG 8180 @ 2.8 - 3.3GHz (32 cores) | 128GiB | 1200s | _Kexy Biscuit_ | Armv8-A AArch64, implementation supporting AArch32, local mirror refer to `/etc/repository-data/mirrors.toml` |
@@ -163,6 +162,7 @@ Please note that the following is not an exhaustive list.
 | **dragonfly** | ~~27514~~ | Loongson 3C5000 @ 2.5GHz (16 cores, overclocked) | 128GiB | 1371s | _Xinmudotmoe_ | |
 | **viperdesign** | ~~27688~~ | Loongson 3A6000-HV @ 2.5GHz (4 cores, 8 threads) | 32GiB | 2286s | _Viperdesign_ | |
 | **PorterAle** | ~~28001~~ | Intel i7-8700T @ 2.40 - 4.00GHz | 16GiB | 996s | _MingcongBai_ | |
+| **Taple** | ~~28002~~ | Intel Xeon E5-2698B v3 (16 cores, 32 threads) | 96GiB | ~~594s~~ | _Lain Yang_ | AMD64 |
 | **mieps** | ~~28004~~ | Intel Xeon W-1250P @ 4.1 - 4.8GHz (6 cores, 12 threads) | 32GiB | 793s | _Undisclosed_ | |
 
 # Maintainer Notes
