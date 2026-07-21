@@ -8,7 +8,7 @@ tags = ["sys-installation"]
 
 # Install WSL
 
-Please see [Windows Subsystem for Linux Installation Guide for Windows 10](https://docs.microsoft.com/en-us/windows/wsl/install-win10). If you want to run Linux GUI apps, also see [Run Linux GUI apps on the Windows Subsystem for Linux (preview)](https://docs.microsoft.com/en-us/windows/wsl/tutorials/gui-apps).
+Please see [How to install Linux on Windows with WSL](https://learn.microsoft.com/en-us/windows/wsl/install). If you want to run Linux GUI apps, also see [Run Linux GUI apps on the Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/tutorials/gui-apps).
 
 # Get AOSC OS on WSL
 
@@ -20,4 +20,4 @@ If you're running a Windows Server or Long-Term Servicing (LTSC) desktop OS SKU 
 
 # Configure AOSC OS
 
-Please see [Create a user account and password for your new Linux distribution](https://docs.microsoft.com/en-us/windows/wsl/user-support), AOSC OS also uses apt to manage packages.
+Please see [Set up your Linux username and password](https://learn.microsoft.com/en-us/windows/wsl/setup/environment#set-up-your-linux-username-and-password), AOSC OS also uses apt to manage packages.
