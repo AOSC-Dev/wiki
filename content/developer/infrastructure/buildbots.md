@@ -81,7 +81,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 | **Anomalocaris** | 23464 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 32GiB | 3379s | _Mingcong Bai_ | |
 | **Resonance** | 23541 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 32GiB | 3696s | _Kexy Biscuit_ | [Community crowdsourced][resonance-crowdsourcing]; direct access with `ssh -p23541 root@home.biscuit.moe`; local mirror refer to `/etc/repository-data/mirrors.toml` |
 
-## *3ARM**3224001-25000)
+## **ARM**(24001-25000)
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|

@@ -8,7 +8,7 @@ tags = ["sys-installation"]
 
 # 安装 WSL
 
-请参阅[适用于 Linux 的 Windows 子系统安装指南 (Windows 10)](https://docs.microsoft.com/zh-cn/windows/wsl/install-win10)。如果想要运行 Linux GUI 应用程序，也请参阅[在预览版适用于 Linux 的 Windows 子系统 (运行 Linux GUI)](https://docs.microsoft.com/zh-cn/windows/wsl/tutorials/gui-apps)。
+请参阅[如何使用 WSL 在 Windows 上安装 Linux](https://learn.microsoft.com/zh-cn/windows/wsl/install)。如果想要运行 Linux GUI 应用程序，也请参阅[在适用于 Linux 的 Windows 子系统上运行 Linux GUI 应用](https://docs.microsoft.com/zh-cn/windows/wsl/tutorials/gui-apps)。
 
 # 获取 AOSC OS on WSL
 
@@ -20,4 +20,4 @@ tags = ["sys-installation"]
 
 # 配置 AOSC OS
 
-请参阅[为新的 Linux 分发版创建用户帐户和密码](https://docs.microsoft.com/zh-cn/windows/wsl/user-support)，AOSC OS 也使用 apt 管理软件包。
+请参阅[配置 WSL 开发环境的 Linux 用户名和密码](https://learn.microsoft.com/zh-cn/windows/wsl/setup/environment#set-up-your-linux-username-and-password)，AOSC OS 也使用 apt 管理软件包。
