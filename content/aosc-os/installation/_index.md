@@ -30,7 +30,7 @@ Raw System Images
 For ARM and RISC-V devices which do not make use of (U)EFI boot facilities,
 you would want to use device-specific raw system images. The downloads for
 which are listed in our
-[Alternative Downloads](https://aosc.io/downloads/alternative/) page.
+[Alternative Downloads](https://aosc.io/download) page.
 
 For instructions on how to write these images, please refer to the
 following page for details.
