@@ -25,7 +25,7 @@ Windows Subsystem for Linux
 ========
 
 如需为不支持 (U)EFI 启动的 ARM 及 RISC-V 设备安装 AOSC OS 或 AOSC OS/Retro，
-您可能需要从我们的[其他下载](https://aosc.io/download)页面
+您可能需要从我们的[下载页面](https://aosc.io/download)页面
 获取针对特定设备的系统镜像。
 
 欲知写入系统镜像的具体步骤，请参阅如下页面。
