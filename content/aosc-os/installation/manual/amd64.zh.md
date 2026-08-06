@@ -209,7 +209,7 @@ AOSC OS 默认不带用户且不开启 Root 用户（你仍可 `sudo` 来获取�
 加入用户组以提供必要特性支持，例 `wheel` 组可提供 `sudo` 权限：
 
 ```
-# usermod -a -G audio,cdrom,video,wheel aosc
+# usermod -a -G wheel aosc
 ```
 
 ## 设置用户全名

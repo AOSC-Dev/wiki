@@ -209,10 +209,10 @@ To add a new user, (`aosc` as an example), use the `useradd` command:
 
 Make sure that your username contains only lower-cased letters and numbers.
 
-And add additional groups to the user (audio, cdrom, video, wheel should get you started just fine):
+And add additional groups to the user (wheel should get you started just fine):
 
 ```
-# usermod -a -G audio,cdrom,video,wheel aosc
+# usermod -a -G wheel aosc
 ```
 
 ## Setting full name for your user
