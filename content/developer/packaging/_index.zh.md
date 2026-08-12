@@ -28,3 +28,4 @@ title = "打包"
 - [稳定分支补丁级更新规则说明](@/developer/packaging/known-patch-release-rules.md)
 - [.NET 生命周期策略](@/developer/packaging/dotnet.zh.md)
 - [glibc HWCAPS 子架构构建指南](@/developer/packaging/hwcaps-packaging-guide.zh.md)
+- [FAIL_ARCH 编写指南](@/developer/packaging/fail-arch.zh.md)
