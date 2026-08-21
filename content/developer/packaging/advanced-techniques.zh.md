@@ -100,19 +100,11 @@ install -Dvm644 "$PKGDIR"/usr/share/doc/aria2/bash_completion/aria2c \
 
 在这种情况下，您需要使用 Bash 编写自己的 `autobuild/patch` 脚本，再手动在脚本中调用 `patch` 命令。
 
-## 启用测试
+## 测试
 
-Autobuild3 提供测试功能。
+AOSC 软件源不运行自动化测试。
 
-测试功能默认情况下是禁用的，可以在 `autobuild/defines` 文件中添加 `NOTEST=no` 来启用。
-
-对于一些 `ABTYPE`，Autobuild3 提供了预定义的测试模板，并且可以自动匹配并使用。要禁用自动检测，可以使用 `ABTEST_AUTO_DETECT=no`。
-
-如果您的 `ABTYPE` 没有对应的预定义测试模板，您可以编写自己的 `autobuild/check` 脚本。例如：
-
-```bash
-make -C $BLDDIR -k check
-```
+请不要将测试代码打包进入构建产物。
 
 # 处理软件包组
 
