@@ -7,7 +7,21 @@ description = "Advanced usage of Autobuild3 testing framework and its internal i
 
 Proper package testing is an important and necessary way to assure package quality. Testing, in this case, involves upstream-supplied tests (unit tests and/or integration tests) and distribution tests (which should be implemented by packagers or other AOSC maintainers).
 
-Most of the tests can be done in the packaging building process, in this case, the Autobuild3. The audience of this article is packagers who want to use the package testing framework in Autobuild3. Before we continue, make sure you have read the brief introduction in [advanced techniques](@/developer/packaging/advanced-techniques.md#enable-tests).
+Most of the tests can be done in the packaging building process, in this case, the Autobuild3. The audience of this article is packagers who want to use the package testing framework in Autobuild3.
+
+# Brief Introduction
+
+Testing features are disabled by default, to enable them, add `NOTEST=no` to your `autobuild/defines` file.
+
+For some `ABTYPE`s, Autobuild3 provides pre-defined testing templates and can match and enable them automatically. To disable automatic detection, use `ABTEST_AUTO_DETECT=no`.
+
+If your `ABTYPE` is not covered by the default testing templates, you can write your own `autobuild/check` script. For example:
+
+```bash
+make -C $BLDDIR -k check
+```
+
+Or to `/etc/autobuild3/ab3cfg.sh` to enable testing globally.
 
 # Specifications
 
