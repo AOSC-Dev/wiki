@@ -1,9 +1,11 @@
 +++
-title = "第五章：编写打包脚本"
-weight =6
+title = "第六章：编写打包脚本"
+weight = 6
 [taxonomies]
 tags = ["onboarding"]
 +++
+
+[htop]: https://htop.dev
 
 笼统地讲，为发行版 “打包” 就是按照 `/usr` 或发行版规定的系统前缀及分类路径、以发行版要求的依赖及打包标准构建软件包，然后将其安装至临时目录；再以临时目录为起点，将安装目录的内容压缩成一个压缩包，同时带上软件信息。打出的软件包随后会通过软件仓库等方式分发给最终用户，通过包管理器安装到用户的系统中。
 
@@ -96,17 +98,17 @@ APML 规定了软件包定义中 Bash 语言的使用范围：
 一般情况下，用 Autobuild 打包软件项目的流程分为如下步骤：
 
 1. 调查阶段：收集软件包信息
-   1.1 确定软件包名、版本、分类及描述
-   1.1 调查软件项目使用的构建系统
-   1.2 调查可以接受的定制参数（参考 2.2.5 节中的描述）
-   1.3 结合系统情况选择要启用的特性或扩展
-   1.4 收集需要指定的定制参数（`--prefix` 等路径相关的参数除外）
+    - 1.1 确定软件包名、版本、分类及描述
+    - 1.2 调查软件项目使用的构建系统
+    - 1.3 调查可以接受的定制参数（参考 2.2.5 节中的描述）
+    - 1.4 结合系统情况选择要启用的特性或扩展
+    - 1.5 收集需要指定的定制参数（`--prefix` 等路径相关的参数除外）
 2. 定义阶段：编写软件包定义及构建脚本（如果有需要）
-    2.1 编写软件包定义 `autobuild/defines`
-    2.2 如果没有使用构建系统或构建系统不受 Autobuild 支持，则需要编写自定义脚本 `autobuild/build`
+    - 2.1 编写软件包定义 `autobuild/defines`
+    - 2.2 如果没有使用构建系统或构建系统不受 Autobuild 支持，则需要编写自定义脚本 `autobuild/build`
 3. 构建测试阶段：确保编译通过
-    3.1 在源码目录中运行 Autobuild
-    3.2 如果出错，则需要调整定制参数或编译器参数，或者需要在构建前后运行处理脚本 (`autobuild/prepare`、`autobuild/beyond`)
+    - 3.1 在源码目录中运行 Autobuild
+    - 3.2 如果出错，则需要调整定制参数或编译器参数，或者需要在构建前后运行处理脚本 (`autobuild/prepare`、`autobuild/beyond`)
 
 # Autobuild 的构建模板
 
@@ -132,11 +134,11 @@ Autobuild 中存在如下构建模板：
 - `pep517`: 负责处理使用 PEP 517 构建系统的项目，并调用`build` 模块和 `install` 模块。
 - `qtproj`: 负责处理使用 QMake 构建系统的项目（源码目录包含任何 `.pro` 结尾的文件）。
 
-然而有时 Autobuild 提供的模板可能不够灵活，或者暂时还没有某个构建系统的模板支持，抑或是项目只需要执行 `make` 即可编译。在这种情况下，您可以使用自定义脚本，绕过 Auotbuild 的构建模板。
+然而有时 Autobuild 提供的模板可能不够灵活，或者暂时还没有某个构建系统的模板支持，抑或是项目只需要执行 `make` 即可编译。在这种情况下，您可以使用自定义脚本，绕过 Autobuild 的构建模板。
 
 # 热身
 
-在您动手使用 Autobuild 之前，请先确保您已经搭建好了安同 OS 的开发环境。由于在系统中直接运行 Auotbuild 会影响系统本身，因此在接触 Ciel 之前，我们强烈建议您使用虚拟机。您可以利用下面的检查表来确认：
+在您动手使用 Autobuild 之前，请先确保您已经搭建好了安同 OS 的开发环境。由于在系统中直接运行 Autobuild 会影响系统本身，因此在接触 Ciel 之前，我们强烈建议您使用虚拟机。您可以利用下面的检查表来确认：
 
 - [ ] 独立的系统环境（开发机或虚拟机）
 - [ ] 安装了 `devel-base`
@@ -152,7 +154,7 @@ Autobuild 中存在如下构建模板：
 
 1. 找个位置，或创建一个文件夹，作为工作目录：
 
-    ```shell
+    ```bash
     /tmp $ cd ~
     ~ $ mkdir aosc-build
     ~ $ cd aosc-build
@@ -160,7 +162,7 @@ Autobuild 中存在如下构建模板：
 
 2. 从网站或 GitHub 上下载其源码发行 (tarball) 并解压：
 
-    ```shell
+    ```bash
     ~/aosc-build $ wget https://github.com/htop-dev/htop/releases/download/3.3.0/htop-3.3.0.tar.xz
     ~/aosc-build $ tar xf htop-3.3.0.tar.xz
     ~/aosc-build $ cd htop-3.3.0/
@@ -170,7 +172,7 @@ Autobuild 中存在如下构建模板：
 
      源码目录中存在 `configure.ac` 文件，因此 Htop 是一个 Autotools 项目。同时，源码目录中有生成好的 `configure` 脚本，因此我们不需要重新生成。先看看 `configure` 脚本提供哪些参数：
 
-    ```shell
+    ```bash
     htop-3.3.0 $ ./configure --help
     ```
 
@@ -188,35 +190,40 @@ Autobuild 中存在如下构建模板：
 5. 调查当前配置下所需要的依赖组件。
 
     Htop 的 README 非常清晰，列出了 Htop 需要的必要依赖组件，以及启用功能时额外所依赖的组件。我们需要记录所有必要依赖，并且根据上面的定制情况记录其他依赖：
+
     - 基本依赖有：编译器、Autotools 套件、NCurses 终端库
     - 启用传感器支持后引入的额外依赖：`libsensors`
 
-    > [!Note]
-    > `libsensors` 中以 `lib` 开头。按照业界的软件包命名规律，libsensors 属于共享库 (Library)。调查依赖期间遇到共享库时，您可能需要了解该共享库是否属于项目的一部分。
-    > `libsensors` 是 [lm-sensors](https://hwmon.wiki.kernel.org/lm_sensors) 的一部分。lm-sensors 提供了查看传感器状态的工具，以及供其他程序实现温度监控的传感器库。
+    {% card(type="tips") %}
+    `libsensors` 中以 `lib` 开头。按照业界的软件包命名规律，libsensors 属于共享库 (Library)。调查依赖期间遇到共享库时，您可能需要了解该共享库是否属于项目的一部分。
+
+`libsensors` 是 [lm-sensors](https://hwmon.wiki.kernel.org/lm_sensors) 的一部分。lm-sensors 提供了查看传感器状态的工具，以及供其他程序实现温度监控的传感器库。
+    {% end %}
 
     在安同 OS 中，这些组件对应的包名分别为 `gcc`、`autoconf`、`automake`、`ncurses` 及 `lm-sensors`。而安同 OS 提供更简便的安装常用构建工具链的方式：您可以直接安装 `devel-base`，编译器及常见的构建系统会同时引入。
 
 6. 安装依赖组件。
 
     将依赖组件与安同 OS 的软件包一一对应之后，用包管理器安装即可：
-    ```shell
+    ```bash
     htop-3.3.0 $ oma install devel-base ncurses lm-sensors
     ```
 
 7. 按照选用的参数运行构建三连。
 
-    > [!Note]
-    > 本次热身仅作构建说明之用，您无需也不应该将安装前缀指定到 `/usr`。同时，您也无需指定 `DESTDIR`。
-    > 在本次编译中，我们将系统前缀设置为家目录下的 `aosc-build` 文件夹，避免在构建阶段使用 `sudo`。
+    {% card(type="info") %}
+    本次热身仅作构建说明之用，您无需也不应该将安装前缀指定到 `/usr`。同时，您也无需指定 `DESTDIR`。
+
+在本次编译中，我们将系统前缀设置为家目录下的 `aosc-build` 文件夹，避免在构建阶段使用 `sudo`。
+    {% end %}
 
     万事俱备，现在就可以运行构建三连了！
 
-    ```shell
+    ```bash
     htop-3.3.0 $ mkdir build
     htop-3.3.0 $ cd build
     build $ ../configure --prefix=$HOME/aosc-build/apps \
-                              --enable-sensors
+                                --enable-sensors
     build $ make -j$(nproc)
     build $ make install
     build $ cd ..
@@ -226,7 +233,7 @@ Autobuild 中存在如下构建模板：
 
     由于安装的位置不属于标准路径，因此您无法直接使用 `htop` 命令运行刚才构建出的 Htop。您需要指定安装后的 Htop 的完整路径：
 
-    ```shell
+    ```bash
     htop-3.3.0 $ ~/aosc-build/apps/bin/htop
     ```
 
@@ -236,13 +243,13 @@ Autobuild 中存在如下构建模板：
 
 都准备好了吗？那么我们就继续吧！您需要先告诉 Autobuild 您的维护者身份。以 root 身份编辑 `/etc/autobuild/ab4cfg.sh`，将您的信息填写至此：
 
-```shell
+```bash
 MTER="Some Packager <some@packager.com>"
 ```
 
 我们将继续以 Htop 为例讲述如何用 Autobuild 软件包。您现在可以删除之前安装的 Htop 及构建目录了：
 
-```shell
+```bash
 htop-3.3.0 $ make -C build uninstall # 进入构建目录，卸载安装到 ~/aosc-build 的 Htop
 htop-3.3.0 $ rm -r build # 移除构建目录
 htop-3.3.0 $ rm -r ~/aosc-build/apps
@@ -254,16 +261,17 @@ htop-3.3.0 $ rm -r ~/aosc-build/apps
 
 软件包定义记录在 `autobuild/defines` 文件中。`defines` 文件遵循 APML 的约束，因此该文件的内容只包含变量定义，即 `变量名=值`。
 
-> [!Important]
-> 等号左右不允许有空格，否则会被认定为命令。下面的例子都是不正确的：
-> ```bash
-> PKGNAME = bash
-> # Bash 会认为 PKGNAME 是一个命令，“=” 和 “bash” 是 PKGNAME 命令的参数
-> PKGNAME =bash
-> # Bash 会认为 PKGNAME 是一个命令，“=bash” 是 PKGNAME 命令的参数
-> PKGNAME= bash
-> # Bash 会设置一个值为空的环境变量 PKGNAME，然后执行命令 “bash”
-> ```
+{% card(type="warning", title="注意") %}
+等号左右不允许有空格，否则会被认定为命令。下面的例子都是不正确的：
+```bash
+PKGNAME = bash
+# Bash 会认为 PKGNAME 是一个命令，“=” 和 “bash” 是 PKGNAME 命令的参数
+PKGNAME =bash
+# Bash 会认为 PKGNAME 是一个命令，“=bash” 是 PKGNAME 命令的参数
+PKGNAME= bash
+# Bash 会设置一个值为空的环境变量 PKGNAME，然后执行命令 “bash”
+```
+{% end %}
 
 Autobuild 的软件包定义中包含了除源码信息外的所有内容：
 
@@ -282,11 +290,13 @@ Autobuild 的软件包定义中包含了除源码信息外的所有内容：
 | `PKGSEC`  | 字符串 |                        特定值                        | dpkg 包管理器规定的软件包分类。参考 `/usr/lib/autobuild4/sets/section` 文件。 |
 | `PKGDES`  | 字符串 |                大小写字母、空格和数字                | 一句简短的、对软件包功能的英文描述。不允许出现偏向广告或宣传的形容词。        |
 
-> [!Important]
-> 由于软件包描述目前没有任何明确的规范，您需要与其他贡献者一起讨论如何编写软件包描述，如修缮模糊的描述、移除广告说辞等。
+{% card(type="warning") %}
+由于软件包描述目前没有任何明确的规范，您需要与其他贡献者一起讨论如何编写软件包描述，如修缮模糊的描述、移除广告说辞等。
+{% end %}
 
-> [!Warning]
-> 由于 ACBS 负责下载源码，因此 `PKGVER` 是由 ACBS 自动注入的。但是我们还未接触 ACBS，因此 `PKGVER` 需要手动定义。引入 ACBS 后，您就不能指定 `PKGVER` 了。
+{% card(type="warning", title="注意") %}
+由于 ACBS 负责下载源码，因此 `PKGVER` 是由 ACBS 自动注入的。但是我们还未接触 ACBS，因此 `PKGVER` 需要手动定义。引入 ACBS 后，您就不能指定 `PKGVER` 了。
+{% end %}
 
 ## 软件包依赖信息
 
@@ -301,9 +311,11 @@ Autobuild 的软件包定义中包含了除源码信息外的所有内容：
 | `PKGRECOM` | 字符串 | 空格隔开的包名 | 软件包推荐的包名列表 |
 | `PKGBREAK` | 字符串 | 空格隔开的包名及其约束 | 软件包冲突的包名列表 |
 
-> [!Important]
-> - 这些字符串均允许使用行接续符，以避免字符串将一行撑得太长。
-> - 软件包的约束使用 dpkg 接受的格式，也就是 “包名 + 约束符 + 版本”。这些约束指定软件包会提供、取代或冲突满足特定条件的包，如取代大于某个版本的包、与大于某个版本的包冲突等，如 `llvm<=17.0.2`。
+{% card(type="tips") %}
+这些字符串均允许使用行接续符，以避免字符串将一行撑得太长。
+
+软件包的约束使用 dpkg 接受的格式，也就是 “包名 + 约束符 + 版本”。这些约束指定软件包会提供、取代或冲突满足特定条件的包，如取代大于某个版本的包、与大于某个版本的包冲突等，如 `llvm<=17.0.2`。
+{% end %}
 
 ## 软件包构建参数
 
@@ -318,11 +330,13 @@ Autobuild 的软件包定义中包含了除源码信息外的所有内容：
 |  `QTPROJ_AFTER`   | 数组 |          QMake          |                       指定额外的 QMake 参数                       |
 |      `ABMK`       |    字符串    | Autotools、CMake、Meson |                  指定执行 make 阶段时的构建目标                   |
 
-> [!Warning]
-> 尽管 Autobuild 能够自动探测构建系统，我们依旧建议您手动指定，尤其是源码中出现多个构建系统的定义文件的情况。
+{% card(type="warning") %}
+尽管 Autobuild 能够自动探测构建系统，我们依旧建议您手动指定，尤其是源码中出现多个构建系统的定义文件的情况。
+{% end %}
 
-> [!Important]
-> 建议您使用数组定义这些变量，以避免空格、引号等引发的歧义。
+{% card(type="tips", title="注意") %}
+建议您使用数组定义这些变量，以避免空格、引号等引发的歧义。
+{% end %}
 
 ## 编译器特性开关
 
@@ -428,11 +442,13 @@ AUTOTOOLS_AFTER=(
     <i>Autobuild 的自定义脚本及流程</i>
 </p>
 
-> [!Important]
-> 除非有必要，否则不建议使用 `patch` 脚本——用 `sed` 修改源码的方法并不稳定。
-> 强烈建议修改源码后导出补丁，然后复制到 `autobuild/patches` 文件夹中。
->
-> 导出为补丁有助于在更新期间发现补丁中的问题，因为 `sed` 等行编辑工具无法识别错误。同时用补丁可以清晰地描述补丁的目的。
+{% card(type="tips") %}
+除非有必要，否则不建议使用 `patch` 脚本——用 `sed` 修改源码的方法并不稳定。
+
+强烈建议修改源码后导出补丁，然后复制到 `autobuild/patches` 文件夹中。
+
+导出为补丁有助于在更新期间发现补丁中的问题，因为 `sed` 等行编辑工具无法识别错误。同时用补丁可以清晰地描述补丁的目的。
+{% end %}
 
 ## Autobuild 提供的实用函数
 
@@ -459,7 +475,8 @@ prepare 脚本在构建三连之前运行。prepare 脚本主要的应用场景�
 以下是几个例子：
 
 - `grub/autobuild/prepare`: 在构建之前需要将下载的翻译文件复制到构建系统期望的位置，并生成语言列表。这些步骤执行后方可使用构建模板执行构建三连：
-```bash=
+
+```bash
 abinfo "Copying translation files ..."
 find "$SRCDIR" -maxdepth 1 -type f -o -type l -name '*.po' -exec install -vt "$SRCDIR"/grub-2.12/po {} \;
 abinfo "Generating LINGUAS file ..."
@@ -480,7 +497,7 @@ done
 
 - `qemu/autobuild/prepare`: 在构建之前需要针对特定架构关闭编译器特性，并设置时区，以使 Sphinx 正常运行：
 
-```bash=
+```bash
 abwarn "FIXME: Hardening breaks build ..."
 export CFLAGS="${CFLAGS} -fPIC"
 export LDFLAGS="${LDFLAGS} -fPIC"
@@ -509,7 +526,7 @@ build 脚本用于代替构建模板手动运行构建三连。一般情况下�
 
 **项目的构建系统不受 Autobuild 支持**：Autobuild 尚未提供对应构建系统的模板，因此需要将构建三连编写成脚本。例如，火狐浏览器及 Thunderbird 邮件客户端使用 `mozbuild` ，且构建流程较为复杂；Sunpinyin（拼音输入法引擎）等软件使用了一款较为小众的构建系统 SConstruct；Haskell 编写的软件（如 Pandoc，文档生成引擎）的构建流程也尚未总结成模板。下面是 Pandoc 的构建脚本：
 
-```bash=
+```bash
 abinfo "Building pandoc ..."
 cabal update
 cabal v2-build pandoc-cli -j -v
@@ -523,7 +540,7 @@ cabal v2-install pandoc-cli \
 
 **Autobuild 提供的模板无法完全满足需求**：项目使用构建系统有对应的构建模板，但基于实际应用情况需要额外执行一些步骤，总体上又可以复用构建模板里定义的过程。例如，libxcrypt 需要针对新旧 API 分别构建两次，但同时也无需写两遍构建三连的命令，转而直接调用构建模板中包装的函数，因此将这种情况归类为 “不完全满足需求且可以复用模板” 。qbittorrent 也属于此类情况，因为需要分别编译带图形界面前端和不带图形界面前端 (`qbittorrent-nox`) 的程序。以下是 libxcrypt 的构建脚本：
 
-```bash=
+```bash
 # FIXME: MAKE_AFTER must be set if reusing the routines from autobuild4
 export MAKE_AFTER=""
 
@@ -570,7 +587,7 @@ ln -sv libcrypt.so.1.1.0 \
 
 此类项目可能还接受其他参数，以启用或禁用项目特性。具体请参考项目的文档。ZStandard 就属于此类项目:
 
-```bash=
+```bash
 abinfo "Building zstd ..."
 make
 
@@ -592,7 +609,7 @@ make install -C contrib/pzstd \
 
 安同 OS 中有许多这样的软件，其中包括 NVIDIA 显卡驱动、各类商业软件、Google Chrome 浏览器、Discord 语音聊天软件等。与此同时，安同 OS 也会重打包维护难度较高的开源软件的二进制，如 .NET 运行时。下面是 Google Chrome 的 “构建脚本”，可见其中只有解压和复制粘贴：
 
-```bash=
+```bash
 abinfo "Extracting archive file ..."
 dpkg -x "$SRCDIR"/google-chrome-stable_current_amd64.deb \
     "$SRCDIR"/chrome/
@@ -634,7 +651,7 @@ beyond 脚本是在构建三连后执行的。beyond 脚本常见的用途有：
 
 1. btrfsprogs 默认不安装 Shell 命令补全文件，需要在 beyond 脚本中手动安装：
 
-```bash=
+```bash
 abinfo "Installing bash completions ..."
 install -Dvm644 "$SRCDIR"/btrfs-completion \
     "$PKGDIR"/usr/share/bash-completion/completions/btrfs
@@ -642,7 +659,7 @@ install -Dvm644 "$SRCDIR"/btrfs-completion \
 
 2. Linux 的用户管理和鉴权套件 Shadow 需要在安装后修正 `su` 程序的权限，并且需要将 `/sbin` 里的可执行文件移动到 `/bin`（安同 OS 不使用 `/usr/sbin`）：
 
-```bash=
+```bash
 abinfo "Installing groupmems PAM configuration ..."
 install -Dvm644 "$SRCDIR"/etc/pam.d/groupmems \
     "$PKGDIR"/etc/pam.d/groupmems

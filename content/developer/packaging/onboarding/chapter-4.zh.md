@@ -1,14 +1,13 @@
 +++
-title = "第三章：Ciel 打包环境"
-weight =4
-[taxomonies]
+title = "第四章：Ciel 打包环境"
+weight = 4
+[taxonomies]
 tags = [ "onboarding" ]
 +++
 
 [ciel-git]: https://github.com/AOSC-Dev/ciel-rs
-[aosc-os-abbs]: https://github.com/AOSC-Dev/aosc-os-abbs
 
-[Ciel!](https://github.com/AOSC-Dev/ciel-rs) 是专为安同 OS 开发打造的容器管理器，负责管理容器并发起打包作业，使用起来极其方便。Ciel 使用单独的工作区存放开发环境、源码及 ABBS 树。每当您发起打包时，Ciel 会自动回滚容器，挂载所需目录，启动容器并执行 ACBS，发起打包作业。在本章内，您将学会如何使用 Ciel 工具打包及管理容器，并打出第一个软件包。
+[Ciel!][ciel-git] 是专为安同 OS 开发打造的容器管理器，负责管理容器并发起打包作业，使用起来极其方便。Ciel 使用单独的工作区存放开发环境、源码及 ABBS 树。每当您发起打包时，Ciel 会自动回滚容器，挂载所需目录，启动容器并执行 ACBS，发起打包作业。在本章内，您将学会如何使用 Ciel 工具打包及管理容器，并打出第一个软件包。
 
 Ciel 容器的基本系统为安同 OS 构建环境 (BuildKit)。BuildKit 是专门用于构建软件包的标准环境，由基础版加上常用开发及构建工具（编译工具链、常用构建系统、ACBS、Autobuild 等）得到。您可以通过 Ciel 更新底层系统，避免每次打包前耗费时间更新系统。
 
@@ -33,7 +32,7 @@ Ciel 作为面向用户的顶层工具，是开发者手动发起打包的主要
 
 如果您正在使用安同 OS 环境，可直接运行下列命令安装 Ciel 工具：
 
-```
+```bash
 oma install ciel
 ```
 
@@ -215,7 +214,7 @@ Ciel 会在编译成功后主动回滚容器，以保证每次打包时的容器
 
 您可以利用 Ciel 提供的容器 + overlayfs 功能，在容器内执行任何毁灭性操作，并在这之后回滚容器。如您有需要，可以直接启动 Ciel 工作区内的实例并进入实例的 Shell 环境：
 
-```
+```bash
 ciel shell -i 实例名称
 ```
 
@@ -233,7 +232,7 @@ Ciel 所使用的容器环境叫做 BuildKit。BuildKit 集成了常用的构建
 
 在您使用完当前工作区的容器后，需要您将该容器还原至初始状态。还原容器可以使用 `ciel rollback` 命令：
 
-```
+```bash
 ciel rollback [-i 实例名称 [...]]
 ```
 
@@ -245,7 +244,7 @@ ciel rollback [-i 实例名称 [...]]
 
 要添加新的实例，请使用 `ciel add` 命令。删除实例则需使用 `ciel del` 命令。
 
-```sh
+```bash
 ciel add test # 添加名为 test 的实例
 ciel del test # 删除名为 test 的实例
 ciel list # 列出当前工作区内的实例

@@ -1,6 +1,6 @@
 +++
-title = "第四章：为 ABBS 添砖加瓦"
-weight =5
+title = "第五章：为 ABBS 添砖加瓦"
+weight = 5
 [taxonomies]
 tags = ["onboarding"]
 +++
@@ -138,7 +138,7 @@ sudo ciel shell -i main
 
 ## 发起构建
 
-```shell
+```bash
 # acbs-build 软件包名称
 ```
 
@@ -280,7 +280,7 @@ sudo ciel shell -i main
 
 ## 通过版本控制系统 (VCS) 获取项目源码
 
-如果项目的官网、项目使用的代码托管平台上均没有能够利用的 tarball，您就需要找打项目托管在代码平台上的代码仓库，将其克隆到本地。克隆仓库一般需要找到仓库的 URL，然后前往终端使用对应的 VCS 软件克隆。下面将讲述如何获得仓库的 URL。
+如果项目的官网、项目使用的代码托管平台上均没有能够利用的 tarball，您就需要找到项目托管在代码平台上的代码仓库，将其克隆到本地。克隆仓库一般需要找到仓库的 URL，然后前往终端使用对应的 VCS 软件克隆。下面将讲述如何获得仓库的 URL。
 
 以下是几个常见的托管平台及其主要使用的版本控制系统：
 
@@ -293,22 +293,22 @@ sudo ciel shell -i main
 | Codeberg (Gitea, Forgejo)* | https://codeberg.org/ | Git |
 | SourceForge** | https://sourceforge.net/ | Git, Mercurial (hg), Subversion (SVN) |
 | BitBucket | https://bitbucket.org | Git |
-| SourceHut | https://sr.ht/ | Git, Mecurial |
+| SourceHut | https://sr.ht/ | Git, Mercurial |
 
 \*: 这些平台使用的服务端开源，因此会有许多开发者自行运行的实例。
 \*\*: ABBS 树中鲜有直接克隆 SourceForge 源代码仓库的用例。您应该参考上节内容使用 SourceForge 打包的 tarball。
 
-您应该可以直接透过搜索引擎或项目官网找到项目仓库所在地址，部分代码托管平台的项目 URL 的格式及其对应的仓库克隆 URL 使用方法如下：
+您应该可以直接透过搜索引擎或项目官网找到项目仓库所在地址，部分代码托管平台的项目 URL 的示例及其对应的仓库克隆 URL 使用方法如下：
 
-| 代码托管平台 | URL 格式 | URL 示例 | 如何找到克隆用 URL |
-| :----: | :-----: | :-----: | :----- |
-| GitHub | `https://github.com/用户或组织名/项目名称` | https://github.com/systemd/systemd | 点击 “Code” 按钮，在弹框中选择 “HTTPS”，复制下面的链接 |
-| GitLab 及其自建实例 | `https://gitlab.com/用户或组织名/项目名称` | https://gitlab.com/qemu-project/qemu | 点击 “Code（代码）” 按钮，复制 “Clone with HTTPS（使用 HTTPS 克隆）” 下的链接 |
-| GitLab 及其自建实例* | `https://gitlab.com/用户或组织名/子分类/项目名称` | https://invent.kde.org/graphics/krita | 点击 “Code（代码）” 按钮，复制 “Clone with HTTPS（使用 HTTPS 克隆）” 下的链接 |
-| Gitee | `https://gitee.com/用户或组织名/项目名称` | https://gitee.com/rtthread/rt-thread | 点击 “克隆/下载”，复制 “HTTPS” 下的第一个链接（切勿复制带 git clone 的链接） |
-| GNU Savannah | `https://savannah.gnu.org/projects/项目名/` | https://savannah.gnu.org/projects/bash/ | 在页面下方点击 “Browse Git Repository” 后，复制新页面中的 HTTPS 链接 |
-| Codeberg、自建 Forgejo 及 Gitea 实例 | `https://codeberg.org/用户或组织名/项目名` | https://codeberg.org/forgejo/forgejo | 在页面上半部分找到 “HTTPS”，复制其旁边的链接 |
-| SourceHut | `https://VCS名称.sr.ht/~用户名/项目名` | https://git.sr.ht/~sbinet/sako | 复制右侧 “clone” 版块中 “read-only” 下面的链接 |
+| 代码托管平台 | URL 示例 | 如何找到克隆用 URL |
+| :----: | :-----: | :----- |
+| GitHub | https://github.com/systemd/systemd | 点击 “Code” 按钮，在弹框中选择 “HTTPS”，复制下面的链接 |
+| GitLab 及其自建实例 | https://gitlab.com/qemu-project/qemu | 点击 “Code（代码）” 按钮，复制 “Clone with HTTPS（使用 HTTPS 克隆）” 下的链接 |
+| GitLab 及其自建实例* | https://invent.kde.org/graphics/krita | 点击 “Code（代码）” 按钮，复制 “Clone with HTTPS（使用 HTTPS 克隆）” 下的链接 |
+| Gitee | https://gitee.com/rtthread/rt-thread | 点击 “克隆/下载”，复制 “HTTPS” 下的第一个链接（切勿复制带 git clone 的链接） |
+| GNU Savannah | https://savannah.gnu.org/projects/bash/ | 在页面下方点击 “Browse Git Repository” 后，复制新页面中的 HTTPS 链接 |
+| Codeberg、自建 Forgejo 及 Gitea 实例 | https://codeberg.org/forgejo/forgejo | 在页面上半部分找到 “HTTPS”，复制其旁边的链接 |
+| SourceHut | https://git.sr.ht/~sbinet/sako | 复制右侧 “clone” 版块中 “read-only” 下面的链接 |
 
 {% card(type="tips") %}
 您访问托管平台的项目仓库主页时，地址栏应仅包含上述格式的链接。如果地址栏中包含任何其他内容（如多一级斜杠 “/”、存在问号及参数等），请将其删除。
@@ -317,7 +317,7 @@ sudo ciel shell -i main
 
 找到项目在代码托管平台上的仓库、并获取到仓库 URL 后，您就可以在终端中使用对应的 VCS 克隆了：
 
-```shell
+```bash
 $ cd ~/clones
 $ git clone https://github.com/systemd/systemd.git
 $ svn co svn://svn.code.sf.net/p/sdcc/code/tags/sdcc-4.3.6
@@ -391,30 +391,34 @@ HEAD is now at 7635d01869 meson: bump version to 256.7
 | 版本号为格式化后的日期 | 将分隔符改为半角句点，即 `yyyy.mm.dd` | QuickJS `2020-09-06` | `VER=2020.09.06` |
 | 版本号基于版本控制系统的某提交的哈希值 | 取 VCS 简写、距离该提交最近的 Tag（如果没则为 `0`）、精简过的哈希值、对应的 Revision 号码及提交日期 | shadowsocks-libev `05e70d43176ae239ba54ffb1a0f80df5b8f3d4f1` | `VER=3.3.5+git20220626.r2372.05e70d4` |
 
-> [!Note]
-> 对于最后一种版本号，应填入的版本格式为：
-> ```bash
-> VER=${TAG}+${VCSNAME}.r${REVISION}.${SHORTHASH}
-> ```
-> 其中：
-> - `TAG`: 距离采取的 commit 最近的 Tag（只能比当前 commit 旧，不能向后选择）
-> - `VCSNAME`: 简写的版本控制系统名称，如 `git`、`hg`、`svn`。
-> - `REVISION`: 顺序的修补版本号，通常为由第一个 commit 起到目前为止的计数。
-> - `SHORTHASH`: 经过版本控制软件截短后的 commit 的哈希值。如果版本控制系统没有用哈希值，可以连带左边的句点一起不写，如 Subversion。
-> 其中对于修补版本号，Git 可以通过以下方式获取：
-> ```bash
-> git rev-list -n COMMIT_HASH
-> ```
-> Mercurial 则可以通过如下方式获取：
-> ```bash
-> hg id -n -r REF
-> ```
+{% card(type="tips") %}
+对于最后一种版本号，应填入的版本格式为：
+```bash
+VER=${TAG}+${VCSNAME}${DATE}.r${REVISION}.${SHORTHASH}
+```
+其中：
+- `TAG`: 距离采取的 commit 最近的 Tag（只能比当前 commit 旧，不能向后选择）
+- `VCSNAME`: 简写的版本控制系统名称，如 `git`、`hg`、`svn`
+- `DATE`: 提交日期，应该写成 `YYYYDDMM` 的形式
+- `REVISION`: 顺序的修补版本号，通常为由第一个 commit 起到目前为止的计数
+- `SHORTHASH`: 经过版本控制软件截短后的 commit 的哈希值。如果版本控制系统没有用哈希值，可以连带左边的句点一起不写，如 Subversion
+其中对于修补版本号，Git 可以通过以下方式获取：
+```bash
+git rev-list --count COMMIT_HASH
+```
+Mercurial 则可以通过如下方式获取：
+```bash
+hg id -n -r REF
+```
+{% end %}
 
-> [!Important]
-> 除非真的有必要，否则您不应该直接选用 `master` 等主分支上的版本。
+{% card(type="warning", title="注意") %}
+除非真的必要，否则您不应该直接选用 `master` 等主分支上的版本。
+{% end %}
 
-> [!Important]
-> 除非真的必要，否则您不应该选用非发行版本的源码。
+{% card(type="warning", title="注意") %}
+除非真的必要，否则您不应该选用非发行版本的源码。
+{% end %}
 
 ### `SRCS`
 
