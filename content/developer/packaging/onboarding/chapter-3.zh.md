@@ -54,7 +54,7 @@ tags = ["onboarding"]
 
 ## 安同 OS 的文件系统层次结构约定 (FHS)
 
-[文件系统层次结构标准 (Filesystem Hierarchy Standard)][fhs]规定了 Linux 发行版中根分区的目录结构，FHS 标准由 Linux 协会制定。有些发行版不完全遵守这个约定，但在一定程度上兼容。
+[文件系统层次结构标准 (Filesystem Hierarchy Standard)][fhs] 规定了 Linux 发行版中根分区的目录结构，FHS 标准由 Linux 协会制定。有些发行版不完全遵守这个约定，但在一定程度上兼容。
 
 安同 OS 所采用的目录结构与通用的 FHS 有一些区别。安同 OS 要求任何项目的安装目录前缀 (Prefix) 都必须为 `/usr`。接下来，各类文件按如下目录放置：
 
@@ -90,6 +90,7 @@ tags = ["onboarding"]
 
 {% card(type="danger", title="尤其注意") %}
 除非在为发行版打包，否则您无论如何都不能将路径前缀设置为 `/usr`。将路径前缀设置为 `/usr` 意味着执行安装步骤时，程序将直接覆盖系统下的文件（因为系统本身使用了 `/usr` 路径前缀）。
+
 您可以不设置路径前缀，此时路径前缀会保持默认 (`/usr/local`)。您也可以将路径前缀设置到您可以直接读写的目录（无需 `sudo` 就可以安装的位置，如家目录下的某个专门存放编译程序的文件夹 `~/apps`）。
 {% end %}
 
@@ -107,7 +108,7 @@ tags = ["onboarding"]
 由于软件构建时需要链接运行时需要用到的动态链接库，因此在编译项目前需要同时安装构建依赖和运行时依赖。
 
 
-以 Kodi 为例，Kodi 作为一款功能完备的家庭娱乐中心软件，其运行期间必须能够解码各类多媒体文件，因此需要 FFmpeg、dav1d 等解码器库的帮助；除此之外，Kodi 项目中也有一份完备的开发和用户文档。这些文档是在构建期间生成的，供用户及开发者阅览。同时，Kodi 在构建期间需要生成一些图片资源。这些在构建期间生成文件需要的工具就是构建依赖，因为在日常运行期间不需要这些工具。
+以 Kodi 为例，Kodi 作为一款功能完备的家庭娱乐中心软件，其运行期间必须能够解码各类多媒体文件，因此需要 FFmpeg、dav1d 等解码器库的帮助；除此之外，Kodi 项目中也有一份完备的开发和用户文档。这些文档是在构建期间生成的，供用户及开发者阅览。同时，Kodi 在构建期间需要生成一些图片资源。这些用于在构建期间生成文件的工具就是构建依赖，因为在日常运行期间不需要这些工具。
 
 {% card(type="warning", title="请勿大意") %}
 虽然编译期间需要同时安装运行时依赖及构建依赖，您仍旧需要区分构建依赖和运行时依赖。软件在日常运行期间不需要 Doxygen 等文档生成工具，因此不应将其作为运行时依赖安装在系统中。
@@ -191,7 +192,7 @@ PEP 517 统一了 Python 界混乱的构建系统。PEP 517 指定的项目定�
 
 ## 构建三连之配置 (Configure) 环节
 
-配置环节是构建三连的第一步。配置环境负责生成构建序列，以供构建环节使用。配置环节的流程简述如下：
+配置环节是构建三连的第一步。配置环节负责生成构建序列，以供构建环节使用。配置环节的流程简述如下：
 
 - 检测系统基本信息（如系统平台、编译器及链接器的类型和版本）
 - 检测编译器及链接器特性
@@ -381,7 +382,7 @@ meson install --destdir=/somewhere/else
 
 - 指定编译时使用的编译器：GCC 或 Clang、GCCGo 或 Golang
 - 微调传给编译器的参数：启用特定指令集优化、链接期间使用链接时优化 (LTO)、加固 (hardening) 二进制等
-- 选择项目所依赖的库的不同实现：例如，SSL 实现有 OpenSSL, mbedTLS, WolfSSL 等
+- 选择项目所依赖的库的不同实现：例如，SSL 实现有 OpenSSL, mbedTLS, wolfSSL 等
 - 开关项目的特性：有些使用正则表达式的项目默认不开 PCRE2 支持
 - 开关项目需要编译的组件：如 LLVM 套件中 Clang 是可选的
 - 调整路径前缀（一般情况下路径前缀默认为 `/usr/local`）
@@ -426,7 +427,7 @@ CMake 2.39 起才支持使用 `CMAKE_LINKER_TYPE` 指定项目使用的链接器
 
 ```sh
 # 以一行流的方式指定变量，然后运行 Meson：
-CC=gcc CC_LD=ld.gold meson setup build 
+CC=gcc CC_LD=ld.gold meson setup build
 CXX=g++ CXX_LD=ld.gold meson setup build
 # 您也可以将它们合在一起：
 CC=clang CC_LD=ld.lld CXX=clang++ CXX_LD=ld.lld meson setup build
@@ -447,7 +448,7 @@ meson setup build
 |      C 编译器      |  `CC`  |  `CFLAGS`   |
 |     C++ 编译器     | `CXX`  | `CXXFLAGS`  |
 | Objective-C 编译器 | `OBJC` | `OBJCFLAGS` |
-| Rust 编译器        | `RUST` | `RUSTFLAGS` |
+| Rust 编译器        | `RUSTC` | `RUSTFLAGS` |
 |       汇编器       |  `AS`  |  `ASFLAGS`  |
 |       链接器       |  `LD`  |  `LDFLAGS`  |
 
@@ -455,7 +456,8 @@ meson setup build
 
 ```sh
 # 运行 GCC，启用优化，并让编译器生成至多到 AVX2 指令集的指令（Haswell 之前的处理器将无法运行程序）：
-gcc -O2 -march=x86-64-v2 -mtune=haswell -mavx2
+gcc -O2 -march=x86-64-v2 -mtune=haswell -mavx2 \
+    -c example.c -o example.o
 ```
 
 上例中，`-O2`、`-march=x86-64-v2`、`-mtune=haswell` 和 `-mavx2` 都是要指定给编译器的参数，都是 `CFLAGS` 的内容。`FLAGS` 变量是一整个字符串，传递的参数间用空格隔开。因为字符串内有空格，所以设置 `FLAGS` 时需要将变量的内容用引号括起来：
@@ -468,7 +470,7 @@ export CFLAGS="-O2 -march=x86-64-v2 -mtune=haswell -mavx2"
 
 对于 Autotools，您有两种方法指定构建工具的参数。一种方法是将其导出至环境变量，另一种是作为 `configure` 脚本的参数传递：
 
-```shell
+```bash
 # 导出至环境变量
 export CFLAGS="-O2 -march=x86-64 -mtune=sandybridge"
 export CXXFLAGS="-O2 -march=x86-64 -mtune=sandybridge"
@@ -484,7 +486,7 @@ export CC=gcc CXX=g++ LD=ld.bfd
 
 同样地，CMake 也有两种方式指定这些参数，环境变量或定制选项：
 
-```shell
+```bash
 # 导出至环境变量
 export CFLAGS="-O2 -march=x86-64 -mtune=sandybridge"
 export CXXFLAGS="-O2 -march=x86-64 -mtune=sandybridge"
@@ -500,7 +502,7 @@ cmake -S . -B build \
 
 对于 Meson，您需要将各编译工具的参数导出至环境变量中：
 
-```shell
+```bash
 # 导出至环境变量
 export CFLAGS="-O2 -march=x86-64 -mtune=sandybridge"
 export CXXFLAGS="-O2 -march=x86-64 -mtune=sandybridge"
@@ -525,14 +527,14 @@ meson setup build --prefix=/usr
 
 不同构建系统查看可接受的参数的方式不同，指定定制选项的方式也不同。因此需要按构建系统分别讲述。
 
-#### 2.7.3.1 Autotools
+### Autotools
 
 对于 Autotools，您可以在执行 `configure` 脚本时加上 `--help` 参数，`configure` 脚本会输出项目能够接受的参数列表。下例是 dpkg 的 `configure --help` 的输出：
 
 <details>
 <summary>点击展开或收起</summary>
 
-```
+```bash
 $ ./configure --help
 'configure' configures dpkg 1.22.11-30-ga45d7 to adapt to many kinds of systems.
 
@@ -752,7 +754,7 @@ Autotools 的参数大致分为三部分：定制系统路径的参数、开关�
 有些依赖定制参数也会混进 `--enable-X` 的选项中，也有一部分会采用 `--with-X[=DIR]` 的形式出现。后者接受可选的路径，以方便 Autotools 查找不在标准路径下（共享库在 `/usr/lib`、头文件在 `/usr/include`）的组件，如 `--with-openssl`（自动检测）或 `--with-openssl=/home/my/custom/openssl`（非标准路径）。
 {% end %}
 
-#### 2.3.7.2 CMake
+### CMake
 
 由于 CMake 是动态读取 CMake 脚本的，因此无法直接给出可以指定的选项。不过，CMake 项目所接受的定制选项均通过 `CMakeLists.txt` 定义。您可以通过以下几种方式确定该项目可接受的变量：
 
@@ -776,7 +778,7 @@ Autotools 的参数大致分为三部分：定制系统路径的参数、开关�
 - 使用 `ccmake` 命令行界面：`ccmake` 是 CMake 的终端图形界面 (TUI) 版。`ccmake` 在刷新一次缓存后会显示配置期间用到的所有变量。但是这些变量中大部分均与项目定制无关。
 - 借鉴其他发行版：您可以查找对应软件包在其他发行版中的打包脚本，借鉴其中选用的编译参数。
 
-#### 2.3.7.3 Meson
+### Meson
 
 Meson 专门提供了参数定义文件 `meson.options`，方便项目开发者定义可以接受的定制参数，同时也方便了维护者参考。一些没有及时更新的项目依旧使用旧的参数定义文件名 `meson_options.txt`。
 
@@ -787,7 +789,7 @@ Meson 专门提供了参数定义文件 `meson.options`，方便项目开发者�
 option(
     'option_name',         # 参数名
     type : 'option_type',  # 参数类型，可以是布尔值 boolean、字符串 string、
-                           # 用于定制功能的类型 feature 及多选一 selection
+                           # 用于定制功能的类型 feature 及多选一 combo
     value : default_value, # 该参数的默认值，可以是空，也可以是 auto
     description: 'some'    # 该参数的描述，如启用该参数后的效果
 )
@@ -802,7 +804,7 @@ option(
 ```sh
 ../configure --prefix=/usr \
              --with-libzstd \
-             --with-zlib \
+             --with-libz \
              --with-libbz2 \
              --with-liblzma \
              --enable-nls ...
@@ -814,7 +816,7 @@ option(
 
 CMake 不采用 `--with`、`--enable` 或 `--disable` 等形式的选项。CMake 需要您在执行配置阶段时定义变量的值来定制项目。CMake 指定定制选项的方式是 `-D变量名=值`。也就是说，需要在 CMake 执行 CMake 脚本时定义需要的变量来完成项目定制：
 
-```shell
+```bash
 cmake .. -GNinja \
          -DCMAKE_BUILD_TYPE=Debug \
          -DCMAKE_C_COMPILER=/usr/bin/clang \
@@ -829,7 +831,7 @@ CMake 用于控制选项开关的布尔值有 `ON`/`OFF` 及 `TRUE`/`FALSE`。�
 
 Meson 与 CMake 类似，但在打包 Meson 项目时需要用 `--prefix` 指定系统前缀，同时以 `-D变量=值` 的形式配置项目：
 
-```shell
+```bash
 meson setup build --prefix=/usr \
             -Dlibmpv=true \
             -Dcdda=enabled \
@@ -845,11 +847,11 @@ meson setup build --prefix=/usr \
 
 | 类型 | 类型名 | 可选值 | 用途 |
 | :----: | :----: | :----: | :----: |
-| 布尔值 | `bool` | `true`, `false` | 启用或禁用项目内的代码及特性等 |
+| 布尔值 | `boolean` | `true`, `false` | 启用或禁用项目内的代码及特性等 |
 | 特性开关 | `feature` | `enabled`, `disabled`, `auto` | 控制项目特性（如未指定则自动探测）|
 | 字符串 | `string` | 任意字符串 | 设置项目版本后缀、问题报告链接、维护者信息等 |
-| 单选 | `combo` | `values` 参数内定义的值之一 | 多种选择中单选，如选择某种协议的具体实现 |
-| 多选 | `array` | `values` 参数内定义的多个任意值 | 多种选择中多选，如选择启用的模块 |
+| 单选 | `combo` | `choices` 参数内定义的值之一 | 多种选择中单选，如选择某种协议的具体实现 |
+| 多选 | `array` | `choices` 参数内定义的多个任意值 | 多种选择中多选，如选择启用的模块 |
 
 # 安同 OS 的打包过程
 
@@ -861,10 +863,10 @@ meson setup build --prefix=/usr \
 2. 改动 ABBS 树：在工作区内的 ABBS 树中新建分支并作出修改，添加或更新软件包
 3. 使用 Ciel 测试打包：运行 `ciel build` 命令测试修改，检查打包是否顺利通过
 4. 修改打包脚本：如果打包失败，则需要修改打包脚本并重新测试打包
-4. 推送修改：提交 (Commit) 修改，并推送到仓库中
-5. 提交 PR 并审阅：在 GitHub 上提交 PR，等待审阅
-6. 修改：根据审阅意见修改提交
-7. 合并：重复上述两步，直到审阅通过，即可合并。
+5. 推送修改：提交 (Commit) 修改，并推送到仓库中
+6. 提交 PR 并审阅：在 GitHub 上提交 PR，等待审阅
+7. 修改：根据审阅意见修改提交
+8. 合并：重复上述两步，直到审阅通过，即可合并。
 
 ## 开发准备
 
