@@ -30,6 +30,9 @@ insert_anchor_links = "right"
 
 [AOSC：我们的历史](/zh/community/history)
 我们自 2011 年 11 月以来的历史
+
+[安同开源社区 AI 辅助工具使用及披露约定](/zh/community/ai-tool-usage-and-disclosure-guidelines)
+人类发起，人类开发，人类维护
 {% end %}
 
 
