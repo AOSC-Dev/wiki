@@ -3,6 +3,15 @@
     td
       min-width: 7em
 
+// Task lists don't have classes assigned to them
+// FOr now we need to use :has() selectors, which is available only since
+// 2023.
+// FIXME: Convince pulldown-commonmark to add classes to some specific
+// rendered elements.
+ul li:has(input)
+  margin: 0 .2em .25em -1.4em
+  list-style-type: none
+
 // Show underline for links inside info cards
 // To increase visibility of them
 .card.info
