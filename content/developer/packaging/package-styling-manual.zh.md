@@ -76,6 +76,9 @@ Executed Packager <suffering@pakreq.work>
 | 版本号带有发布阶段标记（`alpha`、`beta`、`rc`） | 将字母转为小写，并在字母前加波浪号（`~`） | Golden Dict 1.5.0-RC2 -> `VER=1.5.0~rc2` |
 | 版本号为格式化后的日期 | 将短横线替换为小数点 (`.`) | QuickJS 2020-09-06 -> `VER=2020.09.06` |
 | 版本号基于版本控制系统的提交哈希值 | 由最后 tag 版本开头（如“3.2.1”），如从未 tag 则写“0”；而后接上“+”、版本控制器名称（如“git”）及提交日期 | Shadowsocks 5ff694b2c2978b432918dea6ac104706b25cbf48 -> `VER=0+git20181219` |
+| 版本号基于版本控制系统的提交哈希值 | 由最后 tag 版本开头（如“3.2.1”），如从未 tag 则写“0”；而后接上“+”、版本控制器名称（如“git”）、提交日期及修订编号（如版本控制系统允许，还需附加短提交哈希值）；基本格式：`${VER}+${VCS_NAME}.r${REV_COUNT}[.${SHORT_HASH}]` [^1] | Nano 7f4c2c6a2556ecab6a8c2018a5f44b7fbdfc092d -> `VER=7.2+git20230602.r10185.7f4c2c6a` |
+
+[^1] 对于 Git 仓库，您可以通过在本地仓库中运行如下命令自动补全 `+` 后的版本信息（请注意将 `[commit_hash]` 更改为对应的提交哈希值）：`echo git$(date --date="@$(git show -s --format=%ct [commit_hash])" "+%Y%m%d").r$(git rev-list --count [commit_hash]).$(git rev-parse --short [commit_hash])`.
 
 ### REL=
 
