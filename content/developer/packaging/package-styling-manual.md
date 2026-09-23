@@ -249,6 +249,52 @@ Where:
 
 Likewise, when including patch(es) from other distributions, they should also be renamed in accordance to the guidelines above.
 
+# Patch Content
+
+Under certain specific circumstances, the following conventions apply to patch content:
+
+## Dependency Fix Patches for Specific Architectures
+
+If you encounter issues where a specific architecture cannot be built and dependencies need to be modified, you should avoid modifying dependencies directly in the `build` script whenever possible:
+
+### Rust:
+
+#### Cargo allows modifying dependencies via a patch mechanism specified in cargo.toml:
+```
+[patch.crates-io]
+dependency = { context }
+```
+
+### Node.js:
+
+#### npm supports overriding dependencies using the overrides field in package.json:
+```
+overrides: {
+  "dependency": "context"
+}
+```
+
+#### pnpm allows overriding dependencies through the overrides field in pnpm-workspace.yaml:
+```
+overrides:
+  "dependency": "context"
+```
+
+#### yarn enables overriding dependencies via the resolutions field in package.json:
+```
+"resolutions": {
+  "dependency": "context"
+}
+```
+
+If the project has a dependency lock file, you must update the lock file after modifying dependencies and include both the dependency changes and the lock file updates in the patch.
+
+Where:
+- `dependency` is the dependency to be modified
+- `context` is the content of the modification
+
+**Note:** This approach is used to ensure patch traceability and build reproducibility, maintain consistency of dependencies across different environments, and prevent unexpected issues caused by dependency upgrades or changes in resolution results.
+
 # File Placements
 
 AOSC OS, like many other Linux Distributions, expect packaged files to be located in appropriate directories. Please reference the *non-comprehensive* table below for our standard of file placements.
