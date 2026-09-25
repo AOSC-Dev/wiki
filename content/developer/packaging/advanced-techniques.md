@@ -9,15 +9,15 @@ After learning the [basics](@/developer/packaging/basics.md) about building pack
 
 Please note that you don't have to read this documentation word-by-word, as it should serve as a point of reference for your future work. Just take a quick look, remember these concepts, and come back when you encounter a problem.
 
-# Advanced Operations in Autobuild3
+# Advanced Operations in Autobuild
 
-We've already seen that with many packages, Autobuild3 can automatically determine the build system used in the source tree, then generate and execute build scripts accordingly. But there are many (complex or primitive) programs that require more steps to build and install, or they may require specific build parameters and compiler flags.
+We've already seen that with many packages, Autobuild can automatically determine the build system used in the source tree, then generate and execute build scripts accordingly. But there are many (complex or primitive) programs that require more steps to build and install, or they may require specific build parameters and compiler flags.
 
 We will now introduce how to deal with these issues in AOSC OS's build system.
 
 ## Manually Select Different Build Systems
 
-Sometimes, Autobuild3 may make wrong assumptions about the build system, and this would probably result a build failure. In other cases, when building projects where multiple build systems are avaliable, it may not select the optimal one (for build time or reliability).
+Sometimes, Autobuild may make wrong assumptions about the build system, and this would probably result a build failure. In other cases, when building projects where multiple build systems are avaliable, it may not select the optimal one (for build time or reliability).
 
 In this case, we can manually specify which build system to use by defining `ABTYPE=` in the `autobuild/defines` file.
 
@@ -25,7 +25,8 @@ Currently, these build types are supported:
 
   - `self`: When a autobuild/build file is provided, uses user created autobuild/build as build script.
   - `autotools`: Generally used for GNU autotools-based source trees, with an available configure script in source root, or defined $configure script.
-  - `cmake`: Used for CMake-based source trees, generates and executes Makefiles, Autobuild3 detects for CMakeList.txt in the source trees.
+  - `autosetup`: Generally used for Autosetup-based source trees containing `auto.def`, `configure`, and `autosetup/autosetup`.
+  - `cmake`: Used for CMake-based source trees, generates and executes Makefiles, Autobuild detects for CMakeLists.txt in the source trees.
   - `cmakeninja`: Same as above, but generates and executes Ninja build scripts.
   - `dummy`: Generates an empty package, typically used only for creating meta-packages.
   - `dune`: Used for Dune-based source trees (generally used for OCaml sources).
@@ -33,26 +34,26 @@ Currently, these build types are supported:
   - `meson`: Used for Meson-based source trees, generates and executes Ninja build scripts.
   - `npm`: Used for NPM modules (generally used for Node.js module sources).
   - `perl`: Used for standard CPAN source trees.
-  - `plainmake`: Used for source trees with a written Makefile, and therefore is able to be built with make command.
-  - `python`: Used for standard PyPI source trees.
+  - `pep517`: Used for PEP517-based Python source trees. Need to contain pyproject.toml in the source tree.
+  - `python`: Used for setup.py-based Python source trees. It's recommended to use `pep517` if possible.
   - `qtproj`: Used for Qt projects with .pro files in the source trees.
   - `ruby`: Used for RubyGems source trees.
   - `rust`: Used for Cargo source trees (generally used for Rust sources).
-  - `waf`: Used for Waf-based source trees, Autobuild3 detects for waf file/script in the source trees.
+  - `waf`: Used for Waf-based source trees, Autobuild detects for waf file/script in the source trees.
   
 ## Custom Build System/Compiler Parameters
 
-Autobuild3 integrates a list of optimal build parameters. However, sometimes these parameters are not entirely compatible with the software and may cause troubles. In this case, have a look at [Autobuild3's default parameters](https://github.com/AOSC-Dev/autobuild3/blob/master/etc/autobuild/ab3_defcfg.sh#L105), and override them accordingly. A complete list of parameters can be found at the [Autobuil3 Wiki](https://github.com/AOSC-Dev/aosc-os-abbs/wiki/Autobuild3).
+Autobuild integrates a list of optimal build parameters. However, sometimes these parameters are not entirely compatible with the software and may cause troubles. In this case, have a look at default parameters in [default-flags.sh](https://github.com/AOSC-Dev/autobuild4/blob/master/lib/default-flags.sh) and [default-defines.sh](https://github.com/AOSC-Dev/autobuild4/blob/master/lib/default-defines.sh), and override them accordingly.
 
-One problem that stands out is LTO (or Link Time Optimization). This technique can improve run-time efficiency and reduce the size of the binary, but for now enabling LTO may result build failure (the number is constantly decreasing), and consumes a lot of RAM during build-time. Autobuild3 enable LTO by default in interest of performance (and sometimes binary sizes), but if you encounter LTO related issues, you can disable it via adding `NOLTO=1` in `autobuild/defines`.
+One problem that stands out is LTO (or Link Time Optimization). This technique can improve run-time efficiency and reduce the size of the binary, but for now enabling LTO may result build failure (the number is constantly decreasing), and consumes a lot of RAM during build-time. Autobuild enable LTO by default in interest of performance (and sometimes binary sizes), but if you encounter LTO related issues, you can disable it via adding `NOLTO=1` in `autobuild/defines`.
 
 ## Custom Build Scripts
 
 In some cases, the software uses a special build system (or they don't need a build system at all, like pre-built binaries). In this case, you may take control over the build process by writing build scripts in Bash.
 
-The build script is located in `autobuild/build`. If this script exists, the build type will be locked to `self` (unless overriden if another `ABTYPE=` was defined), which means Autobuild3 will not try to determine the build system and execute its integrated build script, but simply execute this script.
+The build script is located in `autobuild/build`. If this script exists, the build type will be locked to `self` (unless overriden if another `ABTYPE=` was defined), which means Autobuild will not try to determine the build system and execute its integrated build script, but simply execute this script.
 
-This script should look very similar to what you would do to manually compile programs. But one key difference is that you should **NOT** install the compiled program to the system root directory. Instead, it should be installed in `$PKGDIR`, where later Autobuild3 will make the deb based on the file inside this directory. For example, if the compiled binary is called `hugo` in the root of the build directory, you should install it to the `bin` directory of the package by:
+This script should look very similar to what you would do to manually compile programs. But one key difference is that you should **NOT** install the compiled program to the system root directory. Instead, it should be installed in `$PKGDIR`, where later Autobuild will make the deb based on the file inside this directory. For example, if the compiled binary is called `hugo` in the root of the build directory, you should install it to the `bin` directory of the package by:
 
 ``` bash
 abinfo "Installing Hugo binary ..."
@@ -64,7 +65,7 @@ Notice that the `abinfo()` function in the above example is used to print log in
 
 ## Post-Build Tweaks
 
-Sometimes Autobuild3 handles the build process just fine, but the finished product may need some extra tweaks (i.e: wrong directory for man pages, shell completion scripts need to be copied into the `$PKGDIR`, and so on). In this case, we use the `autobuild/beyond` script, which, like `autobuild/build`, is executed as a plain Bash script. It will be executed after the build process.
+Sometimes Autobuild handles the build process just fine, but the finished product may need some extra tweaks (i.e: wrong directory for man pages, shell completion scripts need to be copied into the `$PKGDIR`, and so on). In this case, we use the `autobuild/beyond` script, which, like `autobuild/build`, is executed as a plain Bash script. It will be executed after the build process.
 
 This is an example taken from `TREE/extra-web/aria2`. Here, we need to install `aria2c`'s bash completion file, so we use the `autobuild/beyond` script.
 
@@ -86,7 +87,7 @@ For example, if we are building a package called `foo` and it does not contain t
 
 We have already discussed in the *Basics* that we can patch the source code by simply placing patches inside the `autobuild/patches` directory. But sometimes the patches has to be applied in a specific order in order to work.
 
-To mitigate this issue, we introduced the `autobuild/patches/series` file. This file contains an ordred list of the names of the patches (one filename per line). If this file is present, Autobuild3 will apply patches as specified in the list.
+To mitigate this issue, we introduced the `autobuild/patches/series` file. This file contains an ordred list of the names of the patches (one filename per line). If this file is present, Autobuild will apply patches as specified in the list.
 
 In some other cases, the patches will not apply if they are not on a strip level (directory hierarchy that need to be stripped) of 1 (one). Here below is an example header from a strip level 1 patch:
 
@@ -160,16 +161,6 @@ If you would like to use a different commit message than the generic `update to 
 ``` bash
 commit-o-matic groups/gnome-changes bump-rel 'drop, orphaned'
 ```
-
-## Push Changes, Automatically
-
-Finally, we can push the built packages to the main repository.
-
-``` bash
-pushpkg LDAP_IDENTITY BRANCH
-```
-
-Note that `LDAP_IDENTITY` and `BRANCH` are by definition users and repositories on our [Community Repository](https://repo.aosc.io/). Contributors are audited before an LDAP identities are granted by our Infrustructure Work Group - we will get in touch with you via your first PR to our ABBS tree.
 
 # Advanced Techniques in Ciel
 
