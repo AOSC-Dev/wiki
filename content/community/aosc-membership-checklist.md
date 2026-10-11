@@ -12,9 +12,8 @@ The AOSC contributor status comes with a series of perks. Upon recognition of yo
 
 Here we provide a checklist describing the procedures to contributor enrollment:
 
-- Create a LDAP Account (Xiaoxing Ye <<xiaoxing@aosc.io>>).
 - Create a Mail account (Mingcong Bai <<jeffbai@aosc.io>>).
-- Create a new people page in GitHub, consult [this guide](@/developer/infrastructure/community-portal.md#add-new-personal-pages) for procedures.
+- Invite them to join the [AOSC-Dev](https://github.com/AOSC-Dev/) GitHub Organization.
+- Invite them to join the AOSC contributor discussion group.
 - [Enroll the public key in the GitHub repository](https://github.com/AOSC-Dev/dev-pubkeys) as needed.
 - Enroll the public key on the repository server as needed (Xiaoxing Ye <<xiaoxing@aosc.io>>).
-- (Optional) Obtain a freenode [project cloak](https://freenode.net/kb/answer/cloaks) in the form of `aosc/member/<ldap_username>`. Please also provide your freenode username (Howard Xiao <hx@aosc.io>).
