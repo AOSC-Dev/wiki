@@ -12,10 +12,9 @@ tags = ["community"]
 
 下面是 AOSC 贡献者注册流程：
 
-- 创建一个 LDAP 帐号（Xiaoxing Ye <<xiaoxing@aosc.io>>）。
 - 创建一个邮箱帐号（Mingcong Bai <<jeffbai@aosc.io>>）。
-- 在 GitHub 提交您的个人页面，详见 [这个页面](@/developer/infrastructure/community-portal.md#add-new-personal-pages)。
+- 邀请加入 [AOSC-Dev](https://github.com/AOSC-Dev/) 组织。
+- 邀请加入贡献者群组。
 - 必要时，[将公共密钥添加到 GitHub 仓库](https://github.com/AOSC-Dev/dev-pubkeys)。
 - 必要时，将公共密钥添加到软件仓库服务器（Xiaoxing Ye <<xiaoxing@aosc.io>>）。
-- 可选：在 Freenode 上获取一个 `aosc/member/<ldap_username>` 格式的 [马甲](https://freenode.net/kb/answer/cloaks)。您可能需要提供您的 Freenode 用户名（Howard Xiao <hx@aosc.io>）。
 
