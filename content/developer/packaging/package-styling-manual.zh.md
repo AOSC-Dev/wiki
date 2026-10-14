@@ -247,6 +247,52 @@ NNNN-$CATEGORY-$CONTENT.patch
 
 同样，当添加来自其它发行版的补丁时，也应根据上述规则对补丁重命名。
 
+# 补丁内容
+在某些特定的情况下，对补丁内容做如下约定
+
+## 特定架构的依赖修复补丁
+
+如果遇到特定架构无法打包，依赖需要修改，应尽可能避免直接在 `build` 脚本修改依赖：
+
+### Rust：
+
+#### Cargo 支持在 cargo.toml 下 通过补丁机制修改依赖：
+```
+[patch.crates-io]
+dependency = { context }
+```
+
+### Node.js:
+
+#### npm 支持在 package.json 下的 overrides 字段指定依赖进行覆盖：
+```
+overrides: {
+  "dependency": "context"
+}
+```
+
+#### pnpm 支持在 pnpm-workspace.yaml 下的 overrides 字段 指定依赖进行覆盖：
+```
+overrides:
+  "dependency": "context"
+```
+
+#### yarn 支持在 package.json 下的 resolutions 字段指定依赖进行覆盖：
+```
+"resolutions": {
+  "dependency": "context"
+}
+```
+
+如果项目存在依赖锁文件，则在修改依赖后需要同步更新锁文件，并将依赖修改与锁文件修改一并包含在补丁中
+
+其中：
+
+- `dependency` 是需要修改的依赖
+- `context` 是修改的内容
+
+**说明：** 采用上述方式是为了保证补丁可追溯、构建可复现，并保持不同环境中的依赖一致，避免因依赖升级或解析结果变化导致意外问题
+
 # 文件放置
 
 和其它 Linux 发行版类似，AOSC OS 希望打包好的文件能被解压到合适的目录中。请参考下面的表格，了解我们的文件放置标准。
