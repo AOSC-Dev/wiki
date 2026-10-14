@@ -212,16 +212,18 @@ Patches should follow a uniform and ordered format, before they are included in 
 When dealing with Git-based sources, it is possible to create numbered patches from the following command:
 
 ```
-git format-patch -n $HASH
+git format-patch --full-index -n $HASH
 ```
 
 Where `n` defines the amount of commits from the specific commit `$HASH`, including the specified commit. Alternatively, you can omit the `$HASH`...
 
 ```
-git format-patch -n
+git format-patch --full-index -n
 ```
 
 To create a series of patches from `n` commits to the branch `HEAD`.
+
+The `--full-index` flag in the commands above instructs Git to record the full hashes of the modified object in the generated patches. These can aid Git in three-way merging and rebasing.
 
 These commands generate a series patches like the following...
 
@@ -232,6 +234,14 @@ These commands generate a series patches like the following...
 0004-arch-_common_switches-fix-syntax.patch
 0005-autobuild-aoscarchive-adapt-to-new-workflow.patch
 ```
+
+If the situation allows, `--base=` can be used to instruct Git to record the base commit of the patch series as well. For example:
+
+```
+git format-patch --full-index --base=$BASE_COMMIT $BASE_COMMIT
+```
+
+This command generates a patch series from `$BASE_COMMIT` (excl.) to the current HEAD (incl.), and append a `base-commit:` marker to the first patch in the series.
 
 ## Other Sources
 

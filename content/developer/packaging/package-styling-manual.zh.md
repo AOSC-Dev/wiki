@@ -210,16 +210,18 @@ SUBDIR=.
 对于基于 Git 的源码仓库，可以通过以下命令创建带有编号的补丁：
 
 ```
-git format-patch -n $HASH
+git format-patch --full-index -n $HASH
 ```
 
 `n` 定义了自 `$HASH` 这个提交前选取多少个提交（含）。您还可以省略 `$HASH`：
 
 ```
-git format-patch -n
+git format-patch --full-index -n
 ```
 
 以从 `HEAD` 往前选取 `n` 个提交（含）制作补丁。
+
+上述命令中的 `--full-index` 要求 Git 在创建补丁文件时，记录被修改对象的完整哈希值。该信息可在三路合并和变基操作中为 Git 提供帮助。
 
 生成的补丁的名字大致是这样子的：
 
@@ -230,6 +232,14 @@ git format-patch -n
 0004-arch-_common_switches-fix-syntax.patch
 0005-autobuild-aoscarchive-adapt-to-new-workflow.patch
 ```
+
+若条件允许，可以使用 `--base=` 参数要求 Git 记录补丁的基提交，如：
+
+```
+git format-patch --full-index --base=$BASE_COMMIT $BASE_COMMIT
+```
+
+该命令会生成以 `$BASE_COMMIT`（不含）为基、到当前 HEAD（含）为止的补丁集文件，并在第一个补丁尾部添加 `base-commit:` 标记。
 
 ## 其它情形
 
