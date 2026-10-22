@@ -31,4 +31,4 @@ The following table is updated on a best-effort basis and may not reflect the cu
 | AOSCNet | | | | @Staph |
 | Pakreq | | @TheSaltedFish | | @liushuyu |
 | pkgver | | | | @gumblex |
-| 包通委 | | | | @o0_0b (Lion), LDAP Infra group |
+| 包通委 | | | | @o0_0b (Lion) |
