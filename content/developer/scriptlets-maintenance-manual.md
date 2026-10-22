@@ -14,7 +14,7 @@ This manual intends to define such procedures, and also describe rules intention
 
 # What is a "Scriptlet"
 
-A scriptlet is a script that provides a (very) specific functionality, which works with a larger project. For instance, our `pushpkg` script works with our packaging toolset (Autobuild3, ACBS, and Ciel) and repository infrastructure (LDAP account authentication, uploading, etc).
+A scriptlet is a script that provides a (very) specific functionality, which works with a larger project. For instance, our `pushpkg` script works with our packaging toolset (Autobuild4, ACBS, and Ciel) and repository infrastructure.
 
 These scripts are often small and does not warrant a full GitHub repository (or really, a project) to maintain and improve. They are therefore collected in our [scriptlets](https://github.com/AOSC-Dev/scriptlets) repository.
 
