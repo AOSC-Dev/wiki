@@ -27,6 +27,7 @@ AOSC buildbots are all connected to our central relay nodes (`relay.aosc.io` and
 - **RISC-V**: 26001-27000
 - **LoongArch**: 27001-28000
 - **Emulation hosts**: 28001-29000
+- **SPARC**: 29001
 
 ## Before You Start
 
@@ -77,7 +78,7 @@ If you would like contribute your device to AOSC, please make sure your device h
 | **LoongUnion1** | 23172 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 64GiB | 3705s  | _Loongson Technology (Wuhan)_ | |
 | **LoongUnion2** | 23173 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 64GiB | 3657s | _Loongson Technology (Wuhan)_ | |
 | **ybsbny** | 23269 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 64GiB | 3695s | _Henry Chen_ | [Community crowdsourced][ybsbny-crowdsourcing]; repo mirror at `http://50.50.1.224/debs/` |
-| **Misaka23333** | 23333 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 32GiB | 3553s | _KatyushaScarlet_ | |
+| **Misaka23333** | 23333 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 32GiB | 3553s | _KatyushaScarlet_ | Direct access with `ssh -p20003 root@ct2.katyusha.top` |
 | **Anomalocaris** | 23464 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 32GiB | 3379s | _Mingcong Bai_ | |
 | **Resonance** | 23541 | 2 * Loongson-3A R4 (Loongson-3B4000) @ 1.8GHz (8 cores) | 32GiB | 3696s | _Kexy Biscuit_ | [Community crowdsourced][resonance-crowdsourcing]; direct access with `ssh -p23541 root@home.biscuit.moe`; local mirror refer to `/etc/repository-data/mirrors.toml` |
 
@@ -86,9 +87,10 @@ If you would like contribute your device to AOSC, please make sure your device h
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **Catfish** | 24114 | HUAWEI Kunpeng 920 @ 2.6GHz (64 cores) | 256GiB | 355s | _Undisclosed_ | Local repository mirror at `http://localhost/debs` |
-| **FatAilurus** | 24115 | Phytium Tengyun S5000C-32 @ 2.3GHz (32 cores) | 64GiB | 660s | _Mingcong Bai_ | |
+| **FatAilurus** | 24115 | ThinkForce TF7140 (with NPU, ARM Cortex-A77) @ 3.0GHz (40 cores) | 128GiB | 660s | _Mingcong Bai_ | |
 | **Zinfandel** | 24222 | Apple M1, 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (8 cores) | 16GiB | TBD | [Community crowdsourced][zinfandel-crowdsourcing]; _Mingcong Bai_ | |
 | **Mio** | 24242 | Apple M1, 4 * Firestorm @ 3.2GHz + 4 * Icestorm @ 2.06GHz (8 cores) | 16GiB | 694s | _Cyan_ | Local mirror at `http://192.168.24.4/anthon/debs` |
+| **lilac** | 24243 | Phytium D3000 (FTC862) @ 2.5GHz (8 cores) | 64GiB | TBD | TBD | HIKVISION XC-P431P |
 | **Dapen** | 24410 | HUAWEI Kunpeng 920 3211K @ 2.6GHz (24 cores) | 64GiB | 591s | _Mingcong Bai_ | |
 | **benderblog-macmini** | 24430 | Apple M2, 4 * Avalanche @ 3.5GHz + 4 * Blizzard @ 2.42GHz (8 cores) | 16GiB | 577s | _Mingcong Bai_ | |
 | **ailuropoda** | 24612 | HUAWEI Kunpeng 920 @ 2.0GHz (KVM, 16 cores allocated) | 64GiB | 787s | _神楽坂早苗️_ | |
@@ -99,8 +101,9 @@ If you would like contribute your device to AOSC, please make sure your device h
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **Kevin** | 25176 | 2 * IBM Power9 Sforza 02CY227 @ 2.6 - 3.8GHz (22 cores, 176 threads) | 128GiB | 577s | _Undisclosed_ | |
+| **Kevin** | 25176 | 2 * IBM Power9 Sforza 02CY227 @ 2.6 - 3.8GHz (44 cores, 176 threads) | 128GiB | 577s | _Undisclosed_ | |
 | **PowerNV** | 25202 | IBM POWER9 @ 3.2 - 3.8GHz (4 cores, 16 threads) | 128GiB | 1517s | _Jiangjin Wang_ | |
+| **Marmorkarpfen** | 25203 | IBM POWER9 (KVM, 16 cores allocated) | 32GiB | TBD | TBD | PowerPC64 (big-endian) |
 
 ## **RISC-V** (26001-27000)
 
@@ -118,21 +121,27 @@ If you would like contribute your device to AOSC, please make sure your device h
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **Panulirus** | 27118 | Loongson 3C5000 @ 2.2GHz (16 cores) | 128GiB | 1226s | _Loongson Technology (Wuhan)_ | |
 | **Apocalypse** | 27221 | Loongson 3C5000 @ 2.2GHz (16 cores) | 64GiB | 1159s | _Loongson Technology (Wuhan)_ | |
-| **Yggdrasil** | 27234 | Loongson 3C6000 @ 2.2GHz (KVM, 32 cores allocated) | 64GiB | 671s | _darkyzhou_ | |
+| **Yggdrasil** | 27234 | Loongson 3C6000/S @ 2.2GHz (KVM, 32 cores allocated) | 64GiB | 671s | _darkyzhou_ | |
 | **loong13** | 27282 | Loongson 3A5000-HV @ 2.5GHz (4 cores) | 16GiB | 3458s | _Undisclosed_ | |
 | **XA612A0** | 27612 | Loongson 3A6000 @ 2.5GHz (4 cores, 8 threads) | 16GiB | 1838s | _Kexy Biscuit_ | Direct access with `ssh -p27612 root@home.biscuit.moe`; local mirror refer to `/etc/repository-data/mirrors.toml` |
-| **loongcraft** | 27777 | Loongson 3C6000 @ 2.2GHz (16 cores, 32 threads) | 128GiB | 641s | _Loongson Technology (Wuhan)_ | |
+| **loongcraft** | 27777 | Loongson 3C6000/S @ 2.2GHz (16 cores, 32 threads) | 128GiB | 641s | _Loongson Technology (Wuhan)_ | |
 | **Stomatopoda** | 27863 | Loongson 3C5000 @ 2.2GHz (16 cores) | 128GiB | 1142s | _Loongson Technology (Wuhan)_ | Direct access with `ssh -p2222 root@211.137.78.121` |
 | **Cambarus** | 27888 | Loongson 3C5000 @ 2.2GHz (16 cores) | 128GiB | 1191s | _Jiangjin Wang_ | |
-| **YuanBao** | 27999 | 2x Loongson 3C6000/D @ 2.1GHz (64 cores) | 512GiB | 320s | _Loongson Technology (Wuhan)_ | |
+| **YuanBao** | 27999 | 2x Loongson 3C6000/D @ 2.1GHz (64 cores, 128 threads) | 512GiB | 320s | _Loongson Technology (Wuhan)_ | |
 
 ## **Emulation Hosts** (28001-29000)
 
 | Name | Port | CPU | Memory | Speed | Maintainer | Comments |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **PorterAlePro** | 28003 | AMD Ryzen 9 3950X @ 3.5 - 4.7GHz (16 cores, 32 threads) | 64GiB | ~~338s~~ | _Mingcong Bai_ | AMD64 |
-| **Hiccup** | 28129 | Broadcom BCM2712, Arm Cortex-A76 @ 2.4 GHz (4 cores) | 8GiB | 3149s | _Kexy Biscuit_ | Direct access with `ssh -p28180 root@home.biscuit.moe`; local mirror refer to `/etc/repository-data/mirrors.toml`, currently only used for UART access to ReyDau |
-| **AmpereA110Raptor1** | 28180 | Ampere eMAG 8180 @ 2.8 - 3.3GHz (32 cores) | 128GiB | 1200s | _Kexy Biscuit_ | Armv8-A AArch64, implementation supporting AArch32, local mirror refer to `/etc/repository-data/mirrors.toml` |
+| **Hiccup** | 28129 | Broadcom BCM2712, Arm Cortex-A76 @ 2.4 GHz (4 cores) | 8GiB | 3149s | _Kexy Biscuit_ | Direct access with `ssh -p28129 root@home.biscuit.moe`; local mirror refer to `/etc/repository-data/mirrors.toml`, currently only used for UART access to ReyDau |
+| **AmpereA110Raptor1** | 28180 | Ampere eMAG 8180 @ 2.8 - 3.3GHz (32 cores) | 128GiB | 1200s | _Kexy Biscuit_ | Direct access with `ssh -p28180 root@home.biscuit.moe`; Armv8-A AArch64, implementation supporting AArch32, local mirror refer to `/etc/repository-data/mirrors.toml` |
+
+## **SPARC** (29001)
+
+| Name | Port | CPU | Memory | Speed | Maintainer | Comments |
+|-----------|-----------|-----------|-----------|-----------|---------|-----------|
+| **tifa** | 29001 | UltraSparc T2 (Niagara2) (8 cores, 32 threads) | 32GiB | TBD | TBD | |
 
 # List of archived buildbots
 
